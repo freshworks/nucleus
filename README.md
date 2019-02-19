@@ -16,7 +16,7 @@ Installation
 ------------------------------------------------------------------------------
 
 ```
-ember install nucleus1
+ember install nucleus
 ```
 
 

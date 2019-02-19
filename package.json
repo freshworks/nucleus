@@ -1,7 +1,7 @@
 {
-  "name": "nucleus1",
+  "name": "nucleus",
   "version": "0.0.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "description": "The Freshworks Design System in Ember",
   "keywords": [
     "ember-addon"
   ],
