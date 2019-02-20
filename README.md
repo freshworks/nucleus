@@ -25,6 +25,9 @@ Usage
 
 [Longer description of how to use the addon in apps.]
 
+Contribution guidelines
+------------------------------------------------------------------------------
+
 [Contribution guidelines for this project](docs/CONTRIBUTING.md)
 
 License

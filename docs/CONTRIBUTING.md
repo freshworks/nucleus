@@ -10,9 +10,27 @@ Report bugs you've found on the [bug tracker](https://github.com/freshdesk/nucle
 
 ### Submitting your work
 
-Prior to working on a fix or a new feature, it is ideal to discuss the intention with other contributors of the strike team either via DM/Hangouts.
+Prior to working on a fix or a new feature, it is ideal to create an issue with a detailed description of the proposed change.
 
 * Submit your changes as PRs against the `master` branch.
+* Mention `resolves #<github-issue-id>` in the body of your PR if you wish to automatically close the Issue when a PR is merged.
+* Please add the project 'Nucleus Bootstrap' to your PRs for automated transition in the project board.
+
+#### Commit message/ PR naming conventions
+
+All commits should be tagged. Tags are denoted by square brackets (`[]`) and come at the start of the commit message.
+
+General format: `[<tag-type> #<github-issue-id>]`
+
+* `[CLEANUP]`: commit that removes deprecated functionality
+* `[CHORE]`: commit that refactors code or updates dependencies
+* `[TEST #<github-issue-id>]`: commit that adds tests for a feature
+* `[FEAT #<github-issue-id>]`: commit that adds features
+* `[BUGFIX #<github-issue-id>]`: commit that fixes a bug
+
+In general, all commits should fall into one of the above categories.
+
+Branches can also be created following the same classification, `<tag-type>/#<github-issue-id>` followed by an optional identifier.
 
 #### Development
 
@@ -52,19 +70,6 @@ All PRs should have accompanying tests. For bug-fixes, this should include tests
 #### Running tests
 
 * To run tests locally use `npm run test` or `npm run test:s`.
-
-#### Commit message procedure
-
-All commits should be tagged. Tags are denoted by square brackets (`[]`) and come at the start of the commit message.
-
-* `[CLEANUP]`: commit that removes deprecated functionality
-* `[CHORE]`: commit that refactors code or updates dependencies
-* `[TEST #<github-issue-id>]`: commit that adds tests for a feature
-* `[FEAT #<github-issue-id>]`: commit that adds features
-* `[BUGFIX #<github-issue-id>]`: commit that fixes a bug
-
-In general, all commits should fall into one of the above categories.
-
 
 ## Running the dummy application
 
