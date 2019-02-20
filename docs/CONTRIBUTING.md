@@ -13,10 +13,10 @@ Report bugs you've found on the [bug tracker](https://github.com/freshdesk/nucle
 Prior to working on a fix or a new feature, it is ideal to create an issue with a detailed description of the proposed change.
 
 * Submit your changes as PRs against the `master` branch.
-* Mention `resolves #<github-issue-id>` in the body of your PR if you wish to automatically close the Issue when a PR is merged.
-* Please add the project 'Nucleus Bootstrap' to your PRs for automated transition in the project board.
+* Mention `Resolves #<github-issue-id>` in the body of your PR if you wish to automatically close the Issue when a PR is merged.
+* Please tag your PR to a relevant project for automated tracking and transition in the project board.
 
-#### Commit message/ PR naming conventions
+#### Commit message / PR naming conventions
 
 All commits should be tagged. Tags are denoted by square brackets (`[]`) and come at the start of the commit message.
 
