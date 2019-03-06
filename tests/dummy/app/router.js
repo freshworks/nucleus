@@ -11,7 +11,7 @@ Router.map(function() {
     this.route("usage");
     this.route("components", function() {
       this.route("nucleus-button");
-      this.route('slider-modal');
+      this.route('nucleus-slider');
     });
   });
   this.route('not-found', { path: '/*path' });

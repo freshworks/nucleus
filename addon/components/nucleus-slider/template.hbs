@@ -1,0 +1,23 @@
+<div class="nucleus-overlay {{unless slideInDone 'nucleus-overlay--enter'}}">
+  <a
+    aria-label="Click to close"
+    class="nucleus-overlay--action"
+    href="#" {{action onClose}}>
+  </a>
+  <div class="nucleus-slider-content {{if startSlideOut 'nucleus-slider-content--leave'}}">
+    {{yield (hash
+        close=(component 'nucleus-slider/close'
+          onClose=(action onClose)
+        )
+        header=(component 'nucleus-slider/header'
+          onClose=(action onClose)
+        )
+        body=(component 'nucleus-slider/body'
+          onClose=(action onClose)
+        )
+        footer=(component 'nucleus-slider/footer'
+          onClose=(action onClose)
+        )
+    )}}
+  </div>
+</div>

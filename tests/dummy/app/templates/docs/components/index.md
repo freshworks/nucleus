@@ -2,4 +2,4 @@
 
 List of Components:
 
-{{docs-link 'Slider modal' 'docs.components.slider-modal'}}
+{{docs-link 'Slider' 'docs.components.nucleus-slider'}}
