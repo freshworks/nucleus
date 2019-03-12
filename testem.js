@@ -18,6 +18,7 @@ module.exports = {
         '--disable-software-rasterizer',
         '--mute-audio',
         '--remote-debugging-port=0',
+        '--no-sandbox',
         '--window-size=1440,900'
       ].filter(Boolean)
     }
