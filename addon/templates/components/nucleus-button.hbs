@@ -1,9 +1,9 @@
 {{#if label}}
-  <button class="nucleus-button" disabled={{isDisabled}}>
+  <button aria-label={{label}} class="nucleus-button" disabled={{isDisabled}}>
     {{label}}
   </button>
 {{else}}
-  <button class="nucleus-button">
+  <button aria-label="nucleus-button" class="nucleus-button">
     {{yield}}
   </button>
 {{/if}}
