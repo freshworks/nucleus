@@ -49,5 +49,12 @@ module.exports = function(environment) {
     // here you can enable a production-specific feature
   }
 
+  ENV['ember-a11y-testing'] = {
+    runOnly: {
+          type: "tag",
+          values: ["wcag2a","wcag2aa"]
+        }
+      };
+
   return ENV;
 };
