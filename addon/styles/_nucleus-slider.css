@@ -1,12 +1,14 @@
 .nucleus-overlay {
+  animation: appear .4s ease-out .2s;
+  animation-fill-mode: forwards;
   background: rgba(18, 52, 77, .6);
   bottom: 0;
   left: 0;
+  opacity: 0;
   overflow: hidden;
   position: fixed;
   right: 0;
   top: 0;
-  transition: background .2s ease-out;
   z-index: 1000;
 }
 
@@ -41,12 +43,14 @@
 }
 
 .nucleus-slider-content {
-  animation: slideIn .3s ease-out;
+  animation: slideIn .2s ease-out .2s;
+  animation-fill-mode: forwards;
   background: #fff;
   bottom: 0;
   box-shadow: -10px 2px 4px 0 rgba(18,52,77,0.1), -10px 6px 24px 0 rgba(18,52,77,0.1);
   display: flex;
   flex-direction: column;
+  opacity: 0;
   position: absolute;
   right: 0;
   top: 0;
@@ -55,11 +59,7 @@
 }
 
 .nucleus-slider-content--leave {
-  animation: slideOut .15s ease-in;
-}
-
-.nucleus-overlay--enter {
-  background: transparent;
+  animation: slideOut .2s ease-in;
 }
 
 .nucleus-slider-body,
@@ -88,23 +88,34 @@
   padding: 0 16px;
 }
 
-.overlay-enabled {
-  overflow: hidden;
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 
 @keyframes slideIn {
   0% {
+    opacity: 0;
     transform: translateX(100%);
   }
+
   100% {
+    opacity: 1;
     transform: translateX(0);
   }
 }
 
 @keyframes slideOut {
   0% {
+    opacity: 1;
     transform: translateX(0);
   }
+
   100% {
     opacity: 0;
     transform: translateX(100%);

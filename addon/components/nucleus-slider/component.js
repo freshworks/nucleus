@@ -1,22 +1,13 @@
 import Component from '@ember/component';
 import layout from './template';
 import { next, later } from '@ember/runloop';
-import { set } from '@ember/object';
+import { get, set } from '@ember/object';
 
 export default Component.extend({
   classNames: ['nucleus-slider'],
   layout,
 
-  slideInDone: false,
   startSlideOut: false,
-
-  onClose() {
-    set(this, 'startSlideOut', true);
-
-    later(this, () => {
-      this.onCloseModal && this.onCloseModal();
-    }, 100);
-  },
 
   init() {
     this._super(...arguments);
@@ -27,14 +18,22 @@ export default Component.extend({
   willDestroyElement() {
     set(this, 'startSlideOut', true);
 
-    document.body.classList.remove('overlay-enabled');
+    document.body.style.overflow = get(this, 'documentOverflowState');
 
     this._super(...arguments);
   },
 
-  _setupModal() {
-    document.body.classList.add('overlay-enabled');
+  onClose() {
+    set(this, 'startSlideOut', true);
 
-    set(this, 'slideInDone', true);
+    later(this, () => {
+      this.onCloseModal && this.onCloseModal();
+    }, 100);
+  },
+
+  _setupModal() {
+    set(this, 'documentOverflowState', document.body.style.overflow);
+
+    document.body.style.overflow = 'hidden';
   }
 });
