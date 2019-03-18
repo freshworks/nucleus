@@ -1,0 +1,11 @@
+{
+  "extends": "stylelint-config-standard",
+  "plugins": [
+    "stylelint-order"
+  ],
+  "rules": {
+    "number-leading-zero": "never",
+    "order/properties-alphabetical-order": true,
+    "at-rule-no-unknown": null
+  }
+}
