@@ -45,7 +45,17 @@ module.exports = {
       },
       plugins: ['node'],
       rules: Object.assign({}, require('eslint-plugin-node').configs.recommended.rules, {
-        // add your custom rules and overrides for node files here
+        'comma-dangle': ['error', 'never'],
+        'ember/new-module-imports': 'off',
+        'ember/order-in-components': 2,
+        'ember/order-in-controllers': 2,
+        'ember/order-in-models': 2,
+        'ember/order-in-routes': 2,
+        'ember/use-ember-get-and-set': [2, {
+          ignoreThisExpressions: false
+        }],
+        'ember/no-jquery': 2,
+        'ember/no-restricted-resolver-tests': 0
       })
     }
   ]
