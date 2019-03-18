@@ -1,0 +1,70 @@
+//=== Color palette ===//
+$color-elephant: #12344d;
+$color-elephant-800: #264966;
+$color-smoke: #475867;
+$color-smoke-300: #92a2b1;
+$color-smoke-100:#cfd7df;
+
+$color-jungle: #00795b;
+$color-jungle-100:#b4e5da;
+$color-jungle-50: #e0f5f1;
+
+$color-azure: #2c5cc5;
+$color-azure-100: #bbdcfe;
+$color-azure-50: #e5f2fd;
+
+$color-persimmon: #d72d30;
+$color-persimmon-100: #ffd0d6;
+$color-persimmon-50: #ffecf0;
+
+$color-casablanca: #e86f25;
+$color-casablanca-100: #fedcb3;
+$color-casablanca-50: #e5f2fd;
+//=== Color palette ===//
+
+//=== Text colors ===//
+$text-default: $color-elephant !default;
+$text-secondary: $color-smoke !default;
+$text-disabled: $color-smoke-300 !default;
+
+$text-success: $color-jungle !default;
+$text-info: $color-azure !default;
+$text-danger: $color-persimmon !default;
+$text-warning: $color-casablanca !default;
+
+$text-link: $color-azure !default;
+//=== Text colors ===//
+
+//=== Icon colors ===//
+$icon-primary: $color-smoke !default;
+$icon-primary-hover: $color-smoke-100 !default;
+//=== Icon colors ===//
+
+//=== Border colors ===//
+$border-color: $color-smoke-100 !default;
+$border-success-color: $color-jungle-100 !default;
+$border-info-color: $color-azure-100 !default;
+$border-danger-color: $color-persimmon-100 !default;
+$border-warning-color: $color-casablanca-100 !default;
+//=== Border colors ===//
+
+//=== Background colors ===//
+$bg-success: $color-jungle-50 !default;
+$bg-info: $color-azure-50 !default;
+$bg-danger: $color-persimmon-50 !default;
+$bg-warning: $color-casablanca-50 !default;
+//=== Background colors ===//
+
+//=== Font weights ===//
+$font-weight-normal: 400 !default;
+$font-weight-semibold: 600 !default;
+$font-weight-bold: 700 !default;
+//=== Font weights ===//
+
+//=== Button Style ===//
+$btn-primary-color: $color-smoke-100 !default;
+$btn-primary-bg: $color-elephant !default;
+$btn-primary-bg-hover: lighten($color-elephant, 5%) !default;
+$btn-primary-border: 1px solid $color-elephant !default;
+$btn-primary-border-active: 1px solid $color-elephant-800 !default;
+//=== Button Style===//

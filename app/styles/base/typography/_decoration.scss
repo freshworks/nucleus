@@ -1,0 +1,49 @@
+strong,
+.strong {
+  font-weight: $font-weight-bold;
+}
+
+i,
+.italic	{
+  font-style: italic;
+}
+
+.text {
+  //=== Transforms ===//
+  &--uppercase {
+    text-transform: uppercase;
+  }
+
+  &--lowercase {
+    text-transform: lowercase;
+  }
+
+  &--capitalize	{
+    text-transform: capitalize;
+  }
+  //=== Transforms ===//
+  
+  //=== Underlines ===//
+  &--underline {
+    text-decoration: underline;
+  }
+
+  &--no-underline	{
+    text-decoration: none;
+  }
+  //=== Underlines ===//
+
+  //=== Weights ===//
+  &--semibold {
+    font-weight: $font-weight-semibold;
+  }
+
+  &--normal {
+    font-weight: 400;
+  }
+
+  &--light {
+    font-weight: 200;
+  }
+  //=== Weights ===//
+}
