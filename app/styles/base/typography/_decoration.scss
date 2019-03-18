@@ -4,7 +4,7 @@ strong,
 }
 
 i,
-.italic	{
+.italic {
   font-style: italic;
 }
 
@@ -18,17 +18,17 @@ i,
     text-transform: lowercase;
   }
 
-  &--capitalize	{
+  &--capitalize {
     text-transform: capitalize;
   }
   //=== Transforms ===//
-  
+
   //=== Underlines ===//
   &--underline {
     text-decoration: underline;
   }
 
-  &--no-underline	{
+  &--no-underline {
     text-decoration: none;
   }
   //=== Underlines ===//
