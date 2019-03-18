@@ -1,0 +1,15 @@
+@mixin text-align($side) {
+  text-align: $side;
+}
+
+@mixin vertical-align($direction) {
+  vertical-align: $direction;
+}
+
+@mixin wordwrap($type) {
+  word-wrap: $type;
+}
+
+@mixin whitespace($type) {
+  white-space: $type;
+}

@@ -1,0 +1,13 @@
+/*
+ * Mixin size, square
+ * For generating height and width or square sizes.
+ */
+
+@mixin size($width, $height) {
+  height: $height;
+  width: $width;
+}
+
+@mixin square($size) {
+  @include size($size, $size);
+}

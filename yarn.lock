@@ -2750,6 +2750,17 @@ broccoli-sass-source-maps@^2.1.0:
     object-assign "^2.0.0"
     rsvp "^3.0.6"
 
+broccoli-sass-source-maps@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/broccoli-sass-source-maps/-/broccoli-sass-source-maps-4.0.0.tgz#1ee4c10a810b10955b0502e28f85ab672f5961a2"
+  integrity sha512-Bjgg0Q626pPwiPU+Sk7jJNjblPEwhceuTzMPw2F5XY+FzdTBMYQKuJYlJ4x2DdsubE95e3rVQeSZ68jA13Nhzg==
+  dependencies:
+    broccoli-caching-writer "^3.0.3"
+    include-path-searcher "^0.1.0"
+    mkdirp "^0.3.5"
+    object-assign "^2.0.0"
+    rsvp "^3.0.6"
+
 broccoli-slow-trees@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/broccoli-slow-trees/-/broccoli-slow-trees-3.0.1.tgz#9bf2a9e2f8eb3ed3a3f2abdde988da437ccdc9b4"
@@ -4664,6 +4675,16 @@ ember-cli-sass@7.1.7:
     broccoli-funnel "^1.0.0"
     broccoli-merge-trees "^1.1.0"
     broccoli-sass-source-maps "^2.1.0"
+    ember-cli-version-checker "^2.1.0"
+
+ember-cli-sass@^10.0.0:
+  version "10.0.0"
+  resolved "https://registry.yarnpkg.com/ember-cli-sass/-/ember-cli-sass-10.0.0.tgz#700094ebaf348896111756c2644f1e444b05323c"
+  integrity sha512-gAMh3sHRExk/gOpbJ+OKKLPd8vCT8Bs8UU0cdNwBUOVwQ0UJ3iKyQY6GS1bMMXYtiyK2ieUPsrDGf14LUcC7bw==
+  dependencies:
+    broccoli-funnel "^2.0.1"
+    broccoli-merge-trees "^3.0.1"
+    broccoli-sass-source-maps "^4.0.0"
     ember-cli-version-checker "^2.1.0"
 
 ember-cli-sri@^2.1.1:
@@ -10422,6 +10443,13 @@ sass@^1.14.1:
   version "1.17.0"
   resolved "https://registry.yarnpkg.com/sass/-/sass-1.17.0.tgz#e370b9302af121c9eadad5639619127772094ae6"
   integrity sha512-aFi9RQqrCYkHB2DaLKBBbdUhos1N5o3l1ke9N5JqWzgSPmYwZsdmA+ViPVatUy/RPA21uejgYVUXM7GCh8lcdw==
+  dependencies:
+    chokidar "^2.0.0"
+
+sass@^1.17.2:
+  version "1.17.2"
+  resolved "https://registry.yarnpkg.com/sass/-/sass-1.17.2.tgz#b5a28f2f13c6a219f28084c03623bb2c8d176323"
+  integrity sha512-TBNcwSIEXpXAIaFxQnWbHzhciwPKpHRprQ+1ww+g9eHCiY3PINJs6vQTu+LcBt1vIhrtQGRFIoxJO39TfLrptA==
   dependencies:
     chokidar "^2.0.0"
 
