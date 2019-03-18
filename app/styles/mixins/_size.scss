@@ -1,8 +1,11 @@
-// Sizing shortcuts
+/*
+ * Mixin size, square
+ * For generating height and width or square sizes.
+ */
 
 @mixin size($width, $height) {
-  width: $width;
   height: $height;
+  width: $width;
 }
 
 @mixin square($size) {

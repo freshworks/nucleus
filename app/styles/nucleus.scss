@@ -1,9 +1,5 @@
-// Config imports
-@import "variables";
-@import "typography";
-@import "extends";
-@import "mixins";
-@import "utilities";
+@import 'variables';
+@import './mixins/mixins';
+@import './base/base';
 
-// Component imports
-@import "components/nucleus-button";
+@import './components/components';

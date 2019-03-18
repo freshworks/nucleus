@@ -1,0 +1,25 @@
+.text {
+  &-danger {
+    color: $text-danger;
+  }
+
+  &-warning {
+    color: $text-warning;
+  }
+
+  &-info {
+    color: $text-info;
+  }
+
+  &-default {
+    color: $text-default;
+  }
+
+  &-muted {
+    color: $text-disabled;
+  }
+
+  &-semi-muted {
+    color: $text-secondary;
+  }
+}
