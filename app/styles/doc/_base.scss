@@ -1,0 +1,26 @@
+*, *::before, *::after {
+  border-color: #ebeff3;
+}
+
+.docs-bg-code-base {
+  background: #12344D;
+}
+
+.docs-shadow {
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.15);
+}
+
+.docs-md .docs-border-grey-lighter {
+  border-color: #EBEFF3;
+  background-color: #F5F7F9;
+}
+
+.docs-bg-grey-lightest {
+  background-color: #F5F7F9;
+}
+
+.docs-list-reset .docs-capitalize {
+  text-transform: uppercase;
+  font-weight: 500;
+  color: #475867;
+}
