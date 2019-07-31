@@ -8,12 +8,13 @@ const Router = AddonDocsRouter.extend({
 
 Router.map(function() {
   docsRoute(this, function() { 
-  this.route("usage");
+    this.route("usage");
 
     this.route("components", function() {
       this.route("nucleus-button");
     });
-  this.route('not-found', { path: '/*path' });
+
+    this.route('not-found', { path: '/*path' });
   });
 });
 
