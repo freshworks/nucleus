@@ -1,13 +1,3 @@
-strong,
-.strong {
-  font-weight: $font-weight-bold;
-}
-
-i,
-.italic {
-  font-style: italic;
-}
-
 .text {
   //=== Transforms ===//
   &--uppercase {
@@ -46,4 +36,30 @@ i,
     font-weight: 200;
   }
   //=== Weights ===//
+
+  //=== Colours ===//
+  &-danger {
+    color: $text-danger;
+  }
+
+  &-warning {
+    color: $text-warning;
+  }
+
+  &-info {
+    color: $text-info;
+  }
+
+  &-default {
+    color: $text-default;
+  }
+
+  &-muted {
+    color: $text-disabled;
+  }
+
+  &-semi-muted {
+    color: $text-secondary;
+  }
+  //=== Colours ===//
 }

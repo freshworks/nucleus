@@ -1,4 +1,6 @@
-@import 'variables';
-@import './mixins/mixins';
-@import './base/base';
-@import './components/components';
+/* Base styles */
+@import "./base/normalize";
+
+/* ember-cli-addon customisations */
+@import "./doc/custom-addon-theme";
+@import "./doc/custom-syntax-highlight";
