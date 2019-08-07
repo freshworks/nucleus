@@ -2,7 +2,7 @@
 
 module.exports = function(environment) {
   let ENV = {
-    modulePrefix: '<%= modulePrefix %>',
+    modulePrefix: 'nucleus',
     environment,
     rootURL: '/',
     locationType: 'auto',
