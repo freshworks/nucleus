@@ -16,13 +16,14 @@
     "build": "ember build",
     "lint:hbs": "ember-template-lint .",
     "lint:js": "eslint .",
-    "start": "ember serve",
+    "start": "ember serve -p 4003",
     "test": "COVERAGE=TRUE ember test",
     "test:all": "ember try:each"
   },
   "dependencies": {
     "ember-cli-babel": "^7.1.2",
     "ember-cli-htmlbars": "^3.0.0",
+    "ember-cli-htmlbars-inline-precompile": "^1.0.0",
     "ember-cli-sass": "^10.0.0"
   },
   "devDependencies": {
@@ -67,7 +68,11 @@
     "node": "6.* || 8.* || >= 10.*"
   },
   "ember-addon": {
-    "configPath": "tests/dummy/config"
+    "configPath": "tests/dummy/config",
+    "before": [
+      "ember-cli-htmlbars",
+      "ember-svg-jar"
+    ]
   },
   "homepage": "https://freshdesk.github.io/nucleus"
 }

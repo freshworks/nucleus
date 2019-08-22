@@ -1,0 +1,15 @@
+{{#docs-demo as |demo|}}
+  {{#demo.example name="modal-demo-1-markup.hbs"}}
+    {{#nucleus-confirm-dialog
+      title="Sample title"}}
+      Sample body
+    {{/nucleus-confirm-dialog}}
+  {{/demo.example}}
+  {{#demo.example name="modal-demo-2-markup.hbs"}}
+    {{#nucleus-confirm-dialog
+      onClose=(action (mut isShowing2 false))
+      title="Sample title"}}
+      Sample body
+    {{/nucleus-confirm-dialog}}
+  {{/demo.example}}
+{{/docs-demo}}

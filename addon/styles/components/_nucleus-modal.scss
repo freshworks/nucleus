@@ -1,0 +1,59 @@
+.nucleus-modal {
+  &__dialog {
+    z-index: 11;
+    max-width: 512px;
+    margin: auto;
+    background: #fff;
+    border-radius: 4px;
+    padding: 32px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    &--small {
+      max-width: 424px;
+    }
+
+    &--large {
+      max-width: 800px;
+    }
+  }
+
+  &__title {
+    margin: 0 0 16px;
+  }
+
+  &__body {
+    margin-bottom: 16px;
+  }
+
+  &__close {
+    position: absolute;
+    top: 16px; // to offset the parent padding as per the design
+    right: 16px;
+    padding: 0;
+    margin: 0;
+    opacity: 0.5;
+    transition: all 0.3s;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  &__backdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 10;  // since other app elements like app-header and app-sidebar have z-index till 9
+    background-color: #647a8e;
+    opacity: 0.8;
+  }
+
+  &--open {
+    overflow: hidden;
+  }
+}
