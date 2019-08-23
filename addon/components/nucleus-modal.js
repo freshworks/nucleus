@@ -1,5 +1,5 @@
 import Component from "@ember/component";
-import { set, get, getProperties, computed } from "@ember/object";
+import { set, get, getProperties, computed, observer } from "@ember/object";
 import { run } from "@ember/runloop";
 import layout from "../templates/components/nucleus-modal";
 
@@ -14,13 +14,15 @@ export default Component.extend({
   layout,
 
   /**
-  * open
+  * Open the modal
   *
   * @field open
   * @type boolean
+  * @default false
+  * @readonly
   * @public
   */
-  open: true,
+  open: false,
 
   /**
   * isOpen
@@ -30,15 +32,6 @@ export default Component.extend({
   * @private
   */
   isOpen: computed.reads("open"),
-
-  /**
-  * _isOpen
-  *
-  * @field _isOpen
-  * @type boolean
-  * @private
-  */
-  _isOpen: false,
 
   /**
   * backdrop
@@ -56,7 +49,7 @@ export default Component.extend({
   * @type boolean
   * @private
   */
-  _showBackdrop: false,
+  _showBackdrop: computed.reads("backdrop"),
 
   /**
   * keyboard
@@ -86,13 +79,24 @@ export default Component.extend({
   renderInPlace: false,
 
   /**
+  * isInDOM
+  *
+  * @field renderInPlace
+  * @type boolean
+  * @private
+  */
+ isInDOM: computed.reads("isOpen"),
+
+  /**
   * modalId
   *
   * @field modalId
   * @type string
   * @private
   */
-  modalId: "nucleus-modal-dialog",
+  modalId: computed('elementId', function() {
+    return `nucleus-modal-${this.get('elementId')}`;
+  }),
 
   /**
   * modalElement
@@ -112,7 +116,9 @@ export default Component.extend({
   * @type string
   * @private
   */
-  backdropId: "nucleus-modal-backdrop",
+ backdropId: computed('elementId', function() {
+  return `nucleus-modal-backdrop-${this.get('elementId')}`;
+}),
 
   /**
   * backdropElement
@@ -133,13 +139,10 @@ export default Component.extend({
     *
     */
     close() {
-      this.set("isOpen", false);
-
-      if (!get(this, "onClose")) {
-        this._hide();
-      } else {
+      if (get(this, "onClose")) {
         this.onClose();
       }
+      this.set("isOpen", false);
     },
 
     /**
@@ -185,26 +188,19 @@ export default Component.extend({
   *
   */
   _show() {
-    if (this._isOpen) {
-      return;
-    }
-
-    this._isOpen = true;
     document.body.classList.add("nucleus-modal--open");
 
+    let modalEl = get(this, "modalElement");
+    if (modalEl) {
+      modalEl.style.display = "block";
+      modalEl.scrollTop = 0;
+    } 
+
     let callback = function () {
-      if (get(this, "isDestroyed")) {
-        return;
+      let backdropEl = get(this, "backdropElement");
+      if (backdropEl) {
+        backdropEl.style.display = "block";
       }
-
-      let modalEl = get(this, "modalElement");
-
-      if (modalEl) {
-        modalEl.style.display = "block";
-        modalEl.scrollTop = 0;
-      } // this.get('onShow')();
-
-
       this._takeFocus();
     };
 
@@ -219,14 +215,16 @@ export default Component.extend({
   *
   */
   _hide() {
-    if (!this._isOpen) {
-      return;
+    let modalEl = get(this, "modalElement");
+    if(modalEl) {
+      modalEl.style.display = "none";
     }
-
-    this._isOpen = false;
-    get(this, "modalElement").style.display = "none";
-    get(this, "backdropElement").style.display = "none";
+    
     this.handleBackdrop(() => {
+      let backdropEl = get(this, "backdropElement");
+      if(backdropEl) {
+        backdropEl.style.display = "none";
+      }
       document.body.classList.remove("nucleus-modal--open");
     });
   },
@@ -299,22 +297,26 @@ export default Component.extend({
     }
   },
 
+  _observeOpen: observer('isOpen', function() {
+    if (this.get('isOpen')) {
+      this._show();
+    } else {
+      this._hide();
+    }
+  }),
+
   init() {
     this._super(...arguments);
 
-    let {
-      isOpen,
-      backdrop
-    } = getProperties(this, "isOpen", "backdrop");
-    set(this, "_showBackdrop", isOpen && backdrop);
+    this.attachEventHandlers();
   },
 
   didInsertElement() {
     this._super(...arguments);
-
-    if (get(this, "isOpen")) {
+    if (this.get('isOpen')) {
       this._show();
-      this.attachEventHandlers();
+    } else {
+      this._hide();
     }
   },
 

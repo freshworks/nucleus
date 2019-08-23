@@ -6,7 +6,7 @@
     disabled={{submitDisabled}}
     class="btn {{_buttonType}}"
     data-test-id="nucleus-submit-button"
-    onClick={{action "onSubmit"}}>
+    onClick={{action onSubmit}}>
       {{submitTitle}}
     </button>
   {{/if}}
@@ -14,7 +14,7 @@
     <button type="button"
       class="btn btn--secondary"
       name="button"
-      onClick={{action "onClose"}}
+      onClick={{action onClose}}
       data-test-id="nucleus-close-button">
       {{closeTitle}}
     </button>

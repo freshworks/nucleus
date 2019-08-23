@@ -8,17 +8,15 @@
 
 {{#docs-demo as |demo|}}
   {{#demo.example name="modal-demo-1.hbs"}}
-    <button onclick={{action (mut isShowing true)}} class="docs-btn">
+    <button onclick={{action (mut isModal1 true)}} class="docs-btn">
       Click here to open simple modal
     </button>
 
-    {{#if isShowing}}
-      {{#nucleus-modal as |modal|}}
-        {{modal.header title="Some title"}}
-        {{#modal.body}}Some content{{/modal.body}}
-        {{modal.footer closeTitle="Close"}}
-      {{/nucleus-modal}}
-    {{/if}}
+    {{#nucleus-modal open=isModal1 onClose=(action (mut isModal1) false) as |modal|}}
+      {{modal.header title="Some title" closeButton=true}}
+      {{#modal.body}}Some content{{/modal.body}}
+      {{modal.footer closeTitle="Close"}}
+    {{/nucleus-modal}}
   {{/demo.example}}
 
   {{demo.snippet "modal-demo-1-markup.hbs"}}
@@ -28,15 +26,14 @@
 
 {{#docs-demo as |demo|}}
   {{#demo.example name="modal-demo-2.hbs"}}
-    <button onclick={{action (mut isShowing2 true)}} class="docs-btn">
+    <button onclick={{action (mut isModal2 true)}} class="docs-btn">
       Click here to open simple modal
     </button>
-
-    {{#if isShowing2}}
-      {{#nucleus-confirm-dialog onClose=(action (mut isShowing2 false)) title="Sample title"}}
-        Sample body
-      {{/nucleus-confirm-dialog}}
-    {{/if}}
+    {{#nucleus-modal open=isModal2 onClose=(action (mut isModal2) false) as |modal|}}
+      {{modal.header title="Some title" closeButton=true}}
+      {{#modal.body}}Some content{{/modal.body}}
+      {{modal.footer closeTitle="Close"}}
+    {{/nucleus-modal}}
   {{/demo.example}}
 
   {{demo.snippet "modal-demo-2-markup.hbs"}}

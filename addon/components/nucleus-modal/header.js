@@ -28,18 +28,5 @@ export default Component.extend({
   * @type null
   * @public
   */
-  title: null,
-  actions: {
-    /**
-    * onClose
-    *
-    * @method onClose
-    * @public
-    *
-    */
-    onClose() {
-      this.onClose();
-    }
-
-  }
+  title: null
 });
