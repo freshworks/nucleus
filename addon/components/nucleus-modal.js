@@ -1,5 +1,5 @@
 import Component from "@ember/component";
-import { set, get, getProperties, computed, observer } from "@ember/object";
+import { set, get, computed, observer } from "@ember/object";
 import { run } from "@ember/runloop";
 import layout from "../templates/components/nucleus-modal";
 
@@ -85,7 +85,7 @@ export default Component.extend({
   * @type boolean
   * @private
   */
- isInDOM: computed.reads("isOpen"),
+ isInDOM: false,
 
   /**
   * modalId
@@ -94,8 +94,8 @@ export default Component.extend({
   * @type string
   * @private
   */
-  modalId: computed('elementId', function() {
-    return `nucleus-modal-${this.get('elementId')}`;
+  modalId: computed('elementId', 'isInDOM', function() {
+    return (get(this, 'isInDOM')) ? `nucleus-modal-${this.get('elementId')}` : null;
   }),
 
   /**
@@ -139,10 +139,10 @@ export default Component.extend({
     *
     */
     close() {
+      this.set("isOpen", false);
       if (get(this, "onClose")) {
         this.onClose();
       }
-      this.set("isOpen", false);
     },
 
     /**
@@ -189,6 +189,7 @@ export default Component.extend({
   */
   _show() {
     document.body.classList.add("nucleus-modal--open");
+    set(this, 'isInDOM', true);
 
     let modalEl = get(this, "modalElement");
     if (modalEl) {
@@ -201,10 +202,11 @@ export default Component.extend({
       if (backdropEl) {
         backdropEl.style.display = "block";
       }
-      this._takeFocus();
     };
 
     this.handleBackdrop(callback);
+    this._takeFocus();
+
   },
 
   /**
@@ -227,6 +229,8 @@ export default Component.extend({
       }
       document.body.classList.remove("nucleus-modal--open");
     });
+    set(this, 'isInDOM', false);
+
   },
 
   /**
@@ -307,7 +311,7 @@ export default Component.extend({
 
   init() {
     this._super(...arguments);
-
+    set(this, 'isInDOM', true);
     this.attachEventHandlers();
   },
 
@@ -322,9 +326,7 @@ export default Component.extend({
 
   willDestroyElement() {
     this._super(...arguments);
-
     this.removeEventHandlers();
-    this._hide();
   }
 
 });
