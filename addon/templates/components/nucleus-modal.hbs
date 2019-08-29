@@ -3,6 +3,7 @@
     {{#nucleus-modal/dialog
       id=modalId
       onClose=(action "close")
+      onSubmit=(action "submit")
       keyboard=keyboard
       size=size
     }}
@@ -11,13 +12,13 @@
           header=(component "nucleus-modal/header"
                   title=title
                   closeButton=closeButton
-                  onClose=onClose)
+                  onClose=(action "close"))
           body=(component "nucleus-modal/body")
           footer=(component "nucleus-modal/footer"
                   type=type
                   submitTitle=submitTitle
                   closeTitle=closeTitle
-                  onClose=onClose
+                  onClose=(action "close")
                   onSubmit=(action "submit"))
           close=(action "close")
           submit=(action "submit")

@@ -1,5 +1,5 @@
 import Component from "@ember/component";
-import { set, get, getProperties, computed, observer } from "@ember/object";
+import { set, get, computed, observer } from "@ember/object";
 import { run } from "@ember/runloop";
 import layout from "../templates/components/nucleus-modal";
 
@@ -152,8 +152,8 @@ export default Component.extend({
     *
     */
     submit() {
-      if (get(this, "onSubmit")) {
-        this.onSubmit();
+      if (get(this, 'onSubmit')() !== false) {
+        this.send('close');
       }
     }
 
@@ -235,24 +235,14 @@ export default Component.extend({
   * @param {any} callback
   */
   handleBackdrop(callback) {
-    if (get(this, "isOpen") && get(this, "backdrop")) {
-      set(this, "_showBackdrop", true);
+    if (get(this, "backdrop")) {
+      set(this, "_showBackdrop", get(this, "isOpen"));
 
       if (!callback) {
         return;
       }
 
       callback.call(this);
-    } else if (!get(this, "isOpen") && get(this, "backdrop")) {
-      let callbackRemove = function () {
-        set(this, "_showBackdrop", false);
-
-        if (callback) {
-          callback.call(this);
-        }
-      };
-
-      callbackRemove.call(this);
     } else if (callback) {
       run.next(this, callback);
     }
