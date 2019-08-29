@@ -310,7 +310,6 @@ export default Component.extend({
   willDestroyElement() {
     this._super(...arguments);
     this.removeEventHandlers();
-    this._hide();
   }
 
 });

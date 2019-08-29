@@ -16,7 +16,7 @@
     <p>Submit success</p>
     {{/if}}
     {{#nucleus-modal open=isModal1 onClose=(action (mut isModal1) false) onSubmit=(action (mut isSubmitSuccess) true) as |modal|}}
-      {{modal.header title="Some title" closeButton=true}}
+      {{modal.header title="Some title"}}
       {{#modal.body}}Some content{{/modal.body}}
       {{modal.footer submitTitle="Submit" closeTitle="Close"}}
     {{/nucleus-modal}}

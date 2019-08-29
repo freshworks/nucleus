@@ -30,15 +30,6 @@ export default Modal.extend({
   title: null,
 
   /**
-  * closeButton
-  *
-  * @field closeButton
-  * @type boolean
-  * @public
-  */
-  closeButton: true,
-
-  /**
   * closeTitle
   *
   * @field closeTitle
