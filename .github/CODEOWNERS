@@ -1,4 +1,5 @@
-#Global CodeOwners
-* @dineshrbkumar @kanalveli-ramachandran @rajasegar-c @parsurv @vishnubalajikm @abhilashlr89 @vigneshwarvk1991 @elavazhaganv
+app/components/ @rajasegar-c @parsurv
+addon/components/ @shibulijack-fd @rajasegar-c
+addon/styles/  @shibulijack-fd @rajasegar-c
 
 #[TODO] Need to bring in module specific CodeOwners
