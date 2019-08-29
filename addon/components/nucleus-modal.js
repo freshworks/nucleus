@@ -139,9 +139,10 @@ export default Component.extend({
     *
     */
     close() {
-      if (get(this, 'onClose')() !== false) {
-        this._hide();
+      if (get(this, 'onClose')) {
+        get(this, 'onClose')();
       }
+      this._hide();
     },
 
     /**
@@ -152,9 +153,10 @@ export default Component.extend({
     *
     */
     submit() {
-      if (get(this, 'onSubmit')() !== false) {
-        this.send('close');
+      if (get(this, 'onSubmit')) {
+        get(this, 'onSubmit')()
       }
+      this.send('close');
     }
 
   },

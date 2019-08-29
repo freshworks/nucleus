@@ -1,23 +1,26 @@
-{{#ember-wormhole to="nucleus-modal-wormhole" renderInPlace=renderInPlace}}
-  {{#nucleus-modal/dialog
-    id=modalId
-    onClose=(action "close")
-    keyboard=keyboard
-    size=size
-  }}
-    {{nucleus-modal/header
-      title=title
-      closeButton=closeButton
-      onClose=(action "close")}}
-    {{#nucleus-modal/body}}{{yield}}{{/nucleus-modal/body}}
-    {{nucleus-modal/footer
-      type=type
-      closeTitle=closeTitle
-      submitTitle=submitTitle
+{{#if isInDOM}}
+  {{#ember-wormhole to="nucleus-modal-wormhole" renderInPlace=renderInPlace}}
+    {{#nucleus-modal/dialog
+      id=modalId
       onClose=(action "close")
-      onSubmit=(action "submit")}}
-  {{/nucleus-modal/dialog}}
-  {{#if _showBackdrop}}
-    <div class="nucleus-modal__backdrop" id={{backdropId}}></div>
-  {{/if}}
-{{/ember-wormhole}}
+      onSubmit=(action "submit")
+      keyboard=keyboard
+      size=size
+    }}
+      {{nucleus-modal/header
+        title=title
+        closeButton=closeButton
+        onClose=(action "close")}}
+      {{#nucleus-modal/body}}{{yield}}{{/nucleus-modal/body}}
+      {{nucleus-modal/footer
+        type=type
+        closeTitle=closeTitle
+        submitTitle=submitTitle
+        onClose=(action "close")
+        onSubmit=(action "submit")}}
+    {{/nucleus-modal/dialog}}
+    {{#if _showBackdrop}}
+      <div class="nucleus-modal__backdrop" id={{backdropId}}></div>
+    {{/if}}
+  {{/ember-wormhole}}
+{{/if}}

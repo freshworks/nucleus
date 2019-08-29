@@ -30,13 +30,11 @@
 {{#docs-demo as |demo|}}
   {{#demo.example name="modal-demo-2.hbs"}}
     <button onclick={{action (mut isModal2 true)}} class="docs-btn">
-      Click here to open simple modal
+      Click here to open confirmation dialog
     </button>
-    {{#nucleus-modal open=isModal2 onClose=(action (mut isModal2) false) as |modal|}}
-      {{modal.header title="Some title" closeButton=true}}
-      {{#modal.body}}Some content{{/modal.body}}
-      {{modal.footer closeTitle="Close"}}
-    {{/nucleus-modal}}
+    {{#nucleus-confirm-dialog open=isModal2 title="Confirm dialog title" onClose=(action (mut isModal2) false)}}
+      Are you sure?
+    {{/nucleus-confirm-dialog}}
   {{/demo.example}}
 
   {{demo.snippet "modal-demo-2-markup.hbs"}}
