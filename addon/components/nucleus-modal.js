@@ -139,10 +139,9 @@ export default Component.extend({
     *
     */
     close() {
-      if (get(this, "onClose")) {
-        this.onClose();
+      if (get(this, 'onClose')() !== false) {
+        this._hide();
       }
-      this.set("isOpen", false);
     },
 
     /**
@@ -201,7 +200,6 @@ export default Component.extend({
       if (backdropEl) {
         backdropEl.style.display = "block";
       }
-      this._takeFocus();
     };
 
     this.handleBackdrop(callback);
@@ -307,22 +305,18 @@ export default Component.extend({
 
   init() {
     this._super(...arguments);
-
     this.attachEventHandlers();
   },
 
-  didInsertElement() {
+  didRender() {
     this._super(...arguments);
-    if (this.get('isOpen')) {
-      this._show();
-    } else {
-      this._hide();
-    }
+    run.next(() => {
+      this._takeFocus();
+    });
   },
 
   willDestroyElement() {
     this._super(...arguments);
-
     this.removeEventHandlers();
     this._hide();
   }
