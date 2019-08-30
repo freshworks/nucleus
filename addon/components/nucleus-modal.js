@@ -190,21 +190,7 @@ export default Component.extend({
   */
   _show() {
     document.body.classList.add("nucleus-modal--open");
-
-    let modalEl = get(this, "modalElement");
-    if (modalEl) {
-      modalEl.style.display = "block";
-      modalEl.scrollTop = 0;
-    } 
-
-    let callback = function () {
-      let backdropEl = get(this, "backdropElement");
-      if (backdropEl) {
-        backdropEl.style.display = "block";
-      }
-    };
-
-    this.handleBackdrop(callback);
+    this.handleBackdrop();
   },
 
   /**
@@ -215,18 +201,8 @@ export default Component.extend({
   *
   */
   _hide() {
-    let modalEl = get(this, "modalElement");
-    if(modalEl) {
-      modalEl.style.display = "none";
-    }
-    
-    this.handleBackdrop(() => {
-      let backdropEl = get(this, "backdropElement");
-      if(backdropEl) {
-        backdropEl.style.display = "none";
-      }
-      document.body.classList.remove("nucleus-modal--open");
-    });
+    document.body.classList.remove("nucleus-modal--open");
+    this.handleBackdrop();
   },
 
   /**
@@ -243,7 +219,6 @@ export default Component.extend({
       if (!callback) {
         return;
       }
-
       callback.call(this);
     } else if (callback) {
       run.next(this, callback);

@@ -1,6 +1,6 @@
 .nucleus-modal {
   &__dialog {
-    z-index: 11;
+    z-index: 6000000;
     max-width: 512px;
     margin: auto;
     background: #fff;
@@ -48,7 +48,7 @@
     right: 0;
     bottom: 0;
     left: 0;
-    z-index: 10;  // since other app elements like app-header and app-sidebar have z-index till 9
+    z-index: 5000000;  // since other app elements like app-header and app-sidebar have z-index till 9
     background-color: #647a8e;
     opacity: 0.8;
   }
