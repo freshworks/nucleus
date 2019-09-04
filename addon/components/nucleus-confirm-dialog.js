@@ -12,25 +12,26 @@ export default Modal.extend({
   layout,
 
   /**
-  * size
+  * Default confirm dialog size
   *
   * @field size
   * @type string
+  * @default `small`
   * @public
   */
   size: 'small',
 
   /**
-  * title
+  * Title of the confirm dialog
   *
   * @field title
-  * @type null
+  * @type string
   * @public
   */
   title: null,
 
   /**
-  * closeTitle
+  * Close button text
   *
   * @field closeTitle
   * @type string
@@ -39,7 +40,7 @@ export default Modal.extend({
   closeTitle: 'Cancel',
 
   /**
-  * submitTitle
+  * Submit action button text
   *
   * @field submitTitle
   * @type string

@@ -14,7 +14,7 @@ export default Component.extend({
   layout,
 
   /**
-  * Open the modal
+  * Flag to open the modal
   *
   * @field open
   * @type boolean
@@ -34,7 +34,7 @@ export default Component.extend({
   isOpen: computed.reads("open"),
 
   /**
-  * backdrop
+  * Flag to show or hide the translucent backdrop.
   *
   * @field backdrop
   * @type boolean
@@ -52,7 +52,7 @@ export default Component.extend({
   _showBackdrop: computed.reads("backdrop"),
 
   /**
-  * keyboard
+  * Flag to close the modal on escape.
   *
   * @field keyboard
   * @type boolean
@@ -61,19 +61,21 @@ export default Component.extend({
   keyboard: true,
 
   /**
-  * size
+  * Modal sizes: `small`, `medium` & `large`
   *
-  * @field size
-  * @type null
+  * @property size
+  * @type string|null
+  * @default null
   * @public
   */
   size: null,
 
   /**
-  * renderInPlace
+  * Render the Modal markup in-place (true) or in wormhole (false)
   *
   * @field renderInPlace
   * @type boolean
+  * @default false
   * @public
   */
   renderInPlace: false,
@@ -197,7 +199,7 @@ export default Component.extend({
   * hide
   *
   * @method hide
-  * @public
+  * @private
   *
   */
   _hide() {
@@ -209,7 +211,7 @@ export default Component.extend({
   * handleBackdrop
   *
   * @method handleBackdrop
-  * @public
+  * @private
   * @param {any} callback
   */
   handleBackdrop(callback) {
@@ -229,7 +231,7 @@ export default Component.extend({
   * attachEventHandlers
   *
   * @method attachEventHandlers
-  * @public
+  * @private
   *
   */
   attachEventHandlers() {
@@ -240,7 +242,7 @@ export default Component.extend({
   * removeEventHandlers
   *
   * @method removeEventHandlers
-  * @public
+  * @private
   *
   */
   removeEventHandlers() {
@@ -251,7 +253,7 @@ export default Component.extend({
   * loopFocus
   *
   * @method loopFocus
-  * @public
+  * @private
   * @param {any} event
   */
   loopFocus(event) {

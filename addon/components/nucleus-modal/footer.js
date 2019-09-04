@@ -28,7 +28,7 @@ export default Component.extend({
   *
   * @field hasCloseButton
   * @type function
-  * @public
+  * @private
   */
   hasCloseButton: computed.notEmpty('closeTitle'),
 
@@ -46,7 +46,7 @@ export default Component.extend({
   *
   * @field hasSubmitButton
   * @type function
-  * @public
+  * @private
   */
   hasSubmitButton: computed.notEmpty('submitTitle'),
 
@@ -72,6 +72,7 @@ export default Component.extend({
   * _buttonType
   *
   * @computed _buttonType
+  * @private
   */
   _buttonType: computed('type', function () {
     return get(this, 'type') ? `btn--${get(this, 'type')}` : 'btn--primary';

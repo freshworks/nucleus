@@ -52,20 +52,11 @@ export default Component.extend({
   size: null,
 
   /**
-  * backdropClose
-  *
-  * @field backdropClose
-  * @type boolean
-  * @public
-  */
-  backdropClose: true,
-
-  /**
   * sizeClass
   *
   * @field sizeClass
   * @type function
-  * @public
+  * @private
   */
   sizeClass: computed('size', function () {
     let size = get(this, 'size');
@@ -76,7 +67,7 @@ export default Component.extend({
   * keyDown
   *
   * @method keyDown
-  * @public
+  * @private
   * @param {any} e
   */
   keyDown(e) {

@@ -26,6 +26,13 @@
 
   &__body {
     margin-bottom: 16px;
+    font-size: 0.875rem;
+    max-height: 50vh;
+    overflow-y: auto;
+  }
+
+  &__footer {
+    text-align: right;
   }
 
   &__close {
