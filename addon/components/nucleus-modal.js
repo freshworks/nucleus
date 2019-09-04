@@ -259,7 +259,7 @@ export default Component.extend({
   loopFocus(event) {
     let modalEl = get(this, "modalElement");
 
-    if (document !== event.target && modalEl && modalEl !== event.target && !modalEl.contains(event.target)) {
+    if (event && document !== event.target && modalEl && modalEl !== event.target && !modalEl.contains(event.target)) {
       this._takeFocus();
     }
   },
