@@ -1,6 +1,7 @@
 import { module } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import test from 'ember-sinon-qunit/test-support/test';
+import a11yAudit from 'ember-a11y-testing/test-support/audit';
 import { render, click } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
@@ -95,5 +96,24 @@ module('Integration | Component | nucleus-modal', function(hooks) {
     `);
 
     assert.dom('.nucleus-modal .nucleus-modal__footer button').hasClass('btn--danger', 'Modal button has danger class.');
+  });
+
+  test('Modal passes a11y tests', async function(assert) {
+    await render(hbs`{{#nucleus-modal open=true as |modal|}}
+      {{modal.header title="Dialog"}}
+      {{#modal.body}}Hello world!{{/modal.body}}
+      {{modal.footer closeTitle="Ok"}}
+    {{/nucleus-modal}}`);
+   
+    let axeOptions = {
+      rules: {
+        'button-name': {
+          enabled: false
+        }
+      }
+    };
+    return a11yAudit(this.element, axeOptions).then(() => {
+      assert.ok(true, 'no a11y errors found!');
+    });
   });
 });

@@ -1548,6 +1548,10 @@ aws4@^1.8.0:
   version "1.8.0"
   resolved "https://registry.yarnpkg.com/aws4/-/aws4-1.8.0.tgz#f0e003d9ca9e7f59c7a508945d7b2ef9a04a542f"
 
+axe-core@^3.2.2:
+  version "3.3.2"
+  resolved "https://registry.yarnpkg.com/axe-core/-/axe-core-3.3.2.tgz#7baf3c55a5cf1621534a2c38735f5a1bf2f7e1a8"
+
 babel-code-frame@^6.26.0:
   version "6.26.0"
   resolved "https://registry.yarnpkg.com/babel-code-frame/-/babel-code-frame-6.26.0.tgz#63fd43f7dc1e3bb7ce35947db8fe369a3f58c74b"
@@ -2423,6 +2427,13 @@ broccoli-debug@^0.6.1, broccoli-debug@^0.6.4, broccoli-debug@^0.6.5:
     heimdalljs-logger "^0.1.7"
     symlink-or-copy "^1.1.8"
     tree-sync "^1.2.2"
+
+broccoli-file-creator@^1.1.1:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/broccoli-file-creator/-/broccoli-file-creator-1.2.0.tgz#27f1b25b1b00e7bb7bf3d5d7abed5f4d5388df4d"
+  dependencies:
+    broccoli-plugin "^1.1.0"
+    mkdirp "^0.5.1"
 
 broccoli-file-creator@^2.1.1:
   version "2.1.1"
@@ -4172,6 +4183,16 @@ elliptic@^6.0.0:
     minimalistic-assert "^1.0.0"
     minimalistic-crypto-utils "^1.0.0"
 
+ember-a11y-testing@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/ember-a11y-testing/-/ember-a11y-testing-1.0.0.tgz#af8b17cf2dcbdbf372bebcd534758a63f5e3f3aa"
+  dependencies:
+    axe-core "^3.2.2"
+    broccoli-funnel "^2.0.2"
+    ember-cli-babel "^6.8.2"
+    ember-cli-version-checker "^3.1.3"
+    ember-get-config "^0.2.4"
+
 ember-app-scheduler@^1.0.5:
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/ember-app-scheduler/-/ember-app-scheduler-1.0.6.tgz#b7972c5ae51643d41769dba40ef96e0cc188f553"
@@ -4307,7 +4328,7 @@ ember-cli-babel-plugin-helpers@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/ember-cli-babel-plugin-helpers/-/ember-cli-babel-plugin-helpers-1.1.0.tgz#de3baedd093163b6c2461f95964888c1676325ac"
 
-ember-cli-babel@^6.0.0-beta.4, ember-cli-babel@^6.0.0-beta.7, ember-cli-babel@^6.10.0, ember-cli-babel@^6.11.0, ember-cli-babel@^6.12.0, ember-cli-babel@^6.16.0, ember-cli-babel@^6.6.0, ember-cli-babel@^6.8.0, ember-cli-babel@^6.8.1, ember-cli-babel@^6.8.2:
+ember-cli-babel@^6.0.0-beta.4, ember-cli-babel@^6.0.0-beta.7, ember-cli-babel@^6.10.0, ember-cli-babel@^6.11.0, ember-cli-babel@^6.12.0, ember-cli-babel@^6.16.0, ember-cli-babel@^6.3.0, ember-cli-babel@^6.6.0, ember-cli-babel@^6.8.0, ember-cli-babel@^6.8.1, ember-cli-babel@^6.8.2:
   version "6.18.0"
   resolved "https://registry.yarnpkg.com/ember-cli-babel/-/ember-cli-babel-6.18.0.tgz#3f6435fd275172edeff2b634ee7b29ce74318957"
   dependencies:
@@ -4707,6 +4728,13 @@ ember-cli-version-checker@^3.0.0:
     resolve "^1.9.0"
     semver "^5.6.0"
 
+ember-cli-version-checker@^3.1.3:
+  version "3.1.3"
+  resolved "https://registry.yarnpkg.com/ember-cli-version-checker/-/ember-cli-version-checker-3.1.3.tgz#7c9b4f5ff30fdebcd480b1c06c4de43bb51c522c"
+  dependencies:
+    resolve-package-path "^1.2.6"
+    semver "^5.6.0"
+
 ember-cli@~3.7.1:
   version "3.7.1"
   resolved "https://registry.yarnpkg.com/ember-cli/-/ember-cli-3.7.1.tgz#f307bcd68aaf083612717ab32133120272d89170"
@@ -4940,6 +4968,13 @@ ember-fetch@^6.2.0:
     ember-cli-babel "^6.8.2"
     node-fetch "^2.3.0"
     whatwg-fetch "^3.0.0"
+
+ember-get-config@^0.2.4:
+  version "0.2.4"
+  resolved "https://registry.yarnpkg.com/ember-get-config/-/ember-get-config-0.2.4.tgz#118492a2a03d73e46004ed777928942021fe1ecd"
+  dependencies:
+    broccoli-file-creator "^1.1.1"
+    ember-cli-babel "^6.3.0"
 
 ember-getowner-polyfill@^2.0.1, ember-getowner-polyfill@^2.2.0:
   version "2.2.0"
@@ -9995,6 +10030,13 @@ resolve-from@^4.0.0:
 resolve-package-path@^1.0.11:
   version "1.2.4"
   resolved "https://registry.yarnpkg.com/resolve-package-path/-/resolve-package-path-1.2.4.tgz#814c5fcfb5f6e4151d95ec6e5653707c43706670"
+  dependencies:
+    path-root "^0.1.1"
+    resolve "^1.10.0"
+
+resolve-package-path@^1.2.6:
+  version "1.2.7"
+  resolved "https://registry.yarnpkg.com/resolve-package-path/-/resolve-package-path-1.2.7.tgz#2a7bc37ad96865e239330e3102c31322847e652e"
   dependencies:
     path-root "^0.1.1"
     resolve "^1.10.0"
