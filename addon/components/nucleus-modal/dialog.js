@@ -1,5 +1,6 @@
 import Component from '@ember/component';
-import { computed, get } from '@ember/object';
+import { computed, get, set } from '@ember/object';
+import { readOnly } from '@ember/object/computed';
 import { isBlank } from '@ember/utils';
 import layout from '../../templates/components/nucleus-modal/dialog';
 
@@ -13,16 +14,9 @@ import layout from '../../templates/components/nucleus-modal/dialog';
 export default Component.extend({
   layout,
   classNames: ['nucleus-modal'],
-  attributeBindings: ['tabindex'],
-
-  /**
-  * ariaRole
-  *
-  * @field ariaRole
-  * @type string
-  * @private
-  */
+  attributeBindings: ['tabindex', 'aria-labelledby'],
   ariaRole: 'dialog',
+  "aria-labelledby": readOnly('titleId'),
 
   /**
   * tabindex
@@ -64,6 +58,39 @@ export default Component.extend({
   }).readOnly(),
 
   /**
+   * The id of the `.modal-title` element
+   *
+   * @field titleId
+   * @type string
+   * @default null
+   * @private
+   */
+  titleId: null,
+
+  /**
+   * Gets or sets the id of the title element for aria accessibility tags
+   *
+   * @method getSetTitleID
+   * @private
+   */
+  getOrSetTitleId() {
+    const modalNode = this.get('element');
+    let nodeId = null;
+
+    if (modalNode) {
+      const titleNode = modalNode.querySelector('.nucleus-modal__title');
+      if (titleNode) {
+        nodeId = titleNode.id
+        if (!nodeId) {
+          nodeId = `${this.get('id')}-title`;
+          titleNode.id = nodeId;
+        }
+      }
+    }
+    set(this, 'titleId', nodeId);
+  },
+
+  /**
   * keyDown
   *
   * @method keyDown
@@ -76,6 +103,11 @@ export default Component.extend({
     if (code === 27 && get(this, 'keyboard')) {
       this.onClose();
     }
-  }
+  },
+
+  didInsertElement() {
+    this._super(...arguments);
+    this.getOrSetTitleId();
+  },
 
 });

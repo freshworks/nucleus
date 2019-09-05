@@ -79,10 +79,10 @@ module('Integration | Component | nucleus-modal', function(hooks) {
       {{modal.footer}}
     {{/nucleus-modal}}`);
 
-    // const modalTitleId = document.getElementsByClassName('nucleus-modal__title')[0].id;
+    const modalTitleId = document.getElementsByClassName('nucleus-modal__title')[0].id;
 
     assert.dom('.nucleus-modal').hasAttribute('role', 'dialog');
-    // assert.dom('.nucleus-modal').hasAttribute('aria-labelledby', modalTitleId);
+    assert.dom('.nucleus-modal').hasAttribute('aria-labelledby', modalTitleId);
   });
 
   test('it passes along class attribute', async function(assert) {
