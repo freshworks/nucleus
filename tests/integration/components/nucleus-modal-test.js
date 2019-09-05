@@ -2,7 +2,7 @@ import { module } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import test from 'ember-sinon-qunit/test-support/test';
 import a11yAudit from 'ember-a11y-testing/test-support/audit';
-import { render, click } from '@ember/test-helpers';
+import { render, click, triggerKeyEvent } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
 module('Integration | Component | nucleus-modal', function(hooks) {
@@ -13,7 +13,7 @@ module('Integration | Component | nucleus-modal', function(hooks) {
     this.send = (actionName, ...args) => this.actions[actionName].apply(this, args);
   });
 
-  test('Modal yields header, footer and body components', async function(assert) {
+  test('it yields header, footer and body components', async function(assert) {
     await render(hbs`{{#nucleus-modal open=true as |modal|}}
       {{modal.header title="Dialog"}}
       {{#modal.body}}Hello world!{{/modal.body}}
@@ -30,7 +30,7 @@ module('Integration | Component | nucleus-modal', function(hooks) {
     assert.dom('.nucleus-modal .nucleus-modal__body').hasText('Hello world!', 'Modal body has correct content.');
   });
 
-  test('Hidden modal does not render', async function(assert) {
+  test('it does not render when open=false', async function(assert) {
     await render(hbs`{{#nucleus-modal open=false as |modal|}}
       {{modal.header title="Dialog"}}
       {{#modal.body}}Hello world!{{/modal.body}}
@@ -40,7 +40,7 @@ module('Integration | Component | nucleus-modal', function(hooks) {
     assert.dom('.nucleus-modal *').doesNotExist('Modal does not exist.');
   });
 
-  test('Modal yields close action', async function(assert) {
+  test('it yields close action', async function(assert) {
     let closeAction = this.spy();
     this.actions.close = closeAction;
 
@@ -56,7 +56,23 @@ module('Integration | Component | nucleus-modal', function(hooks) {
     assert.ok(closeAction.calledOnce, 'close action has been called.');
   });
 
-  test('Modal yields submit action', async function(assert) {
+  test('it closes on pressing ESC', async function(assert) {
+    let closeAction = this.spy();
+    this.actions.close = closeAction;
+
+    await render(hbs`{{#nucleus-modal open=true onClose=(action "close") as |modal|}}
+      {{modal.header title="Dialog"}}
+      {{#modal.body}}Hello world!{{/modal.body}}
+      {{#modal.footer}}
+        <button id="close" {{action modal.close}}>Close</button>
+      {{/modal.footer}}
+    {{/nucleus-modal}}`);
+
+    await triggerKeyEvent('.nucleus-modal__dialog', 'keydown', 'Escape');
+    assert.ok(closeAction.calledOnce, 'close action has been called.');
+  });
+
+  test('it yields submit action', async function(assert) {
     let submitAction = this.spy();
     this.actions.submit = submitAction;
 
@@ -72,7 +88,7 @@ module('Integration | Component | nucleus-modal', function(hooks) {
     assert.ok(submitAction.calledOnce, 'submit action has been called.');
   });
 
-  test('Modal has accessibility attributes', async function(assert) {
+  test('it has accessibility attributes', async function(assert) {
 
     await render(hbs`{{#nucleus-modal open=true as |modal|}}
       {{modal.header title="Some title"}}
@@ -98,7 +114,7 @@ module('Integration | Component | nucleus-modal', function(hooks) {
     assert.dom('.nucleus-modal .nucleus-modal__footer button').hasClass('btn--danger', 'Modal button has danger class.');
   });
 
-  test('Modal passes a11y tests', async function(assert) {
+  test('it passes a11y tests', async function(assert) {
     await render(hbs`{{#nucleus-modal open=true as |modal|}}
       {{modal.header title="Dialog"}}
       {{#modal.body}}Hello world!{{/modal.body}}
