@@ -4,8 +4,19 @@ import { run } from "@ember/runloop";
 import layout from "../templates/components/nucleus-modal";
 
 /**
-  NucleusModal Usage:
-  @class NucleusModal
+  __Usage:__
+  [Refer component page](/docs/components/nucleus-modal)
+
+  The component yields references to the following contextual components, that you can use to further customize the output:
+  * [modal.body](nucleus-modal/body)
+  * [modal.header](nucleus-modal/header)
+  * [modal.footer](nucleus-modal/footer)
+
+  Furthermore references to the following actions are yielded:
+  * `close`: triggers the `onClose` action and closes the modal
+  * `submit`: triggers the `onSubmit` action
+
+  @class Nucleus Modal
   @namespace Components
   @extends Ember.Component
   @public

@@ -2,7 +2,13 @@ import Modal from './nucleus-modal';
 import layout from '../templates/components/nucleus-confirm-dialog';
 
 /**
-  NucleusConfirmDialog Usage:
+  __Usage:__
+  [Refer component page](/docs/components/nucleus-confirm-dialog)
+
+  Furthermore references to the following actions are yielded:
+  * `close`: triggers the `onClose` action and closes the modal
+  * `submit`: triggers the `onSubmit` action
+
   @class NucleusConfirmDialog
   @namespace Components
   @extends Ember.Component
