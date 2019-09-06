@@ -1,93 +1,305 @@
 import { scheduleOnce } from '@ember/runloop';
 import Component from '@ember/component';
 import { observer, computed, get, set } from '@ember/object';
-import { equal, or }  from '@ember/object/computed';
+import { equal, or } from '@ember/object/computed';
 import layout from "../templates/components/nucleus-button";
 
+/**
+  NucleusButton Usage:
+  @class NucleusButton
+  @namespace Components
+  @extends Ember.Component
+  @public
+*/
 export default Component.extend({
   layout,
   tagName: 'button',
   classNames: ['btn'],
-  classNameBindings: ['active', 'block:btn-block', 'sizeClass', 'typeClass', 'customClass'],
+  classNameBindings: ['active', 'block:btn--block', 'sizeClass', 'typeClass', 'customClass'],
   attributeBindings: ['_disabled:disabled', '_buttonType:type', 'title', 'autofocus'],
-  
+
+  /**
+  * label
+  *
+  * @field label
+  * @type null
+  * @public
+  */
   label: null,
 
+  /**
+  * size
+  *
+  * @field size
+  * @type null
+  * @public
+  */
   size: null,
 
+  /**
+  * type
+  *
+  * @field type
+  * @type string
+  * @public
+  */
   type: 'primary',
 
+  /**
+  * _buttonType
+  *
+  * @field _buttonType
+  * @type string
+  * @private
+  */
   _buttonType: 'button',
 
+  /**
+  * active
+  *
+  * @field active
+  * @type boolean
+  * @public
+  */
   active: false,
 
+  /**
+  * autofocus
+  *
+  * @field autofocus
+  * @type boolean
+  * @public
+  */
   autofocus: false,
 
+  /**
+  * block
+  *
+  * @field block
+  * @type boolean
+  * @public
+  */
   block: false,
 
+  /**
+  * icon
+  *
+  * @field icon
+  * @type null
+  * @public
+  */
   icon: null,
 
+  /**
+  * customClass
+  *
+  * @field customClass
+  * @type null
+  * @public
+  */
   customClass: null,
 
+  /**
+  * disabled
+  *
+  * @field disabled
+  * @type null
+  * @public
+  */
   disabled: null,
 
-  _disabled: computed('disabled', 'isPending', 'preventConcurrency', function() {
+  /**
+  * _disabled
+  *
+  * @computed _disabled
+  * @private
+  */
+  _disabled: computed('disabled', 'isPending', 'preventConcurrency', function () {
     let isDisabled = get(this, 'disabled');
     return isDisabled ? isDisabled : get(this, 'isPending') && get(this, 'preventConcurrency');
   }),
 
+  /**
+  * value
+  *
+  * @field value
+  * @type null
+  * @public
+  */
   value: null,
 
+  /**
+  * preventConcurrency
+  *
+  * @field preventConcurrency
+  * @type boolean
+  * @public
+  */
   preventConcurrency: true,
 
+  /**
+  * state
+  *
+  * @field state
+  * @type string
+  * @public
+  */
   state: 'default',
 
+  /**
+  * isPending
+  *
+  * @field isPending
+  * @type function
+  * @public
+  */
   isPending: equal('state', 'pending'),
 
+  /**
+  * isFulfilled
+  *
+  * @field isFulfilled
+  * @type function
+  * @public
+  */
   isFulfilled: equal('state', 'fulfilled'),
-  
+
+  /**
+  * isRejected
+  *
+  * @field isRejected
+  * @type function
+  * @public
+  */
   isRejected: equal('state', 'rejected'),
 
+  /**
+  * isSettled
+  *
+  * @field isSettled
+  * @type function
+  * @public
+  */
   isSettled: or('isFulfilled', 'isRejected'),
 
+  /**
+  * pendingLabel
+  *
+  * @field pendingLabel
+  * @type undefined
+  * @public
+  */
   pendingLabel: undefined,
-  
+
+  /**
+  * successLabel
+  *
+  * @field successLabel
+  * @type undefined
+  * @public
+  */
   successLabel: undefined,
 
+  /**
+  * failureLabel
+  *
+  * @field failureLabel
+  * @type undefined
+  * @public
+  */
   failureLabel: undefined,
 
-
-  sizeClass: computed('size', function() {
+  /**
+  * sizeClass
+  *
+  * @computed sizeClass
+  * @private
+  */
+  sizeClass: computed('size', function () {
     let size = get(this, 'size');
-    return size ? `btn--${size}`: null;
+    return size ? `btn--${size}` : null;
   }),
 
-  typeClass: computed('type', function() {
+  /**
+  * typeClass
+  *
+  * @computed typeClass
+  * @private
+  */
+  typeClass: computed('type', function () {
     let type = get(this, 'type');
-    return (type) ? `btn--${get(this, 'type')}` : 'btn--primary';
+    return type ? `btn--${get(this, 'type')}` : 'btn--primary';
   }),
 
+  /**
+  * onClick
+  *
+  * @field onClick
+  * @type null
+  * @public
+  */
   onClick: null,
 
-  text: computed('state', 'label', 'pendingLabel', 'successLabel', 'failureLabel', function() {
+  /**
+  * text
+  *
+  * @computed text
+  * @private
+  */
+  text: computed('state', 'label', 'pendingLabel', 'successLabel', 'failureLabel', function () {
     let state = get(this, 'state');
-    return (state === 'default') ? get(this, 'label') : get(this, `${state}Text`);
+    return state === 'default' ? get(this, 'label') : get(this, `${state}Text`);
   }),
 
+  /**
+  * title
+  *
+  * @field title
+  * @type function
+  * @private
+  */
   title: computed.reads('text'),
 
+  /**
+  * reset
+  *
+  * @field reset
+  * @type null
+  * @private
+  */
   reset: null,
 
+  /**
+  * resetState
+  *
+  * @method resetState
+  * @public
+  *
+  */
   resetState() {
     set(this, 'state', 'default');
   },
 
-  resetObserver: observer('reset', function() {
+  /**
+  * resetObserver
+  *
+  * @field resetObserver
+  * @type function
+  * @public
+  */
+  resetObserver: observer('reset', function () {
     if (get(this, 'reset')) {
       scheduleOnce('actions', this, 'resetState');
     }
   }),
-  
+
+  /**
+  * click
+  *
+  * @method click
+  * @public
+  *
+  */
   click() {
     let action = get(this, 'onClick');
     let preventConcurrency = get(this, 'preventConcurrency');
@@ -97,7 +309,8 @@ export default Component.extend({
     }
 
     if (!preventConcurrency || !get(this, 'isPending')) {
-      let promise = (action)(get(this, 'value'));
+      let promise = action(get(this, 'value'));
+
       if (promise && typeof promise.then === 'function' && !get(this, 'isDestroyed')) {
         set(this, 'state', 'pending');
         promise.then(() => {
@@ -108,16 +321,24 @@ export default Component.extend({
           if (!get(this, 'isDestroyed')) {
             set(this, 'state', 'rejected');
           }
-        }
-        );
+        });
       }
     }
 
     return false;
   },
 
+  /**
+  * init
+  *
+  * @method init
+  * @public
+  *
+  */
   init() {
     this._super(...arguments);
+
     get(this, 'reset');
   }
+
 });

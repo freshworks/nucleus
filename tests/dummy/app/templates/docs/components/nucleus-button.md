@@ -62,7 +62,7 @@ Less Padding:
 Full-width button:
 {{#docs-demo as |demo|}}
   {{#demo.example name='nucleus-button-block.hbs'}}
-    {{nucleus-button label="click me" isBlock=true}}
+    {{nucleus-button label="click me" block=true}}
   {{/demo.example}}
   {{demo.snippet 'nucleus-button-block.hbs'}}
 {{/docs-demo}}
