@@ -37,15 +37,20 @@
 
   &__close {
     position: absolute;
-    top: 16px; // to offset the parent padding as per the design
-    right: 16px;
-    padding: 0;
+    top: 8px; // to offset the parent padding as per the design
+    right: 8px;
+    padding: 0 5px;
     margin: 0;
-    opacity: 0.5;
     transition: all 0.3s;
+    color: #12344D;
+    line-height: 1.5;
+    padding: 0 5px;
+    border-radius: 4px;
+    transition: background .3s;
 
-    &:hover {
-      opacity: 1;
+    &:hover,
+    &:focus {
+      background: #ebeff3;
     }
   }
 

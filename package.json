@@ -17,6 +17,7 @@
     "lint:hbs": "ember-template-lint .",
     "lint:js": "eslint .",
     "start": "ember serve -p 4003",
+    "deploy": "ember deploy production",
     "test": "COVERAGE=TRUE ember test",
     "test:all": "ember try:each"
   },
