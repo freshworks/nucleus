@@ -14,9 +14,10 @@ import layout from '../../templates/components/nucleus-modal/dialog';
 export default Component.extend({
   layout,
   classNames: ['nucleus-modal'],
-  attributeBindings: ['tabindex', 'aria-labelledby'],
+  attributeBindings: ['tabindex', 'aria-labelledby', 'aria-modal'],
   ariaRole: 'dialog',
   "aria-labelledby": readOnly('titleId'),
+  "aria-modal": true,
 
   /**
   * tabindex
