@@ -44,21 +44,39 @@
   {{demo.snippet "modal-demo-2-markup.hbs"}}
 {{/docs-demo}}
 
-## Styles
+## Keyboard Support
 
+__Tab__
+
+- Moves focus to next focusable element inside the dialog.
+- When focus is on the last focusable element in the dialog, moves focus to the first focusable element in the dialog.
+
+__Shift + Tab__
+
+- Moves focus to previous focusable element inside the dialog.
+- When focus is on the first focusable element in the dialog, moves focus to the last focusable element in the dialog.
+
+__Escape__ 
+
+Closes the dialog.
 
 
 ## Accessibility
 
-Since we're using the native HTML button element and requiring a label value to be provided, the component itself is accesible as it is.
+__role=dialog__
 
-If you are going to put an icon in the button, then you will need to set an aria-label property on the button:
+Identifies the element that serves as the dialog container.
 
-## Other Uses
+__aria-labelledby=IDREF__
 
-There are some other ways this component could be used:
+Gives the dialog an accessible name by referring to the element that provides the dialog title.
 
-- as a link
-- as a toggle button (supports the aria-pressed attribute)
+__aria-describedby=IDREF__ (optional)
+
+Gives the dialog an accessible description by referring to the dialog content that describes the primary message or purpose of the dialog.
+
+__aria-modal=true__ 
+
+Tells assistive technologies that the windows underneath the current dialog are not available for interaction (inert).
 
 {{docs-note}}
