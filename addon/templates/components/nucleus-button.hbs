@@ -1,10 +1,2 @@
 {{#if icon}}{{svg-jar icon class="icon" width="14px"}}{{/if}}
 {{text}}
-{{yield
-  (hash
-    isFulfilled=isFulfilled
-    isPending=isPending
-    isRejected=isRejected
-    isSettled=isSettled
-  )
-}}

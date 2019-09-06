@@ -114,9 +114,9 @@ export default Component.extend({
   * @computed _disabled
   * @private
   */
-  _disabled: computed('disabled', 'isPending', 'preventConcurrency', function () {
+  _disabled: computed('disabled', '_isPending', 'preventConcurrency', function () {
     let isDisabled = get(this, 'disabled');
-    return isDisabled ? isDisabled : get(this, 'isPending') && get(this, 'preventConcurrency');
+    return isDisabled ? isDisabled : get(this, '_isPending') && get(this, 'preventConcurrency');
   }),
 
   /**
@@ -147,40 +147,40 @@ export default Component.extend({
   state: 'default',
 
   /**
-  * isPending
+  * _isPending
   *
-  * @field isPending
+  * @field _isPending
   * @type function
-  * @public
+  * @private
   */
-  isPending: equal('state', 'pending'),
+  _isPending: equal('state', 'pending'),
 
   /**
-  * isFulfilled
+  * _isFulfilled
   *
-  * @field isFulfilled
+  * @field _isFulfilled
   * @type function
-  * @public
+  * @private
   */
-  isFulfilled: equal('state', 'fulfilled'),
+  _isFulfilled: equal('state', 'fulfilled'),
 
   /**
-  * isRejected
+  * _isRejected
   *
-  * @field isRejected
+  * @field _isRejected
   * @type function
-  * @public
+  * @private
   */
-  isRejected: equal('state', 'rejected'),
+  _isRejected: equal('state', 'rejected'),
 
   /**
-  * isSettled
+  * _isSettled
   *
-  * @field isSettled
+  * @field _isSettled
   * @type function
-  * @public
+  * @private
   */
-  isSettled: or('isFulfilled', 'isRejected'),
+  _isSettled: or('_isFulfilled', '_isRejected'),
 
   /**
   * pendingLabel
@@ -308,7 +308,7 @@ export default Component.extend({
       return;
     }
 
-    if (!preventConcurrency || !get(this, 'isPending')) {
+    if (!preventConcurrency || !get(this, '_isPending')) {
       let promise = action(get(this, 'value'));
 
       if (promise && typeof promise.then === 'function' && !get(this, 'isDestroyed')) {
