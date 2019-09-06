@@ -7,7 +7,7 @@ Simplest use case: a button with text in it, telling the user what to do.
 
 {{#docs-demo as |demo|}}
   {{#demo.example name="nucleus-button.hbs"}}
-    {{nucleus-button label="click me"}}
+    {{nucleus-button type="primary" label="Downloads"}}
   {{/demo.example}}
   {{demo.snippet 'nucleus-button.hbs'}}
 {{/docs-demo}}
@@ -16,7 +16,7 @@ Simplest use case: a button with text in it, telling the user what to do.
 Also supported- block use:
 {{#docs-demo as |demo|}}
   {{#demo.example name='nucleus-button-has-block.hbs'}}
-    {{#nucleus-button}}
+    {{#nucleus-button type="secondary"}}
       click me <span>🐹</span>
     {{/nucleus-button}}
   {{/demo.example}}
@@ -26,7 +26,9 @@ Also supported- block use:
 To toggle the 'disabled' property, set 'isDisabled' to true
 {{#docs-demo as |demo|}}
   {{#demo.example name='nucleus-button-disabled.hbs'}}
-    {{nucleus-button label="click me" isDisabled=true}}
+    {{#nucleus-button type="danger" disabled=true}}
+      Downloads
+    {{/nucleus-button}}
   {{/demo.example}}
   {{demo.snippet 'nucleus-button-disabled.hbs'}}
 {{/docs-demo}}
@@ -36,7 +38,7 @@ To toggle the 'disabled' property, set 'isDisabled' to true
 Outline button style:
 {{#docs-demo as |demo|}}
   {{#demo.example name='nucleus-button-light.hbs'}}
-    {{nucleus-button label="click me" isDark=false}}
+    {{nucleus-button label="click me" type="transparent"}}
   {{/demo.example}}
   {{demo.snippet 'nucleus-button-light.hbs'}}
 {{/docs-demo}}
