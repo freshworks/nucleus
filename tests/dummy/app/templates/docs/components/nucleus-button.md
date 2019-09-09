@@ -38,7 +38,7 @@ To toggle the 'disabled' property, set 'isDisabled' to true
 Outline button style:
 {{#docs-demo as |demo|}}
   {{#demo.example name='nucleus-button-light.hbs'}}
-    {{nucleus-button label="click me" type="transparent"}}
+    {{nucleus-button label="click me" type="link"}}
   {{/demo.example}}
   {{demo.snippet 'nucleus-button-light.hbs'}}
 {{/docs-demo}}
