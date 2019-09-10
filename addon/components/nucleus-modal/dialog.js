@@ -3,6 +3,7 @@ import { computed, get, set } from '@ember/object';
 import { readOnly } from '@ember/object/computed';
 import { isBlank } from '@ember/utils';
 import layout from '../../templates/components/nucleus-modal/dialog';
+import scroll from "../../mixins/scroll";
 
 /**
   Dialog Usage:
@@ -11,7 +12,7 @@ import layout from '../../templates/components/nucleus-modal/dialog';
   @extends Ember.Component
   @public
 */
-export default Component.extend({
+export default Component.extend(scroll, {
   layout,
   classNames: ['nucleus-modal'],
   attributeBindings: ['tabindex', 'aria-labelledby', 'aria-modal'],
@@ -106,9 +107,28 @@ export default Component.extend({
     }
   },
 
+  scrolled: function() {
+    const modalNode = this.get('element');
+    if(modalNode) {
+      const titleNode = modalNode.querySelector('.nucleus-modal__header');
+      const contentNode = modalNode.querySelector('.nucleus-modal__content');
+      if (titleNode && contentNode && contentNode.offsetTop > 58) {
+        titleNode.classList.add('sticky');
+      } else {
+        titleNode.classList.remove('sticky');
+      }
+    }
+  },
+
   didInsertElement() {
     this._super(...arguments);
     this.getOrSetTitleId();
+    this.bindScrolling('.nucleus-modal__content');
   },
+
+  willDestroyElement() {
+    this._super(...arguments);
+    this.unbindScrolling();
+  }
 
 });

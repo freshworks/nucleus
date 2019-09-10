@@ -13,6 +13,7 @@ export default Component.extend({
   layout,
   tagName: 'form',
   classNames: ['nucleus-modal__footer'],
+  classNameBindings: ['isSticky:sticky'],
 
   /**
   * closeTitle
@@ -22,6 +23,15 @@ export default Component.extend({
   * @public
   */
   closeTitle: null,
+
+  /**
+  * isSticky
+  *
+  * @field isSticky
+  * @type boolean
+  * @public
+  */
+ isSticky: true,
 
   /**
   * hasCloseButton

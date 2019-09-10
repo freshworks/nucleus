@@ -221,13 +221,13 @@ export default Component.extend({
 
     let modalEl = get(this, "modalElement");
     if(modalEl) {
-      modalEl.style.display = "none";
+      // modalEl.style.display = "none";
     }
 
     this.handleBackdrop(() => {
       let backdropEl = get(this, "backdropElement");
       if (backdropEl) {
-        backdropEl.style.display = "none";
+        // backdropEl.style.display = "none";
       }
     });
   },
@@ -297,16 +297,16 @@ export default Component.extend({
     }
   }),
 
-  init() {
-    this._super(...arguments);
-    this.attachEventHandlers();
-  },
-
   didRender() {
     this._super(...arguments);
     run.next(() => {
       this._takeFocus();
     });
+  },
+
+  didInsertElement: function() {
+    this._super(...arguments);
+    this.attachEventHandlers();
   },
 
   willDestroyElement() {
