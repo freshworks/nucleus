@@ -4,16 +4,17 @@
       id=modalId
       onClose=(action "close")
       onSubmit=(action "submit")
-      keyboard=keyboard
       size=size
+      keyboard=isDismissible
     }}
       {{nucleus-modal/header
         title=title
-        closeButton=closeButton
+        closeButton=isDismissible
         onClose=(action "close")}}
       {{#nucleus-modal/body}}{{yield}}{{/nucleus-modal/body}}
       {{nucleus-modal/footer
         type=type
+        isSticky=false
         closeTitle=closeTitle
         submitTitle=submitTitle
         onClose=(action "close")

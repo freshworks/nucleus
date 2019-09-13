@@ -54,6 +54,15 @@ export default Component.extend({
   backdrop: true,
 
   /**
+  * Flag to enable or disable dismiss option. `false` hides the close button and disables close on Escape.
+  *
+  * @field isDismissible
+  * @type boolean
+  * @public
+  */
+ isDismissible: true,
+
+  /**
   * _showBackdrop
   *
   * @field _showBackdrop
@@ -61,15 +70,6 @@ export default Component.extend({
   * @private
   */
   _showBackdrop: computed.reads("backdrop"),
-
-  /**
-  * Flag to close the modal on escape.
-  *
-  * @field keyboard
-  * @type boolean
-  * @public
-  */
-  keyboard: true,
 
   /**
   * Modal sizes: `small`, `medium` & `large`

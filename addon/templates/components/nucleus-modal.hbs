@@ -4,14 +4,14 @@
       id=modalId
       onClose=(action "close")
       onSubmit=(action "submit")
-      keyboard=keyboard
       size=size
+      keyboard=isDismissible
     }}
       {{yield
         (hash
           header=(component "nucleus-modal/header"
                   title=title
-                  closeButton=closeButton
+                  closeButton=isDismissible
                   onClose=(action "close"))
           body=(component "nucleus-modal/body")
           footer=(component "nucleus-modal/footer"
