@@ -1,0 +1,27 @@
+name: CD
+
+on: 
+  push:
+    branches:
+    - master
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    
+    - name: Set Node.js 10.x
+      uses: actions/setup-node@master
+      with:
+        version: 10.x
+
+    - name: Install dependencies
+      run: yarn
+
+    - name: Build documentation
+      run: npm run build
+      
+    - name: Publish to Github
+      run: npm run deploy
