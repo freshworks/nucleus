@@ -23,10 +23,8 @@ jobs:
     - name: npm test
       run: npm test
   lint:
-    name: Linter
+    name: Lint
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
-      
-      - name: ESLint checks
-        uses: gimenete/eslint-action@1.0
+      - uses: actions/checkout@v1.0.0
+      - uses: max/awesome-lint@v2.0.0
