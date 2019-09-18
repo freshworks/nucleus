@@ -17,13 +17,13 @@ jobs:
       with:
         version: 10.x
 
-    - name: npm install
-      run: npm install
+    - name: Install dependencies
+      run: yarn
 
-    - name: npm test
+    - name: Run test suite
       run: npm test
   lint:
-    name: Lint
+    name: Linter
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1.0.0
