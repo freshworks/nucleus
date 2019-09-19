@@ -143,7 +143,7 @@ export default Component.extend(scroll, {
     const modalNode = this.get('element');
     if(modalNode) {
       const titleNode = modalNode.querySelector('.nucleus-modal__header');
-      const contentNode = modalNode.querySelector('.nucleus-modal__dialog');
+      const contentNode = modalNode.querySelector('.nucleus-modal__body');
       if (titleNode && contentNode && contentNode.scrollTop > titleNode.offsetHeight) {
         titleNode.classList.add('sticky');
       } else {
@@ -155,7 +155,7 @@ export default Component.extend(scroll, {
   didInsertElement() {
     this._super(...arguments);
     this.getOrSetTitleId();
-    this.bindScrolling('.nucleus-modal__dialog');
+    this.bindScrolling('.nucleus-modal__body');
   },
 
   willDestroyElement() {

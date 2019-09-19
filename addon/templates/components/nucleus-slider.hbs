@@ -4,7 +4,7 @@
       id=modalId
       onClose=(action "close")
       onSubmit=(action "submit")
-      size="full"
+      size="slider"
       position=position
       animationClass="slide-right"
       keyboard=isDismissible
@@ -13,6 +13,7 @@
         (hash
           header=(component "nucleus-modal/header"
                   title=title
+                  position=position
                   closeButton=isDismissible
                   onClose=(action "close"))
           body=(component "nucleus-modal/body")

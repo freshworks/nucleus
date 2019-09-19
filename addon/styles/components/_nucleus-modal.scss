@@ -28,7 +28,6 @@
 
   &__dialog {
     max-height: 70vh;
-    overflow-y: auto;
     max-width: 512px;
     margin: auto;
     background: #fff;
@@ -44,7 +43,8 @@
       max-width: 424px;
     }
 
-    &--full {
+    &--slider {
+      max-width: 600px;
       max-height: 100vh;
       border-radius: 0;
     }
@@ -71,6 +71,7 @@
     font-size: 0.875rem;
     position: relative;
     flex: 1 1 auto;
+    overflow-y: auto;
   }
 
   &__footer {
@@ -102,6 +103,13 @@
     &:hover,
     &:focus {
       background: #ebeff3;
+    }
+
+    &.right {
+      top: 0;
+      left: -24px;
+      background: #fff;
+      border-radius: 0 0 0 2px;
     }
   }
 
