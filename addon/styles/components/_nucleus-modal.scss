@@ -8,28 +8,46 @@
   overflow: hidden;
   outline: 0;
   display: flex;
-  align-items: center;
-  justify-content: center;
+
+  &--center {
+    align-items: center;
+    justify-content: center;
+  }
+
+  &--right {
+    align-items: flex-end;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  &--left {
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
 
   &__dialog {
-    z-index: 501;
+    max-height: 70vh;
+    overflow-y: auto;
     max-width: 512px;
     margin: auto;
     background: #fff;
     border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+
+    &--large {
+      max-width: 800px;
+    }
 
     &--small {
       max-width: 424px;
     }
 
-    &--large {
-      max-width: 800px;
+    &--full {
+      max-height: 100vh;
+      border-radius: 0;
     }
-  }
-
-  &__content {
-    max-height: 70vh;
-    overflow-y: auto;
   }
 
   &__header {
@@ -42,6 +60,7 @@
     &.sticky {
       position: sticky;
       top: 0;
+      z-index: 9;
       padding: 16px 32px;
       box-shadow: 0 2px 4px 0 rgba(18, 52, 77, .08);
     }
@@ -50,6 +69,8 @@
   &__body {
     padding: 16px 32px;
     font-size: 0.875rem;
+    position: relative;
+    flex: 1 1 auto;
   }
 
   &__footer {

@@ -15,6 +15,7 @@ import scroll from "../../mixins/scroll";
 export default Component.extend(scroll, {
   layout,
   classNames: ['nucleus-modal'],
+  classNameBindings: ['positionClass'],
   attributeBindings: ['tabindex', 'aria-labelledby', 'aria-modal'],
   ariaRole: 'dialog',
   "aria-labelledby": readOnly('titleId'),
@@ -28,6 +29,15 @@ export default Component.extend(scroll, {
   * @private
   */
   tabindex: '-1',
+
+  /**
+  * animation class
+  *
+  * @field animationClass
+  * @type string
+  * @private
+  */
+ animationClass: 'slide-down',
 
   /**
   * keyboard
@@ -57,6 +67,28 @@ export default Component.extend(scroll, {
   sizeClass: computed('size', function () {
     let size = get(this, 'size');
     return isBlank(size) ? null : `nucleus-modal__dialog--${size}`;
+  }).readOnly(),
+
+  /**
+  * Modal position: `center`, `left` & `right`
+  *
+  * @property position
+  * @type string
+  * @default center
+  * @public
+  */
+  position: 'center',
+
+  /**
+   * positionClass
+   *
+   * @field positionClass
+   * @type function
+   * @private
+   */
+  positionClass: computed('position', function () {
+    let position = get(this, 'position');
+    return isBlank(position) ? null : `nucleus-modal--${position}`;
   }).readOnly(),
 
   /**
@@ -111,8 +143,8 @@ export default Component.extend(scroll, {
     const modalNode = this.get('element');
     if(modalNode) {
       const titleNode = modalNode.querySelector('.nucleus-modal__header');
-      const contentNode = modalNode.querySelector('.nucleus-modal__content');
-      if (titleNode && contentNode && contentNode.offsetTop > 58) {
+      const contentNode = modalNode.querySelector('.nucleus-modal__dialog');
+      if (titleNode && contentNode && contentNode.scrollTop > titleNode.offsetHeight) {
         titleNode.classList.add('sticky');
       } else {
         titleNode.classList.remove('sticky');
@@ -123,7 +155,7 @@ export default Component.extend(scroll, {
   didInsertElement() {
     this._super(...arguments);
     this.getOrSetTitleId();
-    this.bindScrolling('.nucleus-modal__content');
+    this.bindScrolling('.nucleus-modal__dialog');
   },
 
   willDestroyElement() {

@@ -4,21 +4,6 @@ import { get, set } from '@ember/object';
 export default Mixin.create({
   onScroll: null,
   domElement: null,
-  // Not using Ember run.debounce since it returns an `Array` but we need a `function` for event binding.
-  debounce: function(func, wait, immediate) {
-    var timeout;
-    return function() {
-      var context = this, args = arguments;
-      var later = function() {
-        timeout = null;
-        if (!immediate) func.apply(context, args);
-      };
-      var callNow = immediate && !timeout;
-      clearTimeout(timeout);
-      timeout = setTimeout(later, wait);
-      if (callNow) func.apply(context, args);
-    };
-  },
 
   bindScrolling: function(element) {
     let onScrollFn;
@@ -27,8 +12,8 @@ export default Mixin.create({
     onScrollFn = () => { 
         return this.scrolled(); 
     };
-    set(this, 'onScroll', this.debounce(onScrollFn, 100, true));
-    
+    set(this, 'onScroll', onScrollFn);
+
     let scrollElement = get(this, 'domElement');
     scrollElement && scrollElement.addEventListener('scroll', get(this, 'onScroll'));
   },
