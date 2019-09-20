@@ -5,7 +5,6 @@
   ],
   "rules": {
     "number-leading-zero": "never",
-    "order/properties-alphabetical-order": false,
     "at-rule-no-unknown": null
   }
 }

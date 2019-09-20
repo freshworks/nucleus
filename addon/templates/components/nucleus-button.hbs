@@ -1,9 +1,5 @@
-{{#if label}}
-  <button aria-label={{label}} class="btn btn--primary" disabled={{isDisabled}}>
-    {{label}}
-  </button>
-{{else}}
-  <button aria-label="nucleus-button" class="nucleus-button">
-    {{yield}}
-  </button>
+{{#if icon}}{{svg-jar icon class="icon" width="14px"}}{{/if}}
+{{text}}
+{{#if hasBlock}}
+  {{yield}}
 {{/if}}
