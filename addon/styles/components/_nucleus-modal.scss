@@ -120,8 +120,7 @@
     bottom: 0;
     left: 0;
     z-index: 500;  // since other app elements like app-header and app-sidebar have z-index till 9
-    background-color: #647a8e;
-    opacity: 0.8;
+    background-color: rgba(0, 0, 0, 0.5);
   }
 
   &--open {

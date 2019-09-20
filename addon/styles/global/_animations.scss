@@ -1,11 +1,10 @@
 .fade-enter {
   opacity: 0;
-  will-change: opacity;
 }
 
 .fade-enter.fade-enter-active {
   opacity: 1;
-  transition: opacity 100ms linear;
+  transition: opacity 100ms ease-in-out;
 }
 
 .fade-leave {
@@ -14,19 +13,18 @@
 
 .fade-leave.fade-leave-active {
   opacity: 0;
-  transition: opacity 100ms linear;
+  transition: opacity 100ms ease-in-out;
 }
 
 .slide-down-enter {
   opacity: 0;
   transform: translate3d(0, -10%, 0);
-  will-change: transform;
 }
 
 .slide-down-enter.slide-down-enter-active {
   opacity: 1;
   transform: translate3d(0, 0, 0);
-  transition: all 100ms linear;
+  transition: all 100ms ease-in-out;
 }
 
 .slide-down-leave {
@@ -37,19 +35,18 @@
 .slide-down-leave.slide-down-leave-active {
   opacity: 0;
   transform: translate3d(0, -10%, 0);
-  transition: all 100ms linear;
+  transition: all 100ms ease-in-out;
 }
 
 .slide-right-enter {
   opacity: 0;
-  transform: translate3d(25%, 0, 0);
-  will-change: transform;
+  transform: translate3d(100%, 0, 0);
 }
 
 .slide-right-enter.slide-right-enter-active {
   opacity: 1;
   transform: translate3d(0, 0, 0);
-  transition: all 100ms linear;
+  transition: all 100ms ease-in-out;
 }
 
 .slide-right-leave {
@@ -59,6 +56,6 @@
 
 .slide-right-leave.slide-right-leave-active {
   opacity: 0;
-  transform: translate3d(25%, 0, 0);
-  transition: all 100ms linear;
+  transform: translate3d(100%, 0, 0);
+  transition: all 100ms ease-in-out;
 }

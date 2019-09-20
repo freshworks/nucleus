@@ -33,7 +33,7 @@ export default Component.extend({
   * @readonly
   * @public
   */
-  open: false,
+  open: true,
 
   /**
   * isOpen
@@ -42,7 +42,24 @@ export default Component.extend({
   * @type function
   * @private
   */
-  isOpen: computed.reads("open"),
+  isOpen: computed("open", {
+    get() {
+      return get(this, "open");
+    },
+    set(key, value) { // eslint-disable-line no-unused-vars
+      return value;
+    }
+  }),
+
+  /**
+  * Private flag to prevent multiple show/hide calls
+  *
+  * @field _isOpen
+  * @type boolean
+  * @default false
+  * @private
+  */
+  _isOpen: false,
 
   /**
   * Flag to show or hide the translucent backdrop.
@@ -60,7 +77,7 @@ export default Component.extend({
   * @type boolean
   * @public
   */
- isDismissible: true,
+  isDismissible: true,
 
   /**
   * _showBackdrop
@@ -120,9 +137,9 @@ export default Component.extend({
   * @type string
   * @private
   */
- backdropId: computed('elementId', function() {
-  return `nucleus-modal-backdrop-${this.get('elementId')}`;
-}),
+  backdropId: computed('elementId', function() {
+    return `nucleus-modal-backdrop-${this.get('elementId')}`;
+  }),
 
   /**
   * backdropElement
@@ -134,6 +151,7 @@ export default Component.extend({
   backdropElement: computed("backdropId", function () {
     return document.getElementById(get(this, "backdropId"));
   }).volatile(),
+
   actions: {
     /**
     * close
@@ -158,11 +176,10 @@ export default Component.extend({
     */
     submit() {
       if (get(this, 'onSubmit')) {
-        get(this, 'onSubmit')()
+        get(this, 'onSubmit')();
       }
       this.send('close');
     }
-
   },
 
   /**
@@ -193,20 +210,11 @@ export default Component.extend({
   *
   */
   _show() {
+    if (get(this, "_isOpen")) {
+      return;
+    }
+    set(this, "_isOpen", true);
     document.body.classList.add("nucleus-modal--open");
-
-    let modalEl = get(this, "modalElement");
-    if (modalEl) {
-      modalEl.style.display = "block";
-      modalEl.scrollTop = 0;
-    } 
-
-    this.handleBackdrop(() => {
-      let backdropEl = get(this, "backdropElement");
-      if (backdropEl) {
-        backdropEl.style.display = "block";
-      }
-    });
   },
 
   /**
@@ -217,19 +225,11 @@ export default Component.extend({
   *
   */
   _hide() {
-    document.body.classList.remove("nucleus-modal--open");
-
-    let modalEl = get(this, "modalElement");
-    if(modalEl) {
-      // modalEl.style.display = "none";
+    if (!get(this, "_isOpen")) {
+      return;
     }
-
-    this.handleBackdrop(() => {
-      let backdropEl = get(this, "backdropElement");
-      if (backdropEl) {
-        // backdropEl.style.display = "none";
-      }
-    });
+    set(this, "_isOpen", false);
+    document.body.classList.remove("nucleus-modal--open");
   },
 
   /**
@@ -284,8 +284,9 @@ export default Component.extend({
   loopFocus(event) {
     let modalEl = get(this, "modalElement");
 
-    if (event && document !== event.target && modalEl && modalEl !== event.target && !modalEl.contains(event.target)) {
-      this._takeFocus();
+    if (event && modalEl && modalEl !== event.target && !modalEl.contains(event.target)) {
+      event.preventDefault();
+      this._takeFocus(event);
     }
   },
 

@@ -15,7 +15,7 @@
     {{#if isSubmitSuccess}}
     <p>Next callback success</p>
     {{/if}}
-    {{#nucleus-modal size="large" open=isModal1 isDismissible=false onSubmit=(action (mut isSubmitSuccess) true) onClose=(action (mut isModal1)) as |modal|}}
+    {{#nucleus-modal size="large" open=isModal1 onSubmit=(action (mut isSubmitSuccess) true) onClose=(action (mut isModal1 false)) as |modal|}}
       {{modal.header title="Title"}}
       {{#modal.body}}
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Adipiscing diam donec adipiscing tristique risus nec. Ullamcorper morbi tincidunt ornare massa eget egestas. Vestibulum lectus mauris ultrices eros in cursus. Justo laoreet sit amet cursus. Mi quis hendrerit dolor magna eget est lorem ipsum dolor. In mollis nunc sed id semper risus in. Et pharetra pharetra massa massa ultricies mi quis. A scelerisque purus semper eget duis at tellus. Duis convallis convallis tellus id. Cursus vitae congue mauris rhoncus aenean vel elit. Phasellus egestas tellus rutrum tellus pellentesque eu tincidunt tortor aliquam. Leo a diam sollicitudin tempor. Velit laoreet id donec ultrices tincidunt. Et magnis dis parturient montes nascetur ridiculus. Massa enim nec dui nunc. Feugiat sed lectus vestibulum mattis. Ac tincidunt vitae semper quis lectus nulla at volutpat.</p>
@@ -36,7 +36,7 @@
     <button onclick={{action (mut isModal2 true)}} class="docs-btn">
       Click here to open confirmation dialog
     </button>
-    {{#nucleus-confirm-dialog open=isModal2 type="danger" title="Account cancellation" onClose=(action (mut isModal2) false)}}
+    {{#nucleus-confirm-dialog open=isModal2 isDismissible=false type="danger" title="Account cancellation" onClose=(action (mut isModal2) false)}}
       <p>Your account will be cancelled in <b>7 days</b> on <b>July 4, 2019</b>. Your account and data will be irrevocably deleted two weeks later.</p>
     {{/nucleus-confirm-dialog}}
   {{/demo.example}}
