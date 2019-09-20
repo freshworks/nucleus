@@ -5,11 +5,12 @@
 }
 
 :root {
-  --brand-primary: #12344d;
+  --brand-primary: #2c5cc5;
 }
 
 .docs-bg-code-base {
   background: #12344d;
+  font-size: .875rem;
 }
 
 .docs-shadow {
@@ -26,7 +27,12 @@
 }
 
 .docs-list-reset .docs-capitalize {
-  color: #475867;
+  font-size: .875rem;
   font-weight: 500;
   text-transform: uppercase;
+}
+
+.docs-md p,
+.docs-md ul {
+  font-size: .875rem;
 }

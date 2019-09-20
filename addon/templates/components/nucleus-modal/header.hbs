@@ -1,0 +1,14 @@
+{{#if closeButton}}
+  <button autofocus
+  type="button"
+  onclick={{action onClose}}
+  class="nucleus-modal__close {{position}}"
+  aria-label="Close button">
+    {{svg-jar "close" class="icon" width="14px"}}
+  </button>
+{{/if}}
+{{#if hasBlock}}
+  {{yield}}
+{{else}}
+  <h4 class="nucleus-modal__title">{{title}}</h4>
+{{/if}}

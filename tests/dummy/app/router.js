@@ -12,6 +12,7 @@ Router.map(function() {
 
     this.route("components", function() {
       this.route("nucleus-button");
+      this.route("nucleus-modal");
     });
 
     this.route('not-found', { path: '/*path' });

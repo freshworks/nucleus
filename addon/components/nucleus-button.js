@@ -340,5 +340,4 @@ export default Component.extend({
 
     get(this, 'reset');
   }
-
 });

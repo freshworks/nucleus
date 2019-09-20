@@ -1,0 +1,130 @@
+.nucleus-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2147483638;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  outline: 0;
+  display: flex;
+
+  &--center {
+    align-items: center;
+    justify-content: center;
+  }
+
+  &--right {
+    align-items: flex-end;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  &--left {
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  &__dialog {
+    max-height: 70vh;
+    max-width: 512px;
+    margin: auto;
+    background: #fff;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+
+    &--large {
+      max-width: 800px;
+    }
+
+    &--small {
+      max-width: 424px;
+    }
+
+    &--slider {
+      max-width: 600px;
+      max-height: 100vh;
+      border-radius: 0;
+    }
+  }
+
+  &__header {
+    padding: 32px 32px 0;
+    position: relative;
+    background: #fff;
+    border-radius: 4px 4px 0 0;
+    transition: all 0.1s linear;
+
+    &.sticky {
+      position: sticky;
+      top: 0;
+      z-index: 9;
+      padding: 16px 32px;
+      box-shadow: 0 2px 4px 0 rgba(18, 52, 77, .08);
+    }
+  }
+
+  &__body {
+    padding: 16px 32px;
+    font-size: 0.875rem;
+    position: relative;
+    flex: 1 1 auto;
+    overflow-y: auto;
+  }
+
+  &__footer {
+    text-align: right;
+    padding: 16px 32px;
+    background-color: #f5f7f9;
+    border-radius: 0 0 4px 4px;
+
+    &.sticky {
+      position: sticky;
+      bottom: 0;
+      box-shadow: 0 -2px 16px 0 rgba(18, 52, 77, .16);
+    }
+  }
+
+  &__close {
+    position: absolute;
+    top: 8px; // to offset the parent padding as per the design
+    right: 8px;
+    padding: 0 5px;
+    margin: 0;
+    transition: all 0.3s;
+    color: #12344D;
+    line-height: 1.5;
+    padding: 0 5px;
+    border-radius: 4px;
+    transition: background .3s;
+
+    &:hover,
+    &:focus {
+      background: #ebeff3;
+    }
+
+    &.right {
+      top: 0;
+      left: -24px;
+      background: #fff;
+      border-radius: 0 0 0 2px;
+    }
+  }
+
+  &__backdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 500;  // since other app elements like app-header and app-sidebar have z-index till 9
+    background-color: #647a8e;
+    opacity: 0.8;
+  }
+
+  &--open {
+    overflow: hidden;
+  }
+}
