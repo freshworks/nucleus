@@ -12,18 +12,7 @@ Simplest use case: a button with text in it, telling the user what to do.
   {{demo.snippet 'nucleus-button.hbs'}}
 {{/docs-demo}}
 
-
-Also supported- block use:
-{{#docs-demo as |demo|}}
-  {{#demo.example name='nucleus-button-has-block.hbs'}}
-    {{#nucleus-button type="secondary"}}
-      click me <span>🐹</span>
-    {{/nucleus-button}}
-  {{/demo.example}}
-  {{demo.snippet 'nucleus-button-has-block.hbs'}}
-{{/docs-demo}}
-
-To toggle the 'disabled' property, set 'isDisabled' to true
+To toggle the 'disabled' property, set 'disabled' to true
 {{#docs-demo as |demo|}}
   {{#demo.example name='nucleus-button-disabled.hbs'}}
     {{#nucleus-button type="danger" disabled=true}}
@@ -46,15 +35,15 @@ Outline button style:
 Smaller button:
 {{#docs-demo as |demo|}}
   {{#demo.example name='nucleus-button-tiny.hbs'}}
-    {{nucleus-button label="click me" isTiny=true}}
+    {{nucleus-button label="click me" size="mini"}}
   {{/demo.example}}
   {{demo.snippet 'nucleus-button-tiny.hbs'}}
 {{/docs-demo}}
 
-Less Padding:
+Icon buttons:
 {{#docs-demo as |demo|}}
   {{#demo.example name='nucleus-button-dense.hbs'}}
-    {{nucleus-button label="click me" isDark=true isDense=true}}
+    {{nucleus-button icon="close" size="mini" type="secondary"}}
   {{/demo.example}}
   {{demo.snippet 'nucleus-button-dense.hbs'}}
 {{/docs-demo}}

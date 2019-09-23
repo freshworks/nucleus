@@ -91,24 +91,11 @@
     position: absolute;
     top: 8px; // to offset the parent padding as per the design
     right: 8px;
-    padding: 0 5px;
-    margin: 0;
-    transition: all 0.3s;
-    color: #12344D;
-    line-height: 1.5;
-    padding: 0 5px;
-    border-radius: 4px;
-    transition: background .3s;
-
-    &:hover,
-    &:focus {
-      background: #ebeff3;
-    }
+    transition: all .3s;
 
     &.right {
       top: 0;
       left: -24px;
-      background: #fff;
       border-radius: 0 0 0 2px;
     }
   }

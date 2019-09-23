@@ -337,7 +337,6 @@ export default Component.extend({
   */
   init() {
     this._super(...arguments);
-
     get(this, 'reset');
   }
 });

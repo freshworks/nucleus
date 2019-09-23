@@ -1,7 +1,8 @@
 {{#if closeButton}}
   {{nucleus-button
     autofocus=true
-    type="link"
+    type=closeButtonType
+    size="mini"
     customClass=(concat "nucleus-modal__close " position)
     icon="close"
     onClick=(action onClose)}}
