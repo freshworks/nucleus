@@ -2,21 +2,17 @@
   {{yield}}
 {{else}}
   {{#if hasSubmitButton}}
-    <button autofocus type="button"
-    disabled={{submitDisabled}}
-    class="btn {{_buttonType}}"
-    data-test-id="nucleus-submit-button"
-    onClick={{action onSubmit}}>
-      {{submitTitle}}
-    </button>
+    {{nucleus-button
+      autofocus=true
+      disabled=submitDisabled
+      type=type
+      label=submitTitle
+      onClick=(action onSubmit)}}
   {{/if}}
   {{#if hasCloseButton}}
-    <button type="button"
-      class="btn btn--secondary"
-      name="button"
-      onClick={{action onClose}}
-      data-test-id="nucleus-close-button">
-      {{closeTitle}}
-    </button>
+    {{nucleus-button
+      type="secondary"
+      label=closeTitle
+      onClick=(action onClose)}}
   {{/if}}
 {{/if}}

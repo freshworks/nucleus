@@ -79,16 +79,6 @@ export default Component.extend({
   type: 'primary',
 
   /**
-  * _buttonType
-  *
-  * @computed _buttonType
-  * @private
-  */
-  _buttonType: computed('type', function () {
-    return get(this, 'type') ? `btn--${get(this, 'type')}` : 'btn--primary';
-  }),
-
-  /**
    * The action to send to the parent modal component when the modal footer's form is submitted
    *
    * @event onSubmit
