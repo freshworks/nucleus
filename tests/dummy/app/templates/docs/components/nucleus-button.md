@@ -15,7 +15,7 @@ Simplest use case: a button with text in it, telling the user what to do.
 To toggle the 'disabled' property, set 'disabled' to true
 {{#docs-demo as |demo|}}
   {{#demo.example name='nucleus-button-disabled.hbs'}}
-    {{#nucleus-button type="danger" disabled=true}}
+    {{#nucleus-button type="primary" disabled=true}}
       Downloads
     {{/nucleus-button}}
   {{/demo.example}}
@@ -27,6 +27,9 @@ To toggle the 'disabled' property, set 'disabled' to true
 Outline button style:
 {{#docs-demo as |demo|}}
   {{#demo.example name='nucleus-button-light.hbs'}}
+    {{nucleus-button label="click me"}}
+    {{nucleus-button label="click me" type="secondary"}}
+    {{nucleus-button label="click me" type="danger"}}
     {{nucleus-button label="click me" type="link"}}
   {{/demo.example}}
   {{demo.snippet 'nucleus-button-light.hbs'}}

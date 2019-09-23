@@ -1,47 +1,51 @@
+//=== Button Style ===//
+$btn-primary-color: white !default;
+$btn-primary-bg: $color-elephant-800 !default;
+$btn-primary-bg-dark: $color-elephant-900 !default;
+$btn-primary-border: $color-elephant-900 !default;
+$btn-primary-border-active: $color-elephant-800 !default;
+//=== Button Style===//
+
 .btn {
-  font-size: 14px;
+  font-size: $font-size-14;
   padding: 7px 12px;
-  border: none;
+  border: 1px solid transparent;
   border-radius: 4px;
   outline: 0;
-  color: #fff;
-  transition: all .1s linear;
+  color: $btn-primary-color;
+  transition: all .2s linear;
   letter-spacing: .3px;
-  font-weight: 500;
+  font-weight: $font-weight-500;
 
   &:focus {
-    border: 1px solid #2e6ed8;
-    box-shadow: 0 0 0 1px #2e6ed8;
+    border: 1px solid $color-azure-800;
+    box-shadow: 0 0 0 1px $color-azure-800;
     outline: none;
   }
 }
 
 .btn--primary {
-  background-color: #264966;
-  border: 1px solid #12344d;
-  background-image: linear-gradient(to bottom, #264966, #12344d);
+  background-color: $btn-primary-bg;
+  color: $btn-primary-color;
+  border: 1px solid $btn-primary-border;
+  background-image: linear-gradient(to bottom, $btn-primary-bg, $btn-primary-bg-dark);
 
   &:active {
-    border: 1px solid #264966;
-    box-shadow: inset 0 0 4px 0 rgba(0, 0, 0, .26);
-  }
-
-  &:focus {
-    background-color: #174262;
-    border: 1px solid #174262;
+    border: 1px solid $btn-primary-border-active;
+    box-shadow: inset 0 0 4px 0 rgba(0, 0, 0, .25);
   }
 
   &:hover:not([disabled]) {
-    background-color: #12344d;
+    background-color: $btn-primary-bg-dark;
     background-image: none;
   }
 
   &.disabled,
   &[disabled] {
     cursor: not-allowed;
-    color: #f3f5f7;
-    border: 1px solid #8899a6;
-    background-image: linear-gradient(to bottom, #92a4b2, #8899a6);
+    color: darken($btn-primary-color, 5%);
+    border: 1px solid desaturate($btn-primary-border, 30%);
+    background-image: linear-gradient(to bottom, desaturate($btn-primary-bg, 30%), desaturate($btn-primary-bg-dark, 30%));
   }
 }
 
