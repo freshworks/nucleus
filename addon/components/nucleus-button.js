@@ -189,7 +189,7 @@ export default Component.extend({
   * @type undefined
   * @public
   */
-  pendingLabel: undefined,
+  pendingLabel: "Pending...",
 
   /**
   * successLabel
@@ -198,7 +198,7 @@ export default Component.extend({
   * @type undefined
   * @public
   */
-  successLabel: undefined,
+  successLabel: "Success!",
 
   /**
   * failureLabel
@@ -207,7 +207,7 @@ export default Component.extend({
   * @type undefined
   * @public
   */
-  failureLabel: undefined,
+  failureLabel: "Failed!",
 
   /**
   * sizeClass
@@ -248,7 +248,7 @@ export default Component.extend({
   */
   text: computed('state', 'label', 'pendingLabel', 'successLabel', 'failureLabel', function () {
     let state = get(this, 'state');
-    return state === 'default' ? get(this, 'label') : get(this, `${state}Text`);
+    return state === 'default' ? get(this, 'label') : get(this, `${state}Label`);
   }),
 
   /**
