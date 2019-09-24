@@ -4,6 +4,22 @@ $btn-primary-bg: $color-elephant-800 !default;
 $btn-primary-bg-dark: $color-elephant-900 !default;
 $btn-primary-border: $color-elephant-900 !default;
 $btn-primary-border-active: $color-elephant-800 !default;
+
+$btn-secondary-color: $text-default !default;
+$btn-secondary-bg: white !default;
+$btn-secondary-bg-dark: $color-smoke-25 !default;
+$btn-secondary-border: $border-color !default;
+$btn-secondary-border-active: $color-smoke-50 !default;
+
+$btn-danger-color: white !default;
+$btn-danger-bg: $color-persimmon-800 !default;
+$btn-danger-bg-dark: $color-persimmon-900 !default;
+$btn-danger-border: $color-persimmon-900 !default;
+
+$btn-link-color: $color-azure-800 !default;
+$btn-link-bg: $color-smoke-100 !default;
+
+$active-box-shadow: inset 0 0 4px 0 rgba(0, 0, 0, .25);
 //=== Button Style===//
 
 .btn {
@@ -22,6 +38,16 @@ $btn-primary-border-active: $color-elephant-800 !default;
     box-shadow: 0 0 0 1px $color-azure-800;
     outline: none;
   }
+
+  &:active {
+    box-shadow: $active-box-shadow;
+  }
+
+  &.disabled,
+  &[disabled] {
+    cursor: not-allowed;
+    opacity: .4;
+  }
 }
 
 .btn--primary {
@@ -32,82 +58,39 @@ $btn-primary-border-active: $color-elephant-800 !default;
 
   &:active {
     border: 1px solid $btn-primary-border-active;
-    box-shadow: inset 0 0 4px 0 rgba(0, 0, 0, .25);
   }
 
   &:hover:not([disabled]) {
     background-color: $btn-primary-bg-dark;
     background-image: none;
   }
-
-  &.disabled,
-  &[disabled] {
-    cursor: not-allowed;
-    color: darken($btn-primary-color, 5%);
-    border: 1px solid desaturate($btn-primary-border, 30%);
-    background-image: linear-gradient(to bottom, desaturate($btn-primary-bg, 30%), desaturate($btn-primary-bg-dark, 30%));
-  }
 }
 
 .btn--secondary {
-  background-color: #f3f5f7;
-  color: #183247;
-  border: 1px solid #dadfe3;
-  background-image: linear-gradient(to bottom, #fff, #f3f5f7);
-
-  &:hover {
-    background-color: #f3f5f7;
-    background-image: none;
-  }
+  background-color: $btn-secondary-bg-dark;
+  color: $btn-secondary-color;
+  border: 1px solid $btn-secondary-border;
+  background-image: linear-gradient(to bottom, $btn-secondary-bg, $btn-secondary-bg-dark);
 
   &:active {
-    box-shadow: none;
+    border: 1px solid $btn-secondary-border-active;
   }
 
-  &:focus {
-    background-color: #f3f5f7;
-    transform: scale(.98);
-  }
-
-  &.disabled,
-  &[disabled] {
-    pointer-events: none;
-    cursor: default;
-    color: #647a8e;
-    border: 1px solid #ebeff3;
+  &:hover:not([disabled]) {
+    background-color: $btn-secondary-bg-dark;
     background-image: none;
-    background-color: #f3f5f7;
   }
 }
 
 .btn--danger {
-  color: #fff;
-  background-color: #d72d30;
-  border: 1px solid #d72d30;
-  background-image: linear-gradient(to bottom, #d72d30, #c82124);
-
-  &:active {
-    background-color: #d72d30;
-    box-shadow: inset 0 0 4px 0 rgba(0, 0, 0, 0.26);
-  }
-
-  &:focus {
-    background-color: #174262;
-    border: 1px solid #264966;
-    background-image: linear-gradient(to bottom, #c82124, #d72d30);
-  }
+  color: $btn-danger-color;
+  background-color: $btn-danger-bg;
+  border: 1px solid $btn-danger-border;
+  background-image: linear-gradient(to bottom, $btn-danger-bg, $btn-danger-bg-dark);
 
   &:hover:not([disabled]) {
-    background-color: #c82124;
+    background-color: $btn-danger-bg-dark;
     background-image: none;
-  }
-
-  &.disabled,
-  &[disabled] {
-    cursor: not-allowed;
-    color: #f3f5f7;
-    border: 1px solid #e39091;
-    background-image: linear-gradient(to bottom, #eb9697, #e39091);
   }
 }
 
@@ -115,12 +98,11 @@ $btn-primary-border-active: $color-elephant-800 !default;
   background-color: transparent;
   background-image: none;
   border: 1px solid transparent;
-  color: #2c5cc5;
+  color: $btn-link-color;
 
-  &:hover,
-  &:focus {
-    background-color: #f3f5f7;
-    border: 1px solid #2c5cc5;
+  &:hover:not([disabled]) {
+    background-color: $btn-link-bg;
+    border-color: $btn-link-bg;
   }
 }
 

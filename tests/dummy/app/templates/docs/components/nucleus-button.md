@@ -12,19 +12,20 @@ Simplest use case: a button with text in it, telling the user what to do.
   {{demo.snippet 'nucleus-button.hbs'}}
 {{/docs-demo}}
 
-To toggle the 'disabled' property, set 'disabled' to true
+Block form
 {{#docs-demo as |demo|}}
-  {{#demo.example name='nucleus-button-disabled.hbs'}}
-    {{#nucleus-button type="primary" disabled=true}}
-      Downloads
+  {{#demo.example name='nucleus-button-block-form.hbs'}}
+    {{#nucleus-button type="primary"}}
+      Some yield content here
     {{/nucleus-button}}
   {{/demo.example}}
-  {{demo.snippet 'nucleus-button-disabled.hbs'}}
+  {{demo.snippet 'nucleus-button-block-form.hbs'}}
 {{/docs-demo}}
+
 
 ## Styles
 
-Outline button style:
+Different types:
 {{#docs-demo as |demo|}}
   {{#demo.example name='nucleus-button-light.hbs'}}
     {{nucleus-button label="click me"}}
@@ -46,7 +47,9 @@ Smaller button:
 Icon buttons:
 {{#docs-demo as |demo|}}
   {{#demo.example name='nucleus-button-dense.hbs'}}
+    {{nucleus-button icon="close" size="mini" type="primary"}}
     {{nucleus-button icon="close" size="mini" type="secondary"}}
+    {{nucleus-button icon="close" size="mini" type="danger"}}
   {{/demo.example}}
   {{demo.snippet 'nucleus-button-dense.hbs'}}
 {{/docs-demo}}
@@ -57,6 +60,16 @@ Full-width button:
     {{nucleus-button label="click me" block=true}}
   {{/demo.example}}
   {{demo.snippet 'nucleus-button-block.hbs'}}
+{{/docs-demo}}
+
+To toggle the 'disabled' property, set 'disabled' to true
+{{#docs-demo as |demo|}}
+  {{#demo.example name='nucleus-button-disabled.hbs'}}
+    {{#nucleus-button type="primary" disabled=true}}
+      Downloads
+    {{/nucleus-button}}
+  {{/demo.example}}
+  {{demo.snippet 'nucleus-button-disabled.hbs'}}
 {{/docs-demo}}
 
 ## Accessibility
