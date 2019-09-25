@@ -174,15 +174,6 @@ export default Component.extend({
   _isRejected: equal('state', 'rejected'),
 
   /**
-  * _isSettled
-  *
-  * @field _isSettled
-  * @type function
-  * @private
-  */
-  _isSettled: or('_isFulfilled', '_isRejected'),
-
-  /**
   * pendingLabel
   *
   * @field pendingLabel
@@ -198,7 +189,7 @@ export default Component.extend({
   * @type undefined
   * @public
   */
-  successLabel: "Success!",
+  fulfilledLabel: "Success!",
 
   /**
   * failureLabel
@@ -207,7 +198,7 @@ export default Component.extend({
   * @type undefined
   * @public
   */
-  failureLabel: "Failed!",
+  rejectedLabel: "Failed!",
 
   /**
   * sizeClass
@@ -246,7 +237,7 @@ export default Component.extend({
   * @computed text
   * @private
   */
-  text: computed('state', 'label', 'pendingLabel', 'successLabel', 'failureLabel', function () {
+  text: computed('state', 'label', function () {
     let state = get(this, 'state');
     return state === 'default' ? get(this, 'label') : get(this, `${state}Label`);
   }),
