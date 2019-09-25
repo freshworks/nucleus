@@ -1,7 +1,7 @@
-import { scheduleOnce } from '@ember/runloop';
+import { run } from '@ember/runloop';
 import Component from '@ember/component';
-import { observer, computed, get, set } from '@ember/object';
-import { equal, or } from '@ember/object/computed';
+import { computed, get, set } from '@ember/object';
+import { equal } from '@ember/object/computed';
 import layout from "../templates/components/nucleus-button";
 
 /**
@@ -114,9 +114,9 @@ export default Component.extend({
   * @computed _disabled
   * @private
   */
-  _disabled: computed('disabled', '_isPending', 'preventConcurrency', function () {
+  _disabled: computed('disabled', 'isPending', 'preventConcurrency', function () {
     let isDisabled = get(this, 'disabled');
-    return isDisabled ? isDisabled : get(this, '_isPending') && get(this, 'preventConcurrency');
+    return isDisabled ? isDisabled : get(this, 'isPending') && get(this, 'preventConcurrency');
   }),
 
   /**
@@ -147,31 +147,31 @@ export default Component.extend({
   state: 'default',
 
   /**
-  * _isPending
+  * isPending
   *
-  * @field _isPending
+  * @field isPending
   * @type function
-  * @private
+  * @public
   */
-  _isPending: equal('state', 'pending'),
+  isPending: equal('state', 'pending'),
 
   /**
-  * _isFulfilled
+  * isFulfilled
   *
-  * @field _isFulfilled
+  * @field isFulfilled
   * @type function
-  * @private
+  * @public
   */
-  _isFulfilled: equal('state', 'fulfilled'),
+  isFulfilled: equal('state', 'fulfilled'),
 
   /**
-  * _isRejected
+  * isRejected
   *
-  * @field _isRejected
+  * @field isRejected
   * @type function
-  * @private
+  * @public
   */
-  _isRejected: equal('state', 'rejected'),
+  isRejected: equal('state', 'rejected'),
 
   /**
   * pendingLabel
@@ -180,7 +180,7 @@ export default Component.extend({
   * @type undefined
   * @public
   */
-  pendingLabel: "Pending...",
+  pendingLabel: "Loading",
 
   /**
   * successLabel
@@ -189,7 +189,7 @@ export default Component.extend({
   * @type undefined
   * @public
   */
-  fulfilledLabel: "Success!",
+  fulfilledLabel: "Done!",
 
   /**
   * failureLabel
@@ -252,39 +252,6 @@ export default Component.extend({
   title: computed.reads('text'),
 
   /**
-  * reset
-  *
-  * @field reset
-  * @type null
-  * @private
-  */
-  reset: null,
-
-  /**
-  * resetState
-  *
-  * @method resetState
-  * @public
-  *
-  */
-  resetState() {
-    set(this, 'state', 'default');
-  },
-
-  /**
-  * resetObserver
-  *
-  * @field resetObserver
-  * @type function
-  * @public
-  */
-  resetObserver: observer('reset', function () {
-    if (get(this, 'reset')) {
-      scheduleOnce('actions', this, 'resetState');
-    }
-  }),
-
-  /**
   * click
   *
   * @method click
@@ -299,7 +266,7 @@ export default Component.extend({
       return;
     }
 
-    if (!preventConcurrency || !get(this, '_isPending')) {
+    if (!preventConcurrency || !get(this, 'isPending')) {
       let promise = action(get(this, 'value'));
 
       if (promise && typeof promise.then === 'function' && !get(this, 'isDestroyed')) {
@@ -312,22 +279,14 @@ export default Component.extend({
           if (!get(this, 'isDestroyed')) {
             set(this, 'state', 'rejected');
           }
+        })
+        .finally(() => {
+          run.later(() => {
+            set(this, 'state', 'default')
+          }, 1000);
         });
       }
     }
-
     return false;
   },
-
-  /**
-  * init
-  *
-  * @method init
-  * @public
-  *
-  */
-  init() {
-    this._super(...arguments);
-    get(this, 'reset');
-  }
 });
