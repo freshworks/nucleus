@@ -15,7 +15,7 @@ Simplest use case: a button with text in it, telling the user what to do.
 Block form
 {{#docs-demo as |demo|}}
   {{#demo.example name='nucleus-button-block-form.hbs'}}
-    {{#nucleus-button type="primary"}}
+    {{#nucleus-button type="primary" ariaLabel="concise label"}}
       Some yield content here
     {{/nucleus-button}}
   {{/demo.example}}

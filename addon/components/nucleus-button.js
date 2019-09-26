@@ -16,7 +16,7 @@ export default Component.extend({
   tagName: 'button',
   classNames: ['btn'],
   classNameBindings: ['active', 'block:btn--block', 'sizeClass', 'typeClass', 'customClass'],
-  attributeBindings: ['_disabled:disabled', '_buttonType:type', 'name', 'autofocus'],
+  attributeBindings: ['_disabled:disabled', '_buttonType:type', 'title:aria-label', 'autofocus'],
 
   /**
   * label
@@ -201,6 +201,15 @@ export default Component.extend({
   rejectedLabel: "Failed!",
 
   /**
+  * ariaLabel
+  *
+  * @field ariaLabel
+  * @type undefined
+  * @public
+  */
+  ariaLabel: null,
+
+  /**
   * sizeClass
   *
   * @computed sizeClass
@@ -243,14 +252,14 @@ export default Component.extend({
   }),
 
   /**
-  * name
+  * title
   *
-  * @field name
+  * @field title
   * @type function
   * @private
   */
-  name: computed('text', 'icon', function() {
-    return (get(this, 'text') ? get(this, 'text') : get(this, 'icon'));
+  title: computed('text', 'ariaLabel', 'icon', function() {
+    return get(this, 'text') || get(this, 'ariaLabel') || get(this, 'icon');
   }),
 
   /**
