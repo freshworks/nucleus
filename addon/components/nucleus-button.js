@@ -1,6 +1,6 @@
 import { run } from '@ember/runloop';
 import Component from '@ember/component';
-import { computed, get, set } from '@ember/object';
+import { computed, get, set, getWithDefault } from '@ember/object';
 import { equal } from '@ember/object/computed';
 import layout from "../templates/components/nucleus-button";
 
@@ -114,9 +114,9 @@ export default Component.extend({
   * @computed _disabled
   * @private
   */
-  _disabled: computed('disabled', 'isPending', 'preventConcurrency', function () {
+  _disabled: computed('disabled', 'isPending', function () {
     let isDisabled = get(this, 'disabled');
-    return isDisabled ? isDisabled : get(this, 'isPending') && get(this, 'preventConcurrency');
+    return isDisabled ? isDisabled : get(this, 'isPending');
   }),
 
   /**
@@ -127,15 +127,6 @@ export default Component.extend({
   * @public
   */
   value: null,
-
-  /**
-  * preventConcurrency
-  *
-  * @field preventConcurrency
-  * @type boolean
-  * @public
-  */
-  preventConcurrency: true,
 
   /**
   * state
@@ -180,7 +171,7 @@ export default Component.extend({
   * @type undefined
   * @public
   */
-  pendingLabel: "Loading",
+  pendingLabel: undefined,
 
   /**
   * successLabel
@@ -189,7 +180,7 @@ export default Component.extend({
   * @type undefined
   * @public
   */
-  fulfilledLabel: "Done!",
+  fulfilledLabel: undefined,
 
   /**
   * failureLabel
@@ -198,7 +189,7 @@ export default Component.extend({
   * @type undefined
   * @public
   */
-  rejectedLabel: "Failed!",
+  rejectedLabel: undefined,
 
   /**
   * ariaLabel
@@ -248,7 +239,9 @@ export default Component.extend({
   */
   text: computed('state', 'label', function () {
     let state = get(this, 'state');
-    return state === 'default' ? get(this, 'label') : get(this, `${state}Label`);
+    return state === 'default' 
+    ? get(this, 'label') 
+    : getWithDefault(this, `${state}Label`, get(this, 'label'));
   }),
 
   /**
@@ -271,13 +264,12 @@ export default Component.extend({
   */
   click() {
     let action = get(this, 'onClick');
-    let preventConcurrency = get(this, 'preventConcurrency');
 
     if (action === null || action === undefined) {
       return;
     }
 
-    if (!preventConcurrency || !get(this, 'isPending')) {
+    if (!get(this, 'isPending')) {
       let promise = action(get(this, 'value'));
 
       if (promise && typeof promise.then === 'function' && !get(this, 'isDestroyed')) {

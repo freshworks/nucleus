@@ -7,7 +7,7 @@ Simplest use case: a button with text in it, telling the user what to do.
 
 {{#docs-demo as |demo|}}
   {{#demo.example name="nucleus-button.hbs"}}
-    {{nucleus-button type="primary" label="Downloads"}}
+    {{nucleus-button label="Downloads"}}
   {{/demo.example}}
   {{demo.snippet 'nucleus-button.hbs'}}
 {{/docs-demo}}
