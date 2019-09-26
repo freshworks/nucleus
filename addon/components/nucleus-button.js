@@ -16,7 +16,7 @@ export default Component.extend({
   tagName: 'button',
   classNames: ['btn'],
   classNameBindings: ['active', 'block:btn--block', 'sizeClass', 'typeClass', 'customClass'],
-  attributeBindings: ['_disabled:disabled', '_buttonType:type', 'title', 'autofocus'],
+  attributeBindings: ['_disabled:disabled', '_buttonType:type', 'name', 'autofocus'],
 
   /**
   * label
@@ -243,13 +243,15 @@ export default Component.extend({
   }),
 
   /**
-  * title
+  * name
   *
-  * @field title
+  * @field name
   * @type function
   * @private
   */
-  title: computed.reads('text'),
+  name: computed('text', 'icon', function() {
+    return (get(this, 'text') ? get(this, 'text') : get(this, 'icon'));
+  }),
 
   /**
   * click
