@@ -1,6 +1,6 @@
 {
   "name": "nucleus",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Freshworks Design System in Ember",
   "keywords": [
     "ember-addon"
