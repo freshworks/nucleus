@@ -8,7 +8,7 @@ Modal is a window overlaid on either the primary window or another dialog window
 
 #### 1. Simple Modal
 
-![Modal screenshots](/images/modal.png)
+![Modal screenshots](../../images/modal.png)
 
 {{#docs-demo as |demo|}}
   {{#demo.example name="modal-demo-1.hbs"}}
@@ -35,7 +35,7 @@ Modal is a window overlaid on either the primary window or another dialog window
 
 #### 2. Confirm Dialog
 
-![Modal screenshots](/images/confirm-dialog.png)
+![Modal screenshots](../../images/confirm-dialog.png)
 
 {{#docs-demo as |demo|}}
   {{#demo.example name="modal-demo-2.hbs"}}
@@ -52,7 +52,7 @@ Modal is a window overlaid on either the primary window or another dialog window
 
 #### 3. Slider
 
-![Modal screenshots](/images/slider.png)
+![Modal screenshots](../../images/slider.png)
 
 {{#docs-demo as |demo|}}
   {{#demo.example name="modal-demo-3.hbs"}}

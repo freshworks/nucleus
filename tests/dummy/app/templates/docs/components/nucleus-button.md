@@ -1,7 +1,7 @@
 
 # Button
 
-![Button screenshots](/images/buttons.png)
+![Button screenshots](../../images/buttons.png)
 
 
 ## Usage
