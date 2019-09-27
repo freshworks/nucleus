@@ -1,6 +1,9 @@
 
 # Button
 
+![Button screenshots](/images/buttons.png)
+
+
 ## Usage
 
 Simplest use case: a button with text in it, telling the user what to do.

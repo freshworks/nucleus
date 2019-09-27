@@ -2,9 +2,13 @@
 
 # Modal
 
+Modal is a window overlaid on either the primary window or another dialog window. Windows under a modal dialog are inert. That is, users cannot interact with content outside an active dialog window. Inert content outside an active dialog is typically visually obscured or dimmed so it is difficult to discern, and in some implementations, attempts to interact with the inert content cause the dialog to close.
+
 ## Usage
 
 #### 1. Simple Modal
+
+![Modal screenshots](/images/modal.png)
 
 {{#docs-demo as |demo|}}
   {{#demo.example name="modal-demo-1.hbs"}}
@@ -31,6 +35,8 @@
 
 #### 2. Confirm Dialog
 
+![Modal screenshots](/images/confirm-dialog.png)
+
 {{#docs-demo as |demo|}}
   {{#demo.example name="modal-demo-2.hbs"}}
     <button onclick={{action (mut isModal2 true)}} class="docs-btn">
@@ -45,6 +51,8 @@
 {{/docs-demo}}
 
 #### 3. Slider
+
+![Modal screenshots](/images/slider.png)
 
 {{#docs-demo as |demo|}}
   {{#demo.example name="modal-demo-3.hbs"}}
