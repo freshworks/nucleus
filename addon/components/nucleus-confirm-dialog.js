@@ -9,7 +9,7 @@ import layout from '../templates/components/nucleus-confirm-dialog';
   * `close`: triggers the `onClose` action and closes the modal
   * `submit`: triggers the `onSubmit` action
 
-  @class NucleusConfirmDialog
+  @class Nucleus Confirm Dialog
   @namespace Components
   @extends Ember.Component
   @public
@@ -18,7 +18,7 @@ export default Modal.extend({
   layout,
 
   /**
-  * Default confirm dialog size
+  * Size of the dialog, defaults to `small`
   *
   * @field size
   * @type string

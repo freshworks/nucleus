@@ -156,7 +156,7 @@ module('Integration | Component | nucleus-button', function(hooks) {
       return deferredClickAction.promise;
     });
 
-    await render(hbs`{{nucleus-button onClick=clickAction}}`);
+    await render(hbs`{{nucleus-button label="Test" onClick=clickAction}}`);
     assert.dom('button').isNotDisabled();
 
     await click('button');
@@ -190,7 +190,7 @@ module('Integration | Component | nucleus-button', function(hooks) {
       return deferredClickAction.promise;
     });
 
-    await render(hbs`{{nucleus-button onClick=clickAction}}`);
+    await render(hbs`{{nucleus-button label="Test" onClick=clickAction}}`);
     click('button');
     await waitUntil(() => clickActionHasBeenExecuted);
 

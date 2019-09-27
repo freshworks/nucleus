@@ -4,9 +4,19 @@ import { computed, get, set, getWithDefault } from '@ember/object';
 import { equal } from '@ember/object/computed';
 import layout from "../templates/components/nucleus-button";
 
+const BUTTON_STATE = {
+  DEFAULT: "default",
+  PENDING: "pending",
+  FULFILLED: "fulfilled",
+  REJECTED: "rejected"
+};
+
 /**
-  NucleusButton Usage:
-  @class NucleusButton
+  __Usage:__
+
+  [Refer component page](/docs/components/nucleus-button)
+
+  @class Nucleus Button
   @namespace Components
   @extends Ember.Component
   @public
@@ -15,38 +25,41 @@ export default Component.extend({
   layout,
   tagName: 'button',
   classNames: ['btn'],
-  classNameBindings: ['active', 'block:btn--block', 'sizeClass', 'typeClass', 'customClass'],
-  attributeBindings: ['_disabled:disabled', '_buttonType:type', 'title:aria-label', 'autofocus'],
+  classNameBindings: ['active', 'block:btn--block', '_sizeClass', '_typeClass', 'customClass'],
+  attributeBindings: ['_disabled:disabled', '_buttonType:type', '_label:aria-label', 'autofocus'],
 
   /**
-  * label
+  * Default button text
   *
   * @field label
-  * @type null
+  * @type string|null
+  * @default null
   * @public
   */
   label: null,
 
   /**
-  * size
+  * Button sizes: `default` & `mini`
   *
   * @field size
-  * @type null
+  * @type string
+  * @default null
   * @public
   */
   size: null,
 
   /**
-  * type
+  * Button display types: `primary`, `secondary`, `danger` & `link`
   *
   * @field type
   * @type string
+  * @default 'primary'
   * @public
   */
   type: 'primary',
 
   /**
-  * _buttonType
+  * Attribute bound to button type
   *
   * @field _buttonType
   * @type string
@@ -55,58 +68,62 @@ export default Component.extend({
   _buttonType: 'button',
 
   /**
-  * active
+  * Class name `active` added if set to true
   *
   * @field active
   * @type boolean
+  * @default false
   * @public
   */
   active: false,
 
   /**
-  * autofocus
+  * Flag to set autofocus
   *
   * @field autofocus
   * @type boolean
+  * @default false
   * @public
   */
   autofocus: false,
 
   /**
-  * block
+  * Flag to set button as full width block.
   *
   * @field block
   * @type boolean
+  * @default false
   * @public
   */
   block: false,
 
   /**
-  * icon
+  * Icon name used in svg-jar.
   *
   * @field icon
-  * @type null
+  * @type string|null
   * @public
   */
   icon: null,
 
   /**
-  * customClass
+  * Custom class names to be added to the button.
   *
   * @field customClass
-  * @type null
+  * @type string
   * @public
   */
   customClass: null,
 
   /**
-  * disabled
+  * Flag to set disabled attribute
   *
   * @field disabled
-  * @type null
+  * @type boolean
+  * @default false
   * @public
   */
-  disabled: null,
+  disabled: false,
 
   /**
   * _disabled
@@ -114,145 +131,149 @@ export default Component.extend({
   * @computed _disabled
   * @private
   */
-  _disabled: computed('disabled', 'isPending', function () {
+  _disabled: computed('disabled', '_isPending', function () {
     let isDisabled = get(this, 'disabled');
-    return isDisabled ? isDisabled : get(this, 'isPending');
+    return isDisabled ? isDisabled : get(this, '_isPending');
   }),
 
   /**
-  * value
+  * Value to be passed as argument for `onClick` action
   *
   * @field value
-  * @type null
+  * @type string|number|object
   * @public
   */
   value: null,
 
   /**
-  * state
+  * Internal button _buttonState management utility
   *
-  * @field state
+  * @field _buttonState
   * @type string
-  * @public
+  * @private
   */
-  state: 'default',
+  _buttonState: BUTTON_STATE.DEFAULT,
 
   /**
-  * isPending
+  * _isPending
   *
-  * @field isPending
-  * @type function
-  * @public
+  * @field _isPending
+  * @type boolean
+  * @private
   */
-  isPending: equal('state', 'pending'),
+  _isPending: equal('_buttonState', BUTTON_STATE.PENDING),
 
   /**
-  * isFulfilled
+  * _isFulfilled
   *
-  * @field isFulfilled
-  * @type function
-  * @public
+  * @field _isFulfilled
+  * @type boolean
+  * @private
   */
-  isFulfilled: equal('state', 'fulfilled'),
+  _isFulfilled: equal('_buttonState', BUTTON_STATE.FULFILLED),
 
   /**
-  * isRejected
+  * _isRejected
   *
-  * @field isRejected
-  * @type function
-  * @public
+  * @field _isRejected
+  * @type boolean
+  * @private
   */
-  isRejected: equal('state', 'rejected'),
+  _isRejected: equal('_buttonState', BUTTON_STATE.REJECTED),
 
   /**
-  * pendingLabel
+  * Label to be displayed during Promise pending state
   *
   * @field pendingLabel
-  * @type undefined
+  * @type string
+  * @default undefined
   * @public
   */
   pendingLabel: undefined,
 
   /**
-  * successLabel
+  * Label to be displayed during Promise fulfilled state, a.k.a success label
   *
   * @field successLabel
-  * @type undefined
+  * @type string
+  * @default undefined
   * @public
   */
   fulfilledLabel: undefined,
 
   /**
-  * failureLabel
+  * Label to be displayed during Promise rejected state, a.k.a failure label
   *
   * @field failureLabel
-  * @type undefined
+  * @type string
+  * @default undefined
   * @public
   */
   rejectedLabel: undefined,
 
   /**
-  * ariaLabel
+  * Optional aria-label attribute
   *
   * @field ariaLabel
-  * @type undefined
+  * @type string
+  * @default null
   * @public
   */
   ariaLabel: null,
 
   /**
-  * sizeClass
+  * _sizeClass
   *
-  * @computed sizeClass
+  * @computed _sizeClass
   * @private
   */
-  sizeClass: computed('size', function () {
+  _sizeClass: computed('size', function () {
     let size = get(this, 'size');
     return size ? `btn--${size}` : null;
   }),
 
   /**
-  * typeClass
+  * _typeClass
   *
-  * @computed typeClass
+  * @computed _typeClass
   * @private
   */
-  typeClass: computed('type', function () {
+  _typeClass: computed('type', function () {
     let type = get(this, 'type');
     return type ? `btn--${get(this, 'type')}` : 'btn--primary';
   }),
 
   /**
-  * onClick
+  * `onClick` action handler
   *
   * @field onClick
-  * @type null
+  * @type function
   * @public
   */
   onClick: null,
 
   /**
-  * text
+  * _buttonText
   *
-  * @computed text
+  * @computed _buttonText
   * @private
   */
-  text: computed('state', 'label', function () {
-    let state = get(this, 'state');
+  _buttonText: computed('_buttonState', 'label', function () {
+    let state = get(this, '_buttonState');
     return state === 'default' 
     ? get(this, 'label') 
     : getWithDefault(this, `${state}Label`, get(this, 'label'));
   }),
 
   /**
-  * title
+  * _label
   *
-  * @field title
+  * @field _label
   * @type function
   * @private
   */
-  title: computed('text', 'ariaLabel', 'icon', function() {
-    return get(this, 'text') || get(this, 'ariaLabel') || get(this, 'icon');
+  _label: computed('_buttonText', 'ariaLabel', 'icon', function() {
+    return get(this, 'ariaLabel') || get(this, '_buttonText') || get(this, 'icon');
   }),
 
   /**
@@ -269,23 +290,23 @@ export default Component.extend({
       return;
     }
 
-    if (!get(this, 'isPending')) {
+    if (!get(this, '_isPending')) {
       let promise = action(get(this, 'value'));
 
       if (promise && typeof promise.then === 'function' && !get(this, 'isDestroyed')) {
-        set(this, 'state', 'pending');
+        set(this, '_buttonState', BUTTON_STATE.PENDING);
         promise.then(() => {
           if (!get(this, 'isDestroyed')) {
-            set(this, 'state', 'fulfilled');
+            set(this, '_buttonState', BUTTON_STATE.FULFILLED);
           }
         }, () => {
           if (!get(this, 'isDestroyed')) {
-            set(this, 'state', 'rejected');
+            set(this, '_buttonState', BUTTON_STATE.REJECTED);
           }
         })
         .finally(() => {
           run.later(() => {
-            set(this, 'state', 'default')
+            set(this, '_buttonState', BUTTON_STATE.DEFAULT)
           }, 1000);
         });
       }

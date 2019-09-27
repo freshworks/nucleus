@@ -9,7 +9,7 @@ import layout from '../templates/components/nucleus-slider';
   * `close`: triggers the `onClose` action and closes the modal
   * `submit`: triggers the `onSubmit` action
 
-  @class NucleusConfirmDialog
+  @class Nucleus Slider
   @namespace Components
   @extends Ember.Component
   @public
@@ -18,17 +18,17 @@ export default Modal.extend({
   layout,
 
   /**
-  * Default slider size
+  * Default slider position
   *
-  * @field size
+  * @field position
   * @type string
-  * @default `small`
+  * @default `right`
   * @public
   */
  position: 'right',
 
   /**
-  * Title of the confirm dialog
+  * Title of the slider
   *
   * @field title
   * @type string
