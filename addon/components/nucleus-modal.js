@@ -235,26 +235,6 @@ export default Component.extend({
   },
 
   /**
-  * handleBackdrop
-  *
-  * @method handleBackdrop
-  * @private
-  * @param {any} callback
-  */
-  handleBackdrop(callback) {
-    if (get(this, "backdrop")) {
-      set(this, "_showBackdrop", get(this, "isOpen"));
-
-      if (!callback) {
-        return;
-      }
-      callback.call(this);
-    } else if (callback) {
-      run.next(this, callback);
-    }
-  },
-
-  /**
   * attachEventHandlers
   *
   * @method attachEventHandlers

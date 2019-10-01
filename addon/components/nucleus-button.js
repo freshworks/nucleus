@@ -140,6 +140,16 @@ export default Component.extend({
   value: null,
 
   /**
+  * Timeout after which the default label replaces fulfilled/rejected label.
+  *
+  * @field labelTimeout
+  * @type number
+  * @default 100
+  * @public
+  */
+  labelTimeout: 1000,
+
+  /**
   * Internal button _buttonState management utility
   *
   * @field _buttonState
@@ -330,7 +340,7 @@ export default Component.extend({
         .finally(() => {
           run.later(() => {
             set(this, '_buttonState', BUTTON_STATE.DEFAULT)
-          }, 1000);
+          }, get(this, 'labelTimeout'));
         });
       }
     }
