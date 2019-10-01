@@ -3,13 +3,7 @@ import Component from '@ember/component';
 import { computed, get, set, getWithDefault } from '@ember/object';
 import { equal, or } from '@ember/object/computed';
 import layout from "../templates/components/nucleus-button";
-
-const BUTTON_STATE = {
-  DEFAULT: "default",
-  PENDING: "pending",
-  FULFILLED: "fulfilled",
-  REJECTED: "rejected"
-};
+import { BUTTON_STATE } from "../constants/nucleus-button";
 
 /**
   __Usage:__
