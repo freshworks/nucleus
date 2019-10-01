@@ -6,6 +6,7 @@ export default Component.extend({
   flashMessages: inject(),
   actions: {
     foo() {
+      debugger;
       const flashMessages = get(this, 'flashMessages');
       flashMessages.success('Successfully saved!');
     }
