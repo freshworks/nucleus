@@ -1,0 +1,13 @@
+{{#docs-demo as |demo|}}
+  {{#demo.example name="nucleus-button-loading.hbs"}}
+    {{nucleus-button
+      type="primary"
+      block=true
+      onClick=(action "download")
+      label="Download"
+      pendingLabel="Downloading..."
+      fulfilledLabel="Completed"}}
+  {{/demo.example}}
+  {{demo.snippet "nucleus-button-loading.hbs"}}
+  {{demo.snippet "button-loading.js"}}
+{{/docs-demo}}

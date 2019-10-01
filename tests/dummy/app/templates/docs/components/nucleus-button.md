@@ -25,17 +25,8 @@ Block form
   {{demo.snippet 'nucleus-button-block-form.hbs'}}
 {{/docs-demo}}
 
-Loading button
-{{#docs-demo as |demo|}}
-  {{#demo.example name="nucleus-button-loading.hbs"}}
-    {{#nucleus-button type="primary"}}
-      Loading button
-    {{/nucleus-button}}
-  {{/demo.example}}
-  {{demo.snippet 'nucleus-button-loading.hbs'}}
-  {{demo.snippet 'button-loading.js'}}
-{{/docs-demo}}
-
+Asynchronous Button
+{{nucleus-button/demo-1}}
 
 ## Styles
 
