@@ -1,5 +1,5 @@
 import Component from "@ember/component";
-import { set, get, computed, observer } from "@ember/object";
+import { set, get, setProperties, computed, observer } from "@ember/object";
 import { run } from "@ember/runloop";
 import layout from "../templates/components/nucleus-modal";
 
@@ -228,7 +228,10 @@ export default Component.extend({
     if (!get(this, "_isOpen")) {
       return;
     }
-    set(this, "_isOpen", false);
+    setProperties(this, {
+      isOpen: false,
+      _isOpen: false
+    });
     document.body.classList.remove("nucleus-modal--open");
   },
 
