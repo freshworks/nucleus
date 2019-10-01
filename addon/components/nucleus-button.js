@@ -1,7 +1,7 @@
 import { run } from '@ember/runloop';
 import Component from '@ember/component';
 import { computed, get, set, getWithDefault } from '@ember/object';
-import { equal } from '@ember/object/computed';
+import { equal, or } from '@ember/object/computed';
 import layout from "../templates/components/nucleus-button";
 
 const BUTTON_STATE = {
@@ -180,6 +180,35 @@ export default Component.extend({
   * @private
   */
   _isRejected: equal('_buttonState', BUTTON_STATE.REJECTED),
+
+  /**
+  * _isLoading
+  *
+  * @field _isLoading
+  * @type boolean
+  * @private
+  */
+  _isLoading: or('_isPending', '_isFulfilled', '_isRejected'),
+
+  /**
+  * To display animated checkmark
+  *
+  * @field _isLoadingComplete
+  * @type boolean
+  * @private
+  */
+  _isLoadingComplete: or('_isFulfilled', '_isRejected'),
+
+  /**
+  * Show loading animation only if custom state labels are not specified
+  *
+  * @field _isShowLoading
+  * @type boolean
+  * @private
+  */
+  _isShowLoading: computed('_isLoading', 'pendingLabel', 'fulfilledLabel', 'rejectedLabel', function() {
+    return !(get(this, 'pendingLabel') || get(this, 'fulfilledLabel') || get(this, 'rejectedLabel'));
+  }),
 
   /**
   * Label to be displayed during Promise pending state

@@ -2,7 +2,7 @@
 import { defer } from 'rsvp';
 import { module } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { find, render, click, settled, waitUntil } from '@ember/test-helpers';
+import { find, render, click, settled, waitUntil, waitFor } from '@ember/test-helpers';
 import test from 'ember-sinon-qunit/test-support/test';
 import hbs from 'htmlbars-inline-precompile';
 import a11yAudit from 'ember-a11y-testing/test-support/audit';
@@ -117,7 +117,7 @@ module('Integration | Component | nucleus-button', function(hooks) {
     assert.dom('button').hasText('default text');
   });
 
-  test('it displays the default text when undefined', async function (assert) {
+  test('it displays the loading animation when undefined', async function (assert) {
     let deferredClickAction = defer();
     this.set('clickAction', () => {
       return deferredClickAction.promise;
@@ -131,9 +131,7 @@ module('Integration | Component | nucleus-button', function(hooks) {
     assert.dom('button').hasText('default text');
 
     click('button');
-    await waitUntil(() => {
-      return find('button').textContent.trim() === 'default text';
-    });
+    await waitFor('[data-test-button-loader]');
 
     deferredClickAction.resolve();
     await settled();
@@ -141,9 +139,7 @@ module('Integration | Component | nucleus-button', function(hooks) {
 
     deferredClickAction = defer();
     click('button');
-    await waitUntil(() => {
-      return find('button').textContent.trim() === 'default text';
-    });
+    await waitFor('[data-test-button-loader]');
 
     deferredClickAction.reject();
     await settled();
