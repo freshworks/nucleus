@@ -176,9 +176,8 @@ export default Component.extend({
     */
     submit() {
       if (get(this, 'onSubmit')) {
-        get(this, 'onSubmit')();
+        return get(this, 'onSubmit')();
       }
-      this.send('close');
     }
   },
 
