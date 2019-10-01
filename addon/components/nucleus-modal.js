@@ -1,5 +1,5 @@
 import Component from "@ember/component";
-import { set, get, computed, observer } from "@ember/object";
+import { set, get, setProperties, computed, observer } from "@ember/object";
 import { run } from "@ember/runloop";
 import layout from "../templates/components/nucleus-modal";
 
@@ -176,9 +176,8 @@ export default Component.extend({
     */
     submit() {
       if (get(this, 'onSubmit')) {
-        get(this, 'onSubmit')();
+        return get(this, 'onSubmit')();
       }
-      this.send('close');
     }
   },
 
@@ -228,28 +227,11 @@ export default Component.extend({
     if (!get(this, "_isOpen")) {
       return;
     }
-    set(this, "_isOpen", false);
+    setProperties(this, {
+      isOpen: false,
+      _isOpen: false
+    });
     document.body.classList.remove("nucleus-modal--open");
-  },
-
-  /**
-  * handleBackdrop
-  *
-  * @method handleBackdrop
-  * @private
-  * @param {any} callback
-  */
-  handleBackdrop(callback) {
-    if (get(this, "backdrop")) {
-      set(this, "_showBackdrop", get(this, "isOpen"));
-
-      if (!callback) {
-        return;
-      }
-      callback.call(this);
-    } else if (callback) {
-      run.next(this, callback);
-    }
   },
 
   /**

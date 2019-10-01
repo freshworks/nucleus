@@ -1,15 +1,9 @@
 import { run } from '@ember/runloop';
 import Component from '@ember/component';
 import { computed, get, set, getWithDefault } from '@ember/object';
-import { equal } from '@ember/object/computed';
+import { equal, or } from '@ember/object/computed';
 import layout from "../templates/components/nucleus-button";
-
-const BUTTON_STATE = {
-  DEFAULT: "default",
-  PENDING: "pending",
-  FULFILLED: "fulfilled",
-  REJECTED: "rejected"
-};
+import { BUTTON_STATE } from "../constants/nucleus-button";
 
 /**
   __Usage:__
@@ -146,6 +140,16 @@ export default Component.extend({
   value: null,
 
   /**
+  * Timeout after which the default label replaces fulfilled/rejected label.
+  *
+  * @field labelTimeout
+  * @type number
+  * @default 100
+  * @public
+  */
+  labelTimeout: 1000,
+
+  /**
   * Internal button _buttonState management utility
   *
   * @field _buttonState
@@ -180,6 +184,35 @@ export default Component.extend({
   * @private
   */
   _isRejected: equal('_buttonState', BUTTON_STATE.REJECTED),
+
+  /**
+  * _isLoading
+  *
+  * @field _isLoading
+  * @type boolean
+  * @private
+  */
+  _isLoading: or('_isPending', '_isFulfilled', '_isRejected'),
+
+  /**
+  * To display animated checkmark
+  *
+  * @field _isLoadingComplete
+  * @type boolean
+  * @private
+  */
+  _isLoadingComplete: or('_isFulfilled', '_isRejected'),
+
+  /**
+  * Show loading animation only if custom state labels are not specified
+  *
+  * @field _isShowLoading
+  * @type boolean
+  * @private
+  */
+  _isShowLoading: computed('_isLoading', 'pendingLabel', 'fulfilledLabel', 'rejectedLabel', function() {
+    return !(get(this, 'pendingLabel') || get(this, 'fulfilledLabel') || get(this, 'rejectedLabel'));
+  }),
 
   /**
   * Label to be displayed during Promise pending state
@@ -307,7 +340,7 @@ export default Component.extend({
         .finally(() => {
           run.later(() => {
             set(this, '_buttonState', BUTTON_STATE.DEFAULT)
-          }, 1000);
+          }, get(this, 'labelTimeout'));
         });
       }
     }
