@@ -1,9 +1,10 @@
 .flash-messages {
   position: fixed;
-  top: 50px;
+  top: 2rem;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 9999999999;
+  height: 0;
 }
 
 .alert {
@@ -15,6 +16,7 @@
   font-size: .875rem;
   font-weight: 600;
   width: 400px;
+  margin-bottom: 1rem;
 
   &.alert-success {
     border-top-color: $border-success-color;

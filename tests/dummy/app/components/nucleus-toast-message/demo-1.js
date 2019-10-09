@@ -10,6 +10,7 @@ export default Component.extend({
       const flashMessages = get(this, 'flashMessages');
       flashMessages.success('Successfully saved!', {
         timeout: 2000,
+        sticky: true,
         priority: 100,
         showProgress: true
       });
