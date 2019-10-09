@@ -1,6 +1,6 @@
-{{#ember-wormhole to="modal-overlays" renderInPlace=renderInPlace}}
+{{#ember-wormhole to="modal-overlays"}}
   <div class="flash-messages flash-messages--top-right">
-    {{#each flashMessages.arrangedQueue as |flash|}}
+    {{#each flashMessages.queue as |flash|}}
       {{flash-message flash=flash}}
     {{/each}}
   </div>

@@ -1,3 +1,22 @@
-.toast-message {
-  display: inline;
+.flash-messages {
+  position: fixed;
+  top: 50px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999999999;
+}
+
+.alert {
+  background: #fff;
+  border-radius: 2px;
+  border-top: 4px solid $border-color;
+  padding: 1rem;
+  box-shadow: 0 2px 18px 0 rgba(18, 52, 77, .2);
+  font-size: .875rem;
+  font-weight: 600;
+  width: 400px;
+
+  &.alert-success {
+    border-top-color: $border-success-color;
+  }
 }

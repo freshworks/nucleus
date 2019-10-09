@@ -8,7 +8,11 @@ export default Component.extend({
     foo() {
       debugger;
       const flashMessages = get(this, 'flashMessages');
-      flashMessages.success('Successfully saved!');
+      flashMessages.success('Successfully saved!', {
+        timeout: 2000,
+        priority: 100,
+        showProgress: true
+      });
     }
   }
 });
