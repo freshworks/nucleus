@@ -1,7 +1,16 @@
 {{#docs-demo as |demo|}}
   {{#demo.example name="nucleus-toast.hbs"}}
-    <button onclick={{action "foo"}} class="docs-btn">
-      Click here to open simple toast
+    <button onclick={{action "success"}} class="docs-btn">
+      Success
+    </button>
+    <button onclick={{action "danger"}} class="docs-btn">
+      Danger
+    </button>
+    <button onclick={{action "info"}} class="docs-btn">
+      Info
+    </button>
+    <button onclick={{action "warning"}} class="docs-btn">
+      Warning
     </button>
   {{/demo.example}}
   {{demo.snippet "nucleus-toast.hbs"}}

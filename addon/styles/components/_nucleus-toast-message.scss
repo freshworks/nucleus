@@ -21,4 +21,16 @@
   &.alert-success {
     border-top-color: $border-success-color;
   }
+
+  &.alert-danger {
+    border-top-color: $border-danger-color;
+  }
+
+  &.alert-info {
+    border-top-color: $border-info-color;
+  }
+
+  &.alert-warning {
+    border-top-color: $border-warning-color;
+  }
 }
