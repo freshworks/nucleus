@@ -7,6 +7,13 @@
   height: 0;
 }
 
+.flash-message-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  color: $text-default;
+}
+
 .alert {
   background: #fff;
   border-radius: 2px;
@@ -54,6 +61,10 @@
 
   &__icon {
     margin-right: 1rem;
-    line-height: 1.8;
+  }
+
+  &__content {
+    font-size: $font-size-12;
+    padding-right: 1rem;
   }
 }

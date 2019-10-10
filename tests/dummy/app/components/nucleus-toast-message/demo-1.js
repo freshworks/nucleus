@@ -11,6 +11,7 @@ export default Component.extend({
       flashMessages.success('Successfully saved!', {
         timeout: 2000,
         sticky: true,
+        showProgress: true,
         priority: 100,
         content: {
           linkText: "Undo action",
@@ -20,7 +21,7 @@ export default Component.extend({
     },
     danger() {
       const flashMessages = get(this, 'flashMessages');
-      flashMessages.danger('Successfully deleted!', {
+      flashMessages.danger('This account has been blocked for security reasons.', {
         timeout: 2000,
         sticky: true,
         priority: 100,
@@ -29,7 +30,7 @@ export default Component.extend({
     },
     info() {
       const flashMessages = get(this, 'flashMessages');
-      flashMessages.info('Some information', {
+      flashMessages.info('Please wait, while we update properties', {
         timeout: 2000,
         sticky: false,
         priority: 100,
@@ -38,9 +39,9 @@ export default Component.extend({
     },
     warning() {
       const flashMessages = get(this, 'flashMessages');
-      flashMessages.warning('Some information', {
+      flashMessages.warning('Please fill in the required properties to close the ticket.', {
         timeout: 2000,
-        sticky: false,
+        sticky: true,
         priority: 100,
         showProgress: true
       });

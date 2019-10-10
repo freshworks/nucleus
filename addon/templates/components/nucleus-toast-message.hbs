@@ -16,15 +16,10 @@
             {{nucleus-button
               type="link"
               size="mini"
-              customClass=(concat "nucleus-modal__close left")
+              customClass=(concat "flash-message-close")
               icon="close"
               onClick=(action close)}}
           </div>
-          {{#if component.showProgressBar}}
-            <div class="alert-progress">
-              <div class="alert-progressBar" style="{{component.progressDuration}}"></div>
-            </div>
-          {{/if}}
         {{/flash-message}}
       {{/transition-group}}
     {{/each}}
