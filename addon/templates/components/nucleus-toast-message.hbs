@@ -2,7 +2,30 @@
   <div class="flash-messages flash-messages--top-right {{if (gt flashMessages.queue.length 1) "stacked"}}">
     {{#each flashMessages.queue as |flash|}}
       {{#transition-group transitionClass="slide-down"}}
-        {{flash-message flash=flash}}
+        {{#flash-message flash=flash as |component flash close|}}
+          <div class="alert__icon">{{svg-jar component.flashType class="icon" width="14px"}}</div>
+          <div class="alert__content">
+            <p>{{flash.message}}</p>
+            {{#if flash.content}}
+              <p>
+                <a role="button" class="text-info" aria-label={{flash.content.linkText}} onClick={{action flash.content.linkAction}}>{{flash.content.linkText}}</a>
+              </p>
+            {{/if}}
+          </div>
+          <div class="alert__close">
+            {{nucleus-button
+              type="link"
+              size="mini"
+              customClass=(concat "nucleus-modal__close left")
+              icon="close"
+              onClick=(action close)}}
+          </div>
+          {{#if component.showProgressBar}}
+            <div class="alert-progress">
+              <div class="alert-progressBar" style="{{component.progressDuration}}"></div>
+            </div>
+          {{/if}}
+        {{/flash-message}}
       {{/transition-group}}
     {{/each}}
   </div>
