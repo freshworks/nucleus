@@ -41,7 +41,7 @@ export default Component.extend({
       const flashMessages = get(this, 'flashMessages');
       flashMessages.warning('Please fill in the required properties to close the ticket.', {
         timeout: 2000,
-        sticky: true,
+        sticky: false,
         priority: 100,
         showProgress: true
       });
