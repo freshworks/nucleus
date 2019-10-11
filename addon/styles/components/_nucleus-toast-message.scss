@@ -1,4 +1,4 @@
-.flash-messages {
+.nucleus-toast-messages {
   position: fixed;
   top: 2rem;
   left: 50%;
@@ -7,14 +7,7 @@
   height: 0;
 }
 
-.flash-message-close {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  color: $text-default;
-}
-
-.alert {
+.nucleus-toast-message {
   background: #fff;
   border-radius: $radius;
   border-top: 4px solid $border-color;
@@ -34,12 +27,13 @@
     font-size: $font-size-12;
     font-weight: $font-weight-600;
     padding-right: 1rem;
+    flex-grow: 2;
   }
 
   &.alert-success {
     border-top-color: $text-success;
 
-    .alert__icon {
+    .nucleus-toast-message__icon {
       color: $text-success;
     }
   }
@@ -47,7 +41,7 @@
   &.alert-danger {
     border-top-color: $text-danger;
 
-    .alert__icon {
+    .nucleus-toast-message__icon {
       color: $text-danger;
     }
   }
@@ -55,7 +49,7 @@
   &.alert-info {
     border-top-color: $text-info;
 
-    .alert__icon {
+    .nucleus-toast-message__icon {
       color: $text-info;
     }
   }
@@ -63,7 +57,7 @@
   &.alert-warning {
     border-top-color: $text-warning;
 
-    .alert__icon {
+    .nucleus-toast-message__icon {
       color: $text-warning;
     }
   }
