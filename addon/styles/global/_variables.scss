@@ -28,7 +28,7 @@ $color-persimmon-50: #ffecf0;
 
 $color-casablanca-700: #e86f25;
 $color-casablanca-100: #fedcb3;
-$color-casablanca-50: #e5f2fd;
+$color-casablanca-50: #fef1e1;
 //=== Color palette ===//
 
 //=== Text colors ===//
@@ -54,10 +54,11 @@ $border-color: $color-smoke-100 !default;
 $border-success-color: $color-jungle-800 !default;
 $border-info-color: $color-azure-800 !default;
 $border-danger-color: $color-persimmon-800 !default;
-$border-warning-color: $color-casablanca-700 !default;
+$border-warning-color: $color-casablanca-100 !default;
 //=== Border colors ===//
 
 //=== Background colors ===//
+$bg-dark: $color-elephant-900 !default;
 $bg-success: $color-jungle-50 !default;
 $bg-info: $color-azure-50 !default;
 $bg-danger: $color-persimmon-50 !default;
