@@ -1,20 +1,20 @@
 {{#if isOpen}}
-  <div class="quick-tip__icon">
+  <div class="nucleus-inline-banner__icon">
     {{svg-jar icon class="icon" width="12px" height="12px"}}
   </div>
-  <div class="quick-tip__content">
-    <div data-test-id="quick-tip-title">{{html-safe title}}</div>
+  <div class="nucleus-inline-banner__content">
+    <div data-test-id="nucleus-inline-banner-title">{{html-safe title}}</div>
     {{#if isLinkAction}}
       <div class="mt-4">
         {{#if linkHref}}
           <a class="tip-link" href={{linkHref}}
-            target="_blank" rel="noopener" data-test-id="quick-tip-link">
+            target="_blank" rel="noopener" data-test-id="nucleus-inline-banner-link">
             {{linkText}}
           </a>
         {{else if linkAction}}
           <a class="tip-link"
             onclick={{action "onLinkAction"}}
-            data-test-id="quick-tip-link-action">
+            data-test-id="nucleus-inline-banner-link-action">
             {{linkText}}
           </a>
         {{/if}}
@@ -22,7 +22,7 @@
     {{/if}}
   </div>
   {{#if showCloseIcon}}
-    <div class="quick-tip__close">
+    <div class="nucleus-inline-banner__close">
       {{nucleus-button
         type="link"
         size="mini"

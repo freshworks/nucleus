@@ -1,9 +1,8 @@
-.quick-tip {
+.nucleus-inline-banner {
   border-radius: 2px;
   background-color: $bg-dark;
   font-size: $font-size-14;
   display: flex;
-  align-items: center;
 
   &__icon {
     padding: .25rem .5rem;
@@ -19,91 +18,69 @@
     color: $color-milk;
     position: relative;
     flex-grow: 2;
-
-    .tip-link {
-      font-weight: $font-weight-600;
-      cursor: pointer;
-    }
   }
 
-  &.quick-tip--warning {
+  &__close {
+    padding: .25rem;
+  }
+
+  &--warning {
     background-color: $bg-warning;
     border: 1px solid $border-warning-color;
 
-    .quick-tip__icon {
+    .nucleus-inline-banner__icon {
       background-color: $bg-warning;
       border-right-color: $border-warning-color;
       color: $text-warning;
     }
 
-    .quick-tip__content {
+    .nucleus-inline-banner__content {
       color: $text-default;
     }
   }
 
-  &.quick-tip--danger {
+  &--danger {
     background-color: $bg-danger;
     border: 1px solid $border-danger-color;
 
-    .quick-tip__icon {
+    .nucleus-inline-banner__icon {
       background-color: $bg-danger;
       border-right-color: $border-danger-color;
       color: $text-danger;
     }
 
-    .quick-tip__content {
+    .nucleus-inline-banner__content {
       color: $text-default;
     }
   }
 
-  &.quick-tip--info {
+  &--info {
     background-color: $bg-info;
     border: 1px solid $border-info-color;
 
-    .quick-tip__icon {
+    .nucleus-inline-banner__icon {
       background-color: $bg-info;
       border-right-color: $border-info-color;
       color: $text-info;
     }
 
-    .quick-tip__content {
+    .nucleus-inline-banner__content {
       color: $text-default;
     }
   }
 
-  &.quick-tip--success {
+  &--success {
     background-color: $bg-success;
     border: 1px solid $border-success-color;
 
-    .quick-tip__icon {
+    .nucleus-inline-banner__icon {
       background-color: $bg-success;
       border-right-color: $border-success-color;
       color: $text-success;
     }
 
-    .quick-tip__content {
+    .nucleus-inline-banner__content {
       color: $text-default;
-    }
-  }
-
-  &.quick-tip--medium {
-    height: 36px;
-    width: 490px;
-    margin-top: 4px;
-
-    .quick-tip__icon {
-      height: 30px;
-      width: 30px;
-      padding: 1px 5px 4px;
-      margin: 3px 0 0 4px;
-
-      .modal-icons {
-        top: 3px;
-      }
-    }
-
-    .quick-tip__content {
-      padding: 0 30px 10px 0;
     }
   }
 }

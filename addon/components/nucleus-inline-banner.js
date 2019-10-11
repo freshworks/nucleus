@@ -13,10 +13,10 @@ const typeIconMap = {
 
 export default Component.extend({
   layout,
-  classNames: ['quick-tip'],
+  classNames: ['nucleus-inline-banner'],
   classNameBindings: ['_typeClass'],
   attributeBindings: ['data-test-id'],
-  'data-test-id': 'quick-tip',
+  'data-test-id': 'nucleus-inline-banner',
   type: 'tip', // ['tip', 'info', 'warning', 'error']
   icon: 'Info',
   size: 'large',
@@ -26,7 +26,7 @@ export default Component.extend({
   _typeClass: computed('type', 'isOpen', function() {
     let type = get(this, 'type');
     let isOpen = get(this, 'isOpen');
-    return (type && isOpen) ? `quick-tip--${type}` : null;
+    return (type && isOpen) ? `nucleus-inline-banner--${type}` : null;
   }),
   typeIcon: computed('type', function() {
     return typeIconMap[get(this, 'type')];
