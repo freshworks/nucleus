@@ -1,27 +1,11 @@
 {{#if isOpen}}
   <div class="nucleus-inline-banner__icon">
-    {{svg-jar icon class="icon" width="12px" height="12px"}}
+    {{svg-jar _icon class="icon" width="14"}}
   </div>
   <div class="nucleus-inline-banner__content">
     <div data-test-id="nucleus-inline-banner-title">{{html-safe title}}</div>
-    {{#if isLinkAction}}
-      <div class="mt-4">
-        {{#if linkHref}}
-          <a class="tip-link" href={{linkHref}}
-            target="_blank" rel="noopener" data-test-id="nucleus-inline-banner-link">
-            {{linkText}}
-          </a>
-        {{else if linkAction}}
-          <a class="tip-link"
-            onclick={{action "onLinkAction"}}
-            data-test-id="nucleus-inline-banner-link-action">
-            {{linkText}}
-          </a>
-        {{/if}}
-      </div>
-    {{/if}}
   </div>
-  {{#if showCloseIcon}}
+  {{#if isDismissible}}
     <div class="nucleus-inline-banner__close">
       {{nucleus-button
         type="link"

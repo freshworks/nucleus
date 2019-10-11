@@ -1,4 +1,3 @@
-import { or } from '@ember/object/computed';
 import Component from '@ember/component';
 import { get, set } from '@ember/object';
 import { computed } from '@ember/object';
@@ -6,9 +5,10 @@ import layout from '../templates/components/nucleus-inline-banner';
 
 const typeIconMap = {
   'tip': 'bulb',
-  'info': 'info',
-  'warning': 'warning',
-  'error': 'error'
+  'info': 'Info',
+  'success': 'Success',
+  'warning': 'Warning',
+  'danger': 'Danger'
 };
 
 export default Component.extend({
@@ -17,18 +17,15 @@ export default Component.extend({
   classNameBindings: ['_typeClass'],
   attributeBindings: ['data-test-id'],
   'data-test-id': 'nucleus-inline-banner',
-  type: 'tip', // ['tip', 'info', 'warning', 'error']
-  icon: 'Info',
-  size: 'large',
-  showCloseIcon: true,
+  type: 'tip', // ['tip', 'info', 'warning', 'success' ,'danger']
+  isDismissible: true,
   isOpen: true,
-  isLinkAction: or('linkHref', 'linkAction'),
   _typeClass: computed('type', 'isOpen', function() {
     let type = get(this, 'type');
     let isOpen = get(this, 'isOpen');
     return (type && isOpen) ? `nucleus-inline-banner--${type}` : null;
   }),
-  typeIcon: computed('type', function() {
+  _icon: computed('type', function() {
     return typeIconMap[get(this, 'type')];
   }),
   actions: {
