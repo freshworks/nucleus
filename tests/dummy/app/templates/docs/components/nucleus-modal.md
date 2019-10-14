@@ -2,7 +2,11 @@
 
 # Modal
 
-Modal is a window overlaid on either the primary window or another dialog window. Windows under a modal dialog are inert. That is, users cannot interact with content outside an active dialog window. Inert content outside an active dialog is typically visually obscured or dimmed so it is difficult to discern, and in some implementations, attempts to interact with the inert content cause the dialog to close.
+Modals are an interactive component which appears on top of the page that stops any other interaction behind it. It has a focused task with few components within it like CTAs. Modals requires the users to critically respond to it in order to get back to primary task. 
+
+## Scenario
+
+Best use of modals is to get the task quickly done and may also support in completion of the primary task, for example: Creation of an entity and also editing it. Modal has to be relevant and carefully utilized as modal grasp users attention and may obstruct their current flow. 
 
 ## Usage
 
