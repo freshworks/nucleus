@@ -35,9 +35,6 @@ export default Component.extend({
         return get(this, 'onClose')();
       }
       set(this, 'isOpen', false);
-    },
-    onLinkAction() {
-      get(this, 'linkAction')();
     }
   }
 });
