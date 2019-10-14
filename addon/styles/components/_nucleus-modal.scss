@@ -44,6 +44,7 @@
 
     &--slider {
       max-width: 600px;
+      height: 100vh;
       max-height: 100vh;
       border-radius: 0;
     }
@@ -74,15 +75,20 @@
   }
 
   &__footer {
-    text-align: right;
-    padding: 16px 32px;
+    padding: .75rem 1rem;
     background-color: $color-smoke-25;
     border-radius: 0 0 $radius $radius;
+    display: flex;
+    justify-content: flex-end;
 
     &.sticky {
       position: sticky;
       bottom: 0;
       box-shadow: 0 -2px 16px 0 rgba(18, 52, 77, .16);
+    }
+
+    button.btn:not(:last-child) {
+      margin-right: .75rem;
     }
   }
 
