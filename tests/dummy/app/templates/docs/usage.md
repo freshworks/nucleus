@@ -1,19 +1,14 @@
 # Usage
 
 ## Requirements
-* `node` 6 and above
-* `ember-cli` 2.12 and above
+* `node` 8 and above
+* `ember-cli` 3.7 and above
 
 ## Installation
 ### Installing Homebrew on Mac
 Follow the steps on [Homebrew](https://brew.sh/)
 
 ### Installing node via Homebrew
-
-To install node 6:
-```sh
-brew install node@6
-```
 
 To install node 8:
 ```sh

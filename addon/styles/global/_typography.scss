@@ -25,15 +25,15 @@
 
   //=== Weights ===//
   &--semibold {
-    font-weight: $font-weight-semibold;
+    font-weight: $font-weight-500;
   }
 
   &--normal {
-    font-weight: 400;
+    font-weight: $font-weight-400;
   }
 
   &--light {
-    font-weight: 200;
+    font-weight: $font-weight-300;
   }
   //=== Weights ===//
 
