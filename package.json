@@ -1,7 +1,7 @@
 {
   "name": "nucleus",
-  "version": "0.0.0",
-  "description": "The Freshworks Design System in Ember",
+  "version": "0.1.0",
+  "description": "Freshworks Design System in Ember",
   "keywords": [
     "ember-addon"
   ],
@@ -16,20 +16,26 @@
     "build": "ember build",
     "lint:hbs": "ember-template-lint .",
     "lint:js": "eslint .",
-    "start": "ember serve",
+    "start": "ember serve -p 4003",
+    "deploy": "ember deploy production",
     "test": "COVERAGE=TRUE ember test",
     "test:all": "ember try:each"
   },
   "dependencies": {
+    "ember-cli-autoprefixer": "^0.8.1",
     "ember-cli-babel": "^7.1.2",
     "ember-cli-htmlbars": "^3.0.0",
-    "ember-cli-sass": "^10.0.0"
+    "ember-cli-htmlbars-inline-precompile": "^1.0.0",
+    "ember-cli-sass": "^10.0.0",
+    "ember-css-transitions": "^0.1.16",
+    "ember-svg-jar": "^2.1.0"
   },
   "devDependencies": {
     "@ember/optional-features": "^0.6.3",
     "broccoli-asset-rev": "^2.7.0",
+    "ember-a11y-testing": "^1.0.0",
     "ember-cli": "~3.7.1",
-    "ember-cli-addon-docs": "^0.6.4",
+    "ember-cli-addon-docs": "^0.6.14",
     "ember-cli-addon-docs-yuidoc": "^0.2.1",
     "ember-cli-code-coverage": "^0.4.2",
     "ember-cli-dependency-checker": "^3.0.0",
@@ -51,14 +57,17 @@
     "ember-maybe-import-regenerator": "^0.1.6",
     "ember-qunit": "^3.4.1",
     "ember-resolver": "^5.0.1",
+    "ember-sinon": "^4.0.0",
+    "ember-sinon-qunit": "^3.4.0",
     "ember-source": "~3.7.0",
     "ember-source-channel-url": "^1.1.0",
+    "ember-test-selectors": "^2.1.0",
     "ember-try": "^1.0.0",
     "eslint-plugin-ember": "^5.2.0",
     "eslint-plugin-node": "^7.0.1",
     "loader.js": "^4.7.0",
     "qunit-dom": "^0.8.0",
-    "sass": "^1.17.2",
+    "sass": "^1.15.2",
     "stylelint": "^9.10.1",
     "stylelint-config-standard": "^18.2.0",
     "stylelint-order": "^2.1.0"
@@ -67,7 +76,11 @@
     "node": "6.* || 8.* || >= 10.*"
   },
   "ember-addon": {
-    "configPath": "tests/dummy/config"
+    "configPath": "tests/dummy/config",
+    "before": [
+      "ember-cli-htmlbars",
+      "ember-svg-jar"
+    ]
   },
   "homepage": "https://freshdesk.github.io/nucleus"
 }
