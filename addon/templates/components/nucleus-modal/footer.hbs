@@ -1,18 +1,17 @@
 {{#if hasBlock}}
   {{yield}}
 {{else}}
-  {{#if hasSubmitButton}}
-    {{nucleus-button
-      autofocus=true
-      disabled=submitDisabled
-      type=type
-      label=submitTitle
-      onClick=(action onSubmit)}}
-  {{/if}}
   {{#if hasCloseButton}}
     {{nucleus-button
       type="secondary"
       label=closeTitle
       onClick=(action onClose)}}
+  {{/if}}
+  {{#if hasSubmitButton}}
+    {{nucleus-button
+      disabled=submitDisabled
+      type=type
+      label=submitTitle
+      onClick=(action onSubmit)}}
   {{/if}}
 {{/if}}

@@ -31,11 +31,13 @@ module('Integration | Component | nucleus-modal', function(hooks) {
   });
 
   test('it does not render when open=false', async function(assert) {
-    await render(hbs`{{#nucleus-modal open=false as |modal|}}
+    this.set('isModalOpen', true);
+    await render(hbs`{{#nucleus-modal open=isModalOpen as |modal|}}
       {{modal.header title="Dialog"}}
       {{#modal.body}}Hello world!{{/modal.body}}
       {{modal.footer}}
     {{/nucleus-modal}}`);
+    this.set('isModalOpen', false);
 
     assert.dom('.nucleus-modal *').doesNotExist('Modal does not exist.');
   });
@@ -89,12 +91,14 @@ module('Integration | Component | nucleus-modal', function(hooks) {
   });
 
   test('it has accessibility attributes', async function(assert) {
-
-    await render(hbs`{{#nucleus-modal open=true as |modal|}}
+    this.set('isModalOpen', false);
+    await render(hbs`{{#nucleus-modal open=isModalOpen as |modal|}}
       {{modal.header title="Some title"}}
       {{#modal.body}}Hello world!{{/modal.body}}
       {{modal.footer}}
     {{/nucleus-modal}}`);
+    this.set('isModalOpen', true);
+
 
     const modalTitleId = document.getElementsByClassName('nucleus-modal__title')[0].id;
 

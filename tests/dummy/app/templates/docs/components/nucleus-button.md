@@ -52,9 +52,9 @@ Smaller button:
 Icon buttons:
 {{#docs-demo as |demo|}}
   {{#demo.example name='nucleus-button-dense.hbs'}}
-    {{nucleus-button icon="close" size="mini" type="primary"}}
-    {{nucleus-button icon="close" size="mini" type="secondary"}}
-    {{nucleus-button icon="close" size="mini" type="danger"}}
+    {{nucleus-button icon="cross" size="mini" type="primary"}}
+    {{nucleus-button icon="cross" size="mini" type="secondary"}}
+    {{nucleus-button icon="cross" size="mini" type="danger"}}
   {{/demo.example}}
   {{demo.snippet 'nucleus-button-dense.hbs'}}
 {{/docs-demo}}

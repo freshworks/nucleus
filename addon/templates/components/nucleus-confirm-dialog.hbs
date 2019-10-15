@@ -9,6 +9,8 @@
     }}
       {{nucleus-modal/header
         title=title
+        icon=icon
+        description=description
         closeButton=isDismissible
         onClose=(action "close")}}
       {{#nucleus-modal/body}}{{yield}}{{/nucleus-modal/body}}
