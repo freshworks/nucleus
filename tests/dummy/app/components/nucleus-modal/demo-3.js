@@ -1,4 +1,4 @@
-// BEGIN-SNIPPET dialog-component.js
+// BEGIN-SNIPPET slider-component.js
 import Component from '@ember/component';
 
 export default Component.extend({
