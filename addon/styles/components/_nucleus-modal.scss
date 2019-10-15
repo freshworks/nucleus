@@ -44,6 +44,7 @@
 
     &--slider {
       max-width: 600px;
+      height: 100vh;
       max-height: 100vh;
       border-radius: 0;
     }
@@ -55,6 +56,8 @@
     background: $color-milk;
     border-radius: $radius $radius 0 0;
     transition: all .1s linear;
+    display: flex;
+    justify-content: space-between;
 
     &.sticky {
       position: sticky;
@@ -62,6 +65,19 @@
       z-index: 9;
       padding: 16px 32px;
       box-shadow: 0 2px 4px 0 rgba(18, 52, 77, .08);
+    }
+
+    .header-icon {
+      margin-right: .5rem;
+    }
+
+    .header-content {
+      flex-grow: 2;
+
+      .description {
+        font-size: $font-size-12;
+        color: $text-secondary;
+      }
     }
   }
 
@@ -74,15 +90,20 @@
   }
 
   &__footer {
-    text-align: right;
-    padding: 16px 32px;
+    padding: .75rem 1rem;
     background-color: $color-smoke-25;
     border-radius: 0 0 $radius $radius;
+    display: flex;
+    justify-content: flex-end;
 
     &.sticky {
       position: sticky;
       bottom: 0;
       box-shadow: 0 -2px 16px 0 rgba(18, 52, 77, .16);
+    }
+
+    button.btn:not(:last-child) {
+      margin-right: .75rem;
     }
   }
 

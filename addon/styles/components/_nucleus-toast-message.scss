@@ -1,4 +1,4 @@
-.flash-messages {
+.nucleus-toast-messages {
   position: fixed;
   top: 2rem;
   left: 50%;
@@ -7,14 +7,7 @@
   height: 0;
 }
 
-.flash-message-close {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  color: $text-default;
-}
-
-.alert {
+.nucleus-toast-message {
   background: #fff;
   border-radius: $radius;
   border-top: 4px solid $border-color;
@@ -25,38 +18,6 @@
   display: flex;
   position: relative;
 
-  &.alert-success {
-    border-top-color: $border-success-color;
-
-    .alert__icon svg.icon {
-      fill: $border-success-color;
-    }
-  }
-
-  &.alert-danger {
-    border-top-color: $border-danger-color;
-
-    .alert__icon svg.icon {
-      fill: $border-danger-color;
-    }
-  }
-
-  &.alert-info {
-    border-top-color: $border-info-color;
-
-    .alert__icon svg.icon {
-      fill: $border-info-color;
-    }
-  }
-
-  &.alert-warning {
-    border-top-color: $border-warning-color;
-
-    .alert__icon svg.icon {
-      fill: $border-warning-color;
-    }
-  }
-
   &__icon {
     margin-right: 1rem;
     line-height: 1.3;
@@ -66,5 +27,38 @@
     font-size: $font-size-12;
     font-weight: $font-weight-600;
     padding-right: 1rem;
+    flex-grow: 2;
+  }
+
+  &.alert-success {
+    border-top-color: $text-success;
+
+    .nucleus-toast-message__icon {
+      color: $text-success;
+    }
+  }
+
+  &.alert-danger {
+    border-top-color: $text-danger;
+
+    .nucleus-toast-message__icon {
+      color: $text-danger;
+    }
+  }
+
+  &.alert-info {
+    border-top-color: $text-info;
+
+    .nucleus-toast-message__icon {
+      color: $text-info;
+    }
+  }
+
+  &.alert-warning {
+    border-top-color: $text-warning;
+
+    .nucleus-toast-message__icon {
+      color: $text-warning;
+    }
   }
 }

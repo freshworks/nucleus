@@ -130,28 +130,6 @@ export default Component.extend({
     return document.getElementById(get(this, "modalId"));
   }).volatile(),
 
-  /**
-  * backdropId
-  *
-  * @field backdropId
-  * @type string
-  * @private
-  */
-  backdropId: computed('elementId', function() {
-    return `nucleus-modal-backdrop-${this.get('elementId')}`;
-  }),
-
-  /**
-  * backdropElement
-  *
-  * @field backdropElement
-  * @type function
-  * @private
-  */
-  backdropElement: computed("backdropId", function () {
-    return document.getElementById(get(this, "backdropId"));
-  }).volatile(),
-
   actions: {
     /**
     * close

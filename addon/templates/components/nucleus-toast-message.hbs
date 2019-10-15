@@ -1,10 +1,10 @@
 {{#ember-wormhole to="modal-overlays"}}
-  <div class="flash-messages flash-messages--top-right {{if (gt flashMessages.queue.length 1) "stacked"}}">
+  <div class="nucleus-toast-messages">
     {{#each flashMessages.queue as |flash|}}
       {{#transition-group transitionClass="slide-down"}}
-        {{#flash-message flash=flash as |component flash close|}}
-          <div class="alert__icon">{{svg-jar component.flashType class="icon" width="14px"}}</div>
-          <div class="alert__content">
+        {{#flash-message flash=flash class="nucleus-toast-message" as |component flash close|}}
+          <div class="nucleus-toast-message__icon">{{svg-jar component.flashType class="icon" width="14px"}}</div>
+          <div class="nucleus-toast-message__content">
             <p>{{flash.message}}</p>
             {{#if flash.content}}
               <p>
@@ -22,7 +22,7 @@
               type="link"
               size="mini"
               customClass=(concat "flash-message-close")
-              icon="close"
+              icon="cross"
               onClick=(action close)}}
           </div>
         {{/flash-message}}
