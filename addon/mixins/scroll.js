@@ -1,3 +1,4 @@
+/* eslint-disable */
 import Mixin from '@ember/object/mixin';
 import { get, set } from '@ember/object';
 
