@@ -69,10 +69,16 @@
 
     .header-icon {
       margin-right: .5rem;
+      margin-top: .15rem;
     }
 
     .header-content {
       flex-grow: 2;
+
+      .title {
+        font-size: $font-size-18;
+        font-weight: $font-weight-600;
+      }
 
       .description {
         font-size: $font-size-12;

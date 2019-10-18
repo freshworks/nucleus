@@ -22,7 +22,7 @@ module('Integration | Component | nucleus-modal', function(hooks) {
 
     assert.dom('.nucleus-modal').exists({ count: 1 }, 'Modal exists.');
     assert.dom('.nucleus-modal .nucleus-modal__header').exists({ count: 1 }, 'Modal has header.');
-    assert.dom('.nucleus-modal .nucleus-modal__header .nucleus-modal__title').hasText('Dialog', 'Modal header has correct title.');
+    assert.dom('.nucleus-modal .nucleus-modal__header .title').hasText('Dialog', 'Modal header has correct title.');
     assert.dom('.nucleus-modal .nucleus-modal__footer').exists({ count: 1 }, 'Modal has footer.');
     assert.dom('.nucleus-modal .nucleus-modal__footer button').exists({ count: 1 }, 'Modal has button in footer.');
     assert.dom('.nucleus-modal .nucleus-modal__footer button').hasText('Ok', 'Modal button has default title.');
@@ -100,7 +100,7 @@ module('Integration | Component | nucleus-modal', function(hooks) {
     this.set('isModalOpen', true);
 
 
-    const modalTitleId = document.getElementsByClassName('nucleus-modal__title')[0].id;
+    const modalTitleId = document.querySelector('.nucleus-modal__header .title').id;
 
     assert.dom('.nucleus-modal').hasAttribute('role', 'dialog');
     assert.dom('.nucleus-modal').hasAttribute('aria-labelledby', modalTitleId);
