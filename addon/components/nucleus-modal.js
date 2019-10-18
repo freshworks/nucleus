@@ -126,9 +126,9 @@ export default Component.extend({
   * @type function
   * @private
   */
-  modalElement: computed("modalId", function () {
+  get modalElement() {
     return document.getElementById(get(this, "modalId"));
-  }).volatile(),
+  },
 
   actions: {
     /**
@@ -250,7 +250,7 @@ export default Component.extend({
     }
   },
 
-  _observeOpen: observer('isOpen', function() {
+  _observeOpen: observer('isOpen', function() { // eslint-disable-line
     if (this.get('isOpen')) {
       this._show();
     } else {

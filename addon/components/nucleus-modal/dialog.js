@@ -112,7 +112,7 @@ export default Component.extend(scroll, {
     let nodeId = null;
 
     if (modalNode) {
-      const titleNode = modalNode.querySelector('.nucleus-modal__title');
+      const titleNode = modalNode.querySelector('.nucleus-modal__header .title');
       if (titleNode) {
         nodeId = titleNode.id
         if (!nodeId) {
