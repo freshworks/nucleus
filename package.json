@@ -6,10 +6,9 @@
     "packages/*"
   ],
   "scripts": {
-    "lint:js": "eslint .",
     "start": "yarn workspace nucleus start",
-    "test": "yarn workspace nucleus test",
-    "dtslint": "lerna run dtslint",
+    "test": "lerna run test",
+    "lint": "lerna run lint:js && lerna run lint:hbs",
     "node-test": "lerna run node-test",
     "try": "ember try:one"
   },
@@ -19,7 +18,7 @@
     "ember-cli-babel": "^7.1.3",
     "ember-source-channel-url": "^2.0.0",
     "ember-try": "^1.1.0",
-    "eslint": "^5.0.0",
+    "eslint": "^6.5.1",
     "eslint-plugin-ember": "^7.0.0",
     "eslint-plugin-node": "^10.0.0",
     "lerna": "^3.0.0",
