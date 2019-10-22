@@ -108,7 +108,7 @@ export default Component.extend(scroll, {
    * @private
    */
   getOrSetTitleId() {
-    const modalNode = this.get('element');
+    const modalNode = get(this, 'element');
     let nodeId = null;
 
     if (modalNode) {
@@ -116,7 +116,7 @@ export default Component.extend(scroll, {
       if (titleNode) {
         nodeId = titleNode.id
         if (!nodeId) {
-          nodeId = `${this.get('id')}-title`;
+          nodeId = `${get(this, 'id')}-title`;
           titleNode.id = nodeId;
         }
       }
@@ -140,7 +140,7 @@ export default Component.extend(scroll, {
   },
 
   scrolled: function() {
-    const modalNode = this.get('element');
+    const modalNode = get(this, 'element');
     if(modalNode) {
       const titleNode = modalNode.querySelector('.nucleus-modal__header');
       const contentNode = modalNode.querySelector('.nucleus-modal__body');

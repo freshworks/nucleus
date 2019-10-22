@@ -68,8 +68,8 @@
     }
 
     .header-icon {
-      margin-right: .5rem;
-      margin-top: .15rem;
+      margin-right: .5em;
+      margin-top: .15em;
     }
 
     .header-content {
@@ -89,14 +89,14 @@
 
   &__body {
     padding: 16px 32px;
-    font-size: .875rem;
+    font-size: .875em;
     position: relative;
     flex: 1 1 auto;
     overflow-y: auto;
   }
 
   &__footer {
-    padding: .75rem 1rem;
+    padding: .75em 1em;
     background-color: $color-smoke-25;
     border-radius: 0 0 $radius $radius;
     display: flex;
@@ -109,7 +109,7 @@
     }
 
     button.btn:not(:last-child) {
-      margin-right: .75rem;
+      margin-right: .75em;
     }
   }
 

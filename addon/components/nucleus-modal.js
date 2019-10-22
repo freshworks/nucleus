@@ -116,7 +116,7 @@ export default Component.extend({
   * @private
   */
   modalId: computed('elementId', function() {
-    return `nucleus-modal-${this.get('elementId')}`;
+    return `nucleus-modal-${get(this, 'elementId')}`;
   }),
 
   /**
@@ -251,7 +251,7 @@ export default Component.extend({
   },
 
   _observeOpen: observer('isOpen', function() { // eslint-disable-line
-    if (this.get('isOpen')) {
+    if (get(this, 'isOpen')) {
       this._show();
     } else {
       this._hide();
