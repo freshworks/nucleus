@@ -8,9 +8,10 @@
   "scripts": {
     "start": "yarn workspace nucleus start",
     "test": "lerna run test",
-    "lint": "lerna run lint:js && lerna run lint:hbs",
+    "lint": "lerna run lint:hbs",
     "node-test": "lerna run node-test",
-    "try": "ember try:one"
+    "try": "ember try:each",
+    "try:legacy": "ember try:one ember-lts-2.18"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.0",
