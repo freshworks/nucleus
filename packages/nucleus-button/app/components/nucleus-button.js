@@ -1,1 +1,1 @@
-export { default } from 'nucleus/components/nucleus-button';
+export { default } from '@nucleus/button/components/nucleus-button';
