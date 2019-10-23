@@ -1,5 +1,5 @@
 {{#if isOpen}}
-  {{#ember-wormhole to="modal-overlays" renderInPlace=renderInPlace}}
+  {{#ember-wormhole to="nucleus-modal-wormhole" renderInPlace=renderInPlace}}
     {{#nucleus-modal/dialog
       id=modalId
       onClose=(action "close")

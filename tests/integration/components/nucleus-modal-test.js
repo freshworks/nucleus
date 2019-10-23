@@ -4,9 +4,11 @@ import test from 'ember-sinon-qunit/test-support/test';
 import a11yAudit from 'ember-a11y-testing/test-support/audit';
 import { render, click, triggerKeyEvent } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
+import setupModal from '../../helpers/setup-modal';
 
 module('Integration | Component | nucleus-modal', function(hooks) {
   setupRenderingTest(hooks);
+  setupModal(hooks);
 
   hooks.beforeEach(function() {
     this.actions = {};
