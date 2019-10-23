@@ -1,7 +1,7 @@
 {
   "name": "nucleus",
-  "version": "0.1.0",
-  "description": "Freshworks Design System in Ember",
+  "version": "1.0.0",
+  "description": "Umbrella package which holds the documentation",
   "keywords": [
     "ember-addon"
   ],
@@ -17,8 +17,7 @@
     "start": "ember serve -p 4003",
     "deploy": "ember deploy production",
     "test": "COVERAGE=TRUE ember test",
-    "test:dev": "COVERAGE=TRUE ember test --server -launch=false",
-    "test:all": "ember try:each"
+    "test:dev": "COVERAGE=TRUE ember test --server -launch=false"
   },
   "dependencies": {
     "ember-cli-autoprefixer": "^0.8.1",
@@ -62,10 +61,8 @@
     "ember-source": "~3.13.0",
     "ember-source-channel-url": "^2.0.1",
     "ember-test-selectors": "^2.1.0",
-    "ember-try": "^1.2.1",
     "eslint-plugin-ember": "^7.1.0",
     "eslint-plugin-node": "^10.0.0",
-    "lerna": "^3.18.2",
     "loader.js": "^4.7.0",
     "qunit-dom": "^0.9.0",
     "sass": "^1.15.2",
