@@ -1,7 +1,7 @@
 {
   "name": "@nucleus/button",
   "version": "1.0.0",
-  "description": "Freshworks Design System in Ember",
+  "description": "Button component in Nucleus",
   "keywords": [
     "ember-addon"
   ],
