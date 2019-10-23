@@ -1,6 +1,6 @@
 {
   "name": "nucleus",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Umbrella package which holds the documentation",
   "keywords": [
     "ember-addon"
@@ -20,13 +20,13 @@
     "test:dev": "COVERAGE=TRUE ember test --server -launch=false"
   },
   "dependencies": {
+    "@nucleus/button": "^1.0.1",
     "ember-cli-autoprefixer": "^0.8.1",
     "ember-cli-babel": "^7.11.1",
     "ember-cli-htmlbars": "^4.0.0",
     "ember-cli-sass": "^10.0.0",
     "ember-css-transitions": "^0.1.16",
-    "ember-svg-jar": "^2.1.0",
-    "@nucleus/button": "^1.0.0"
+    "ember-svg-jar": "^2.1.0"
   },
   "devDependencies": {
     "@ember/optional-features": "^1.0.0",
