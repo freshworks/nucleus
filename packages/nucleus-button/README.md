@@ -1,43 +1,32 @@
-Nucleus - The Freshworks Design System in Ember
+@nucleus/button
 ==============================================================================
 
-This is the repository of the Freshworks Component Library based on the unified
-Freshworks Design Language
-https://freshworks.invisionapp.com/dsm/freshworks/d-labs-design-system
-
-Compatibility
+Buttons in Freshdesk
 ------------------------------------------------------------------------------
+Buttons means operation or series of operations. Buttons are interactive components that the users can click or touch to trigger corresponding business logic. 
 
-* Ember.js v2.18 or above
-* Ember CLI v2.13 or above
-* Node.js v8 or above
-
-
-Installation
+Scenario
 ------------------------------------------------------------------------------
+There are several button types used throughout the product. They are used in pages such as articles, forms, wizards and perform actions such as saving, cancelling or sending, or call users to those actions. 
 
-```
-ember install nucleus
-```
-
-
-Usage
+Guidelines
 ------------------------------------------------------------------------------
+**DO’s**
 
-[Longer description of how to use the addon in apps.]
+1. Label button with what action it triggers.
+2. Choose appropriate button for the context.
+3. Use primary button for the primary/important action of the page.
+4. Use secondary buttons as default buttons.
+5. Use link buttons as tertiary buttons for less prominent actions.
+6. Use consistent button placement and direction for a user journey.
+7. Use button against a contrast background and have essential white space around the button.
 
-Contribution guidelines
-------------------------------------------------------------------------------
+**DONT’s**
 
-[Contribution guidelines for this project](docs/CONTRIBUTING.md)
-
-Contributing
-------------------------------------------------------------------------------
-
-See the [Contributing](CONTRIBUTING.md) guide for details.
-
-
-License
-------------------------------------------------------------------------------
-
-This project is licensed under the [MIT License](LICENSE.md).
+1. Avoid using too many buttons in one page. 
+2. Button copy shouldn’t be too wordy.
+3. Don’t use more than one primary button in a page.
+4. Don’t use buttons instead of tabs.
+5. Don’t trigger the action without alerting the user for destructive buttons. 
+6. Don’t use destructive buttons for all delete/ cancellation scenarios. More applicable for actions which involves deleting the data permanently.
+7. Don’t enable primary button before all mandatory fields are filled.
