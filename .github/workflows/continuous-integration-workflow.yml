@@ -23,7 +23,7 @@ jobs:
     - name: Run test suite
       run: yarn test
   verify:
-    name: Verify Lint & Legacy
+    name: Legacy
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
@@ -35,9 +35,6 @@ jobs:
 
       - name: Install dependencies
         run: yarn
-
-      - name: Template Linter
-        run: yarn run lint
 
       - name: Legacy Checker [2.18]
         run: yarn run try:legacy
