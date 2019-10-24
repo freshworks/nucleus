@@ -29,6 +29,7 @@
     "ember-cli-sass": "^10.0.0",
     "ember-css-transitions": "^0.1.16",
     "ember-svg-jar": "^2.1.0",
+    "ember-truth-helpers": "^2.1.0",
     "ember-template-lint": "^1.6.0",
     "eslint": "^6.5.1",
     "eslint-plugin-node": "^10.0.0"
