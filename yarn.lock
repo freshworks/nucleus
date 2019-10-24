@@ -11681,7 +11681,7 @@ sane@^4.0.0, sane@^4.1.0:
     minimist "^1.1.1"
     walker "~1.0.5"
 
-sass@^1.15.2, sass@^1.22.10, sass@^1.22.3:
+sass@^1.22.10, sass@^1.22.3:
   version "1.23.0"
   resolved "https://registry.yarnpkg.com/sass/-/sass-1.23.0.tgz#bd526ff40dbc5d09a4ed69e2cffa849749977710"
   dependencies:
