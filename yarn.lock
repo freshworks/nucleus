@@ -6421,7 +6421,7 @@ ember-try-config@^3.0.0:
     rsvp "^4.8.1"
     semver "^5.5.0"
 
-ember-try@^1.1.0:
+ember-try@^1.1.0, ember-try@^1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/ember-try/-/ember-try-1.2.1.tgz#4118521ec3658ebeed542b426020939935bd0f26"
   dependencies:
@@ -11684,6 +11684,12 @@ sane@^4.0.0, sane@^4.1.0:
 sass@^1.15.2, sass@^1.22.10, sass@^1.22.3:
   version "1.23.0"
   resolved "https://registry.yarnpkg.com/sass/-/sass-1.23.0.tgz#bd526ff40dbc5d09a4ed69e2cffa849749977710"
+  dependencies:
+    chokidar ">=2.0.0 <4.0.0"
+
+sass@^1.23.0:
+  version "1.23.1"
+  resolved "https://registry.yarnpkg.com/sass/-/sass-1.23.1.tgz#0e5b72ba2bd9f0229a637d33f8dd5bf2d810beb3"
   dependencies:
     chokidar ">=2.0.0 <4.0.0"
 

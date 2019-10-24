@@ -1,5 +1,5 @@
 {
-  "name": "nucleus",
+  "name": "@freshworks/nucleus",
   "version": "1.0.0",
   "private": true,
   "description": "Freshworks Design System in Ember",
