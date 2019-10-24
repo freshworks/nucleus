@@ -1,4 +1,4 @@
-@nucleus/button
+@freshworks/nucleus-button
 ==============================================================================
 
 Buttons in Freshdesk

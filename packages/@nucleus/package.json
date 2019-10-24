@@ -1,7 +1,7 @@
 {
   "name": "nucleus",
   "private": true,
-  "version": "1.0.9",
+  "version": "0.1.0",
   "description": "Umbrella package which holds the documentation",
   "keywords": [
     "ember-addon"
