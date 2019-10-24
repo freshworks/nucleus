@@ -21,10 +21,20 @@ jobs:
       run: yarn
 
     - name: Run test suite
-      run: npm test
-  lint:
-    name: Linter
+      run: yarn test
+  verify:
+    name: Legacy
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1.0.0
-      - uses: stefanoeb/eslint-action@master
+      - uses: actions/checkout@master
+
+      - name: Set Node.js 10.x
+        uses: actions/setup-node@master
+        with:
+          node-version: 10.x
+
+      - name: Install dependencies
+        run: yarn
+
+      - name: Legacy Checker [2.18]
+        run: yarn run try:legacy
