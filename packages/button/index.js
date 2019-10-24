@@ -2,5 +2,5 @@
 'use strict';
 
 module.exports = {
-  name: '@freshworks/nucleus-button'
+  name: '@freshworks/button'
 };

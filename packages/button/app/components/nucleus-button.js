@@ -1,1 +1,1 @@
-export { default } from '@freshworks/nucleus-button/components/nucleus-button';
+export { default } from '@freshworks/button/components/nucleus-button';
