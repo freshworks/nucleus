@@ -80,5 +80,8 @@
       "ember-svg-jar"
     ]
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "homepage": "https://freshdesk.github.io/nucleus"
 }
