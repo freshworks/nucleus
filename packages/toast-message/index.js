@@ -17,7 +17,7 @@ module.exports = {
 
   contentFor(type, config) {
     if ((type === 'body-footer' && config.environment !== 'test')) {
-      return '<div id="nucleus-modal-toast-messages"></div>';
+      return '<div id="nucleus-toast-messages-wormhole"></div>';
     }
   }
 };
