@@ -1,32 +1,24 @@
-@freshworks/nucleus-button
+@freshworks/modal
 ==============================================================================
 
-Buttons in Freshdesk
-------------------------------------------------------------------------------
-Buttons means operation or series of operations. Buttons are interactive components that the users can click or touch to trigger corresponding business logic. 
+Modals are an interactive component which appears on top of the page that stops any other interaction behind it. It has a focused task with few components within it like CTAs. Modals requires the users to critically respond to it in order to get back to primary task.
 
 Scenario
 ------------------------------------------------------------------------------
-There are several button types used throughout the product. They are used in pages such as articles, forms, wizards and perform actions such as saving, cancelling or sending, or call users to those actions. 
+Best use of modals is to get the task quickly done and may also support in completion of the primary task, for example: Creation of an entity and also editing it. Modal has to be relevant and carefully utilized as modal grasp users attention and may obstruct their current flow. 
 
 Guidelines
 ------------------------------------------------------------------------------
 **DO’s**
 
-1. Label button with what action it triggers.
-2. Choose appropriate button for the context.
-3. Use primary button for the primary/important action of the page.
-4. Use secondary buttons as default buttons.
-5. Use link buttons as tertiary buttons for less prominent actions.
-6. Use consistent button placement and direction for a user journey.
-7. Use button against a contrast background and have essential white space around the button.
+1. Add scroll to body (CTA to remain fixed) incase the content is more. 
+2. Icon to the titles has to be contextual
+3. Focus should be on the first item in modal as it opens
 
 **DONT’s**
 
-1. Avoid using too many buttons in one page. 
-2. Button copy shouldn’t be too wordy.
-3. Don’t use more than one primary button in a page.
-4. Don’t use buttons instead of tabs.
-5. Don’t trigger the action without alerting the user for destructive buttons. 
-6. Don’t use destructive buttons for all delete/ cancellation scenarios. More applicable for actions which involves deleting the data permanently.
-7. Don’t enable primary button before all mandatory fields are filled.
+1. Don’t exceed maximum width of 800 px
+2. Avoid using 2 levels of modal on modal.
+3. Don’t use modal if it is not related to the user’s current taskflow.
+4. Avoid modal for complex decision making that requires additional sources of information.
+5. Avoid closing the modal on clicking outside for confirmation modals and forms dialogs in which user confirmation or input required.
