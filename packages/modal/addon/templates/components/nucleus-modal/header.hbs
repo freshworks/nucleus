@@ -1,0 +1,19 @@
+{{#if hasBlock}}
+  {{yield}}
+{{else}}
+  {{#if icon}}
+    <div class="header-icon">{{svg-jar icon class="icon" width="16px"}}</div>
+  {{/if}}
+  <div class="header-content">
+    <h4 class="title">{{title}}</h4>
+    {{#if description}}<p class="description">{{description}}</p>{{/if}}
+  </div>
+  {{#if closeButton}}
+    {{nucleus-button
+      type=closeButtonType
+      size="mini"
+      customClass=(concat "nucleus-modal__close " position)
+      icon="cross"
+      onClick=(action onClose)}}
+  {{/if}}
+{{/if}}

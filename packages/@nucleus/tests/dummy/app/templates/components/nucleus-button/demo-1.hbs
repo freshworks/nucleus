@@ -1,0 +1,20 @@
+{{#docs-demo as |demo|}}
+  {{#demo.example name="nucleus-button-loading.hbs"}}
+    {{nucleus-button
+      type="primary"
+      onClick=(action "download" 1)
+      label="Click"}}
+  {{/demo.example}}
+  {{#demo.example name="nucleus-button-loading-custom.hbs"}}
+    {{nucleus-button
+      type="primary"
+      block=true
+      onClick=(action "download" 1)
+      pendingLabel="Downloading"
+      fulfilledLabel="Completed"
+      label="Custom label"}}
+  {{/demo.example}}
+  {{demo.snippet "nucleus-button-loading.hbs" label="default.hbs"}}
+  {{demo.snippet "nucleus-button-loading-custom.hbs" label="custom.hbs"}}
+  {{demo.snippet "button-loading.js" label="component.js"}}
+{{/docs-demo}}

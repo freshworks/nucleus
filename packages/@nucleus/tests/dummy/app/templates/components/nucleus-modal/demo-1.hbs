@@ -1,0 +1,28 @@
+{{#docs-demo as |demo|}}
+  {{#demo.example name="modal-demo-1-helper.hbs"}}
+    <button onclick={{action (mut isModal1 true)}} class="docs-btn">
+      Click here to open simple modal
+    </button>
+  {{/demo.example}}
+  {{#demo.example name="modal-demo-1.hbs" class="docs-no-padding"}}
+    {{#nucleus-modal
+      size="large"
+      open=isModal1
+      onSubmit=(action "onSubmit" "Opened!")
+      onClose=(action "onClose") as |modal|}}
+      {{modal.header
+        title="Title"
+        icon="rewards"
+        description="Some description"}}
+      {{#modal.body}}
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Adipiscing diam donec adipiscing tristique risus nec. Ullamcorper morbi tincidunt ornare massa eget egestas. Vestibulum lectus mauris ultrices eros in cursus. Justo laoreet sit amet cursus. Mi quis hendrerit dolor magna eget est lorem ipsum dolor. In mollis nunc sed id semper risus in. Et pharetra pharetra massa massa ultricies mi quis. A scelerisque purus semper eget duis at tellus. Duis convallis convallis tellus id. Cursus vitae congue mauris rhoncus aenean vel elit. Phasellus egestas tellus rutrum tellus pellentesque eu tincidunt tortor aliquam. Leo a diam sollicitudin tempor. Velit laoreet id donec ultrices tincidunt. Et magnis dis parturient montes nascetur ridiculus. Massa enim nec dui nunc. Feugiat sed lectus vestibulum mattis. Ac tincidunt vitae semper quis lectus nulla at volutpat.</p>
+        <p>In eu mi bibendum neque egestas congue quisque egestas diam. Malesuada nunc vel risus commodo viverra maecenas accumsan. Sodales ut etiam sit amet. Proin libero nunc consequat interdum. Quam elementum pulvinar etiam non quam lacus suspendisse. Nunc scelerisque viverra mauris in aliquam sem fringilla. Blandit volutpat maecenas volutpat blandit aliquam etiam. Integer enim neque volutpat ac tincidunt vitae. Viverra maecenas accumsan lacus vel facilisis volutpat. Adipiscing enim eu turpis egestas. Sit amet massa vitae tortor condimentum lacinia quis. Dui id ornare arcu odio. Vel pretium lectus quam id leo in vitae turpis. Risus at ultrices mi tempus. Vel facilisis volutpat est velit egestas dui id. Egestas diam in arcu cursus euismod quis. Ullamcorper sit amet risus nullam. Nunc id cursus metus aliquam eleifend.</p>
+        <p>Amet volutpat consequat mauris nunc congue nisi. Purus semper eget duis at tellus at. Diam quam nulla porttitor massa id neque aliquam vestibulum. Suscipit tellus mauris a diam maecenas. Sagittis aliquam malesuada bibendum arcu vitae elementum. Commodo quis imperdiet massa tincidunt nunc pulvinar sapien et ligula. Sit amet massa vitae tortor condimentum. In nibh mauris cursus mattis molestie. Risus ultricies tristique nulla aliquet enim tortor at auctor. Velit sed ullamcorper morbi tincidunt ornare massa. Lacus laoreet non curabitur gravida arcu ac tortor dignissim convallis. Turpis egestas sed tempus urna et pharetra pharetra massa. Nunc sed blandit libero volutpat sed cras ornare arcu dui. Egestas sed sed risus pretium quam vulputate dignissim suspendisse. Proin libero nunc consequat interdum. Blandit aliquam etiam erat velit. Viverra nibh cras pulvinar mattis nunc sed blandit.</p><p>Quis lectus nulla at volutpat diam ut venenatis tellus in. Gravida in fermentum et sollicitudin ac orci. Bibendum enim facilisis gravida neque convallis a. Ornare arcu dui vivamus arcu felis bibendum ut. Lectus proin nibh nisl condimentum id venenatis a condimentum. Consectetur libero id faucibus nisl tincidunt. Duis at tellus at urna condimentum mattis pellentesque id. Gravida neque convallis a cras semper auctor. Mauris rhoncus aenean vel elit scelerisque mauris. Tellus cras adipiscing enim eu turpis. Etiam sit amet nisl purus in mollis nunc. In eu mi bibendum neque egestas congue. Euismod nisi porta lorem mollis aliquam ut porttitor. Diam quam nulla porttitor massa id neque. Ultrices vitae auctor eu augue ut lectus. Elementum nibh tellus molestie nunc. Sit amet consectetur adipiscing elit pellentesque habitant morbi tristique senectus. Duis at consectetur lorem donec massa sapien. Orci ac auctor augue mauris augue neque gravida in.</p><p>Aliquam ut porttitor leo a diam sollicitudin tempor id eu. Sed risus pretium quam vulputate dignissim suspendisse in est ante. Mauris nunc congue nisi vitae suscipit tellus. Purus semper eget duis at tellus at urna condimentum. Morbi enim nunc faucibus a pellentesque. Arcu odio ut sem nulla. In arcu cursus euismod quis. Blandit aliquam etiam erat velit scelerisque in dictum non. Et odio pellentesque diam volutpat commodo. Pulvinar neque laoreet suspendisse interdum consectetur. Suscipit tellus mauris a diam maecenas. Id volutpat lacus laoreet non. Dis parturient montes nascetur ridiculus mus mauris vitae ultricies. Eu volutpat odio facilisis mauris sit amet. Duis at tellus at urna condimentum. Felis eget velit aliquet sagittis id. Vestibulum lectus mauris ultrices eros. Massa vitae tortor condimentum lacinia quis vel eros donec. Amet nulla facilisi morbi tempus iaculis urna id volutpat lacus. Nulla facilisi cras fermentum odio eu.</p>
+      {{/modal.body}}
+      {{modal.footer submitTitle="Next" closeTitle="Close"}}
+    {{/nucleus-modal}}
+  {{/demo.example}}
+
+  {{demo.snippet "modal-demo-1.hbs"}}
+  {{demo.snippet "modal-component.js" label="component.js"}}
+{{/docs-demo}}

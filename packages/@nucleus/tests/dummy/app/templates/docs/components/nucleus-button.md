@@ -1,42 +1,42 @@
 
 # Button
 
+![Button screenshots](../../images/buttons.png)
+
+
 ## Usage
 
 Simplest use case: a button with text in it, telling the user what to do.
 
 {{#docs-demo as |demo|}}
   {{#demo.example name="nucleus-button.hbs"}}
-    {{nucleus-button label="click me"}}
+    {{nucleus-button label="Downloads"}}
   {{/demo.example}}
   {{demo.snippet 'nucleus-button.hbs'}}
 {{/docs-demo}}
 
-
-Also supported- block use:
+Block form
 {{#docs-demo as |demo|}}
-  {{#demo.example name='nucleus-button-has-block.hbs'}}
-    {{#nucleus-button}}
-      click me <span>🐹</span>
+  {{#demo.example name='nucleus-button-block-form.hbs'}}
+    {{#nucleus-button type="primary" ariaLabel="concise label"}}
+      Some yield content here
     {{/nucleus-button}}
   {{/demo.example}}
-  {{demo.snippet 'nucleus-button-has-block.hbs'}}
+  {{demo.snippet 'nucleus-button-block-form.hbs'}}
 {{/docs-demo}}
 
-To toggle the 'disabled' property, set 'isDisabled' to true
-{{#docs-demo as |demo|}}
-  {{#demo.example name='nucleus-button-disabled.hbs'}}
-    {{nucleus-button label="click me" isDisabled=true}}
-  {{/demo.example}}
-  {{demo.snippet 'nucleus-button-disabled.hbs'}}
-{{/docs-demo}}
+Asynchronous Button
+{{nucleus-button/demo-1}}
 
 ## Styles
 
-Outline button style:
+Different types:
 {{#docs-demo as |demo|}}
   {{#demo.example name='nucleus-button-light.hbs'}}
-    {{nucleus-button label="click me" isDark=false}}
+    {{nucleus-button label="click me"}}
+    {{nucleus-button label="click me" type="secondary"}}
+    {{nucleus-button label="click me" type="danger"}}
+    {{nucleus-button label="click me" type="link"}}
   {{/demo.example}}
   {{demo.snippet 'nucleus-button-light.hbs'}}
 {{/docs-demo}}
@@ -44,15 +44,17 @@ Outline button style:
 Smaller button:
 {{#docs-demo as |demo|}}
   {{#demo.example name='nucleus-button-tiny.hbs'}}
-    {{nucleus-button label="click me" isTiny=true}}
+    {{nucleus-button label="click me" size="mini"}}
   {{/demo.example}}
   {{demo.snippet 'nucleus-button-tiny.hbs'}}
 {{/docs-demo}}
 
-Less Padding:
+Icon buttons:
 {{#docs-demo as |demo|}}
   {{#demo.example name='nucleus-button-dense.hbs'}}
-    {{nucleus-button label="click me" isDark=true isDense=true}}
+    {{nucleus-button icon="cross" size="mini" type="primary"}}
+    {{nucleus-button icon="cross" size="mini" type="secondary"}}
+    {{nucleus-button icon="cross" size="mini" type="danger"}}
   {{/demo.example}}
   {{demo.snippet 'nucleus-button-dense.hbs'}}
 {{/docs-demo}}
@@ -60,9 +62,19 @@ Less Padding:
 Full-width button:
 {{#docs-demo as |demo|}}
   {{#demo.example name='nucleus-button-block.hbs'}}
-    {{nucleus-button label="click me" isBlock=true}}
+    {{nucleus-button label="click me" block=true}}
   {{/demo.example}}
   {{demo.snippet 'nucleus-button-block.hbs'}}
+{{/docs-demo}}
+
+To toggle the 'disabled' property, set 'disabled' to true
+{{#docs-demo as |demo|}}
+  {{#demo.example name='nucleus-button-disabled.hbs'}}
+    {{#nucleus-button type="primary" disabled=true}}
+      Downloads
+    {{/nucleus-button}}
+  {{/demo.example}}
+  {{demo.snippet 'nucleus-button-disabled.hbs'}}
 {{/docs-demo}}
 
 ## Accessibility

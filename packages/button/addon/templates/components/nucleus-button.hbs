@@ -1,9 +1,11 @@
-{{#if label}}
-  <button aria-label={{label}} class="btn primary" disabled={{isDisabled}}>
-    {{label}}
-  </button>
+{{#if icon}}{{svg-jar icon class="icon"}}{{/if}}
+{{#if (and _isLoading _isShowLoading)}}
+  <div data-test-button-loader class="circle-loader {{if _isLoadingComplete "load-complete"}}">
+    <div class="checkmark draw"></div>
+  </div>
 {{else}}
-  <button aria-label="nucleus-button" class="nucleus-button">
-    {{yield}}
-  </button>
+  {{_buttonText}}
+{{/if}}
+{{#if hasBlock}}
+  {{yield}}
 {{/if}}
