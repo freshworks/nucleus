@@ -1,6 +1,7 @@
 import Component from '@ember/component';
 import { get, set } from '@ember/object';
 import { computed } from '@ember/object';
+import { htmlSafe } from '@ember/template';
 import layout from '../templates/components/nucleus-inline-banner';
 
 const typeIconMap = {
@@ -20,6 +21,10 @@ export default Component.extend({
   type: 'tip', // ['tip', 'info', 'warning', 'success' ,'danger']
   isDismissible: true,
   isOpen: true,
+  title: null,
+  _title: computed('title', function() {
+    return htmlSafe(get(this, 'title'));
+  }),
   _typeClass: computed('type', 'isOpen', function() {
     let type = get(this, 'type');
     let isOpen = get(this, 'isOpen');
