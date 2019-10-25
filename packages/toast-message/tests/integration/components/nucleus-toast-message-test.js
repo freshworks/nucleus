@@ -4,9 +4,11 @@ import test from 'ember-sinon-qunit/test-support/test';
 import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 import FlashMessage from 'ember-cli-flash/flash/object';
+import setupToastMessage from '../../helpers/setup-toast-message';
 
 module('Integration | Component | nucleus-toast-message', function(hooks) {
   setupRenderingTest(hooks);
+  setupToastMessage(hooks);
 
   hooks.beforeEach(function() {
     const typesUsed = ['info', 'warning', 'success', 'danger'];
