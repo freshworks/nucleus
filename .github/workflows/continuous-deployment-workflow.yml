@@ -19,9 +19,6 @@ jobs:
 
     - name: Install dependencies
       run: yarn
-
-    - name: Build documentation
-      run: npm run build
       
-    - name: Publish to Github
-      run: npm run deploy
+    - name: Publish to Github Pages
+      run: yarn run deploy

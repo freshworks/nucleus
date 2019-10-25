@@ -1,0 +1,31 @@
+{{#if isOpen}}
+  {{#ember-wormhole to="nucleus-modal-wormhole" renderInPlace=renderInPlace}}
+    {{#nucleus-modal/dialog
+      id=modalId
+      onClose=(action "close")
+      onSubmit=(action "submit")
+      size=size
+      keyboard=isDismissible
+    }}
+      {{nucleus-modal/header
+        title=title
+        icon=icon
+        description=description
+        closeButton=isDismissible
+        onClose=(action "close")}}
+      {{#nucleus-modal/body}}{{yield}}{{/nucleus-modal/body}}
+      {{nucleus-modal/footer
+        type=type
+        isSticky=false
+        closeTitle=closeTitle
+        submitTitle=submitTitle
+        onClose=(action "close")
+        onSubmit=(action "submit")}}
+    {{/nucleus-modal/dialog}}
+    {{#transition-group transitionClass="fade"}}
+      {{#if _showBackdrop}}
+        <div class="nucleus-modal__backdrop" id={{backdropId}}></div>
+      {{/if}}
+    {{/transition-group}}
+  {{/ember-wormhole}}
+{{/if}}

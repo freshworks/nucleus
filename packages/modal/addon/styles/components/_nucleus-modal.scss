@@ -1,0 +1,142 @@
+.nucleus-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2147483638;  // maximum value to override other components in the app/page
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  outline: 0;
+  display: flex;
+
+  &--center {
+    align-items: center;
+    justify-content: center;
+  }
+
+  &--right {
+    align-items: flex-end;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  &--left {
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  &__dialog {
+    max-height: 70vh;
+    max-width: 512px;
+    background: $color-milk;
+    border-radius: $radius;
+    display: flex;
+    flex-direction: column;
+
+    &--large {
+      max-width: 800px;
+    }
+
+    &--small {
+      max-width: 424px;
+    }
+
+    &--slider {
+      max-width: 600px;
+      height: 100vh;
+      max-height: 100vh;
+      border-radius: 0;
+    }
+  }
+
+  &__header {
+    padding: 32px 32px 0;
+    position: relative;
+    background: $color-milk;
+    border-radius: $radius $radius 0 0;
+    transition: all .1s linear;
+    display: flex;
+    justify-content: space-between;
+
+    &.sticky {
+      position: sticky;
+      top: 0;
+      z-index: 9;
+      padding: 16px 32px;
+      box-shadow: 0 2px 4px 0 rgba(18, 52, 77, .08);
+    }
+
+    .header-icon {
+      margin-right: .5em;
+      margin-top: .15em;
+    }
+
+    .header-content {
+      flex-grow: 2;
+
+      .title {
+        font-size: $font-size-18;
+        font-weight: $font-weight-600;
+      }
+
+      .description {
+        font-size: $font-size-12;
+        color: $text-secondary;
+      }
+    }
+  }
+
+  &__body {
+    padding: 16px 32px;
+    font-size: .875em;
+    position: relative;
+    flex: 1 1 auto;
+    overflow-y: auto;
+  }
+
+  &__footer {
+    padding: .75em 1em;
+    background-color: $color-smoke-25;
+    border-radius: 0 0 $radius $radius;
+    display: flex;
+    justify-content: flex-end;
+
+    &.sticky {
+      position: sticky;
+      bottom: 0;
+      box-shadow: 0 -2px 16px 0 rgba(18, 52, 77, .16);
+    }
+
+    button.btn:not(:last-child) {
+      margin-right: .75em;
+    }
+  }
+
+  &__close {
+    position: absolute;
+    top: 8px; // to offset the parent padding as per the design
+    right: 8px;
+    transition: all .3s;
+
+    &.right {
+      top: 0;
+      left: -24px;  // to place the close outside of bounding box in sliders
+      border-radius: 0 0 0 2px;
+    }
+  }
+
+  &__backdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2147483637;  // since other app elements like app-header and app-sidebar have z-index till 9
+    background-color: rgba(0, 0, 0, .5);
+  }
+
+  &--open {
+    overflow: hidden;
+  }
+}

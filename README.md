@@ -1,6 +1,8 @@
 Nucleus - The Freshworks Design System in Ember
 ==============================================================================
 
+![GitHub Action status | freshdesk/nucleus](https://github.com/freshdesk/nucleus/workflows/Build/badge.svg)
+
 This is the repository of the Freshworks Component Library based on the unified
 Freshworks Design Language
 https://freshworks.invisionapp.com/dsm/freshworks/d-labs-design-system
@@ -41,3 +43,4 @@ License
 ------------------------------------------------------------------------------
 
 This project is licensed under the [MIT License](LICENSE.md).
+

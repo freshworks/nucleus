@@ -1,0 +1,32 @@
+{{#ember-wormhole to="nucleus-modal-toast-messages"}}
+  <div class="nucleus-toast-messages">
+    {{#each flashMessages.queue as |flash|}}
+      {{#transition-group transitionClass="slide-down"}}
+        {{#flash-message flash=flash class="nucleus-toast-message" as |component flash close|}}
+          <div class="nucleus-toast-message__icon">{{svg-jar component.flashType class="icon" width="14px"}}</div>
+          <div class="nucleus-toast-message__content">
+            <p>{{flash.message}}</p>
+            {{#if flash.content}}
+              <p>
+                <a role="button" 
+                class="text-info"
+                aria-label={{flash.content.linkText}}
+                onClick={{action flash.content.linkAction}}>
+                  {{flash.content.linkText}}
+                </a>
+              </p>
+            {{/if}}
+          </div>
+          <div class="alert__close">
+            {{nucleus-button
+              type="link"
+              size="mini"
+              customClass=(concat "flash-message-close")
+              icon="cross"
+              onClick=(action close)}}
+          </div>
+        {{/flash-message}}
+      {{/transition-group}}
+    {{/each}}
+  </div>
+{{/ember-wormhole}}
