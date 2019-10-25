@@ -18,7 +18,7 @@
     "lint:js": "eslint .",
     "start": "ember serve -p 4003",
     "deploy": "ember deploy production",
-    "test": "COVERAGE=TRUE ember test",
+    "test": "COVERAGE=TRUE ember test --test-port=1510",
     "test:dev": "COVERAGE=TRUE ember test --server -launch=false"
   },
   "dependencies": {

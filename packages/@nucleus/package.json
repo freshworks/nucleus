@@ -15,7 +15,7 @@
   },
   "scripts": {
     "build": "ember build",
-    "start": "ember serve -p 4003",
+    "start": "ember serve -p 1508",
     "deploy": "ember deploy production",
     "test": "COVERAGE=TRUE ember test",
     "test:dev": "COVERAGE=TRUE ember test --server -launch=false"
