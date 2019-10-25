@@ -1,6 +1,6 @@
 {
   "name": "@freshworks/button",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Button component in Nucleus",
   "keywords": [
     "ember-addon"
@@ -29,8 +29,8 @@
     "ember-cli-sass": "^10.0.0",
     "ember-css-transitions": "^0.1.16",
     "ember-svg-jar": "^2.1.0",
-    "ember-truth-helpers": "^2.1.0",
     "ember-template-lint": "^1.6.0",
+    "ember-truth-helpers": "^2.1.0",
     "eslint": "^6.5.1",
     "eslint-plugin-node": "^10.0.0"
   },
