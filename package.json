@@ -10,6 +10,7 @@
     "start": "yarn workspace nucleus start",
     "test": "lerna run test",
     "lint": "lerna run lint:hbs",
+    "deploy": "yarn workspace nucleus deploy",
     "node-test": "lerna run node-test",
     "try": "ember try:each",
     "try:legacy": "ember try:one ember-lts-2.18"
