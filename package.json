@@ -10,6 +10,7 @@
     "start": "yarn workspace nucleus start",
     "test": "lerna run test --parallel --since master",
     "lint": "lerna run lint:hbs",
+    "publish": "lerna publish --yes",
     "deploy": "yarn workspace nucleus deploy",
     "node-test": "lerna run node-test",
     "try": "ember try:each",
