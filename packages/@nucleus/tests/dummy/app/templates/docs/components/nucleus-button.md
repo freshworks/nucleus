@@ -59,6 +59,13 @@ Icon buttons:
   {{demo.snippet 'nucleus-button-dense.hbs'}}
 {{/docs-demo}}
 
+{{#docs-demo as |demo|}}
+  {{#demo.example name='nucleus-button-icon.hbs'}}
+    {{nucleus-button icon="cross" label="Delete" type="danger"}}
+  {{/demo.example}}
+  {{demo.snippet 'nucleus-button-icon.hbs'}}
+{{/docs-demo}}
+
 Full-width button:
 {{#docs-demo as |demo|}}
   {{#demo.example name='nucleus-button-block.hbs'}}
