@@ -1,7 +1,7 @@
 {
   "name": "nucleus",
   "private": true,
-  "version": "0.2.0",
+  "version": "0.1.0",
   "description": "Umbrella package which holds the documentation",
   "keywords": [
     "ember-addon"
@@ -15,14 +15,14 @@
   },
   "scripts": {
     "build": "ember build",
-    "start": "ember serve -p 4003",
+    "start": "ember serve -p 1508",
     "deploy": "ember deploy production",
     "test": "COVERAGE=TRUE ember test",
     "test:dev": "COVERAGE=TRUE ember test --server -launch=false"
   },
   "dependencies": {
-    "@freshworks/button": "^0.2.0",
-    "@freshworks/modal": "^0.2.0",
+    "@freshworks/button": "^0.1.0",
+    "@freshworks/modal": "^0.1.0",
     "ember-cli-autoprefixer": "^0.8.1",
     "ember-cli-babel": "^7.11.1",
     "ember-cli-htmlbars": "^4.0.0",

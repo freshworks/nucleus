@@ -1,6 +1,6 @@
 {
   "name": "@freshworks/button",
-  "version": "0.2.0",
+  "version": "0.1.0",
   "description": "Button component in Nucleus",
   "keywords": [
     "ember-addon"
@@ -18,7 +18,7 @@
     "lint:js": "eslint .",
     "start": "ember serve -p 4003",
     "deploy": "ember deploy production",
-    "test": "COVERAGE=TRUE ember test",
+    "test": "COVERAGE=TRUE ember test --test-port=1509",
     "test:dev": "COVERAGE=TRUE ember test --server -launch=false"
   },
   "dependencies": {
