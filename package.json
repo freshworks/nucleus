@@ -8,8 +8,10 @@
   ],
   "scripts": {
     "start": "yarn workspace nucleus start",
-    "test": "lerna run test",
+    "test": "lerna run test --parallel --since origin/master",
+    "build": "lerna run build --parallel --no-private",
     "lint": "lerna run lint:hbs",
+    "publish": "lerna publish --yes",
     "deploy": "yarn workspace nucleus deploy",
     "try": "ember try:each",
     "try:legacy": "ember try:one ember-lts-2.18"

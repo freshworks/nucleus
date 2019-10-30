@@ -17,8 +17,15 @@ jobs:
       with:
         node-version: 10.x
 
-    - name: Install dependencies
-      run: yarn
+    - name: Install dependencies & build
+      run: |
+        yarn
+        yarn run build
+
+    - name: Publish to npm registry
+      run: yarn run publish
+      if: success()
       
     - name: Publish to Github Pages
       run: yarn run deploy
+      if: success()
