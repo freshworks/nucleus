@@ -90,12 +90,12 @@ Since we're using the native HTML button element and requiring a label value to 
 
 If you are going to put an icon in the button, then you will need to set an aria-label property on the button:
 {{#docs-demo as |demo|}}
-  {{#demo.example name='nucleus-button-icon.hbs'}}
+  {{#demo.example name='nucleus-button-icon-2.hbs'}}
     {{#nucleus-button  ariaLabel="Hamster Secrets" title="Hamster Secrets"}}
       🐹
     {{/nucleus-button}}
   {{/demo.example}}
-  {{demo.snippet 'nucleus-button-icon.hbs'}}
+  {{demo.snippet 'nucleus-button-icon-2.hbs'}}
 {{/docs-demo}}
 
 ## Other Uses
