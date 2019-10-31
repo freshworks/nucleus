@@ -4,5 +4,13 @@
   "packages": [
     "packages/*"
   ],
-  "version": "0.2.0"
+  "command": {
+    "version": {
+      "allowBranch": "master"
+    },
+    "publish": {
+      "allowBranch": "master"
+    }
+  },
+  "version": "independent"
 }

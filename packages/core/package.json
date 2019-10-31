@@ -1,7 +1,7 @@
 {
-  "name": "@freshworks/button",
+  "name": "@freshworks/core",
   "version": "0.1.0",
-  "description": "Button component in Nucleus",
+  "description": "Nucleus::Core - SCSS styles & helpers",
   "keywords": [
     "ember-addon"
   ],
@@ -14,26 +14,17 @@
   },
   "scripts": {
     "build": "ember build",
-    "lint:hbs": "ember-template-lint .",
-    "lint:js": "eslint .",
     "start": "ember serve -p 4003",
     "deploy": "ember deploy production",
-    "test": "COVERAGE=TRUE ember test --test-port=1509",
+    "test": "COVERAGE=TRUE ember test --test-port=1508",
     "test:dev": "COVERAGE=TRUE ember test --server -launch=false"
   },
   "dependencies": {
-    "@freshworks/core": "^0.1.0",
-    "broccoli-merge-trees": "^3.0.2",
-    "broccoli-funnel": "^2.0.2",
     "ember-cli": "~3.13.1",
-    "ember-cli-autoprefixer": "^0.8.1",
     "ember-cli-babel": "^7.11.1",
     "ember-cli-htmlbars": "^4.0.0",
     "ember-cli-sass": "^10.0.0",
     "ember-css-transitions": "^0.1.16",
-    "ember-svg-jar": "^2.1.0",
-    "ember-template-lint": "^1.6.0",
-    "ember-truth-helpers": "^2.1.0",
     "eslint": "^6.5.1",
     "eslint-plugin-node": "^10.0.0",
     "sass": "^1.23.0"
