@@ -1,32 +1,36 @@
-@freshworks/nucleus-button
+@freshworks/core
 ==============================================================================
 
-Buttons in Freshdesk
-------------------------------------------------------------------------------
-Buttons means operation or series of operations. Buttons are interactive components that the users can click or touch to trigger corresponding business logic. 
+Contains the core design modules of Freshworks DSM:
 
-Scenario
-------------------------------------------------------------------------------
-There are several button types used throughout the product. They are used in pages such as articles, forms, wizards and perform actions such as saving, cancelling or sending, or call users to those actions. 
+1. variables
+2. animations
+3. utilities
 
-Guidelines
-------------------------------------------------------------------------------
-**DO’s**
+To import these stylesheets in your host app, add any/all of the following to your `app.scss` as per your requirement.
 
-1. Label button with what action it triggers.
-2. Choose appropriate button for the context.
-3. Use primary button for the primary/important action of the page.
-4. Use secondary buttons as default buttons.
-5. Use link buttons as tertiary buttons for less prominent actions.
-6. Use consistent button placement and direction for a user journey.
-7. Use button against a contrast background and have essential white space around the button.
+```css
+@import "nucleus/variables";
+@import "nucleus/animations";
+@import "nucleus/utilities";
+```
 
-**DONT’s**
+To import them in another dependent addon (e.g @freshdesk/button), add the following to the addon's `index.js`:
 
-1. Avoid using too many buttons in one page. 
-2. Button copy shouldn’t be too wordy.
-3. Don’t use more than one primary button in a page.
-4. Don’t use buttons instead of tabs.
-5. Don’t trigger the action without alerting the user for destructive buttons. 
-6. Don’t use destructive buttons for all delete/ cancellation scenarios. More applicable for actions which involves deleting the data permanently.
-7. Don’t enable primary button before all mandatory fields are filled.
+```js
+treeForAddonStyles(tree) {
+  let coreStyleTree = new Funnel(this.getCoreStylesPath(), {
+    destDir: 'nucleus'
+  });
+  return mergeTrees([coreStyleTree, tree]);
+},
+
+getCoreStylesPath() {
+  let pkgPath = path.dirname(require.resolve(`@freshworks/core/package.json`));
+  return path.join(pkgPath, 'app/styles');
+}
+```
+
+**REASON:**
+
+`@nucleus/core`'s app style funnel needs to be merged with the addon's style funnel in order for those files to be recognised by *ember-cli-sass*. More info [here](https://discuss.emberjs.com/t/how-can-i-share-files-css-sass-between-addons/15429/8)
