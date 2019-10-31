@@ -1,8 +1,2 @@
-// Globals
-@import "./global/normalize";
-@import "./global/variables";
-@import "./global/utilities";
-@import "./global/animations";
-
-// Components
+@import "nucleus/variables";
 @import "./components/nucleus-modal";

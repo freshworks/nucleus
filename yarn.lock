@@ -2428,7 +2428,7 @@ babel-core@^6.26.0, babel-core@^6.26.3:
     slash "^1.0.0"
     source-map "^0.5.7"
 
-babel-eslint@^10.0.0, babel-eslint@^10.0.3:
+babel-eslint@^10.0.3:
   version "10.0.3"
   resolved "https://registry.yarnpkg.com/babel-eslint/-/babel-eslint-10.0.3.tgz#81a2c669be0f205e19462fed2482d33e4687a88a"
   dependencies:
@@ -6414,7 +6414,7 @@ ember-try-config@^3.0.0:
     rsvp "^4.8.1"
     semver "^5.5.0"
 
-ember-try@^1.1.0, ember-try@^1.2.1:
+ember-try@^1.1.0:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/ember-try/-/ember-try-1.2.1.tgz#4118521ec3658ebeed542b426020939935bd0f26"
   dependencies:
@@ -6610,7 +6610,7 @@ escodegen@^1.11.0, escodegen@^1.9.1:
   optionalDependencies:
     source-map "~0.6.1"
 
-eslint-plugin-ember@^7.0.0, eslint-plugin-ember@^7.1.0:
+eslint-plugin-ember@^7.1.0:
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/eslint-plugin-ember/-/eslint-plugin-ember-7.2.0.tgz#668e20b2ab3442d6ee3ba18c016f37f794eb0104"
   dependencies:
