@@ -5,17 +5,15 @@
         {{#flash-message flash=flash class="nucleus-toast-message" as |component flash close|}}
           <div class="nucleus-toast-message__icon">{{svg-jar component.flashType class="icon" width="14px"}}</div>
           <div class="nucleus-toast-message__content">
-            <p>
-              {{flash.message}}
-              {{#if flash.content}}
-                <a role="button" 
-                class="btn btn--link btn--mini"
-                aria-label={{flash.content.linkText}}
-                onClick={{action flash.content.linkAction}}>
-                  {{flash.content.linkText}}
-                </a>
-              {{/if}}
-            </p>
+            <p>{{flash.message}}</p>
+            {{#if flash.content}}
+              <a role="button" 
+              class="link"
+              aria-label={{flash.content.linkText}}
+              onClick={{action flash.content.linkAction}}>
+                {{flash.content.linkText}}
+              </a>
+            {{/if}}
           </div>
           <div class="alert__close">
             {{nucleus-button

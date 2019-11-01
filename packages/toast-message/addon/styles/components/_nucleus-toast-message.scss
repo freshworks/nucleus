@@ -29,11 +29,10 @@
     font-weight: $font-weight-600;
     padding-right: 1rem;
     flex-grow: 2;
-  }
 
-  &__cta {
-    margin: 0 8px;
-    flex-grow: 1;
+    .link {
+      color: $text-info;
+    }
   }
 
   &.alert-success {
