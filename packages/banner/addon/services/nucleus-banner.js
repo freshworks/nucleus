@@ -1,23 +1,35 @@
 import { A } from '@ember/array';
 import Service from '@ember/service';
+import { set, get } from '@ember/object';
+
+/**
+ * {
+ *    'title': 'Lorem ipsum',
+ *    'type': 'danger',
+ *    'content': {
+ *      'linkText': 'Action',
+ *      'linkAction': this.testAction.bind(this)
+ *    }
+ * }
+ */
 
 export default Service.extend({
   items: null,
 
   init() {
     this._super(...arguments);
-    this.set('items', A([]));
+    set(this, 'items', A([]));
   },
 
   add(item) {
-    this.items.pushObject(item);
+    get(this, 'items').pushObject(item);
   },
 
   remove(item) {
-    this.items.removeObject(item);
+    get(this, 'items').removeObject(item);
   },
 
   empty() {
-    this.items.clear();
+    get(this, 'items').clear();
   }
 });

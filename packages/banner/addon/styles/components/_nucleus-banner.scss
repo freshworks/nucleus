@@ -15,6 +15,7 @@
     white-space: nowrap;
     overflow: hidden;
     font-size: $font-size-14;
+    font-weight: $font-weight-500;
     text-overflow: ellipsis;
   }
 
@@ -131,5 +132,10 @@
     &:last-child {
       margin-bottom: 0;
     }
+  }
+
+  .link {
+    color: $text-info;
+    font-weight: $font-weight-500;
   }
 }

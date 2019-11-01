@@ -12,11 +12,7 @@ export default Component.extend({
   isMultiple: gt('bannerItems.length', 1),
   displayedItem: reads('bannerItems.firstObject'),
   hiddenItems: computed('isMultiple', 'bannerItems.[]', function() {
-    let isMultiple = get(this, 'isMultiple');
-    if (isMultiple) {
-      return get(this, 'bannerItems').slice(1);
-    }
-    return null;
+    return get(this, 'isMultiple') ? get(this, 'bannerItems').slice(1) : null;
   }),
   actions: {
     toggleShowMore() {

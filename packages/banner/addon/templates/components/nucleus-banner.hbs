@@ -1,6 +1,16 @@
 {{#if bannerItems.length}}
   <div class="nucleus-banner nucleus-banner--{{displayedItem.type}}">
-    <div class="nucleus-banner__main">{{displayedItem.content}}</div>
+    <div class="nucleus-banner__main">
+      {{displayedItem.title}}
+      {{#if displayedItem.content}}
+        <a role="button" 
+        class="link"
+        aria-label={{displayedItem.content.linkText}}
+        onClick={{action displayedItem.content.linkAction}}>
+          {{displayedItem.content.linkText}}
+        </a>
+      {{/if}}
+    </div>
     <div class="nucleus-banner__more">
       {{#if (and isMultiple hiddenItems)}}
         {{nucleus-button
@@ -14,7 +24,15 @@
           <ul class="nucleus-banners">
             {{#each hiddenItems as |item|}}
               <li class="nucleus-banner--mini nucleus-banner--{{item.type}}">
-                {{item.content}}
+                {{item.title}}
+                {{#if item.content}}
+                  <a role="button" 
+                  class="link"
+                  aria-label={{item.content.linkText}}
+                  onClick={{action item.content.linkAction}}>
+                    {{item.content.linkText}}
+                  </a>
+                {{/if}}
               </li>
             {{/each}}
           </ul>

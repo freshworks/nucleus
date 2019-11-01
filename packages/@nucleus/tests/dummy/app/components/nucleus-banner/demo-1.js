@@ -9,8 +9,19 @@ export default Component.extend({
     addItem(type) {
       const nucleusBanner = get(this, 'nucleusBanner');
       nucleusBanner.add({
-        content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        title: 'Lorem ipsum dolor sit amet chris, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
         type
+      });
+    },
+    addItemWithLink(type) {
+      const nucleusBanner = get(this, 'nucleusBanner');
+      nucleusBanner.add({
+        title: 'Lorem ipsum dolor sit amet chris, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        type,
+        content: {
+          linkText: "Click here",
+          linkAction: this.testAction.bind(this) 
+        }
       });
     }
   },
