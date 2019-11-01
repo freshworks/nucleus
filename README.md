@@ -1,7 +1,7 @@
 Nucleus - The Freshworks Design System in Ember
 ==============================================================================
 
-![GitHub Action status | freshdesk/nucleus](https://github.com/freshdesk/nucleus/workflows/Build/badge.svg)
+![GitHub Action status | freshdesk/nucleus](https://github.com/freshdesk/nucleus/workflows/CI/badge.svg)
 
 This is the repository of the Freshworks Component Library based on the unified
 Freshworks Design Language
@@ -12,31 +12,31 @@ Compatibility
 
 * Ember.js v2.18 or above
 * Ember CLI v2.13 or above
-* Node.js v8 or above
+* Node.js v10 or above
 
 
 Installation
 ------------------------------------------------------------------------------
 
 ```
-ember install nucleus
+npm install @freshworks/[PACKAGE_NAME]
+```
+
+```
+yarn add @freshworks/[PACKAGE_NAME]
 ```
 
 
 Usage
 ------------------------------------------------------------------------------
 
-[Longer description of how to use the addon in apps.]
+See the packages directory for a list of [packages](packages/) that can be installed individually.
+
 
 Contribution guidelines
 ------------------------------------------------------------------------------
 
 [Contribution guidelines for this project](docs/CONTRIBUTING.md)
-
-Contributing
-------------------------------------------------------------------------------
-
-See the [Contributing](CONTRIBUTING.md) guide for details.
 
 
 License
