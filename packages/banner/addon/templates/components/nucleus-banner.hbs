@@ -1,10 +1,25 @@
-{{displayedItem.content}}
-{{#if isMultiple}}
-  <ul>
-    {{#each hiddenItems as |item|}}
-      <li class="{{item.type}}">
-        {{item.content}}
-      </li>
-    {{/each}}
-  </ul>
+{{#if bannerItems.length}}
+  <div class="nucleus-banner nucleus-banner--{{displayedItem.type}}">
+    <div class="nucleus-banner__main">{{displayedItem.content}}</div>
+    <div class="nucleus-banner__more">
+      {{#if (and isMultiple hiddenItems)}}
+        {{nucleus-button
+          size="mini"
+          block=true
+          type="link"
+          label=(concat "+ " hiddenItems.length " more")
+          onClick=(action "toggleShowMore")}}
+        <div class="more-card {{if isShowMore 'show'}}">
+          <h5>System alerts</h5>
+          <ul class="nucleus-banners">
+            {{#each hiddenItems as |item|}}
+              <li class="nucleus-banner--mini nucleus-banner--{{item.type}}">
+                {{item.content}}
+              </li>
+            {{/each}}
+          </ul>
+        </div>
+      {{/if}}
+    </div>
+  </div>
 {{/if}}

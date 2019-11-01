@@ -6,16 +6,7 @@ export default Service.extend({
 
   init() {
     this._super(...arguments);
-    this.set('items', A([
-      {
-        content: 'shibu',
-        type: 'success'
-      },
-      {
-        content: 'lijack',
-        type: 'danger'
-      }
-    ]));
+    this.set('items', A([]));
   },
 
   add(item) {

@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "@freshworks/core": "^0.1.0",
+    "@freshworks/button": "^0.1.0",
     "broccoli-merge-trees": "^3.0.2",
     "broccoli-funnel": "^2.0.2",
     "ember-cli": "~3.13.1",

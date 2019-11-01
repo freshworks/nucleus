@@ -6,12 +6,6 @@
 
 ## Usage
 
-
-{{#docs-demo as |demo|}}
-  {{#demo.example name="nucleus-button.hbs"}}
-    {{nucleus-banner}}
-  {{/demo.example}}
-  {{demo.snippet 'nucleus-button.hbs'}}
-{{/docs-demo}}
+{{nucleus-banner/demo-1}}
 
 {{docs-note}}

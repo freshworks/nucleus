@@ -1,0 +1,18 @@
+{{#docs-demo as |demo|}}
+  {{#demo.example name="nucleus-banner.hbs"}}
+    <button onclick={{action "addItem" "success"}} class="docs-btn">
+      Add success banner
+    </button>
+    <button onclick={{action "addItem" "danger"}} class="docs-btn">
+      Add danger banner
+    </button>
+    <button onclick={{action "addItem" "info"}} class="docs-btn">
+      Add info banner
+    </button>
+    <button onclick={{action "addItem" "warning"}} class="docs-btn">
+      Add warning banner
+    </button>
+    {{nucleus-banner}}
+  {{/demo.example}}
+  {{demo.snippet 'nucleus-banner.js'}}
+{{/docs-demo}}
