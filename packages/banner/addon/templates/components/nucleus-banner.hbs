@@ -1,0 +1,10 @@
+{{displayedItem.content}}
+{{#if isMultiple}}
+  <ul>
+    {{#each hiddenItems as |item|}}
+      <li class="{{item.type}}">
+        {{item.content}}
+      </li>
+    {{/each}}
+  </ul>
+{{/if}}
