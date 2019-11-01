@@ -1,5 +1,6 @@
 {
   "name": "@freshworks/toast-message",
+  "private": true,
   "version": "0.1.0",
   "description": "Toast message component in Nucleus",
   "keywords": [
