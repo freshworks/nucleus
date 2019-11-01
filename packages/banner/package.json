@@ -18,8 +18,8 @@
     "lint:js": "eslint .",
     "start": "ember serve -p 4003",
     "deploy": "ember deploy production",
-    "test": "COVERAGE=TRUE ember test --test-port=1509",
-    "test:dev": "COVERAGE=TRUE ember test --server -launch=false"
+    "test": "COVERAGE=TRUE ember test --test-port=1512",
+    "test:dev": "ember test --server -launch=false"
   },
   "dependencies": {
     "@freshworks/core": "^0.1.0",
