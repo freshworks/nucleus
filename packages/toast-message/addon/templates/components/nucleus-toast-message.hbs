@@ -1,4 +1,4 @@
-{{#ember-wormhole to="nucleus-modal-toast-messages"}}
+{{#ember-wormhole to="nucleus-toast-messages-wormhole"}}
   <div class="nucleus-toast-messages">
     {{#each flashMessages.queue as |flash|}}
       {{#transition-group transitionClass="slide-down"}}
@@ -7,14 +7,12 @@
           <div class="nucleus-toast-message__content">
             <p>{{flash.message}}</p>
             {{#if flash.content}}
-              <p>
-                <a role="button" 
-                class="text-info"
-                aria-label={{flash.content.linkText}}
-                onClick={{action flash.content.linkAction}}>
-                  {{flash.content.linkText}}
-                </a>
-              </p>
+              <a role="button" 
+              class="link"
+              aria-label={{flash.content.linkText}}
+              onClick={{action flash.content.linkAction}}>
+                {{flash.content.linkText}}
+              </a>
             {{/if}}
           </div>
           <div class="alert__close">

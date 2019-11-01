@@ -12,29 +12,15 @@ jobs:
     steps:
     - uses: actions/checkout@master
     
-    - name: Set Node.js 10.x
+    - name: Set Node.js 10.13.0
       uses: actions/setup-node@master
       with:
-        node-version: 10.x
+        node-version: 10.13.0
 
     - name: Install dependencies
-      run: yarn
+      run: |
+        yarn policies set-version 1.17.3
+        yarn
 
     - name: Run test suite
       run: yarn test
-  verify:
-    name: Legacy
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@master
-
-      - name: Set Node.js 10.x
-        uses: actions/setup-node@master
-        with:
-          node-version: 10.x
-
-      - name: Install dependencies
-        run: yarn
-
-      - name: Legacy Checker [2.18]
-        run: yarn run try:legacy
