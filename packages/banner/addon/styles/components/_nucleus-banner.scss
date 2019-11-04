@@ -52,12 +52,6 @@
     background-color: $bg-warning;
     border: 1px solid $border-warning-color;
 
-    .nucleus-banner__icon {
-      background-color: $bg-warning;
-      border-right-color: $border-warning-color;
-      color: $text-warning;
-    }
-
     .nucleus-banner__more {
       border-color: $border-warning-color;
     }
@@ -70,12 +64,6 @@
   &--danger {
     background-color: $bg-danger;
     border: 1px solid $border-danger-color;
-
-    .nucleus-banner__icon {
-      background-color: $bg-danger;
-      border-right-color: $border-danger-color;
-      color: $text-danger;
-    }
 
     .nucleus-banner__more {
       border-color: $border-danger-color;
@@ -90,12 +78,6 @@
     background-color: $bg-info;
     border: 1px solid $border-info-color;
 
-    .nucleus-banner__icon {
-      background-color: $bg-info;
-      border-right-color: $border-info-color;
-      color: $text-info;
-    }
-
     .nucleus-banner__more {
       border-color: $border-info-color;
     }
@@ -108,12 +90,6 @@
   &--success {
     background-color: $bg-success;
     border: 1px solid $border-success-color;
-
-    .nucleus-banner__icon {
-      background-color: $bg-success;
-      border-right-color: $border-success-color;
-      color: $text-success;
-    }
 
     .nucleus-banner__main {
       color: $text-default;
@@ -132,10 +108,5 @@
     &:last-child {
       margin-bottom: 0;
     }
-  }
-
-  .link {
-    color: $text-info;
-    font-weight: $font-weight-500;
   }
 }
