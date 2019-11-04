@@ -8,4 +8,6 @@
 
 {{nucleus-banner/demo-1}}
 
+{{nucleus-banner/demo-2}}
+
 {{docs-note}}

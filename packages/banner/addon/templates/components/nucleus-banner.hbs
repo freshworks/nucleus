@@ -4,17 +4,17 @@
       {{nucleus-banner/item item=displayedItem}}
     </div>
     <div class="nucleus-banner__more">
-      {{#if (and isMultiple hiddenItems)}}
+      {{#if (and isMultiple stackedItems)}}
         {{nucleus-button
           size="mini"
           block=true
           type="link"
-          label=(concat "+ " hiddenItems.length " more")
+          label=(concat "+ " stackedItems.length " more")
           onClick=(action "toggleShowMore")}}
         <div class="more-card {{if isShowMore 'show'}}">
           <h5>System alerts</h5>
           <ul class="nucleus-banners">
-            {{#each hiddenItems as |hiddenItem|}}
+            {{#each stackedItems as |hiddenItem|}}
               <li class="nucleus-banner--mini nucleus-banner--{{hiddenItem.type}}">
                 {{nucleus-banner/item item=hiddenItem}}
               </li>

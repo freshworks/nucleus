@@ -1,16 +1,20 @@
 
-<span class="nucleus-banner-item__icon {{item.type}}">
-  {{svg-jar bannerIcon width="14px" height="14px" class="icon"}}
-</span>
-<span class="nucleus-banner-item__title">
-  {{item.title}}
-</span>
-{{#if item.content}}
-  <a role="button" 
-  class="nucleus-banner-item__link"
-  aria-label={{item.content.linkText}}
-  onClick={{action item.content.linkAction}}>
-    {{item.content.linkText}}
-  </a>
+{{#if item.componentName}}
+  {{component item.componentName props=item.componentProps}}
+{{else}}
+  <span class="nucleus-banner-item__icon {{item.type}}">
+    {{svg-jar bannerIcon width="14px" height="14px" class="icon"}}
+  </span>
+  <span class="nucleus-banner-item__title">
+    {{item.title}}
+  </span>
+  {{#if item.content}}
+    <a role="button" 
+    class="nucleus-banner-item__link"
+    aria-label={{item.content.linkText}}
+    onClick={{action item.content.linkAction}}>
+      {{item.content.linkText}}
+    </a>
+  {{/if}}
 {{/if}}
              

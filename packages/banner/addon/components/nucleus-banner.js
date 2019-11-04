@@ -11,7 +11,7 @@ export default Component.extend({
   bannerItems: reads('nucleusBanner.items'),
   isMultiple: gt('bannerItems.length', 1),
   displayedItem: reads('bannerItems.firstObject'),
-  hiddenItems: computed('isMultiple', 'bannerItems.[]', function() {
+  stackedItems: computed('isMultiple', 'bannerItems.[]', function() {
     return get(this, 'isMultiple') ? get(this, 'bannerItems').slice(1) : null;
   }),
   actions: {
