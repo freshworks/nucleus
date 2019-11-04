@@ -5,6 +5,8 @@ import { render } from '@ember/test-helpers';
 import test from 'ember-sinon-qunit/test-support/test';
 import hbs from 'htmlbars-inline-precompile';
 // import a11yAudit from 'ember-a11y-testing/test-support/audit';
+import setupBanner from '../../helpers/setup-banner';
+
 
 let ITEMS = [
   {
@@ -19,6 +21,7 @@ let StubMapsService = Service.extend({
 
 module('Integration | Component | nucleus-banner', function(hooks) {
   setupRenderingTest(hooks);
+  setupBanner(hooks);
 
   hooks.beforeEach(function() {
     this.actions = {};

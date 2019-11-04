@@ -28,5 +28,11 @@ module.exports = {
   getCoreStylesPath() {
     let pkgPath = path.dirname(require.resolve(`@freshworks/core/package.json`));
     return path.join(pkgPath, 'app/styles');
+  },
+
+  contentFor(type, config) {
+    if ((type === 'body' && config.environment !== 'test')) {
+      return '<div id="nucleus-banner-wormhole"></div>';
+    }
   }
 };
