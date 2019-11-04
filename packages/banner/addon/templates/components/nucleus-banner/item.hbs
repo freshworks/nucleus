@@ -1,0 +1,11 @@
+
+{{item.title}}
+{{#if item.content}}
+  <a role="button" 
+  class="link"
+  aria-label={{item.content.linkText}}
+  onClick={{action item.content.linkAction}}>
+    {{item.content.linkText}}
+  </a>
+{{/if}}
+             
