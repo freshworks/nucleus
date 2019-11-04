@@ -1,17 +1,7 @@
 import { A } from '@ember/array';
 import Service from '@ember/service';
 import { set, get } from '@ember/object';
-
-/**
- * {
- *    'title': 'Lorem ipsum',
- *    'type': 'danger',
- *    'content': {
- *      'linkText': 'Action',
- *      'linkAction': this.testAction.bind(this)
- *    }
- * }
- */
+import { DEFAULT_CONFIG } from '../constants/nucleus-banner'
 
 export default Service.extend({
   items: null,
@@ -22,7 +12,7 @@ export default Service.extend({
   },
 
   add(item) {
-    get(this, 'items').pushObject(item);
+    get(this, 'items').pushObject(Object.assign({}, DEFAULT_CONFIG, item));
   },
 
   remove(item) {

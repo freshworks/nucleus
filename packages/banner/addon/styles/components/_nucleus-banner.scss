@@ -101,9 +101,10 @@
   }
 
   &--mini {
-    padding: 4px;
+    position: relative;
+    padding: 4px 24px 4px 4px;
     border-radius: 4px;
-    font-size: $font-size-12;
+    font-size: $font-size-14;
 
     &:last-child {
       margin-bottom: 0;

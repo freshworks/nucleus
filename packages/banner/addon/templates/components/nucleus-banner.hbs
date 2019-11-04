@@ -1,12 +1,13 @@
 {{#if bannerItems.length}}
   <div class="nucleus-banner nucleus-banner--{{displayedItem.type}}">
     <div class="nucleus-banner__main">
-      {{nucleus-banner/item item=displayedItem}}
+      {{nucleus-banner/item item=displayedItem onDelete=(action 'deleteItem')}}
     </div>
     <div class="nucleus-banner__more">
       {{#if (and isMultiple stackedItems)}}
         {{nucleus-button
           size="mini"
+          ariaLabel="Show more"
           block=true
           type="link"
           label=(concat "+ " stackedItems.length " more")
@@ -16,7 +17,7 @@
           <ul class="nucleus-banners">
             {{#each stackedItems as |hiddenItem|}}
               <li class="nucleus-banner--mini nucleus-banner--{{hiddenItem.type}}">
-                {{nucleus-banner/item item=hiddenItem}}
+                {{nucleus-banner/item item=hiddenItem onDelete=(action 'deleteItem')}}
               </li>
             {{/each}}
           </ul>

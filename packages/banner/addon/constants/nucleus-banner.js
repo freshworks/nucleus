@@ -1,8 +1,13 @@
-const BUTTON_STATE = {
-  DEFAULT: "default",
-  PENDING: "pending",
-  FULFILLED: "fulfilled",
-  REJECTED: "rejected"
-};
+const DEFAULT_CONFIG = {
+  type: 'success',
+  isDismissible: true
+}
 
-export { BUTTON_STATE };
+const ICON_MAP = {
+  'success': 'circle-check',
+  'danger': 'circle-cross',
+  'warning': 'circle-info',
+  'info': 'circle-help'
+}
+
+export { DEFAULT_CONFIG, ICON_MAP };

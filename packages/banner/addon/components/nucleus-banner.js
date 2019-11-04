@@ -17,14 +17,22 @@ export default Component.extend({
   actions: {
     toggleShowMore() {
       this.toggleProperty('isShowMore');
+    },
+    deleteItem(item) {
+      get(this, 'nucleusBanner').remove(item);
     }
   },
   _observeOpen: observer('bannerItems.[]', function() { // eslint-disable-line
     if (get(this, 'bannerItems').length > 0) {
       this._injectBodyClass();
+    } else {
+      this._removeBodyClass();
     }
   }),
   _injectBodyClass() {
     document.body.classList.add("nucleus-banner--active");
+  },
+  _removeBodyClass() {
+    document.body.classList.remove("nucleus-banner--active");
   }
 });
