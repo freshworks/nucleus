@@ -23,7 +23,6 @@
   "dependencies": {
     "@freshworks/button": "^0.1.0",
     "@freshworks/modal": "^0.1.0",
-    "@freshworks/toast-message": "^0.1.0",
     "@freshworks/inline-banner": "^0.1.0",
     "ember-cli-autoprefixer": "^0.8.1",
     "ember-cli-babel": "^7.11.1",
