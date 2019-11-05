@@ -3,12 +3,7 @@ import { get, set } from '@ember/object';
 import { computed } from '@ember/object';
 import { htmlSafe } from '@ember/template';
 import layout from '../templates/components/nucleus-inline-banner';
-const typeIconMap = {
-  'info': 'circle-help',
-  'success': 'circle-check',
-  'warning': 'circle-info',
-  'danger': 'circle-cross'
-};
+import { ICON_MAP } from '../constants/nucleus-inline-banner';
 
 /**
   __Usage:__
@@ -102,7 +97,8 @@ export default Component.extend({
   * @private
   */
   _icon: computed('type', function () {
-    return typeIconMap[get(this, 'type')];
+    let iconType = get(this, 'type');
+    return (iconType in ICON_MAP) ? ICON_MAP[iconType] : null;
   }),
   actions: {
     /**
