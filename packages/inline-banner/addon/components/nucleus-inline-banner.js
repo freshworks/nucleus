@@ -5,11 +5,10 @@ import { htmlSafe } from '@ember/template';
 import layout from '../templates/components/nucleus-inline-banner';
 
 const typeIconMap = {
-  'tip': 'bulb',
-  'info': 'Info',
-  'success': 'Success',
-  'warning': 'Warning',
-  'danger': 'Danger'
+  'info': 'circle-help',
+  'success': 'circle-check',
+  'warning': 'circle-info',
+  'danger': 'circle-cross'
 };
 
 export default Component.extend({
@@ -18,7 +17,7 @@ export default Component.extend({
   classNameBindings: ['_typeClass'],
   attributeBindings: ['data-test-id'],
   'data-test-id': 'nucleus-inline-banner',
-  type: 'tip', // ['tip', 'info', 'warning', 'success' ,'danger']
+  type: 'info', // ['info', 'warning', 'success' ,'danger']
   isDismissible: true,
   isOpen: true,
   title: null,
