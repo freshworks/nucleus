@@ -14,7 +14,7 @@ const typeIconMap = {
 export default Component.extend({
   layout,
   classNames: ['nucleus-inline-banner'],
-  classNameBindings: ['_typeClass'],
+  classNameBindings: ['_typeClass', 'isOpen:show:hide'],
   attributeBindings: ['data-test-id'],
   'data-test-id': 'nucleus-inline-banner',
   type: 'info', // ['info', 'warning', 'success' ,'danger']

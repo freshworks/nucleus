@@ -87,4 +87,8 @@
       border-left-color: $border-success-color;
     }
   }
+
+  &.hide {
+    display: none;
+  }
 }

@@ -1,25 +1,23 @@
-{{#if isOpen}}
-  {{#if hasBlock}}
-    {{yield
-      (hash
-        close=(action "onCloseTip")
-      )
-    }}
-  {{else}}
-    <div class="nucleus-inline-banner__icon">
-      {{svg-jar _icon class="icon" width="14"}}
+{{#if hasBlock}}
+  {{yield
+    (hash
+      close=(action "onCloseTip")
+    )
+  }}
+{{else}}
+  <div class="nucleus-inline-banner__icon">
+    {{svg-jar _icon class="icon" width="14"}}
+  </div>
+  <div class="nucleus-inline-banner__content">
+    <div data-test-id="nucleus-inline-banner-title">{{_title}}</div>
+  </div>
+  {{#if isDismissible}}
+    <div class="nucleus-inline-banner__close">
+      {{nucleus-button
+        type="link"
+        size="mini"
+        icon="cross"
+        onClick=(action "onCloseTip")}}
     </div>
-    <div class="nucleus-inline-banner__content">
-      <div data-test-id="nucleus-inline-banner-title">{{_title}}</div>
-    </div>
-    {{#if isDismissible}}
-      <div class="nucleus-inline-banner__close">
-        {{nucleus-button
-          type="link"
-          size="mini"
-          icon="cross"
-          onClick=(action "onCloseTip")}}
-      </div>
-    {{/if}}
   {{/if}}
 {{/if}}
