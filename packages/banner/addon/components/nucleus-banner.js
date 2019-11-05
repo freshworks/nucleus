@@ -8,6 +8,7 @@ export default Component.extend({
   layout,
   nucleusBanner: service(),
   isShowMore: false,
+  isFixed: false,
   bannerItems: reads('nucleusBanner.items'),
   isMultiple: gt('bannerItems.length', 1),
   displayedItem: reads('bannerItems.firstObject'),

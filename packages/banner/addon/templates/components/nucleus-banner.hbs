@@ -1,6 +1,6 @@
 {{#if bannerItems.length}}
   {{#ember-wormhole to="nucleus-banner-wormhole" renderInPlace=false}}
-    <div class="nucleus-banner nucleus-banner--{{displayedItem.type}}">
+    <div class="nucleus-banner nucleus-banner--{{displayedItem.type}} {{if isFixed 'nucleus-banner__fixed'}}">
       <div class="nucleus-banner__main">
         {{nucleus-banner/item item=displayedItem onDelete=(action 'deleteItem')}}
       </div>

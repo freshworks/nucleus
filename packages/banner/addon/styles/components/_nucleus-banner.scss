@@ -1,6 +1,6 @@
 .nucleus-banner {
   display: flex;
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
@@ -9,6 +9,10 @@
   justify-content: center;
   align-items: center;
   height: 40px;
+
+  &__fixed {
+    position: fixed;
+  }
 
   &__main {
     max-width: 75%;
@@ -107,6 +111,7 @@
     padding: 4px 24px 4px 4px;
     border-radius: 4px;
     font-size: $font-size-14;
+    margin-bottom: 8px;
 
     &:last-child {
       margin-bottom: 0;
