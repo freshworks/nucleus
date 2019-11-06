@@ -15,6 +15,7 @@
   }
 
   &__main {
+    display: flex;
     max-width: 75%;
     white-space: nowrap;
     overflow: hidden;

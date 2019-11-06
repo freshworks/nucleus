@@ -37,6 +37,8 @@
 }
 
 .nucleus-banner--mini {
+  display: flex;
+
   .nucleus-banner-item__close {
     position: absolute;
     top: 4px;
