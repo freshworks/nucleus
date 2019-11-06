@@ -10,7 +10,7 @@ export default Component.extend({
       const nucleusBanner = get(this, 'nucleusBanner');
       nucleusBanner.add({
         type,
-        componentName: 'nucleus-banner/demo-2-helper'
+        componentName: 'dummy-comp/demo-2-helper'
       });
     }
   }
