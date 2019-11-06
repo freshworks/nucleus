@@ -4,5 +4,6 @@ import layout from '../templates/components/nucleus-toast-message';
  
 export default Component.extend({
   layout,
-  flashMessages: inject()
+  flashMessages: inject(),
+  position: 'top center'
 });

@@ -1,5 +1,5 @@
 {{#ember-wormhole to="nucleus-toast-messages-wormhole"}}
-  <div class="nucleus-toast-messages">
+  <div class="nucleus-toast-messages {{position}}">
     {{#each flashMessages.queue as |flash|}}
       {{#transition-group transitionClass="slide-down"}}
         {{#flash-message flash=flash class="nucleus-toast-message" as |component flash close|}}
