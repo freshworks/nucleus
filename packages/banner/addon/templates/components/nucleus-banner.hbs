@@ -5,7 +5,7 @@
         {{nucleus-banner/item item=displayedItem onDelete=(action 'deleteItem')}}
       </div>
       <div class="nucleus-banner__more">
-        {{#if (and isMultiple stackedItems)}}
+        {{#if (and _isMultiple stackedItems)}}
           {{nucleus-button
             size="mini"
             ariaLabel="Show more"
@@ -13,7 +13,7 @@
             type="link"
             label=(concat "+ " stackedItems.length " more")
             onClick=(action "toggleShowMore")}}
-          <div class="more-card {{if isShowMore 'show'}}">
+          <div class="more-card {{if _isShowMore 'show'}}">
             <h5>System alerts</h5>
             <ul class="nucleus-banners">
               {{#each stackedItems as |hiddenItem|}}
