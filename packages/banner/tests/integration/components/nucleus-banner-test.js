@@ -40,7 +40,7 @@ module('Integration | Component | nucleus-banner', function(hooks) {
     await render(hbs`{{nucleus-banner}}`);
 
     await click('.nucleus-banner__more button');
-    assert.dom('.nucleus-banner__more .more-card').hasClass('show', 'Stacked notifications are displayed.');
+    assert.dom('.nucleus-banner__more .more-card').exists({ count: 1 }, 'Stacked notifications are displayed.');
   });
 
   test('it passes a11y tests', async function(assert) {
