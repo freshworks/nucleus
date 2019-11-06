@@ -13,16 +13,20 @@
             type="link"
             label=(concat "+ " stackedItems.length " more")
             onClick=(action "toggleShowMore")}}
-          <div class="more-card {{if _isShowMore 'show'}}">
-            <h5>System alerts</h5>
-            <ul class="nucleus-banners">
-              {{#each stackedItems as |hiddenItem|}}
-                <li class="nucleus-banner--mini nucleus-banner--{{hiddenItem.type}}">
-                  {{nucleus-banner/item item=hiddenItem onDelete=(action 'deleteItem')}}
-                </li>
-              {{/each}}
-            </ul>
-          </div>
+          {{#if _isShowMore}}
+            {{#transition-group transitionClass="fade"}}
+              <div class="more-card">
+                <h5>System alerts</h5>
+                <ul class="nucleus-banners">
+                  {{#each stackedItems as |hiddenItem|}}
+                    <li class="nucleus-banner--mini nucleus-banner--{{hiddenItem.type}}">
+                      {{nucleus-banner/item item=hiddenItem onDelete=(action 'deleteItem')}}
+                    </li>
+                  {{/each}}
+                </ul>
+              </div>
+            {{/transition-group}}
+          {{/if}}
         </div>
       {{/if}}
     </div>
