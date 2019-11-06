@@ -1,11 +1,11 @@
 {{#if bannerItems.length}}
   {{#ember-wormhole to="nucleus-banner-wormhole" renderInPlace=false}}
-    <div class="nucleus-banner nucleus-banner--{{displayedItem.type}} {{if isFixed 'nucleus-banner__fixed'}}">
+    <div class="nucleus-banner nucleus-banner--{{displayedItem.type}} {{if isFixed 'nucleus-banner--fixed'}}">
       <div class="nucleus-banner__main">
         {{nucleus-banner/item item=displayedItem onDelete=(action 'deleteItem')}}
       </div>
-      <div class="nucleus-banner__more">
-        {{#if (and _isMultiple stackedItems)}}
+      {{#if (and _isMultiple stackedItems)}}
+        <div class="nucleus-banner__more">
           {{nucleus-button
             size="mini"
             ariaLabel="Show more"
@@ -23,8 +23,8 @@
               {{/each}}
             </ul>
           </div>
-        {{/if}}
-      </div>
+        </div>
+      {{/if}}
     </div>
   {{/ember-wormhole}}
 {{/if}}

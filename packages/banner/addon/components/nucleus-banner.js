@@ -68,7 +68,10 @@ export default Component.extend({
   * @type object
   * @public
   */
-  displayedItem: reads('bannerItems.firstObject'),
+  displayedItem: computed('bannerItems.[]', function () {
+    let items = get(this, 'bannerItems');
+    return items && items.length > 0 ? items[0] : null;
+  }),
 
   /**
   * Stacked banner items.
