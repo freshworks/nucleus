@@ -36,4 +36,4 @@ jobs:
   - stage: deploy
     name: Deploy to gh-pages
     # if: "(branch = travis-cd or tag is present)"
-    script: node_modules/.bin/ember deploy production
+    script: yarn run deploy
