@@ -1,7 +1,6 @@
 language: node_js
 node_js:
 - 10.13.0
-sudo: false
 dist: trusty
 addons:
   chrome: stable
@@ -18,24 +17,22 @@ branches:
   only:
   - travis-cd
 jobs:
-  fail_fast: true
   include:
   - stage: test
     name: Tests
     install: yarn install --non-interactive
-    script: yarn run test:prod
+    script: yarn run test
   - stage: publish
     name: Publish to npm
-    # script: skip
+    script: skip
     before_deploy:
       - echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" >> $HOME/.npmrc 2> /dev/null
     deploy:
       provider: script
       script: "yarn run lerna:publish"
       skip_cleanup: true
-      on:
-        node: "8"
-        tags: true
+      # on:
+        # tags: true
   - stage: deploy
     name: Deploy to gh-pages
     # if: "(branch = travis-cd or tag is present)"
