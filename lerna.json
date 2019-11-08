@@ -6,7 +6,7 @@
   ],
   "command": {
     "publish": {
-      "allowBranch": "master"
+      "allowBranch": ["master", "travis-cd"]
     }
   },
   "version": "independent"
