@@ -8,6 +8,8 @@ addons:
 cache:
   directories:
   - "$HOME/.npm"
+git:
+  depth: false
 env:
   global:
   - JOBS=1
