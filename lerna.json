@@ -5,9 +5,6 @@
     "packages/*"
   ],
   "command": {
-    "version": {
-      "allowBranch": "master"
-    },
     "publish": {
       "allowBranch": "master"
     }

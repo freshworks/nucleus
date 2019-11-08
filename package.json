@@ -11,7 +11,9 @@
     "test": "lerna run test --no-private --parallel --since origin/master",
     "build": "lerna run build --parallel --no-private",
     "lint": "lerna run lint:hbs",
-    "publish": "lerna publish --yes",
+    "publish": "lerna publish",
+    "lerna:version": "lerna version prerelease --preid beta",
+    "lerna:publish": "lerna publish from-git --yes --npm-client yarn --npm-tag beta",
     "deploy": "yarn workspace nucleus deploy",
     "try": "ember try:each",
     "try:legacy": "ember try:one ember-lts-2.18"

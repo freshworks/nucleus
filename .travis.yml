@@ -1,54 +1,40 @@
----
 language: node_js
 node_js:
-  # we recommend testing addons with the same minimum supported node version as Ember CLI
-  # so that your addon works for all apps
-  - "8"
-
+- 10.13.0
 sudo: false
 dist: trusty
-
 addons:
   chrome: stable
-
 cache:
   directories:
-    - $HOME/.npm
-
+  - "$HOME/.npm"
 env:
   global:
-    # See https://git.io/vdao3 for details.
-    - JOBS=1
-
+  - JOBS=1
+  - secure: poZhjSxHVyJCWkEpsgkkmkGn3P2LKuf1NES3jVyMw9Y98Heb691xP0qTDaKdu98tcimLDhFfX/LemgcDUIAaiSfl7hVz3gYDudtaPRoyuJ9s8j7XwqYFlHzPwCy8B+arGdsxHOSKo74nAVA4oz3unRYnyChIYlcn6SKkpUkD30IK/iox+jayAS5CdMho232uK9tFdEyPRUSUtk9JAXQ4doM3pSwSBfIVmWWxgqx6yZhJWBocN0N/h672LJikxRFU1gOXLgQswGRWqhrl9mUfCouEPG42uLCoUDmlFq8Z1qCLxoqc/iYsOcYlMZCqE1JpE5I10UtX1TWA5Ntzn6ABLENlJMZ2zHRQu5ZWwoK3qg2kVnzOfqLYZFy/Q/iJ27btxoeRZJ0beEtYxn29NNojH97tZcCrjFxTeJJsXUu4brYB58ESZWzrv46PYDE5sKphtFge3YuwNIB0e4FP4sOOaiPyqTyGJMIE5qenDVblFHgzpdyoyrkhPymr984bO42F5W2wKZpH7xJ/Q0qStjuOnZqVjSJ5lQXp0AH78kPuj1f4OoY86MzlWsW9+365v5KlTRApznYhHyjPHqgk4f8iBUGJzGTAaDWyJIKTUk4YTAwK+f/zGNYm7T8XOEqiw+MUotb9a6XfbmDyawhvhgjVxQf6xNaqS2rdOorM5PVxFn0=
 branches:
   only:
-    - master
-    # npm version tags
-    - /^v\d+\.\d+\.\d+/
-
+  - master
 jobs:
   fail_fast: true
-  allow_failures:
-    - env: EMBER_TRY_SCENARIO=ember-canary
-
   include:
-    # runs linting and tests with current locked deps
-
-    - stage: "Tests"
-      name: "Tests"
-      script:
-        - npm run lint:hbs
-        - npm run lint:js
-        - npm test
-
-    # we recommend new addons test the current and previous LTS
-    # as well as latest stable release (bonus points to beta/canary)
-    - stage: "Additional Tests"
-      env: EMBER_TRY_SCENARIO=ember-lts-2.18
-    - env: EMBER_TRY_SCENARIO=ember-lts-3.4
-    - env: EMBER_TRY_SCENARIO=ember-lts-3.8
-    - env: EMBER_TRY_SCENARIO=ember-release
-    - env: EMBER_TRY_SCENARIO=ember-default-with-jquery
-
-script:
-  - node_modules/.bin/ember try:one $EMBER_TRY_SCENARIO
+  - stage: test
+    name: Tests
+    install: yarn install --non-interactive
+    script: yarn test
+  - stage: publish
+    name: Publish to npm
+    script: yarn test
+    before_deploy:
+      - echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" >> $HOME/.npmrc 2> /dev/null
+    deploy:
+      provider: script
+      script: "yarn run lerna:publish"
+      skip_cleanup: true
+      on:
+        node: "8"
+        tags: true
+  - stage: deploy
+    name: Deploy to gh-pages
+    if: "(branch = master or tag is present) and type = push"
+    script: node_modules/.bin/ember deploy production
