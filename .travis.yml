@@ -24,7 +24,7 @@ jobs:
     script: yarn run test:prod
   - stage: publish
     name: Publish to npm
-    script: skip
+    # script: skip
     before_deploy:
       - echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" >> $HOME/.npmrc 2> /dev/null
     deploy:
@@ -36,5 +36,5 @@ jobs:
         tags: true
   - stage: deploy
     name: Deploy to gh-pages
-    if: "(branch = travis-cd or tag is present)"
+    # if: "(branch = travis-cd or tag is present)"
     script: node_modules/.bin/ember deploy production
