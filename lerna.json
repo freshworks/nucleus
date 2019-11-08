@@ -6,7 +6,7 @@
   ],
   "command": {
     "publish": {
-      "allowBranch": ["master", "travis-cd"],
+      "allowBranch": ["master", "feature/*"],
       "conventionalCommits": true
     }
   },
