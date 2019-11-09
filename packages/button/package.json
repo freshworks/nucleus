@@ -1,6 +1,6 @@
 {
   "name": "@freshworks/button",
-  "version": "0.1.1-beta.0",
+  "version": "0.1.0",
   "description": "Button component in Nucleus",
   "keywords": [
     "ember-addon"
@@ -22,7 +22,7 @@
     "test:dev": "COVERAGE=TRUE ember test --server -launch=false"
   },
   "dependencies": {
-    "@freshworks/core": "^0.1.1-beta.0",
+    "@freshworks/core": "^0.1.0",
     "broccoli-funnel": "^2.0.2",
     "broccoli-merge-trees": "^3.0.2",
     "ember-cli": "~3.13.1",
