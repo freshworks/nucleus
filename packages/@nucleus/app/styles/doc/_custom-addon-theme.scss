@@ -12,3 +12,10 @@
 .docs-no-padding {
   padding: 0 !important; // to prevent blank spaces while rendering logic templates
 }
+
+button,
+html [type=button],
+[type=reset],
+[type=submit] {
+  border-radius: 4px; // to prevent tailwind CSS from overriding this value in ember-cli-addon-doc
+}
