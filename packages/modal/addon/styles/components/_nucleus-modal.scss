@@ -28,22 +28,22 @@
 
   &__dialog {
     max-height: 70vh;
-    max-width: 512px;
+    width: 512px;
     background: $color-milk;
     border-radius: $radius;
     display: flex;
     flex-direction: column;
 
     &--large {
-      max-width: 800px;
+      width: 800px;
     }
 
     &--small {
-      max-width: 424px;
+      width: 424px;
     }
 
     &--slider {
-      max-width: 600px;
+      width: 600px;
       height: 100vh;
       max-height: 100vh;
       border-radius: 0;

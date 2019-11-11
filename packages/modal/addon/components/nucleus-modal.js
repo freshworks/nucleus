@@ -192,6 +192,7 @@ export default Component.extend({
     }
     set(this, "_isOpen", true);
     document.body.classList.add("nucleus-modal--open");
+    this._takeFocus();
   },
 
   /**
