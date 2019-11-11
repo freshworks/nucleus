@@ -11,7 +11,8 @@
     "test": "lerna run test --parallel --no-private --since origin/master",
     "build": "lerna run build --parallel --no-private",
     "lint": "lerna run lint:hbs",
-    "publish": "lerna publish --yes",
+    "lerna:version": "lerna version prerelease --preid beta",
+    "lerna:publish": "lerna publish --canary --yes --dist-tag beta",
     "deploy": "yarn workspace nucleus deploy",
     "try": "ember try:each",
     "try:legacy": "ember try:one ember-lts-2.18"
@@ -20,7 +21,7 @@
     "ember-cli": "~3.11.0",
     "ember-source-channel-url": "^2.0.0",
     "ember-try": "^1.1.0",
-    "lerna": "^3.0.0"
+    "lerna": "^3.18.4"
   },
   "engines": {
     "node": "10.13.0",

@@ -5,11 +5,9 @@
     "packages/*"
   ],
   "command": {
-    "version": {
-      "allowBranch": "master"
-    },
     "publish": {
-      "allowBranch": "master"
+      "allowBranch": ["master", "feature/*"],
+      "conventionalCommits": true
     }
   },
   "version": "independent"
