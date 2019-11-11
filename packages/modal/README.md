@@ -1,6 +1,10 @@
 @freshworks/modal
 ==============================================================================
 
+```
+yarn add @freshworks/modal
+```
+
 Modals are an interactive component which appears on top of the page that stops any other interaction behind it. It has a focused task with few components within it like CTAs. Modals requires the users to critically respond to it in order to get back to primary task.
 
 Scenario
