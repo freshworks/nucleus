@@ -1,14 +1,14 @@
 .nucleus-inline-banner {
   border-radius: 4px;
   background-color: transparent;
-  font-size: $font-size-14;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   padding: 5px;
 
   &__icon {
-    padding: 0 8px;
+    padding: 4px 8px;
     color: $color-milk;
+    line-height: 1;
 
     svg.icon {
       position: relative;
@@ -17,15 +17,17 @@
   }
 
   &__content {
-    padding: 0 8px;
+    padding: 1px 8px;
     color: $color-milk;
+    font-size: $font-size-14;
     position: relative;
     flex-grow: 2;
     border-left: 1px solid $border-color;
   }
 
   &__close {
-    // margin: 4px;
+    line-height: 1.4;
+    margin-right: 4px;
   }
 
   &--warning {
