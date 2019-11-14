@@ -13,19 +13,12 @@ export default Component.extend({
         type
       });
     },
-    addNonDismissibleItem(type) {
-      const nucleusBanner = get(this, 'nucleusBanner');
-      nucleusBanner.add({
-        title: 'Lorem ipsum dolor sit amet chrisy, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-        type,
-        isDismissible: false
-      });
-    },
     addItemWithLink(type) {
       const nucleusBanner = get(this, 'nucleusBanner');
       nucleusBanner.add({
         title: 'Lorem ipsum dolor sit amet chrisy, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
         type,
+        isDismissible: true,
         content: {
           linkText: "Click here",
           linkAction: this.testAction.bind(this) 
