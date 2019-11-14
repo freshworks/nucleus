@@ -42,9 +42,10 @@ Different types:
   {{demo.snippet 'nucleus-button-light.hbs'}}
 {{/docs-demo}}
 
-Smaller button:
+Different sizes:
 {{#docs-demo as |demo|}}
   {{#demo.example name='nucleus-button-tiny.hbs'}}
+    {{nucleus-button label="click me" size="small"}}
     {{nucleus-button label="click me" size="mini"}}
   {{/demo.example}}
   {{demo.snippet 'nucleus-button-tiny.hbs'}}
@@ -53,6 +54,7 @@ Smaller button:
 Icon buttons:
 {{#docs-demo as |demo|}}
   {{#demo.example name='nucleus-button-dense.hbs'}}
+    {{nucleus-button icon="cross" size="small" type="text"}}
     {{nucleus-button icon="cross" size="mini" type="text"}}
   {{/demo.example}}
   {{demo.snippet 'nucleus-button-dense.hbs'}}

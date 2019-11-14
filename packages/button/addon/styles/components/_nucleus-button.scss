@@ -28,7 +28,7 @@ $active-box-shadow: inset 0 0 4px 0 rgba(0, 0, 0, .25);
   border: 1px solid transparent;
   border-radius: 4px;
   outline: 0;
-  color: $btn-primary-color;
+  color: $btn-primary-bg;
   cursor: pointer;
   transition: all .2s linear;
   letter-spacing: .3px;
@@ -126,6 +126,18 @@ $active-box-shadow: inset 0 0 4px 0 rgba(0, 0, 0, .25);
   }
 
   &--mini {
+    padding: 2px 2px;
+    font-size: $font-size-10;
+    min-width: 16px;
+    height: 16px;
+
+    svg.icon {
+      width: 8px;
+      height: 8px;
+    }
+  }
+
+  &--small {
     padding: 4px 6px;
     font-size: $font-size-12;
     min-width: 16px;
