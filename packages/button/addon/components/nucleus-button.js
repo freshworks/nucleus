@@ -43,7 +43,7 @@ export default Component.extend({
   size: null,
 
   /**
-  * Button display types: `primary`, `secondary`, `danger` & `link`
+  * Button display types: `primary`, `secondary`, `danger`, `text` & `link`
   *
   * @field type
   * @type string

@@ -37,6 +37,7 @@ Different types:
     {{nucleus-button label="click me" type="secondary"}}
     {{nucleus-button label="click me" type="danger"}}
     {{nucleus-button label="click me" type="link"}}
+    {{nucleus-button label="click me" type="text"}}
   {{/demo.example}}
   {{demo.snippet 'nucleus-button-light.hbs'}}
 {{/docs-demo}}
@@ -52,9 +53,7 @@ Smaller button:
 Icon buttons:
 {{#docs-demo as |demo|}}
   {{#demo.example name='nucleus-button-dense.hbs'}}
-    {{nucleus-button icon="cross" size="mini" type="primary"}}
-    {{nucleus-button icon="cross" size="mini" type="secondary"}}
-    {{nucleus-button icon="cross" size="mini" type="danger"}}
+    {{nucleus-button icon="cross" size="mini" type="text"}}
   {{/demo.example}}
   {{demo.snippet 'nucleus-button-dense.hbs'}}
 {{/docs-demo}}
