@@ -18,28 +18,28 @@ module('Integration | Component | nucleus-button', function(hooks) {
   test('it has correct markup', async function(assert) {
     await render(hbs`{{nucleus-button label="Test"}}`);
 
-    assert.dom('button').hasClass('btn', 'button has btn class');
-    assert.dom('button').hasClass('btn--primary', 'button has default primary type class');
+    assert.dom('button').hasClass('nucleus-button', 'button has nucleus-button class');
+    assert.dom('button').hasClass('nucleus-button--primary', 'button has default primary type class');
   });
 
   test('it has correct size', async function(assert) {
     await render(hbs`{{#nucleus-button size="mini"}}Test{{/nucleus-button}}`);
 
-    assert.dom('button').hasClass('btn--mini', 'button has correct size class');
+    assert.dom('button').hasClass('nucleus-button--mini', 'button has correct size class');
   });
 
   test('it has correct type', async function(assert) {
     await render(hbs`{{#nucleus-button type="secondary"}}Test{{/nucleus-button}}`);
 
-    assert.dom('button').hasClass('btn', 'button has btn class');
-    assert.dom('button').hasClass('btn--secondary', 'button has appropriate type class');
-    assert.dom('button').doesNotHaveClass('btn--primary', 'button does not have primary class');
+    assert.dom('button').hasClass('nucleus-button', 'button has nucleus-button class');
+    assert.dom('button').hasClass('nucleus-button--secondary', 'button has appropriate type class');
+    assert.dom('button').doesNotHaveClass('nucleus-button--primary', 'button does not have primary class');
   });
 
   test('it can be block', async function(assert) {
     await render(hbs`{{#nucleus-button block=true}}Test{{/nucleus-button}}`);
 
-    assert.dom('button').hasClass('btn--block', 'button has block class');
+    assert.dom('button').hasClass('nucleus-button--block', 'button has block class');
   });
 
   test('it has HTML attributes', async function(assert) {

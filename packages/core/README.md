@@ -1,6 +1,10 @@
 @freshworks/core
 ==============================================================================
 
+```
+yarn add @freshworks/core
+```
+
 Contains the core design modules of Freshworks DSM:
 
 1. variables

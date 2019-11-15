@@ -1,6 +1,6 @@
 import Component from "@ember/component";
-import { set, get, setProperties, computed, observer } from "@ember/object";
-import { run } from "@ember/runloop";
+import { set, get, setProperties, computed } from "@ember/object";
+import { later } from '@ember/runloop';
 import layout from "../templates/components/nucleus-modal";
 
 /**
@@ -126,9 +126,9 @@ export default Component.extend({
   * @type function
   * @private
   */
-  get modalElement() {
+  modalElement: computed('modalId', function() {
     return document.getElementById(get(this, "modalId"));
-  },
+  }),
 
   actions: {
     /**
@@ -250,24 +250,23 @@ export default Component.extend({
     }
   },
 
-  _observeOpen: observer('isOpen', function() { // eslint-disable-line
-    if (get(this, 'isOpen')) {
-      this._show();
-    } else {
-      this._hide();
-    }
-  }),
-
-  didRender() {
-    this._super(...arguments);
-    run.next(() => {
+  _initialize() {
+    this._show();
+    later(this, () => { // to make sure the DOM has rendered
+      this.attachEventHandlers();
       this._takeFocus();
-    });
+    }, 500);
   },
 
-  didInsertElement: function() {
+  _dismantle() {
+    this._hide();
+  },
+
+  didReceiveAttrs: function() {
     this._super(...arguments);
-    this.attachEventHandlers();
+    get(this, 'isOpen')
+      ? this._initialize()
+      : this._dismantle();
   },
 
   willDestroyElement() {

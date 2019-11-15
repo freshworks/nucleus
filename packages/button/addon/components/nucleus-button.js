@@ -18,8 +18,8 @@ import { BUTTON_STATE } from "../constants/nucleus-button";
 export default Component.extend({
   layout,
   tagName: 'button',
-  classNames: ['btn'],
-  classNameBindings: ['active', 'block:btn--block', '_sizeClass', '_typeClass', 'customClass'],
+  classNames: ['nucleus-button'],
+  classNameBindings: ['active', 'block:nucleus-button--block', '_sizeClass', '_typeClass', 'customClass'],
   attributeBindings: ['_disabled:disabled', '_buttonType:type', '_label:aria-label', 'autofocus'],
 
   /**
@@ -43,7 +43,7 @@ export default Component.extend({
   size: null,
 
   /**
-  * Button display types: `primary`, `secondary`, `danger` & `link`
+  * Button display types: `primary`, `secondary`, `danger`, `text` & `link`
   *
   * @field type
   * @type string
@@ -262,7 +262,7 @@ export default Component.extend({
   */
   _sizeClass: computed('size', function () {
     let size = get(this, 'size');
-    return size ? `btn--${size}` : null;
+    return size ? `nucleus-button--${size}` : null;
   }),
 
   /**
@@ -273,7 +273,7 @@ export default Component.extend({
   */
   _typeClass: computed('type', function () {
     let type = get(this, 'type');
-    return type ? `btn--${get(this, 'type')}` : 'btn--primary';
+    return type ? `nucleus-button--${get(this, 'type')}` : 'nucleus-button--primary';
   }),
 
   /**
