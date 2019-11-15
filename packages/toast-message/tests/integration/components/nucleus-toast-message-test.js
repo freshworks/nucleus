@@ -22,7 +22,7 @@ module('Integration | Component | nucleus-toast-message', function(hooks) {
     assert.dom('.nucleus-toast-message .nucleus-toast-message__icon').exists({ count: 1 }, 'Toast message has icon.');
     assert.dom('.nucleus-toast-message .nucleus-toast-message__content').exists({ count: 1 }, 'Toast message has icon.');
     assert.dom('.nucleus-toast-message .nucleus-toast-message__content').hasText('Notification', 'Toast message has correct title.');
-    assert.dom('.nucleus-toast-message .alert__close').exists({ count: 1 }, 'Toast message has close button.');
+    assert.dom('.nucleus-toast-message .nucleus-toast-message__close').exists({ count: 1 }, 'Toast message has close button.');
   });
 
   test('it renders variants', async function(assert) {
