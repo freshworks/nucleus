@@ -117,7 +117,7 @@ module('Integration | Component | nucleus-modal', function(hooks) {
       {{/nucleus-modal}}
     `);
 
-    assert.dom('.nucleus-modal .nucleus-modal__footer button').hasClass('btn--danger', 'Modal button has danger class.');
+    assert.dom('.nucleus-modal .nucleus-modal__footer button').hasClass('nucleus-button--danger', 'Modal button has danger class.');
   });
 
   test('it passes a11y tests', async function(assert) {
