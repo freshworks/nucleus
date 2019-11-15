@@ -4,29 +4,25 @@
   display: flex;
   align-items: flex-start;
   padding: 5px;
+  font-size: $font-size-14;
 
   &__icon {
-    padding: 4px 8px;
+    padding: 5px 8px;
     color: $color-milk;
-    line-height: 1;
-
-    svg.icon {
-      position: relative;
-      top: 2px;
-    }
+    display: inline-flex;
+    align-self: flex-start;
   }
 
   &__content {
     padding: 1px 8px;
     color: $color-milk;
-    font-size: $font-size-14;
     position: relative;
     flex-grow: 2;
     border-left: 1px solid $border-color;
   }
 
   &__close {
-    line-height: 1.4;
+    line-height: 1.5; // Method to madness: 24px (flex items' height) / 16px (button-mini's height) = 1.5
     margin-right: 4px;
   }
 
