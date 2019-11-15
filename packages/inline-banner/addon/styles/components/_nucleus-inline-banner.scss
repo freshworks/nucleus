@@ -3,18 +3,18 @@
   background-color: transparent;
   display: flex;
   align-items: flex-start;
-  padding: 5px;
+  padding: 6px;
   font-size: $font-size-14;
 
   &__icon {
-    padding: 5px 8px;
+    padding: 4px 8px;
     color: $color-milk;
     display: inline-flex;
     align-self: flex-start;
   }
 
   &__content {
-    padding: 1px 8px;
+    padding: 0 8px;
     color: $color-milk;
     position: relative;
     flex-grow: 2;
@@ -22,7 +22,9 @@
   }
 
   &__close {
-    line-height: 1.5; // Method to madness: 24px (flex items' height) / 16px (button-mini's height) = 1.5
+    display: inline-flex;
+    align-self: flex-start;
+    padding: 3px 0; // Method to madness: 16px(height) + 3px + 3px = 22px (flex items' height)
     margin-right: 4px;
   }
 
