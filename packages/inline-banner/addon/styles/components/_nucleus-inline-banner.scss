@@ -3,11 +3,11 @@
   background-color: transparent;
   display: flex;
   align-items: flex-start;
-  padding: 6px;
+  padding: 6px 8px;
   font-size: $font-size-14;
 
   &__icon {
-    padding: 4px 8px;
+    padding: 4px 8px 4px 0;
     color: $color-milk;
     display: inline-flex;
     align-self: flex-start;
@@ -25,7 +25,6 @@
     display: inline-flex;
     align-self: flex-start;
     padding: 3px 0; // Method to madness: 16px(height) + 3px + 3px = 22px (flex items' height)
-    margin-right: 4px;
   }
 
   &--warning {
