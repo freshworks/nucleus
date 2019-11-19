@@ -1,0 +1,116 @@
+.nucleus-banner {
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  background: white;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+
+  &--fixed {
+    position: fixed;
+  }
+
+  &__main {
+    display: flex;
+    max-width: 75%;
+    white-space: nowrap;
+    overflow: hidden;
+    font-size: $font-size-14;
+    font-weight: $font-weight-500;
+    text-overflow: ellipsis;
+  }
+
+  &__more {
+    border-left: 1px solid black;
+    margin: 8px;
+    padding-left: 8px;
+    position: relative;
+
+    .more-card {
+      position: absolute;
+      top: 40px;
+      right: 0;
+      width: 400px;
+      background: #fff;
+      box-shadow: 0 2px 8px 0 rgba(0, 0, 0, .15);
+      padding: 8px;
+      border-radius: 4px;
+      max-height: 400px;
+      overflow-y: auto;
+
+      ul.nucleus-banners {
+        list-style: none;
+        padding: 0;
+        margin: 8px 0 0;
+      }
+    }
+  }
+
+  &--warning {
+    background-color: $bg-warning;
+    border: 1px solid $border-warning-color;
+
+    .nucleus-banner__more {
+      border-color: $border-warning-color;
+    }
+
+    .nucleus-banner__main {
+      color: $text-default;
+    }
+  }
+
+  &--danger {
+    background-color: $bg-danger;
+    border: 1px solid $border-danger-color;
+
+    .nucleus-banner__more {
+      border-color: $border-danger-color;
+    }
+
+    .nucleus-banner__main {
+      color: $text-default;
+    }
+  }
+
+  &--info {
+    background-color: $bg-info;
+    border: 1px solid $border-info-color;
+
+    .nucleus-banner__more {
+      border-color: $border-info-color;
+    }
+
+    .nucleus-banner__main {
+      color: $text-default;
+    }
+  }
+
+  &--success {
+    background-color: $bg-success;
+    border: 1px solid $border-success-color;
+
+    .nucleus-banner__main {
+      color: $text-default;
+    }
+
+    .nucleus-banner__more {
+      border-color: $border-success-color;
+    }
+  }
+
+  &--mini {
+    position: relative;
+    padding: 4px 24px 4px 4px;
+    border-radius: 4px;
+    font-size: $font-size-14;
+    margin-bottom: 8px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
