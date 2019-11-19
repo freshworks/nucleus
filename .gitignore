@@ -3,6 +3,7 @@
 # compiled output
 /dist/
 /tmp/
+packages/deploy-**
 
 # dependencies
 bower_components
