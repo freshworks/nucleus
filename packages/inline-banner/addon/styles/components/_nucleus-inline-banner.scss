@@ -1,0 +1,93 @@
+.nucleus-inline-banner {
+  border-radius: 4px;
+  background-color: transparent;
+  display: flex;
+  align-items: flex-start;
+  padding: 6px 8px;
+  font-size: $font-size-14;
+
+  &__icon {
+    padding: 4px 8px 4px 0;
+    color: $color-milk;
+    display: inline-flex;
+    align-self: flex-start;
+  }
+
+  &__content {
+    padding: 0 8px;
+    color: $color-milk;
+    position: relative;
+    flex-grow: 2;
+    border-left: 1px solid $border-color;
+  }
+
+  &__close {
+    display: inline-flex;
+    align-self: flex-start;
+    padding: 3px 0; // Method to madness: 16px(height) + 3px + 3px = 22px (flex items' height)
+  }
+
+  &--warning {
+    background-color: $bg-warning;
+    border: 1px solid $border-warning-color;
+
+    .nucleus-inline-banner__icon {
+      background-color: $bg-warning;
+      color: $text-warning;
+    }
+
+    .nucleus-inline-banner__content {
+      color: $text-default;
+      border-left-color: $border-warning-color;
+    }
+  }
+
+  &--danger {
+    background-color: $bg-danger;
+    border: 1px solid $border-danger-color;
+
+    .nucleus-inline-banner__icon {
+      background-color: $bg-danger;
+      color: $text-danger;
+    }
+
+    .nucleus-inline-banner__content {
+      color: $text-default;
+      border-left-color: $border-danger-color;
+    }
+  }
+
+  &--info {
+    background-color: $bg-info;
+    border: 1px solid $border-info-color;
+
+    .nucleus-inline-banner__icon {
+      background-color: $bg-info;
+      color: $text-info;
+    }
+
+    .nucleus-inline-banner__content {
+      color: $text-default;
+      border-left-color: $border-info-color;
+    }
+  }
+
+  &--success {
+    background-color: $bg-success;
+    border: 1px solid $border-success-color;
+
+    .nucleus-inline-banner__icon {
+      background-color: $bg-success;
+      color: $text-success;
+    }
+
+    .nucleus-inline-banner__content {
+      color: $text-default;
+      border-left-color: $border-success-color;
+    }
+  }
+
+  &.hide {
+    display: none;
+  }
+}
