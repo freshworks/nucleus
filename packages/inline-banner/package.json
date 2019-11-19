@@ -1,6 +1,6 @@
 {
   "name": "@freshworks/inline-banner",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Inline banner component in Nucleus",
   "keywords": [
     "ember-addon"
@@ -22,8 +22,8 @@
     "test:dev": "COVERAGE=TRUE ember test --server -launch=false"
   },
   "dependencies": {
-    "@freshworks/button": "^0.1.0",
-    "@freshworks/core": "^0.1.0",
+    "@freshworks/button": "^0.1.1",
+    "@freshworks/core": "^0.1.1",
     "ember-cli": "~3.13.1",
     "ember-cli-autoprefixer": "^0.8.1",
     "ember-cli-babel": "^7.11.1",
@@ -41,8 +41,8 @@
     "@ember/optional-features": "^1.0.0",
     "babel-eslint": "^10.0.3",
     "broccoli-asset-rev": "^3.0.0",
-    "broccoli-merge-trees": "^3.0.2",
     "broccoli-funnel": "^2.0.2",
+    "broccoli-merge-trees": "^3.0.2",
     "ember-a11y-testing": "^1.0.0",
     "ember-cli-code-coverage": "^1.0.0-beta.8",
     "ember-cli-dependency-checker": "^3.1.0",
