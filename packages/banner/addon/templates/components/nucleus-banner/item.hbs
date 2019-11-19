@@ -1,0 +1,27 @@
+
+{{#if item.componentName}}
+  {{component item.componentName props=item.componentProps}}
+{{else}}
+  <div class="nucleus-banner-item__icon {{item.type}}">
+    {{svg-jar bannerIcon width="14px" height="14px" class="icon"}}
+  </div>
+  <div class="nucleus-banner-item__content">
+    {{item.title}}
+    {{#if item.content}}
+      <a role="button" 
+      class="nucleus-banner-item__link"
+      aria-label={{item.content.linkText}}
+      onClick={{action item.content.linkAction}}>
+        {{item.content.linkText}}
+      </a>
+    {{/if}}
+  </div>
+{{/if}}
+{{#if item.isDismissible}}
+  {{nucleus-button
+    type="text"
+    size="mini"
+    customClass=(concat "nucleus-banner-item__close")
+    icon="cross"
+    onClick=(action 'onClose' item)}}
+{{/if}}         

@@ -1,0 +1,10 @@
+{{#docs-demo as |demo|}}
+  {{#demo.example name="nucleus-banner-2.hbs"}}
+    <button onclick={{action "addItem" "success"}} class="docs-btn">
+      Custom component
+    </button>
+  {{/demo.example}}
+  {{demo.snippet 'nucleus-banner-2.js' label="component.js"}}
+  {{demo.snippet 'nucleus-banner-2-helper.hbs' label="dummy-comp/demo-2-helper.hbs"}}
+  {{demo.snippet 'nucleus-banner-2-helper.js' label="dummy-comp/demo-2-helper.js"}}
+{{/docs-demo}}

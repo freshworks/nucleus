@@ -1,0 +1,34 @@
+{{#if bannerItems.length}}
+  {{#ember-wormhole to="nucleus-banner-wormhole" renderInPlace=false}}
+    <div class="nucleus-banner nucleus-banner--{{displayedItem.type}} {{if isFixed 'nucleus-banner--fixed'}}">
+      <div class="nucleus-banner__main">
+        {{nucleus-banner/item item=displayedItem onDelete=(action 'deleteItem')}}
+      </div>
+      {{#if (and _isMultiple stackedItems)}}
+        <div class="nucleus-banner__more">
+          {{nucleus-button
+            size="mini"
+            ariaLabel="Show more"
+            block=true
+            type="link"
+            label=(concat "+ " stackedItems.length " more")
+            onClick=(action "toggleShowMore")}}
+          {{#if _isShowMore}}
+            {{#transition-group transitionClass="fade"}}
+              <div class="more-card">
+                <h5>System alerts</h5>
+                <ul class="nucleus-banners">
+                  {{#each stackedItems as |hiddenItem|}}
+                    <li class="nucleus-banner--mini nucleus-banner--{{hiddenItem.type}}">
+                      {{nucleus-banner/item item=hiddenItem onDelete=(action 'deleteItem')}}
+                    </li>
+                  {{/each}}
+                </ul>
+              </div>
+            {{/transition-group}}
+          {{/if}}
+        </div>
+      {{/if}}
+    </div>
+  {{/ember-wormhole}}
+{{/if}}

@@ -1,0 +1,27 @@
+{{#docs-demo as |demo|}}
+  {{#demo.example name="nucleus-inline-banner.hbs"}}
+    {{nucleus-inline-banner
+      type="warning"
+      title="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      onClose=(action "onClose" "Dismissed")
+    }}
+    <br>
+    {{nucleus-inline-banner
+      type="danger"
+      title="This message has been identified as spam."
+      isDismissible=false
+    }}
+    <br>
+    {{nucleus-inline-banner
+      type="success"
+      title="Congratulations! You've successfully upgraded your account."
+    }}
+    <br>
+    {{nucleus-inline-banner
+      type="info"
+      title="Congratulations! You've successfully upgraded your account."
+    }}
+  {{/demo.example}}
+  {{demo.snippet "nucleus-inline-banner.hbs"}}
+  {{demo.snippet "inline-banner-component.js" label="component.js"}}
+{{/docs-demo}}

@@ -12,8 +12,10 @@ Router.map(function() {
 
     this.route("components", function() {
       this.route("nucleus-button");
+      this.route("nucleus-inline-banner");
       this.route("nucleus-modal");
       this.route("nucleus-toast-message");
+      this.route("nucleus-banner");
     });
 
     this.route('not-found', { path: '/*path' });
