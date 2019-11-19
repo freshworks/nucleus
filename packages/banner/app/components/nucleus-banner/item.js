@@ -1,0 +1,1 @@
+export { default } from '@freshworks/banner/components/nucleus-banner/item';
