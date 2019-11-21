@@ -91,6 +91,41 @@ To toggle the 'disabled' property, set 'disabled' to true
   {{demo.snippet 'nucleus-button-disabled.hbs'}}
 {{/docs-demo}}
 
+## Guidelines
+
+✅**Do's**
+
+1. Label button with what action it triggers
+
+2. Choose appropriate button for the context
+
+3. Use primary button for the primary/important action of the page.
+
+4. Use secondary buttons as default buttons
+
+5. Use link buttons as tertiary buttons for less prominent actions
+
+6. Use consistent button placement and direction for a user journey
+
+7. Use button against a contrast background and have essential white space around the button
+
+
+🚫**Dont's**
+
+1. Avoid using too many buttons in one page 
+
+2. Button copy shouldn’t be too wordy
+
+3. Don’t use more than one primary button in a page
+
+4. Don’t use buttons instead of tabs
+
+5. Don’t trigger the action without alerting the user for destructive buttons  
+
+6. Don’t use destructive buttons for all delete/ cancellation scenarios. More applicable for actions which involves deleting the data permanently
+
+7. Don’t enable primary button before all mandatory fields are filled
+
 ## Accessibility
 
 Since we're using the native HTML button element and requiring a label value to be provided, the component itself is accesible as it is.

@@ -20,4 +20,14 @@ This makes use of the __component helper__, allowing the template that ultimatel
 
 {{nucleus-banner/demo-2}}
 
+## Guidelines
+
+✅**Do's** 
+
+When more than one notification, use inline messages instead stacking multiple banners (Refer the image above)
+
+🚫**Dont's**
+
+Don’t use banners for success messages. Refer notifications section for such scenarios.
+
 {{docs-note}}
