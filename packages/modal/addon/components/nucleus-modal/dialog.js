@@ -2,7 +2,7 @@ import classic from 'ember-classic-decorator';
 import { classNames, attributeBindings, classNameBindings, layout as templateLayout } from '@ember-decorators/component';
 import { readOnly } from '@ember/object/computed';
 import Component from '@ember/component';
-import { get, set, computed } from '@ember/object';
+import { set, computed } from '@ember/object';
 import { isBlank } from '@ember/utils';
 import layout from '../../templates/components/nucleus-modal/dialog';
 import scroll from "../../mixins/scroll";
@@ -71,7 +71,7 @@ class Dialog extends Component.extend(scroll) {
   * @private
   */
   @computed('size', function() {
-    let size = get(this, 'size');
+    let size = this.size;
     return isBlank(size) ? null : `nucleus-modal__dialog--${size}`;
   })
   sizeClass;
@@ -94,7 +94,7 @@ class Dialog extends Component.extend(scroll) {
    * @private
    */
   @computed('position', function() {
-    let position = get(this, 'position');
+    let position = this.position;
     return isBlank(position) ? null : `nucleus-modal--${position}`;
   })
   positionClass;
@@ -116,7 +116,7 @@ class Dialog extends Component.extend(scroll) {
    * @private
    */
   getOrSetTitleId() {
-    const modalNode = get(this, 'element');
+    const modalNode = this.element;
     let nodeId = null;
 
     if (modalNode) {
@@ -124,7 +124,7 @@ class Dialog extends Component.extend(scroll) {
       if (titleNode) {
         nodeId = titleNode.id
         if (!nodeId) {
-          nodeId = `${get(this, 'id')}-title`;
+          nodeId = `${this.id}-title`;
           titleNode.id = nodeId;
         }
       }
@@ -142,13 +142,13 @@ class Dialog extends Component.extend(scroll) {
   keyDown(e) {
     let code = e.keyCode || e.which;
 
-    if (code === 27 && get(this, 'keyboard')) {
+    if (code === 27 && this.keyboard) {
       this.onClose();
     }
   }
 
   scrolled() {
-    const modalNode = get(this, 'element');
+    const modalNode = this.element;
     if(modalNode) {
       const titleNode = modalNode.querySelector('.nucleus-modal__header');
       const contentNode = modalNode.querySelector('.nucleus-modal__body');

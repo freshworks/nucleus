@@ -81,6 +81,23 @@ class Footer extends Component{
   * @public
   */
   type = 'primary';
+
+  /**	
+   * The action to send to the parent modal component when the modal footer's form is submitted	
+   *	
+   * @event onSubmit	
+   * @public	
+   */	
+  onSubmit = () => {}	
+
+
+  /**	
+   * The action to send to the parent modal component when the modal footer's form is closed	
+   * 
+   * @event onClose	
+   * @public	
+   */	
+  onClose = () => {}
 }
 
 export default Footer;

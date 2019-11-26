@@ -1,7 +1,7 @@
 import classic from 'ember-classic-decorator';
 import { layout as templateLayout } from '@ember-decorators/component';
 import Component from "@ember/component";
-import { set, get, setProperties, computed, action } from "@ember/object";
+import { set, setProperties, computed, action } from "@ember/object";
 import { reads } from "@ember/object/computed";
 import { later } from '@ember/runloop';
 import layout from "../templates/components/nucleus-modal";
@@ -47,7 +47,7 @@ class Modal extends Component {
   */
   @computed("open", {
     get() {
-      return get(this, "open");
+      return this.open;
     },
     set(key, value) { // eslint-disable-line no-unused-vars
       return value;
@@ -121,7 +121,7 @@ class Modal extends Component {
   * @private
   */
   @computed('elementId', function() {
-    return `nucleus-modal-${get(this, 'elementId')}`;
+    return `nucleus-modal-${this.elementId}`;
   })
   modalId;
 
@@ -133,7 +133,7 @@ class Modal extends Component {
   * @private
   */
   @computed('modalId', function() {
-    return document.getElementById(get(this, "modalId"));
+    return document.getElementById(this.modalId);
   })
   modalElement;
 
@@ -146,8 +146,8 @@ class Modal extends Component {
   */
   @action
   close() {
-    if (get(this, 'onClose')) {
-      get(this, 'onClose')();
+    if (this.onClose) {
+      this.onClose();
     }
     this._hide();
   }
@@ -161,8 +161,8 @@ class Modal extends Component {
   */
   @action
   submit() {
-    if (get(this, 'onSubmit')) {
-      return get(this, 'onSubmit')();
+    if (this.onSubmit) {
+      return this.onSubmit();
     }
   }
 
@@ -174,7 +174,7 @@ class Modal extends Component {
   *
   */
   _takeFocus() {
-    let modalEl = get(this, "modalElement");
+    let modalEl = this.modalElement;
     let focusElement = modalEl && modalEl.querySelector("[autofocus]");
 
     if (!focusElement) {
@@ -194,7 +194,7 @@ class Modal extends Component {
   *
   */
   _show() {
-    if (get(this, "_isOpen")) {
+    if (this._isOpen) {
       return;
     }
     set(this, "_isOpen", true);
@@ -209,7 +209,7 @@ class Modal extends Component {
   *
   */
   _hide() {
-    if (!get(this, "_isOpen")) {
+    if (!this._isOpen) {
       return;
     }
     setProperties(this, {
@@ -249,7 +249,7 @@ class Modal extends Component {
   * @param {any} event
   */
   loopFocus(event) {
-    let modalEl = get(this, "modalElement");
+    let modalEl = this.modalElement;
 
     if (event && modalEl && modalEl !== event.target && !modalEl.contains(event.target)) {
       event.preventDefault();
@@ -271,7 +271,7 @@ class Modal extends Component {
 
   didReceiveAttrs() {
     super.didReceiveAttrs(...arguments);
-    get(this, 'isOpen')
+    this.isOpen
       ? this._initialize()
       : this._dismantle();
   }
