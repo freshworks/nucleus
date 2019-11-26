@@ -18,7 +18,7 @@ import scroll from "../../mixins/scroll";
 @templateLayout(layout)
 @classNames('nucleus-modal')
 @classNameBindings('positionClass')
-@attributeBindings('tabindex', 'aria-labelledby:ariaLabelledby', 'aria-modal:ariaModal')
+@attributeBindings('tabindex', 'ariaLabelledby:aria-labelledby', 'ariaModal:aria-modal')
 class Dialog extends Component.extend(scroll) {
   ariaRole = 'dialog';
 
