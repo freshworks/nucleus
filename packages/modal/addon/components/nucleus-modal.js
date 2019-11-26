@@ -1,5 +1,8 @@
+import classic from 'ember-classic-decorator';
+import { layout as templateLayout } from '@ember-decorators/component';
 import Component from "@ember/component";
-import { set, get, setProperties, computed } from "@ember/object";
+import { set, setProperties, computed, action } from "@ember/object";
+import { reads } from "@ember/object/computed";
 import { later } from '@ember/runloop';
 import layout from "../templates/components/nucleus-modal";
 
@@ -21,9 +24,9 @@ import layout from "../templates/components/nucleus-modal";
   @extends Ember.Component
   @public
 */
-export default Component.extend({
-  layout,
-
+@classic
+@templateLayout(layout)
+class Modal extends Component {
   /**
   * Flag to open the modal
   *
@@ -33,7 +36,7 @@ export default Component.extend({
   * @readonly
   * @public
   */
-  open: true,
+  open = true;
 
   /**
   * isOpen
@@ -42,14 +45,15 @@ export default Component.extend({
   * @type function
   * @private
   */
-  isOpen: computed("open", {
+  @computed("open", {
     get() {
-      return get(this, "open");
+      return this.open;
     },
     set(key, value) { // eslint-disable-line no-unused-vars
       return value;
     }
-  }),
+  })
+  isOpen;
 
   /**
   * Private flag to prevent multiple show/hide calls
@@ -59,7 +63,7 @@ export default Component.extend({
   * @default false
   * @private
   */
-  _isOpen: false,
+  _isOpen = false;
 
   /**
   * Flag to show or hide the translucent backdrop.
@@ -68,7 +72,7 @@ export default Component.extend({
   * @type boolean
   * @public
   */
-  backdrop: true,
+  backdrop = true;
 
   /**
   * Flag to enable or disable dismiss option. `false` hides the close button and disables close on Escape.
@@ -77,7 +81,7 @@ export default Component.extend({
   * @type boolean
   * @public
   */
-  isDismissible: true,
+  isDismissible = true;
 
   /**
   * _showBackdrop
@@ -86,7 +90,8 @@ export default Component.extend({
   * @type boolean
   * @private
   */
-  _showBackdrop: computed.reads("backdrop"),
+  @reads("backdrop")
+  _showBackdrop;
 
   /**
   * Modal sizes: `small`, `medium` & `large`
@@ -96,7 +101,7 @@ export default Component.extend({
   * @default null
   * @public
   */
-  size: null,
+  size = null;
 
   /**
   * Render the Modal markup in-place (true) or in wormhole (false)
@@ -106,7 +111,7 @@ export default Component.extend({
   * @default false
   * @public
   */
-  renderInPlace: false,
+  renderInPlace = false;
 
   /**
   * modalId
@@ -115,9 +120,10 @@ export default Component.extend({
   * @type string
   * @private
   */
-  modalId: computed('elementId', function() {
-    return `nucleus-modal-${get(this, 'elementId')}`;
-  }),
+  @computed('elementId', function() {
+    return `nucleus-modal-${this.elementId}`;
+  })
+  modalId;
 
   /**
   * modalElement
@@ -126,38 +132,39 @@ export default Component.extend({
   * @type function
   * @private
   */
-  modalElement: computed('modalId', function() {
-    return document.getElementById(get(this, "modalId"));
-  }),
+  @computed('modalId', function() {
+    return document.getElementById(this.modalId);
+  })
+  modalElement;
 
-  actions: {
-    /**
-    * close
-    *
-    * @method close
-    * @public
-    *
-    */
-    close() {
-      if (get(this, 'onClose')) {
-        get(this, 'onClose')();
-      }
-      this._hide();
-    },
-
-    /**
-    * submit
-    *
-    * @method submit
-    * @public
-    *
-    */
-    submit() {
-      if (get(this, 'onSubmit')) {
-        return get(this, 'onSubmit')();
-      }
+  /**
+  * close
+  *
+  * @method close
+  * @public
+  *
+  */
+  @action
+  close() {
+    if (this.onClose) {
+      this.onClose();
     }
-  },
+    this._hide();
+  }
+
+  /**
+  * submit
+  *
+  * @method submit
+  * @public
+  *
+  */
+  @action
+  submit() {
+    if (this.onSubmit) {
+      return this.onSubmit();
+    }
+  }
 
   /**
   * takeFocus
@@ -167,7 +174,7 @@ export default Component.extend({
   *
   */
   _takeFocus() {
-    let modalEl = get(this, "modalElement");
+    let modalEl = this.modalElement;
     let focusElement = modalEl && modalEl.querySelector("[autofocus]");
 
     if (!focusElement) {
@@ -177,7 +184,7 @@ export default Component.extend({
     if (focusElement) {
       focusElement.focus();
     }
-  },
+  }
 
   /**
   * show
@@ -187,12 +194,12 @@ export default Component.extend({
   *
   */
   _show() {
-    if (get(this, "_isOpen")) {
+    if (this._isOpen) {
       return;
     }
     set(this, "_isOpen", true);
     document.body.classList.add("nucleus-modal--open");
-  },
+  }
 
   /**
   * hide
@@ -202,7 +209,7 @@ export default Component.extend({
   *
   */
   _hide() {
-    if (!get(this, "_isOpen")) {
+    if (!this._isOpen) {
       return;
     }
     setProperties(this, {
@@ -210,7 +217,7 @@ export default Component.extend({
       _isOpen: false
     });
     document.body.classList.remove("nucleus-modal--open");
-  },
+  }
 
   /**
   * attachEventHandlers
@@ -221,7 +228,7 @@ export default Component.extend({
   */
   attachEventHandlers() {
     window.addEventListener("focusin", event => this.loopFocus(event));
-  },
+  }
 
   /**
   * removeEventHandlers
@@ -232,7 +239,7 @@ export default Component.extend({
   */
   removeEventHandlers() {
     window.removeEventListener("focusin", this.loopFocus(event), false);
-  },
+  }
 
   /**
   * loopFocus
@@ -242,13 +249,13 @@ export default Component.extend({
   * @param {any} event
   */
   loopFocus(event) {
-    let modalEl = get(this, "modalElement");
+    let modalEl = this.modalElement;
 
     if (event && modalEl && modalEl !== event.target && !modalEl.contains(event.target)) {
       event.preventDefault();
       this._takeFocus(event);
     }
-  },
+  }
 
   _initialize() {
     this._show();
@@ -256,22 +263,24 @@ export default Component.extend({
       this.attachEventHandlers();
       this._takeFocus();
     }, 500);
-  },
+  }
 
   _dismantle() {
     this._hide();
-  },
+  }
 
-  didReceiveAttrs: function() {
-    this._super(...arguments);
-    get(this, 'isOpen')
+  didReceiveAttrs() {
+    super.didReceiveAttrs(...arguments);
+    this.isOpen
       ? this._initialize()
       : this._dismantle();
-  },
+  }
 
   willDestroyElement() {
-    this._super(...arguments);
+    super.willDestroyElement(...arguments);
     this.removeEventHandlers();
   }
 
-});
+}
+
+export default Modal;

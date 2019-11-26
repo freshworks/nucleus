@@ -1,7 +1,16 @@
+import classic from 'ember-classic-decorator';
+import {
+  classNames,
+  attributeBindings,
+  classNameBindings,
+  tagName,
+  layout as templateLayout,
+} from '@ember-decorators/component';
+
+import { or, equal } from '@ember/object/computed';
 import { run } from '@ember/runloop';
 import Component from '@ember/component';
-import { computed, get, set, getWithDefault } from '@ember/object';
-import { equal, or } from '@ember/object/computed';
+import { set, getWithDefault, computed } from '@ember/object';
 import layout from "../templates/components/nucleus-button";
 import { BUTTON_STATE } from "../constants/nucleus-button";
 
@@ -15,13 +24,19 @@ import { BUTTON_STATE } from "../constants/nucleus-button";
   @extends Ember.Component
   @public
 */
-export default Component.extend({
-  layout,
-  tagName: 'button',
-  classNames: ['nucleus-button'],
-  classNameBindings: ['active', 'block:nucleus-button--block', '_sizeClass', '_typeClass', 'customClass'],
-  attributeBindings: ['_disabled:disabled', '_buttonType:type', '_label:aria-label', 'autofocus'],
-
+@classic
+@templateLayout(layout)
+@tagName('button')
+@classNames('nucleus-button')
+@classNameBindings(
+  'active',
+  'block:nucleus-button--block',
+  '_sizeClass',
+  '_typeClass',
+  'customClass'
+)
+@attributeBindings('_disabled:disabled', '_buttonType:type', '_label:aria-label', 'autofocus')
+class NucleusButton extends Component {
   /**
   * Default button text
   *
@@ -30,7 +45,7 @@ export default Component.extend({
   * @default null
   * @public
   */
-  label: null,
+  label = null;
 
   /**
   * Button sizes: `default` & `mini`
@@ -40,7 +55,7 @@ export default Component.extend({
   * @default null
   * @public
   */
-  size: null,
+  size = null;
 
   /**
   * Button display types: `primary`, `secondary`, `danger`, `text` & `link`
@@ -50,7 +65,7 @@ export default Component.extend({
   * @default 'primary'
   * @public
   */
-  type: 'primary',
+  type = 'primary';
 
   /**
   * Attribute bound to button type
@@ -59,7 +74,7 @@ export default Component.extend({
   * @type string
   * @private
   */
-  _buttonType: 'button',
+  _buttonType = 'button';
 
   /**
   * Class name `active` added if set to true
@@ -69,7 +84,7 @@ export default Component.extend({
   * @default false
   * @public
   */
-  active: false,
+  active = false;
 
   /**
   * Flag to set autofocus
@@ -79,7 +94,7 @@ export default Component.extend({
   * @default false
   * @public
   */
-  autofocus: false,
+  autofocus = false;
 
   /**
   * Flag to set button as full width block.
@@ -89,7 +104,7 @@ export default Component.extend({
   * @default false
   * @public
   */
-  block: false,
+  block = false;
 
   /**
   * Icon name used in svg-jar.
@@ -98,7 +113,7 @@ export default Component.extend({
   * @type string|null
   * @public
   */
-  icon: null,
+  icon = null;
 
   /**
   * Custom class names to be added to the button.
@@ -107,7 +122,7 @@ export default Component.extend({
   * @type string
   * @public
   */
-  customClass: null,
+  customClass = null;
 
   /**
   * Flag to set disabled attribute
@@ -117,7 +132,7 @@ export default Component.extend({
   * @default false
   * @public
   */
-  disabled: false,
+  disabled = false;
 
   /**
   * _disabled
@@ -125,10 +140,11 @@ export default Component.extend({
   * @computed _disabled
   * @private
   */
-  _disabled: computed('disabled', '_isPending', function () {
-    let isDisabled = get(this, 'disabled');
-    return isDisabled ? isDisabled : get(this, '_isPending');
-  }),
+  @computed('disabled', '_isPending')
+  get _disabled() {
+    let isDisabled = this.disabled;
+    return isDisabled ? isDisabled : this._isPending;
+  }
 
   /**
   * Value to be passed as argument for `onClick` action
@@ -137,7 +153,7 @@ export default Component.extend({
   * @type string|number|object
   * @public
   */
-  value: null,
+  value = null;
 
   /**
   * Timeout after which the default label replaces fulfilled/rejected label.
@@ -147,7 +163,7 @@ export default Component.extend({
   * @default 100
   * @public
   */
-  labelTimeout: 1000,
+  labelTimeout = 1000;
 
   /**
   * Internal button _buttonState management utility
@@ -156,7 +172,7 @@ export default Component.extend({
   * @type string
   * @private
   */
-  _buttonState: BUTTON_STATE.DEFAULT,
+  _buttonState = BUTTON_STATE.DEFAULT;
 
   /**
   * _isPending
@@ -165,7 +181,8 @@ export default Component.extend({
   * @type boolean
   * @private
   */
-  _isPending: equal('_buttonState', BUTTON_STATE.PENDING),
+  @equal('_buttonState', BUTTON_STATE.PENDING)
+  _isPending;
 
   /**
   * _isFulfilled
@@ -174,7 +191,8 @@ export default Component.extend({
   * @type boolean
   * @private
   */
-  _isFulfilled: equal('_buttonState', BUTTON_STATE.FULFILLED),
+  @equal('_buttonState', BUTTON_STATE.FULFILLED)
+  _isFulfilled;
 
   /**
   * _isRejected
@@ -183,7 +201,8 @@ export default Component.extend({
   * @type boolean
   * @private
   */
-  _isRejected: equal('_buttonState', BUTTON_STATE.REJECTED),
+  @equal('_buttonState', BUTTON_STATE.REJECTED)
+  _isRejected;
 
   /**
   * _isLoading
@@ -192,7 +211,8 @@ export default Component.extend({
   * @type boolean
   * @private
   */
-  _isLoading: or('_isPending', '_isFulfilled', '_isRejected'),
+  @or('_isPending', '_isFulfilled', '_isRejected')
+  _isLoading;
 
   /**
   * To display animated checkmark
@@ -201,7 +221,8 @@ export default Component.extend({
   * @type boolean
   * @private
   */
-  _isLoadingComplete: or('_isFulfilled', '_isRejected'),
+  @or('_isFulfilled', '_isRejected')
+  _isLoadingComplete;
 
   /**
   * Show loading animation only if custom state labels are not specified
@@ -210,9 +231,10 @@ export default Component.extend({
   * @type boolean
   * @private
   */
-  _isShowLoading: computed('_isLoading', 'pendingLabel', 'fulfilledLabel', 'rejectedLabel', function() {
-    return !(get(this, 'pendingLabel') || get(this, 'fulfilledLabel') || get(this, 'rejectedLabel'));
-  }),
+  @computed('_isLoading', 'pendingLabel', 'fulfilledLabel', 'rejectedLabel')
+  get _isShowLoading() {
+    return !(this.pendingLabel || this.fulfilledLabel || this.rejectedLabel);
+  }
 
   /**
   * Label to be displayed during Promise pending state
@@ -222,7 +244,7 @@ export default Component.extend({
   * @default undefined
   * @public
   */
-  pendingLabel: undefined,
+  pendingLabel = undefined;
 
   /**
   * Label to be displayed during Promise fulfilled state, a.k.a success label
@@ -232,7 +254,7 @@ export default Component.extend({
   * @default undefined
   * @public
   */
-  fulfilledLabel: undefined,
+  fulfilledLabel = undefined;
 
   /**
   * Label to be displayed during Promise rejected state, a.k.a failure label
@@ -242,7 +264,7 @@ export default Component.extend({
   * @default undefined
   * @public
   */
-  rejectedLabel: undefined,
+  rejectedLabel = undefined;
 
   /**
   * Optional aria-label attribute
@@ -252,7 +274,7 @@ export default Component.extend({
   * @default null
   * @public
   */
-  ariaLabel: null,
+  ariaLabel = null;
 
   /**
   * _sizeClass
@@ -260,10 +282,11 @@ export default Component.extend({
   * @computed _sizeClass
   * @private
   */
-  _sizeClass: computed('size', function () {
-    let size = get(this, 'size');
+  @computed('size')
+  get _sizeClass() {
+    let size = this.size;
     return size ? `nucleus-button--${size}` : null;
-  }),
+  }
 
   /**
   * _typeClass
@@ -271,10 +294,11 @@ export default Component.extend({
   * @computed _typeClass
   * @private
   */
-  _typeClass: computed('type', function () {
-    let type = get(this, 'type');
-    return type ? `nucleus-button--${get(this, 'type')}` : 'nucleus-button--primary';
-  }),
+  @computed('type')
+  get _typeClass() {
+    let type = this.type;
+    return type ? `nucleus-button--${this.type}` : 'nucleus-button--primary';
+  }
 
   /**
   * `onClick` action handler
@@ -283,7 +307,7 @@ export default Component.extend({
   * @type function
   * @public
   */
-  onClick: null,
+  onClick = null;
 
   /**
   * _buttonText
@@ -291,12 +315,13 @@ export default Component.extend({
   * @computed _buttonText
   * @private
   */
-  _buttonText: computed('_buttonState', 'label', function () {
-    let state = get(this, '_buttonState');
+  @computed('_buttonState', 'label')
+  get _buttonText() {
+    let state = this._buttonState;
     return state === 'default' 
-    ? get(this, 'label') 
-    : getWithDefault(this, `${state}Label`, get(this, 'label'));
-  }),
+    ? this.label 
+    : getWithDefault(this, `${state}Label`, this.label);
+  }
 
   /**
   * _label
@@ -305,9 +330,10 @@ export default Component.extend({
   * @type function
   * @private
   */
-  _label: computed('_buttonText', 'ariaLabel', 'icon', function() {
-    return get(this, 'ariaLabel') || get(this, '_buttonText') || get(this, 'icon');
-  }),
+  @computed('_buttonText', 'ariaLabel', 'icon')
+  get _label() {
+    return this.ariaLabel || this._buttonText || this.icon;
+  }
 
   /**
   * click
@@ -317,33 +343,35 @@ export default Component.extend({
   *
   */
   click() {
-    let action = get(this, 'onClick');
+    let action = this.onClick;
 
     if (action === null || action === undefined) {
       return;
     }
 
-    if (!get(this, '_isPending')) {
-      let promise = action(get(this, 'value'));
+    if (!this._isPending) {
+      let promise = action(this.value);
 
-      if (promise && typeof promise.then === 'function' && !get(this, 'isDestroyed')) {
+      if (promise && typeof promise.then === 'function' && !this.isDestroyed) {
         set(this, '_buttonState', BUTTON_STATE.PENDING);
         promise.then(() => {
-          if (!get(this, 'isDestroyed')) {
+          if (!this.isDestroyed) {
             set(this, '_buttonState', BUTTON_STATE.FULFILLED);
           }
         }, () => {
-          if (!get(this, 'isDestroyed')) {
+          if (!this.isDestroyed) {
             set(this, '_buttonState', BUTTON_STATE.REJECTED);
           }
         })
         .finally(() => {
           run.later(() => {
             set(this, '_buttonState', BUTTON_STATE.DEFAULT)
-          }, get(this, 'labelTimeout'));
+          }, this.labelTimeout);
         });
       }
     }
     return false;
-  },
-});
+  }
+}
+
+export default NucleusButton;

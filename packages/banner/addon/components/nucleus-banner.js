@@ -1,8 +1,11 @@
-import Component from '@ember/component';
+import classic from 'ember-classic-decorator';
+import { layout as templateLayout } from '@ember-decorators/component';
+import { observes } from '@ember-decorators/object';
 import { inject as service } from '@ember/service';
-import { reads, gt } from '@ember/object/computed';
+import { gt, reads } from '@ember/object/computed';
+import Component from '@ember/component';
 import layout from "../templates/components/nucleus-banner";
-import { computed, get, observer } from '@ember/object';
+import { action, computed } from '@ember/object';
 
 /**
   __Usage:__
@@ -13,9 +16,9 @@ import { computed, get, observer } from '@ember/object';
   @extends Ember.Component
   @public
 */
-export default Component.extend({
-  layout,
-
+@classic
+@templateLayout(layout)
+class NucleusBanner extends Component {
   /**
   * Service which holds the array of banner items
   *
@@ -23,7 +26,8 @@ export default Component.extend({
   * @type function
   * @private
   */
-  nucleusBanner: service(),
+  @service
+  nucleusBanner;
 
   /**
   * Show/hide the number of stacked notifications
@@ -32,7 +36,7 @@ export default Component.extend({
   * @type boolean
   * @private
   */
-  _isShowMore: false,
+  _isShowMore = false;
 
   /**
   * Flag to toggle the position of the banner between `absolute` & `fixed`.
@@ -41,7 +45,7 @@ export default Component.extend({
   * @type boolean
   * @public
   */
-  isFixed: false,
+  isFixed = false;
 
   /**
   * List of banner items to be rendered.
@@ -50,7 +54,8 @@ export default Component.extend({
   * @type array
   * @public
   */
-  bannerItems: reads('nucleusBanner.items'),
+  @reads('nucleusBanner.items')
+  bannerItems;
 
   /**
   * _isMultiple
@@ -59,7 +64,8 @@ export default Component.extend({
   * @type function
   * @private
   */
-  _isMultiple: gt('bannerItems.length', 1),
+  @gt('bannerItems.length', 1)
+  _isMultiple;
 
   /**
   * Banner item that gets displayed.
@@ -68,10 +74,11 @@ export default Component.extend({
   * @type object
   * @public
   */
-  displayedItem: computed('bannerItems.[]', function () {
-    let items = get(this, 'bannerItems');
+  @computed('bannerItems.[]')
+  get displayedItem() {
+    let items = this.bannerItems;
     return items && items.length > 0 ? items[0] : null;
-  }),
+  }
 
   /**
   * Stacked banner items.
@@ -79,33 +86,34 @@ export default Component.extend({
   * @computed stackedItems
   * @private
   */
-  stackedItems: computed('_isMultiple', 'bannerItems.[]', function () {
-    return get(this, '_isMultiple') ? get(this, 'bannerItems').slice(1) : null;
-  }),
-  actions: {
-    /**
-    * Toggle action to show or hide the stacked notifications.
-    *
-    * @method toggleShowMore
-    * @public
-    *
-    */
-    toggleShowMore() {
-      this.toggleProperty('_isShowMore');
-    },
+  @computed('_isMultiple', 'bannerItems.[]')
+  get stackedItems() {
+    return this._isMultiple ? this.bannerItems.slice(1) : null;
+  }
 
-    /**
-    * Action that gets invoked on clicking the close button.
-    *
-    * @method deleteItem
-    * @public
-    * @param {object} bannerItem
-    */
-    deleteItem(item) {
-      get(this, 'nucleusBanner').remove(item);
-    }
+  /**
+  * Toggle action to show or hide the stacked notifications.
+  *
+  * @method toggleShowMore
+  * @public
+  *
+  */
+  @action
+  toggleShowMore() {
+    this.toggleProperty('_isShowMore');
+  }
 
-  },
+  /**
+  * Action that gets invoked on clicking the close button.
+  *
+  * @method deleteItem
+  * @public
+  * @param {object} bannerItem
+  */
+  @action
+  deleteItem(item) {
+    this.nucleusBanner.remove(item);
+  }
 
   /**
   * _observeOpen
@@ -114,13 +122,14 @@ export default Component.extend({
   * @type function
   * @private
   */
-  _observeOpen: observer('bannerItems.[]', function () {  // eslint-disable-line
-    if (get(this, 'bannerItems').length > 0) {
+  @observes('bannerItems.[]')
+  _observeOpen() {
+    if (this.bannerItems.length > 0) {
       this._injectBodyClass();
     } else {
       this._removeBodyClass();
     }
-  }),
+  }
 
   /**
   * _injectBodyClass
@@ -131,7 +140,7 @@ export default Component.extend({
   */
   _injectBodyClass() {
     document.body.classList.add("nucleus-banner--active");
-  },
+  }
 
   /**
   * _removeBodyClass
@@ -143,5 +152,6 @@ export default Component.extend({
   _removeBodyClass() {
     document.body.classList.remove("nucleus-banner--active");
   }
+}
 
-});
+export default NucleusBanner;
