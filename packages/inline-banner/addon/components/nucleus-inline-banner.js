@@ -1,7 +1,7 @@
 import classic from 'ember-classic-decorator';
 import { classNames, attributeBindings, classNameBindings, layout as templateLayout } from '@ember-decorators/component';
 import Component from '@ember/component';
-import { get, set, action } from '@ember/object';
+import { set, action } from '@ember/object';
 import { computed } from '@ember/object';
 import { htmlSafe } from '@ember/template';
 import layout from '../templates/components/nucleus-inline-banner';
@@ -77,7 +77,7 @@ class NucleusInlineBanner extends Component {
   * @private
   */
   @computed('title', function () {
-    return htmlSafe(get(this, 'title'));
+    return htmlSafe(this.title);
   })
   _title;
 
@@ -88,8 +88,8 @@ class NucleusInlineBanner extends Component {
   * @private
   */
   @computed('type', '_isOpen', function () {
-    let type = get(this, 'type');
-    let _isOpen = get(this, '_isOpen');
+    let type = this.type;
+    let _isOpen = this._isOpen;
     return type && _isOpen ? `nucleus-inline-banner--${type}` : null;
   })
   _typeClass;
@@ -101,10 +101,18 @@ class NucleusInlineBanner extends Component {
   * @private
   */
   @computed('type', function () {
-    let iconType = get(this, 'type');
+    let iconType = this.type;
     return (iconType in ICON_MAP) ? ICON_MAP[iconType] : null;
   })
   _icon;
+
+  /**
+  * Closure action that gets invoked on clicking the close button.
+  *
+  * @method onClose
+  * @public
+  */
+  onClose = () => {}
 
   /**
   * The action that gets invoked on clicking the close button.
@@ -115,9 +123,9 @@ class NucleusInlineBanner extends Component {
   */
   @action
   onCloseTip() {
-    if (get(this, 'onClose')) {
+    if (this.onClose) {
       set(this, '_isOpen', false);
-      return get(this, 'onClose')();
+      return this.onClose();
     }
 
     set(this, '_isOpen', false);
