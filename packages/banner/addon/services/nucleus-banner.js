@@ -1,6 +1,5 @@
 import { A } from '@ember/array';
 import Service from '@ember/service';
-import { set, get } from '@ember/object';
 import { DEFAULT_CONFIG } from '../constants/nucleus-banner';
 
 /**
@@ -9,7 +8,7 @@ import { DEFAULT_CONFIG } from '../constants/nucleus-banner';
   @extends Ember.Service
   @public
 */
-export default Service.extend({
+class NucleusBanner extends Service {
   /**
   * ``` javascript
   * {
@@ -29,7 +28,7 @@ export default Service.extend({
   * @type null
   * @public
   */
-  items: null,
+  items = A([]);
 
   /**
   * init
@@ -39,9 +38,8 @@ export default Service.extend({
   *
   */
   init() {
-    this._super(...arguments);
-    set(this, 'items', A([]));
-  },
+    super.init(...arguments);
+  }
 
   /**
   * Add an item with DEFAULT_CONFIG
@@ -51,8 +49,8 @@ export default Service.extend({
   * @param {object} item
   */
   add(item) {
-    get(this, 'items').pushObject(Object.assign({}, DEFAULT_CONFIG, item));
-  },
+    this.items.pushObject(Object.assign({}, DEFAULT_CONFIG, item));
+  }
 
   /**
   * Remove an item
@@ -62,8 +60,8 @@ export default Service.extend({
   * @param {object} item
   */
   remove(item) {
-    get(this, 'items').removeObject(item);
-  },
+    this.items.removeObject(item);
+  }
 
   /**
   * empty
@@ -73,7 +71,8 @@ export default Service.extend({
   *
   */
   empty() {
-    get(this, 'items').clear();
+    this.items.clear();
   }
+}
 
-});
+export default NucleusBanner;
