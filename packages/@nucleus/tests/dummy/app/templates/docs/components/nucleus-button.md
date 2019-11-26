@@ -1,21 +1,26 @@
-
 # Button
 
-![Button screenshots](../../images/buttons.png)
+```sh
+yarn add @freshworks/button
+```
 
+Buttons are interactive components that the users can click or touch to trigger corresponding business logic. 
 
 ## Usage
 
-Simplest use case: a button with text in it, telling the user what to do.
+#### 1. Simplest use case
+A button with text in it, telling the user what to do.
 
 {{#docs-demo as |demo|}}
   {{#demo.example name="nucleus-button.hbs"}}
-    {{nucleus-button label="Downloads"}}
+    {{nucleus-button label="Click here"}}
   {{/demo.example}}
   {{demo.snippet 'nucleus-button.hbs'}}
 {{/docs-demo}}
 
-Block form
+#### 2. Block form
+Button with yieldable content.
+
 {{#docs-demo as |demo|}}
   {{#demo.example name='nucleus-button-block-form.hbs'}}
     {{#nucleus-button type="primary" ariaLabel="concise label"}}
@@ -25,33 +30,35 @@ Block form
   {{demo.snippet 'nucleus-button-block-form.hbs'}}
 {{/docs-demo}}
 
-Asynchronous Button
+#### 3. Asynchronous Button
+Dynamic button which has different states: pending and success. Supply an `action` that returns a `Promise` and watch the magic!
+
 {{nucleus-button/demo-1}}
 
 ## Styles
 
-Different types:
+#### 1. Different types:
 {{#docs-demo as |demo|}}
   {{#demo.example name='nucleus-button-light.hbs'}}
-    {{nucleus-button label="click me"}}
-    {{nucleus-button label="click me" type="secondary"}}
-    {{nucleus-button label="click me" type="danger"}}
-    {{nucleus-button label="click me" type="link"}}
-    {{nucleus-button label="click me" type="text"}}
+    {{nucleus-button label="Click here"}}
+    {{nucleus-button label="Click here" type="secondary"}}
+    {{nucleus-button label="Click here" type="danger"}}
+    {{nucleus-button label="Click here" type="link"}}
+    {{nucleus-button label="Click here" type="text"}}
   {{/demo.example}}
   {{demo.snippet 'nucleus-button-light.hbs'}}
 {{/docs-demo}}
 
-Different sizes:
+#### 2. Different sizes:
 {{#docs-demo as |demo|}}
   {{#demo.example name='nucleus-button-tiny.hbs'}}
-    {{nucleus-button label="click me" size="small"}}
-    {{nucleus-button label="click me" size="mini"}}
+    {{nucleus-button label="Click here" size="small"}}
+    {{nucleus-button label="Click here" size="mini"}}
   {{/demo.example}}
   {{demo.snippet 'nucleus-button-tiny.hbs'}}
 {{/docs-demo}}
 
-Icon buttons:
+#### 3. Icon buttons:
 {{#docs-demo as |demo|}}
   {{#demo.example name='nucleus-button-dense.hbs'}}
     {{nucleus-button icon="cross" size="small" type="text"}}
@@ -62,28 +69,62 @@ Icon buttons:
 
 {{#docs-demo as |demo|}}
   {{#demo.example name='nucleus-button-icon.hbs'}}
-    {{nucleus-button icon="cross" label="Delete" type="danger"}}
+    {{nucleus-button icon="cross" label="Click here" type="danger"}}
   {{/demo.example}}
   {{demo.snippet 'nucleus-button-icon.hbs'}}
 {{/docs-demo}}
 
-Full-width button:
+#### 4. Full-width button:
 {{#docs-demo as |demo|}}
   {{#demo.example name='nucleus-button-block.hbs'}}
-    {{nucleus-button label="click me" block=true}}
+    {{nucleus-button label="Click here" block=true}}
   {{/demo.example}}
   {{demo.snippet 'nucleus-button-block.hbs'}}
 {{/docs-demo}}
 
+#### 5. Disabled button
 To toggle the 'disabled' property, set 'disabled' to true
 {{#docs-demo as |demo|}}
   {{#demo.example name='nucleus-button-disabled.hbs'}}
-    {{#nucleus-button type="primary" disabled=true}}
-      Downloads
-    {{/nucleus-button}}
+    {{nucleus-button type="primary" label="Click here" disabled=true}}
   {{/demo.example}}
   {{demo.snippet 'nucleus-button-disabled.hbs'}}
 {{/docs-demo}}
+
+## Guidelines
+
+✅**Do's**
+
+1. Label button with what action it triggers
+
+2. Choose appropriate button for the context
+
+3. Use primary button for the primary/important action of the page.
+
+4. Use secondary buttons as default buttons
+
+5. Use link buttons as tertiary buttons for less prominent actions
+
+6. Use consistent button placement and direction for a user journey
+
+7. Use button against a contrast background and have essential white space around the button
+
+
+🚫**Dont's**
+
+1. Avoid using too many buttons in one page 
+
+2. Button copy shouldn’t be too wordy
+
+3. Don’t use more than one primary button in a page
+
+4. Don’t use buttons instead of tabs
+
+5. Don’t trigger the action without alerting the user for destructive buttons  
+
+6. Don’t use destructive buttons for all delete/ cancellation scenarios. More applicable for actions which involves deleting the data permanently
+
+7. Don’t enable primary button before all mandatory fields are filled
 
 ## Accessibility
 
@@ -98,12 +139,5 @@ If you are going to put an icon in the button, then you will need to set an aria
   {{/demo.example}}
   {{demo.snippet 'nucleus-button-icon-2.hbs'}}
 {{/docs-demo}}
-
-## Other Uses
-
-There are some other ways this component could be used:
-
-- as a link
-- as a toggle button (supports the aria-pressed attribute)
 
 {{docs-note}}
