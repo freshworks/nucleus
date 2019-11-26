@@ -1,5 +1,7 @@
-import Component from '@ember/component';
+import classic from 'ember-classic-decorator';
+import { layout as templateLayout } from '@ember-decorators/component';
 import { inject } from '@ember/service';
+import Component from '@ember/component';
 import layout from '../templates/components/nucleus-toast-message';
 
 /**
@@ -11,9 +13,9 @@ import layout from '../templates/components/nucleus-toast-message';
   @extends Ember.Component
   @public
 */
-export default Component.extend({
-  layout,
-
+@classic
+@templateLayout(layout)
+class NucleusToastMessage extends Component {
   /**
   * Queue service which manages the toast messages.
   * More info [here](https://github.com/poteto/ember-cli-flash#custom-messages-api)
@@ -22,7 +24,8 @@ export default Component.extend({
   * @type function
   * @public
   */
-  flashMessages: inject(),
+  @inject()
+  flashMessages;
 
   /**
   * Controls the positioning of the toast messages.
@@ -32,5 +35,7 @@ export default Component.extend({
   * @type string
   * @public
   */
-  position: 'top center'
-});
+  position = 'top center';
+}
+
+export default NucleusToastMessage;
