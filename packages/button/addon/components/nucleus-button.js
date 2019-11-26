@@ -24,7 +24,6 @@ import { BUTTON_STATE } from "../constants/nucleus-button";
   @extends Ember.Component
   @public
 */
-export default
 @classic
 @templateLayout(layout)
 @tagName('button')
@@ -173,7 +172,7 @@ class NucleusButton extends Component {
   * @type string
   * @private
   */
-  #buttonState = BUTTON_STATE.DEFAULT;
+  _buttonState = BUTTON_STATE.DEFAULT;
 
   /**
   * _isPending
@@ -374,3 +373,5 @@ class NucleusButton extends Component {
     return false;
   }
 }
+
+export default NucleusButton;
