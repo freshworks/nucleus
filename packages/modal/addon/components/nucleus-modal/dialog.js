@@ -1,6 +1,8 @@
-import Component from '@ember/component';
-import { computed, get, set } from '@ember/object';
+import classic from 'ember-classic-decorator';
+import { classNames, attributeBindings, classNameBindings, layout as templateLayout } from '@ember-decorators/component';
 import { readOnly } from '@ember/object/computed';
+import Component from '@ember/component';
+import { set, computed } from '@ember/object';
 import { isBlank } from '@ember/utils';
 import layout from '../../templates/components/nucleus-modal/dialog';
 import scroll from "../../mixins/scroll";
@@ -12,14 +14,18 @@ import scroll from "../../mixins/scroll";
   @extends Ember.Component
   @public
 */
-export default Component.extend(scroll, {
-  layout,
-  classNames: ['nucleus-modal'],
-  classNameBindings: ['positionClass'],
-  attributeBindings: ['tabindex', 'aria-labelledby', 'aria-modal'],
-  ariaRole: 'dialog',
-  "aria-labelledby": readOnly('titleId'),
-  "aria-modal": true,
+@classic
+@templateLayout(layout)
+@classNames('nucleus-modal')
+@classNameBindings('positionClass')
+@attributeBindings('tabindex', 'ariaLabelledby:aria-labelledby', 'ariaModal:aria-modal')
+class Dialog extends Component.extend(scroll) {
+  ariaRole = 'dialog';
+
+  @readOnly('titleId')
+  ariaLabelledby;
+
+  ariaModal = true;
 
   /**
   * tabindex
@@ -28,7 +34,7 @@ export default Component.extend(scroll, {
   * @type string
   * @private
   */
-  tabindex: '-1',
+  tabindex = '-1';
 
   /**
   * animation class
@@ -37,7 +43,7 @@ export default Component.extend(scroll, {
   * @type string
   * @private
   */
- animationClass: 'slide-down',
+  animationClass = 'slide-down';
 
   /**
   * keyboard
@@ -46,7 +52,7 @@ export default Component.extend(scroll, {
   * @type boolean
   * @public
   */
-  keyboard: true,
+  keyboard = true;
 
   /**
   * size
@@ -55,7 +61,7 @@ export default Component.extend(scroll, {
   * @type null
   * @public
   */
-  size: null,
+  size = null;
 
   /**
   * sizeClass
@@ -64,10 +70,11 @@ export default Component.extend(scroll, {
   * @type function
   * @private
   */
-  sizeClass: computed('size', function () {
-    let size = get(this, 'size');
+  @computed('size', function() {
+    let size = this.size;
     return isBlank(size) ? null : `nucleus-modal__dialog--${size}`;
-  }).readOnly(),
+  })
+  sizeClass;
 
   /**
   * Modal position: `center`, `left` & `right`
@@ -77,7 +84,7 @@ export default Component.extend(scroll, {
   * @default center
   * @public
   */
-  position: 'center',
+  position = 'center';
 
   /**
    * positionClass
@@ -86,10 +93,11 @@ export default Component.extend(scroll, {
    * @type function
    * @private
    */
-  positionClass: computed('position', function () {
-    let position = get(this, 'position');
+  @computed('position', function() {
+    let position = this.position;
     return isBlank(position) ? null : `nucleus-modal--${position}`;
-  }).readOnly(),
+  })
+  positionClass;
 
   /**
    * The id of the `.modal-title` element
@@ -99,7 +107,7 @@ export default Component.extend(scroll, {
    * @default null
    * @private
    */
-  titleId: null,
+  titleId = null;
 
   /**
    * Gets or sets the id of the title element for aria accessibility tags
@@ -108,7 +116,7 @@ export default Component.extend(scroll, {
    * @private
    */
   getOrSetTitleId() {
-    const modalNode = get(this, 'element');
+    const modalNode = this.element;
     let nodeId = null;
 
     if (modalNode) {
@@ -116,13 +124,13 @@ export default Component.extend(scroll, {
       if (titleNode) {
         nodeId = titleNode.id
         if (!nodeId) {
-          nodeId = `${get(this, 'id')}-title`;
+          nodeId = `${this.id}-title`;
           titleNode.id = nodeId;
         }
       }
     }
     set(this, 'titleId', nodeId);
-  },
+  }
 
   /**
   * keyDown
@@ -134,13 +142,13 @@ export default Component.extend(scroll, {
   keyDown(e) {
     let code = e.keyCode || e.which;
 
-    if (code === 27 && get(this, 'keyboard')) {
+    if (code === 27 && this.keyboard) {
       this.onClose();
     }
-  },
+  }
 
-  scrolled: function() {
-    const modalNode = get(this, 'element');
+  scrolled() {
+    const modalNode = this.element;
     if(modalNode) {
       const titleNode = modalNode.querySelector('.nucleus-modal__header');
       const contentNode = modalNode.querySelector('.nucleus-modal__body');
@@ -150,17 +158,18 @@ export default Component.extend(scroll, {
         titleNode.classList.remove('sticky');
       }
     }
-  },
-
-  didInsertElement() {
-    this._super(...arguments);
-    this.getOrSetTitleId();
-    this.bindScrolling('.nucleus-modal__body');
-  },
-
-  willDestroyElement() {
-    this._super(...arguments);
-    this.unbindScrolling();
   }
 
-});
+  didInsertElement() {
+    super.didInsertElement(...arguments);
+    this.getOrSetTitleId();
+    this.bindScrolling('.nucleus-modal__body');
+  }
+
+  willDestroyElement() {
+    super.willDestroyElement(...arguments);
+    this.unbindScrolling();
+  }
+}
+
+export default Dialog;

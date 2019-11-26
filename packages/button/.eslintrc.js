@@ -38,7 +38,10 @@ module.exports = {
         'tests/dummy/app/**'
       ],
       parserOptions: {
-        sourceType: 'script'
+        sourceType: 'script',
+        "ecmaFeatures": {
+          "legacyDecorators": true
+        }
       },
       env: {
         browser: false,

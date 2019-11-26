@@ -1,5 +1,7 @@
+import classic from 'ember-classic-decorator';
+import { classNames, attributeBindings, classNameBindings, layout as templateLayout } from '@ember-decorators/component';
 import Component from '@ember/component';
-import { get, set } from '@ember/object';
+import { set, action } from '@ember/object';
 import { computed } from '@ember/object';
 import { htmlSafe } from '@ember/template';
 import layout from '../templates/components/nucleus-inline-banner';
@@ -14,12 +16,12 @@ import { ICON_MAP } from '../constants/nucleus-inline-banner';
   @extends Ember.Component
   @public
 */
-export default Component.extend({
-  layout,
-  classNames: ['nucleus-inline-banner'],
-  classNameBindings: ['_typeClass', '_isOpen:show:hide'],
-  attributeBindings: ['data-test-id'],
-
+@classic
+@templateLayout(layout)
+@classNames('nucleus-inline-banner')
+@classNameBindings('_typeClass', '_isOpen:show:hide')
+@attributeBindings('data-test-id')
+class NucleusInlineBanner extends Component {
   /**
   * data-test-id
   *
@@ -27,7 +29,7 @@ export default Component.extend({
   * @type string
   * @private
   */
-  'data-test-id': 'nucleus-inline-banner',
+  'data-test-id' = 'nucleus-inline-banner';
 
   /**
   * Type of the inline banner.
@@ -38,7 +40,7 @@ export default Component.extend({
   * @public
   * @default `info`
   */
-  type: 'info',
+  type = 'info';
 
   /**
   * Show or hide the close button
@@ -48,7 +50,7 @@ export default Component.extend({
   * @public
   * @default true
   */
-  isDismissible: true,
+  isDismissible = true;
 
   /**
   * Open/close state management
@@ -57,7 +59,7 @@ export default Component.extend({
   * @type boolean
   * @private
   */
-  _isOpen: true,
+  _isOpen = true;
 
   /**
   * Title of the banner. Can be plain text or HTML.
@@ -66,7 +68,7 @@ export default Component.extend({
   * @type string
   * @public
   */
-  title: null,
+  title = null;
 
   /**
   * _title
@@ -74,9 +76,10 @@ export default Component.extend({
   * @computed _title
   * @private
   */
-  _title: computed('title', function () {
-    return htmlSafe(get(this, 'title'));
-  }),
+  @computed('title', function () {
+    return htmlSafe(this.title);
+  })
+  _title;
 
   /**
   * _typeClass
@@ -84,11 +87,12 @@ export default Component.extend({
   * @computed _typeClass
   * @private
   */
-  _typeClass: computed('type', '_isOpen', function () {
-    let type = get(this, 'type');
-    let _isOpen = get(this, '_isOpen');
+  @computed('type', '_isOpen', function () {
+    let type = this.type;
+    let _isOpen = this._isOpen;
     return type && _isOpen ? `nucleus-inline-banner--${type}` : null;
-  }),
+  })
+  _typeClass;
 
   /**
   * _icon
@@ -96,26 +100,36 @@ export default Component.extend({
   * @computed _icon
   * @private
   */
-  _icon: computed('type', function () {
-    let iconType = get(this, 'type');
+  @computed('type', function () {
+    let iconType = this.type;
     return (iconType in ICON_MAP) ? ICON_MAP[iconType] : null;
-  }),
-  actions: {
-    /**
-    * The action that gets invoked on clicking the close button.
-    *
-    * @method onCloseTip
-    * @public
-    *
-    */
-    onCloseTip() {
-      if (get(this, 'onClose')) {
-        set(this, '_isOpen', false);
-        return get(this, 'onClose')();
-      }
+  })
+  _icon;
 
+  /**
+  * Closure action that gets invoked on clicking the close button.
+  *
+  * @method onClose
+  * @public
+  */
+  onClose = () => {}
+
+  /**
+  * The action that gets invoked on clicking the close button.
+  *
+  * @method onCloseTip
+  * @public
+  *
+  */
+  @action
+  onCloseTip() {
+    if (this.onClose) {
       set(this, '_isOpen', false);
+      return this.onClose();
     }
 
+    set(this, '_isOpen', false);
   }
-});
+}
+
+export default NucleusInlineBanner;
