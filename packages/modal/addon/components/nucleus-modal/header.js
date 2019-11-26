@@ -1,3 +1,5 @@
+import classic from 'ember-classic-decorator';
+import { classNames, layout as templateLayout } from '@ember-decorators/component';
 import Component from '@ember/component';
 import layout from '../../templates/components/nucleus-modal/header';
 
@@ -8,10 +10,10 @@ import layout from '../../templates/components/nucleus-modal/header';
   @extends Ember.Component
   @public
 */
-export default Component.extend({
-  layout,
-  classNames: ['nucleus-modal__header'],
-
+@classic
+@templateLayout(layout)
+@classNames('nucleus-modal__header')
+class Header extends Component {
   /**
   * closeButton
   *
@@ -19,7 +21,7 @@ export default Component.extend({
   * @type boolean
   * @public
   */
-  closeButton: false,
+  closeButton = false;
 
   /**
   * title
@@ -28,5 +30,7 @@ export default Component.extend({
   * @type null
   * @public
   */
-  title: null
-});
+  title = null;
+}
+
+export default Header;

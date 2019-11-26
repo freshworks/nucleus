@@ -1,6 +1,8 @@
-import Component from '@ember/component';
+import classic from 'ember-classic-decorator';
+import { tagName, layout as templateLayout } from '@ember-decorators/component';
 import { reads } from '@ember/object/computed';
-import { computed, get } from '@ember/object';
+import Component from '@ember/component';
+import { get, action, computed } from '@ember/object';
 import layout from "../../templates/components/nucleus-banner/item";
 import { ICON_MAP } from '../../constants/nucleus-banner';
 
@@ -10,10 +12,10 @@ import { ICON_MAP } from '../../constants/nucleus-banner';
   @extends Ember.Component
   @public
 */
-export default Component.extend({
-  layout,
-  tagName: '',
-
+@classic
+@templateLayout(layout)
+@tagName('')
+class Item extends Component {
   /**
   * Banner item
   * ``` javascript
@@ -34,7 +36,8 @@ export default Component.extend({
   * @type object
   * @public
   */
-  bannerItem: reads('item'),
+  @reads('item')
+  bannerItem;
 
   /**
   * bannerIcon
@@ -42,21 +45,23 @@ export default Component.extend({
   * @computed bannerIcon
   * @private
   */
-  bannerIcon: computed('bannerItem.type', function () {
+  @computed('bannerItem.type')
+  get bannerIcon() {
     let type = get(this, 'bannerItem.type');
     return type && type in ICON_MAP ? ICON_MAP[type] : null;
-  }),
-  actions: {
-    /**
-    * Closure action that gets invoked on clicking the close button.
-    *
-    * @method onClose
-    * @public
-    * @param {object} item
-    */
-    onClose(item) {
-      get(this, 'onDelete') && get(this, 'onDelete')(item);
-    }
-
   }
-});
+
+  /**
+  * Closure action that gets invoked on clicking the close button.
+  *
+  * @method onClose
+  * @public
+  * @param {object} item
+  */
+  @action
+  onClose(item) {
+    get(this, 'onDelete') && get(this, 'onDelete')(item);
+  }
+}
+
+export default Item;
