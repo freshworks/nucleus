@@ -123,7 +123,7 @@ class NucleusBanner extends Component {
   * @private
   */
   @observes('bannerItems.[]')
-  _observeOpen() {  // eslint-disable-line
+  _observeOpen() {
     if (this.bannerItems.length > 0) {
       this._injectBodyClass();
     } else {

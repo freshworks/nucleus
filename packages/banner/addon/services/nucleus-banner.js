@@ -31,17 +31,6 @@ class NucleusBanner extends Service {
   items = A([]);
 
   /**
-  * init
-  *
-  * @method init
-  * @private
-  *
-  */
-  init() {
-    super.init(...arguments);
-  }
-
-  /**
   * Add an item with DEFAULT_CONFIG
   *
   * @method add
