@@ -1,5 +1,7 @@
+import classic from 'ember-classic-decorator';
 import Component from '@ember/component';
-import { computed } from '@ember/object';
+import { classNames, tagName, classNameBindings, layout as templateLayout } from '@ember-decorators/component';
+import { notEmpty } from '@ember/object/computed';
 import layout from '../../templates/components/nucleus-modal/footer';
 
 /**
@@ -9,12 +11,12 @@ import layout from '../../templates/components/nucleus-modal/footer';
   @extends Ember.Component
   @public
 */
-export default Component.extend({
-  layout,
-  tagName: 'form',
-  classNames: ['nucleus-modal__footer'],
-  classNameBindings: ['isSticky:sticky'],
-
+@classic
+@templateLayout(layout)
+@tagName('form')
+@classNames('nucleus-modal__footer')
+@classNameBindings('isSticky:sticky')
+class Footer extends Component{
   /**
   * closeTitle
   *
@@ -22,7 +24,7 @@ export default Component.extend({
   * @type null
   * @public
   */
-  closeTitle: null,
+  closeTitle = null;
 
   /**
   * isSticky
@@ -31,7 +33,7 @@ export default Component.extend({
   * @type boolean
   * @public
   */
- isSticky: true,
+ isSticky = true;
 
   /**
   * hasCloseButton
@@ -40,7 +42,8 @@ export default Component.extend({
   * @type function
   * @private
   */
-  hasCloseButton: computed.notEmpty('closeTitle'),
+  @notEmpty('closeTitle')
+  hasCloseButton;
 
   /**
   * submitTitle
@@ -49,7 +52,7 @@ export default Component.extend({
   * @type null
   * @public
   */
-  submitTitle: null,
+  submitTitle = null;
 
   /**
   * hasSubmitButton
@@ -58,7 +61,8 @@ export default Component.extend({
   * @type function
   * @private
   */
-  hasSubmitButton: computed.notEmpty('submitTitle'),
+  @notEmpty('submitTitle')
+  hasSubmitButton;
 
   /**
   * submitDisabled
@@ -67,7 +71,7 @@ export default Component.extend({
   * @type boolean
   * @public
   */
-  submitDisabled: false,
+  submitDisabled = false;
 
   /**
   * type
@@ -76,19 +80,7 @@ export default Component.extend({
   * @type string
   * @public
   */
-  type: 'primary',
+  type = 'primary';
+}
 
-  /**
-   * The action to send to the parent modal component when the modal footer's form is submitted
-   *
-   * @event onSubmit
-   * @public
-   */
-  onSubmit() {},
-
-  /**
-   * @event onClose
-   * @public
-   */
-  onClose() {}
-});
+export default Footer;

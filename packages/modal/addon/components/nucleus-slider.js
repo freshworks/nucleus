@@ -1,3 +1,5 @@
+import classic from 'ember-classic-decorator';
+import { layout as templateLayout } from '@ember-decorators/component';
 import Modal from './nucleus-modal';
 import layout from '../templates/components/nucleus-slider';
 
@@ -14,9 +16,9 @@ import layout from '../templates/components/nucleus-slider';
   @extends Ember.Component
   @public
 */
-export default Modal.extend({
-  layout,
-
+@classic
+@templateLayout(layout)
+class NucleusSlider extends Modal {
   /**
   * Default slider position
   *
@@ -25,7 +27,7 @@ export default Modal.extend({
   * @default `right`
   * @public
   */
- position: 'right',
+  position = 'right';
 
   /**
   * Title of the slider
@@ -34,7 +36,7 @@ export default Modal.extend({
   * @type string
   * @public
   */
-  title: null,
+  title = null;
 
   /**
   * Close button text
@@ -43,7 +45,7 @@ export default Modal.extend({
   * @type string
   * @public
   */
-  closeTitle: 'Cancel',
+  closeTitle = 'Cancel';
 
   /**
   * Submit action button text
@@ -52,5 +54,7 @@ export default Modal.extend({
   * @type string
   * @public
   */
-  submitTitle: 'Confirm'
-});
+  submitTitle = 'Confirm';
+}
+
+export default NucleusSlider;
