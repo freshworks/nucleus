@@ -1,0 +1,1 @@
+export { default } from '@freshworks/core/utils/default-decorator';
