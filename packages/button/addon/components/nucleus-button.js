@@ -6,11 +6,12 @@ import {
   tagName,
   layout as templateLayout,
 } from '@ember-decorators/component';
+import defaultProp from '@freshworks/core/utils/default-decorator';
 
 import { or, equal } from '@ember/object/computed';
 import { run } from '@ember/runloop';
 import Component from '@ember/component';
-import { set, getWithDefault, computed } from '@ember/object';
+import { set, computed } from '@ember/object';
 import layout from "../templates/components/nucleus-button";
 import { BUTTON_STATE } from "../constants/nucleus-button";
 
@@ -45,6 +46,7 @@ class NucleusButton extends Component {
   * @default null
   * @public
   */
+  @defaultProp
   label = null;
 
   /**
@@ -55,6 +57,7 @@ class NucleusButton extends Component {
   * @default null
   * @public
   */
+  @defaultProp
   size = null;
 
   /**
@@ -65,6 +68,7 @@ class NucleusButton extends Component {
   * @default 'primary'
   * @public
   */
+  @defaultProp
   type = 'primary';
 
   /**
@@ -84,6 +88,7 @@ class NucleusButton extends Component {
   * @default false
   * @public
   */
+  @defaultProp
   active = false;
 
   /**
@@ -94,6 +99,7 @@ class NucleusButton extends Component {
   * @default false
   * @public
   */
+  @defaultProp
   autofocus = false;
 
   /**
@@ -104,6 +110,7 @@ class NucleusButton extends Component {
   * @default false
   * @public
   */
+  @defaultProp
   block = false;
 
   /**
@@ -113,6 +120,7 @@ class NucleusButton extends Component {
   * @type string|null
   * @public
   */
+  @defaultProp
   icon = null;
 
   /**
@@ -122,6 +130,7 @@ class NucleusButton extends Component {
   * @type string
   * @public
   */
+  @defaultProp
   customClass = null;
 
   /**
@@ -132,6 +141,7 @@ class NucleusButton extends Component {
   * @default false
   * @public
   */
+  @defaultProp
   disabled = false;
 
   /**
@@ -142,8 +152,8 @@ class NucleusButton extends Component {
   */
   @computed('disabled', '_isPending')
   get _disabled() {
-    let isDisabled = this.disabled;
-    return isDisabled ? isDisabled : this._isPending;
+    let isDisabled = this.get('disabled');
+    return isDisabled ? isDisabled : this.get('_isPending');
   }
 
   /**
@@ -153,6 +163,7 @@ class NucleusButton extends Component {
   * @type string|number|object
   * @public
   */
+  @defaultProp
   value = null;
 
   /**
@@ -233,7 +244,7 @@ class NucleusButton extends Component {
   */
   @computed('_isLoading', 'pendingLabel', 'fulfilledLabel', 'rejectedLabel')
   get _isShowLoading() {
-    return !(this.pendingLabel || this.fulfilledLabel || this.rejectedLabel);
+    return !(this.get('pendingLabel') || this.get('fulfilledLabel') || this.get('rejectedLabel'));
   }
 
   /**
@@ -244,7 +255,8 @@ class NucleusButton extends Component {
   * @default undefined
   * @public
   */
-  pendingLabel = undefined;
+  @defaultProp
+  pendingLabel = '';
 
   /**
   * Label to be displayed during Promise fulfilled state, a.k.a success label
@@ -254,7 +266,8 @@ class NucleusButton extends Component {
   * @default undefined
   * @public
   */
-  fulfilledLabel = undefined;
+  @defaultProp
+  fulfilledLabel = '';
 
   /**
   * Label to be displayed during Promise rejected state, a.k.a failure label
@@ -264,7 +277,8 @@ class NucleusButton extends Component {
   * @default undefined
   * @public
   */
-  rejectedLabel = undefined;
+  @defaultProp
+  rejectedLabel = '';
 
   /**
   * Optional aria-label attribute
@@ -274,6 +288,7 @@ class NucleusButton extends Component {
   * @default null
   * @public
   */
+  @defaultProp
   ariaLabel = null;
 
   /**
@@ -284,7 +299,7 @@ class NucleusButton extends Component {
   */
   @computed('size')
   get _sizeClass() {
-    let size = this.size;
+    let size = this.get('size');
     return size ? `nucleus-button--${size}` : null;
   }
 
@@ -296,8 +311,8 @@ class NucleusButton extends Component {
   */
   @computed('type')
   get _typeClass() {
-    let type = this.type;
-    return type ? `nucleus-button--${this.type}` : 'nucleus-button--primary';
+    let type = this.get('type');
+    return type ? `nucleus-button--${this.get('type')}` : 'nucleus-button--primary';
   }
 
   /**
@@ -319,8 +334,8 @@ class NucleusButton extends Component {
   get _buttonText() {
     let state = this._buttonState;
     return state === 'default' 
-    ? this.label 
-    : getWithDefault(this, `${state}Label`, this.label);
+    ? this.get('label') 
+    : this.get(`${state}Label`);
   }
 
   /**
@@ -332,7 +347,7 @@ class NucleusButton extends Component {
   */
   @computed('_buttonText', 'ariaLabel', 'icon')
   get _label() {
-    return this.ariaLabel || this._buttonText || this.icon;
+    return this.get('ariaLabel') || this.get('_buttonText') || this.get('icon');
   }
 
   /**
@@ -350,7 +365,7 @@ class NucleusButton extends Component {
     }
 
     if (!this._isPending) {
-      let promise = action(this.value);
+      let promise = action(this.get('value'));
 
       if (promise && typeof promise.then === 'function' && !this.isDestroyed) {
         set(this, '_buttonState', BUTTON_STATE.PENDING);
