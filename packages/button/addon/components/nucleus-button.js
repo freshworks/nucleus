@@ -322,6 +322,7 @@ class NucleusButton extends Component {
   * @type function
   * @public
   */
+  @defaultProp
   onClick = null;
 
   /**
@@ -333,8 +334,8 @@ class NucleusButton extends Component {
   @computed('_buttonState', 'label')
   get _buttonText() {
     let state = this._buttonState;
-    return state === 'default' 
-    ? this.get('label') 
+    return state === 'default'
+    ? this.get('label')
     : this.get(`${state}Label`);
   }
 
@@ -358,16 +359,16 @@ class NucleusButton extends Component {
   *
   */
   click() {
-    let action = this.onClick;
+    let action = this.get('onClick');
 
     if (action === null || action === undefined) {
       return;
     }
 
-    if (!this._isPending) {
+    if (!this.get('_isPending')) {
       let promise = action(this.get('value'));
 
-      if (promise && typeof promise.then === 'function' && !this.isDestroyed) {
+      if (promise && typeof promise.then === 'function' && !this.get('isDestroyed')) {
         set(this, '_buttonState', BUTTON_STATE.PENDING);
         promise.then(() => {
           if (!this.isDestroyed) {

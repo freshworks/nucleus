@@ -1,5 +1,7 @@
 import classic from 'ember-classic-decorator';
 import { layout as templateLayout } from '@ember-decorators/component';
+import { observes } from '@ember-decorators/object';
+import defaultProp from '@freshworks/core/utils/default-decorator';
 import Component from "@ember/component";
 import { set, setProperties, computed, action } from "@ember/object";
 import { reads } from "@ember/object/computed";
@@ -36,6 +38,7 @@ class Modal extends Component {
   * @readonly
   * @public
   */
+  @defaultProp
   open = true;
 
   /**
@@ -47,7 +50,7 @@ class Modal extends Component {
   */
   @computed("open", {
     get() {
-      return this.open;
+      return this.get('open');
     },
     set(key, value) { // eslint-disable-line no-unused-vars
       return value;
@@ -72,6 +75,7 @@ class Modal extends Component {
   * @type boolean
   * @public
   */
+  @defaultProp
   backdrop = true;
 
   /**
@@ -81,6 +85,7 @@ class Modal extends Component {
   * @type boolean
   * @public
   */
+  @defaultProp
   isDismissible = true;
 
   /**
@@ -101,6 +106,7 @@ class Modal extends Component {
   * @default null
   * @public
   */
+  @defaultProp
   size = null;
 
   /**
@@ -111,6 +117,7 @@ class Modal extends Component {
   * @default false
   * @public
   */
+  @defaultProp
   renderInPlace = false;
 
   /**
@@ -121,7 +128,8 @@ class Modal extends Component {
   * @private
   */
   @computed('elementId', function() {
-    return `nucleus-modal-${this.elementId}`;
+
+    return `nucleus-modal-${this.get('elementId')}`;
   })
   modalId;
 
@@ -133,7 +141,8 @@ class Modal extends Component {
   * @private
   */
   @computed('modalId', function() {
-    return document.getElementById(this.modalId);
+    debugger;
+    return document.getElementById(this.get('modalId'));
   })
   modalElement;
 
@@ -146,8 +155,8 @@ class Modal extends Component {
   */
   @action
   close() {
-    if (this.onClose) {
-      this.onClose();
+    if (this.get('onClose')) {
+      this.get('onClose');
     }
     this._hide();
   }
@@ -161,8 +170,17 @@ class Modal extends Component {
   */
   @action
   submit() {
-    if (this.onSubmit) {
-      return this.onSubmit();
+    if (this.get('onSubmit')) {
+      return this.get('onSubmit');
+    }
+  }
+
+  @observes('isOpen')
+  _observeOpen() {
+    if (this.get('isOpen')) {
+      this._initialize();
+    } else {
+      this._dismantle();
     }
   }
 
@@ -174,7 +192,7 @@ class Modal extends Component {
   *
   */
   _takeFocus() {
-    let modalEl = this.modalElement;
+    let modalEl = this.get('modalElement');
     let focusElement = modalEl && modalEl.querySelector("[autofocus]");
 
     if (!focusElement) {
@@ -213,7 +231,7 @@ class Modal extends Component {
       return;
     }
     setProperties(this, {
-      isOpen: false,
+      open: false,
       _isOpen: false
     });
     document.body.classList.remove("nucleus-modal--open");
@@ -249,7 +267,7 @@ class Modal extends Component {
   * @param {any} event
   */
   loopFocus(event) {
-    let modalEl = this.modalElement;
+    let modalEl = this.get('modalElement');
 
     if (event && modalEl && modalEl !== event.target && !modalEl.contains(event.target)) {
       event.preventDefault();
@@ -267,13 +285,6 @@ class Modal extends Component {
 
   _dismantle() {
     this._hide();
-  }
-
-  didReceiveAttrs() {
-    super.didReceiveAttrs(...arguments);
-    this.isOpen
-      ? this._initialize()
-      : this._dismantle();
   }
 
   willDestroyElement() {

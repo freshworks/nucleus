@@ -1,5 +1,6 @@
 import classic from 'ember-classic-decorator';
 import { layout as templateLayout } from '@ember-decorators/component';
+import defaultProp from '@freshworks/core/utils/default-decorator';
 import Modal from './nucleus-modal';
 import layout from '../templates/components/nucleus-confirm-dialog';
 
@@ -27,6 +28,7 @@ class NucleusConfirmDialog extends Modal {
   * @default `small`
   * @public
   */
+  @defaultProp
   size = 'small';
 
   /**
@@ -36,6 +38,7 @@ class NucleusConfirmDialog extends Modal {
   * @type string
   * @public
   */
+  @defaultProp
   title = null;
 
   /**
@@ -45,6 +48,7 @@ class NucleusConfirmDialog extends Modal {
   * @type string
   * @public
   */
+  @defaultProp
   closeTitle = 'Cancel';
 
   /**
@@ -54,6 +58,7 @@ class NucleusConfirmDialog extends Modal {
   * @type string
   * @public
   */
+  @defaultProp
   submitTitle = 'Confirm';
 }
 

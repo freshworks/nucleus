@@ -1,5 +1,6 @@
 import classic from 'ember-classic-decorator';
 import Component from '@ember/component';
+import defaultProp from '@freshworks/core/utils/default-decorator';
 import { classNames, tagName, classNameBindings, layout as templateLayout } from '@ember-decorators/component';
 import { notEmpty } from '@ember/object/computed';
 import layout from '../../templates/components/nucleus-modal/footer';
@@ -24,6 +25,7 @@ class Footer extends Component{
   * @type null
   * @public
   */
+  @defaultProp
   closeTitle = null;
 
   /**
@@ -33,6 +35,7 @@ class Footer extends Component{
   * @type boolean
   * @public
   */
+  @defaultProp
  isSticky = true;
 
   /**
@@ -52,6 +55,7 @@ class Footer extends Component{
   * @type null
   * @public
   */
+  @defaultProp
   submitTitle = null;
 
   /**
@@ -71,6 +75,7 @@ class Footer extends Component{
   * @type boolean
   * @public
   */
+  @defaultProp
   submitDisabled = false;
 
   /**
@@ -80,24 +85,8 @@ class Footer extends Component{
   * @type string
   * @public
   */
+  @defaultProp
   type = 'primary';
-
-  /**	
-   * The action to send to the parent modal component when the modal footer's form is submitted	
-   *	
-   * @event onSubmit	
-   * @public	
-   */	
-  onSubmit = () => {}	
-
-
-  /**	
-   * The action to send to the parent modal component when the modal footer's form is closed	
-   * 
-   * @event onClose	
-   * @public	
-   */	
-  onClose = () => {}
 }
 
 export default Footer;
