@@ -128,7 +128,6 @@ class Modal extends Component {
   * @private
   */
   @computed('elementId', function() {
-
     return `nucleus-modal-${this.get('elementId')}`;
   })
   modalId;
@@ -141,7 +140,6 @@ class Modal extends Component {
   * @private
   */
   @computed('modalId', function() {
-    debugger;
     return document.getElementById(this.get('modalId'));
   })
   modalElement;
@@ -156,7 +154,7 @@ class Modal extends Component {
   @action
   close() {
     if (this.get('onClose')) {
-      this.get('onClose');
+      this.get('onClose')();
     }
     this._hide();
   }
@@ -171,7 +169,7 @@ class Modal extends Component {
   @action
   submit() {
     if (this.get('onSubmit')) {
-      return this.get('onSubmit');
+      return this.get('onSubmit')();
     }
   }
 
