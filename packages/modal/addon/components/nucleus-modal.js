@@ -230,6 +230,7 @@ class Modal extends Component {
     }
     setProperties(this, {
       open: false,
+      isOpen: false,
       _isOpen: false
     });
     document.body.classList.remove("nucleus-modal--open");
