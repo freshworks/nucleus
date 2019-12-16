@@ -1,6 +1,6 @@
 {
   "name": "@freshworks/modal",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Modal component in Nucleus",
   "keywords": [
     "ember-addon"
@@ -22,7 +22,7 @@
     "test:dev": "COVERAGE=TRUE ember test --server -launch=false"
   },
   "dependencies": {
-    "@freshworks/button": "^0.1.5",
+    "@freshworks/button": "^0.1.6",
     "@freshworks/core": "^0.1.4",
     "broccoli-funnel": "^2.0.2",
     "broccoli-merge-trees": "^3.0.2",

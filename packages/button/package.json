@@ -1,6 +1,6 @@
 {
   "name": "@freshworks/button",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Button component in Nucleus",
   "keywords": [
     "ember-addon"
