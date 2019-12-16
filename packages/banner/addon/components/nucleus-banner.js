@@ -1,8 +1,9 @@
 import classic from 'ember-classic-decorator';
 import { layout as templateLayout } from '@ember-decorators/component';
+import defaultProp from '@freshworks/core/utils/default-decorator';
 import { observes } from '@ember-decorators/object';
-import { inject as service } from '@ember/service';
-import { gt, reads } from '@ember/object/computed';
+import { inject } from '@ember/service';
+import { gt } from '@ember/object/computed';
 import Component from '@ember/component';
 import layout from "../templates/components/nucleus-banner";
 import { action, computed } from '@ember/object';
@@ -26,8 +27,8 @@ class NucleusBanner extends Component {
   * @type function
   * @private
   */
-  @service
-  nucleusBanner;
+  @inject('nucleus-banner')
+  bannerService;
 
   /**
   * Show/hide the number of stacked notifications
@@ -45,6 +46,7 @@ class NucleusBanner extends Component {
   * @type boolean
   * @public
   */
+  @defaultProp
   isFixed = false;
 
   /**
@@ -54,8 +56,11 @@ class NucleusBanner extends Component {
   * @type array
   * @public
   */
-  @reads('nucleusBanner.items')
-  bannerItems;
+  @computed('bannerService.items')
+  get bannerItems() {
+    let bannerService = this.get('bannerService');
+    return bannerService ? bannerService.get('items') : null;
+  }
 
   /**
   * _isMultiple
@@ -76,7 +81,7 @@ class NucleusBanner extends Component {
   */
   @computed('bannerItems.[]')
   get displayedItem() {
-    let items = this.bannerItems;
+    let items = this.get('bannerItems');
     return items && items.length > 0 ? items[0] : null;
   }
 
@@ -88,7 +93,7 @@ class NucleusBanner extends Component {
   */
   @computed('_isMultiple', 'bannerItems.[]')
   get stackedItems() {
-    return this._isMultiple ? this.bannerItems.slice(1) : null;
+    return this.get('_isMultiple') ? this.get('bannerItems').slice(1) : null;
   }
 
   /**
@@ -112,7 +117,7 @@ class NucleusBanner extends Component {
   */
   @action
   deleteItem(item) {
-    this.nucleusBanner.remove(item);
+    this.get('bannerService').remove(item);
   }
 
   /**
@@ -124,7 +129,7 @@ class NucleusBanner extends Component {
   */
   @observes('bannerItems.[]')
   _observeOpen() {
-    if (this.bannerItems.length > 0) {
+    if (this.get('bannerItems').length > 0) {
       this._injectBodyClass();
     } else {
       this._removeBodyClass();

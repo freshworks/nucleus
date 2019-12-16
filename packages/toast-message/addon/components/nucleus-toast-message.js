@@ -1,4 +1,5 @@
 import classic from 'ember-classic-decorator';
+import defaultProp from '@freshworks/core/utils/default-decorator';
 import { layout as templateLayout } from '@ember-decorators/component';
 import { inject } from '@ember/service';
 import Component from '@ember/component';
@@ -35,6 +36,7 @@ class NucleusToastMessage extends Component {
   * @type string
   * @public
   */
+  @defaultProp
   position = 'top center';
 }
 
