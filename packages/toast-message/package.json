@@ -1,6 +1,6 @@
 {
   "name": "@freshworks/toast-message",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Toast message component in Nucleus",
   "keywords": [
     "ember-addon"
@@ -22,8 +22,8 @@
     "test:dev": "COVERAGE=TRUE ember test --server -launch=false"
   },
   "dependencies": {
-    "@freshworks/button": "^0.1.4",
-    "@freshworks/core": "^0.1.3",
+    "@freshworks/button": "^0.1.5",
+    "@freshworks/core": "^0.1.4",
     "broccoli-funnel": "^2.0.2",
     "broccoli-merge-trees": "^3.0.2",
     "ember-classic-decorator": "^1.0.5",
