@@ -1,5 +1,6 @@
 import { A } from '@ember/array';
 import Service from '@ember/service';
+import defaultProp from '@freshworks/core/utils/default-decorator';
 import { DEFAULT_CONFIG } from '../constants/nucleus-banner';
 
 /**
@@ -28,6 +29,7 @@ class NucleusBanner extends Service {
   * @type null
   * @public
   */
+  @defaultProp
   items = A([]);
 
   /**
@@ -38,7 +40,7 @@ class NucleusBanner extends Service {
   * @param {object} item
   */
   add(item) {
-    this.items.pushObject(Object.assign({}, DEFAULT_CONFIG, item));
+    this.get('items').pushObject(Object.assign({}, DEFAULT_CONFIG, item));
   }
 
   /**
@@ -49,7 +51,7 @@ class NucleusBanner extends Service {
   * @param {object} item
   */
   remove(item) {
-    this.items.removeObject(item);
+    this.get('items').removeObject(item);
   }
 
   /**
@@ -60,7 +62,7 @@ class NucleusBanner extends Service {
   *
   */
   empty() {
-    this.items.clear();
+    this.get('items').clear();
   }
 }
 

@@ -1,4 +1,5 @@
 import classic from 'ember-classic-decorator';
+import defaultProp from '@freshworks/core/utils/default-decorator';
 import { classNames, attributeBindings, classNameBindings, layout as templateLayout } from '@ember-decorators/component';
 import Component from '@ember/component';
 import { set, action } from '@ember/object';
@@ -40,6 +41,7 @@ class NucleusInlineBanner extends Component {
   * @public
   * @default `info`
   */
+  @defaultProp
   type = 'info';
 
   /**
@@ -50,6 +52,7 @@ class NucleusInlineBanner extends Component {
   * @public
   * @default true
   */
+  @defaultProp
   isDismissible = true;
 
   /**
@@ -68,6 +71,7 @@ class NucleusInlineBanner extends Component {
   * @type string
   * @public
   */
+  @defaultProp
   title = null;
 
   /**
@@ -77,7 +81,7 @@ class NucleusInlineBanner extends Component {
   * @private
   */
   @computed('title', function () {
-    return htmlSafe(this.title);
+    return htmlSafe(this.get('title'));
   })
   _title;
 
@@ -88,7 +92,7 @@ class NucleusInlineBanner extends Component {
   * @private
   */
   @computed('type', '_isOpen', function () {
-    let type = this.type;
+    let type = this.get('type');
     let _isOpen = this._isOpen;
     return type && _isOpen ? `nucleus-inline-banner--${type}` : null;
   })
@@ -101,7 +105,7 @@ class NucleusInlineBanner extends Component {
   * @private
   */
   @computed('type', function () {
-    let iconType = this.type;
+    let iconType = this.get('type');
     return (iconType in ICON_MAP) ? ICON_MAP[iconType] : null;
   })
   _icon;
@@ -112,7 +116,8 @@ class NucleusInlineBanner extends Component {
   * @method onClose
   * @public
   */
-  onClose = () => {}
+  @defaultProp
+  onClose;
 
   /**
   * The action that gets invoked on clicking the close button.
@@ -123,9 +128,9 @@ class NucleusInlineBanner extends Component {
   */
   @action
   onCloseTip() {
-    if (this.onClose) {
+    if (this.get('onClose')) {
       set(this, '_isOpen', false);
-      return this.onClose();
+      return this.get('onClose')();
     }
 
     set(this, '_isOpen', false);

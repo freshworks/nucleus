@@ -1,5 +1,6 @@
 import classic from 'ember-classic-decorator';
 import { classNames, attributeBindings, classNameBindings, layout as templateLayout } from '@ember-decorators/component';
+import defaultProp from '@freshworks/core/utils/default-decorator';
 import { readOnly } from '@ember/object/computed';
 import Component from '@ember/component';
 import { set, computed } from '@ember/object';
@@ -43,6 +44,7 @@ class Dialog extends Component.extend(scroll) {
   * @type string
   * @private
   */
+  @defaultProp
   animationClass = 'slide-down';
 
   /**
@@ -52,6 +54,7 @@ class Dialog extends Component.extend(scroll) {
   * @type boolean
   * @public
   */
+  @defaultProp
   keyboard = true;
 
   /**
@@ -61,6 +64,7 @@ class Dialog extends Component.extend(scroll) {
   * @type null
   * @public
   */
+  @defaultProp
   size = null;
 
   /**
@@ -71,7 +75,7 @@ class Dialog extends Component.extend(scroll) {
   * @private
   */
   @computed('size', function() {
-    let size = this.size;
+    let size = this.get('size');
     return isBlank(size) ? null : `nucleus-modal__dialog--${size}`;
   })
   sizeClass;
@@ -84,6 +88,7 @@ class Dialog extends Component.extend(scroll) {
   * @default center
   * @public
   */
+  @defaultProp
   position = 'center';
 
   /**
@@ -94,7 +99,7 @@ class Dialog extends Component.extend(scroll) {
    * @private
    */
   @computed('position', function() {
-    let position = this.position;
+    let position = this.get('position');
     return isBlank(position) ? null : `nucleus-modal--${position}`;
   })
   positionClass;
@@ -107,6 +112,7 @@ class Dialog extends Component.extend(scroll) {
    * @default null
    * @private
    */
+  @defaultProp
   titleId = null;
 
   /**
@@ -116,7 +122,7 @@ class Dialog extends Component.extend(scroll) {
    * @private
    */
   getOrSetTitleId() {
-    const modalNode = this.element;
+    const modalNode = this.get('element');
     let nodeId = null;
 
     if (modalNode) {
@@ -124,7 +130,7 @@ class Dialog extends Component.extend(scroll) {
       if (titleNode) {
         nodeId = titleNode.id
         if (!nodeId) {
-          nodeId = `${this.id}-title`;
+          nodeId = `${this.get('id')}-title`;
           titleNode.id = nodeId;
         }
       }
@@ -142,13 +148,13 @@ class Dialog extends Component.extend(scroll) {
   keyDown(e) {
     let code = e.keyCode || e.which;
 
-    if (code === 27 && this.keyboard) {
+    if (code === 27 && this.get('keyboard')) {
       this.onClose();
     }
   }
 
   scrolled() {
-    const modalNode = this.element;
+    const modalNode = this.get('element');
     if(modalNode) {
       const titleNode = modalNode.querySelector('.nucleus-modal__header');
       const contentNode = modalNode.querySelector('.nucleus-modal__body');
