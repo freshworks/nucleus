@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.7](https://github.com/freshdesk/nucleus/compare/@freshworks/toast-message@0.1.6...@freshworks/toast-message@0.1.7) (2019-12-17)
+
+
+### Bug Fixes
+
+* **toast-message:** refactored icons ([#82](https://github.com/freshdesk/nucleus/issues/82)) ([16074ec](https://github.com/freshdesk/nucleus/commit/16074eca6fbbc18505e7428d893afbe9b4cbe968))
+
+
+
+
+
 ## [0.1.6](https://github.com/freshdesk/nucleus/compare/@freshworks/toast-message@0.1.5...@freshworks/toast-message@0.1.6) (2019-12-16)
 
 **Note:** Version bump only for package @freshworks/toast-message
