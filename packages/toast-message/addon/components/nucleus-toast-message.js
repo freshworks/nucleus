@@ -4,6 +4,7 @@ import { layout as templateLayout } from '@ember-decorators/component';
 import { inject } from '@ember/service';
 import Component from '@ember/component';
 import layout from '../templates/components/nucleus-toast-message';
+import { ICON_MAP } from '../constants/nucleus-toast-message';
 
 /**
   __Usage:__
@@ -38,6 +39,8 @@ class NucleusToastMessage extends Component {
   */
   @defaultProp
   position = 'top center';
+
+  _iconMap = ICON_MAP;
 }
 
 export default NucleusToastMessage;
