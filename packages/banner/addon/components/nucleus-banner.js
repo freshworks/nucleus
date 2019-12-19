@@ -127,7 +127,7 @@ class NucleusBanner extends Component {
   * @type function
   * @private
   */
-  @observes('bannerItems.[]')
+  @observes('bannerItems.[]') // eslint-disable-line
   _observeOpen() {
     if (this.get('bannerItems').length > 0) {
       this._injectBodyClass();
