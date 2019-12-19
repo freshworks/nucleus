@@ -173,7 +173,7 @@ class Modal extends Component {
     }
   }
 
-  @observes('isOpen')
+  @observes('isOpen') // eslint-disable-line
   _observeOpen() {
     if (this.get('isOpen')) {
       this._initialize();
