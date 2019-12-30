@@ -24,7 +24,7 @@ class NucleusIcon extends Component {
   /**
   * Icon name
   *
-  * @field label
+  * @field icon
   * @type string
   * @default null
   * @public
@@ -35,7 +35,7 @@ class NucleusIcon extends Component {
   /**
   * Size
   *
-  * @field label
+  * @field size
   * @type string
   * @default null
   * @public
@@ -46,7 +46,7 @@ class NucleusIcon extends Component {
   /**
   * Custom class
   *
-  * @field label
+  * @field customClass
   * @type string
   * @default null
   * @public
