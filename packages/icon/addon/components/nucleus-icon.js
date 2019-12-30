@@ -24,13 +24,13 @@ class NucleusIcon extends Component {
   /**
   * Icon name
   *
-  * @field icon
+  * @field name
   * @type string
   * @default null
   * @public
   */
   @defaultProp
-  icon = null;
+  name = null;
 
   /**
   * Size
