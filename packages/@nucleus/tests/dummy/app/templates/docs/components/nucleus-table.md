@@ -6,7 +6,7 @@ yarn add @freshworks/table
 
 ## Usage
 
-{{nucleus-table}}
+{{nucleus-table/demo-1}}
 
 ## Guidelines
 

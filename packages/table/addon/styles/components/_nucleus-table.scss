@@ -1,3 +1,33 @@
-.nucleus-table {
-  color: black;
+.nucleus-table table {
+  background: $color-milk;
+  width: 100%;
+
+  thead {
+    tr {
+      border-bottom: 1px solid $color-smoke-50;
+    }
+
+    th {
+      text-align: left;
+      background-color: $color-smoke-25;
+      color: $text-secondary;
+      font-size: $font-size-12;
+      font-weight: $font-weight-500;
+      line-height: 1.4;
+      padding: 16px;
+    }
+  }
+
+  tbody {
+    tr {
+      border-bottom: 1px solid $color-smoke-50;
+    }
+
+    td {
+      font-size: $font-size-14;
+      font-weight: $font-weight-500;
+      line-height: 1.45;
+      padding: 12px 16px;
+    }
+  }
 }
