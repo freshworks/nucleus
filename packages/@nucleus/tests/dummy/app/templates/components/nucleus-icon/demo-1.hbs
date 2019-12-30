@@ -1,0 +1,21 @@
+{{#docs-demo as |demo|}}
+  {{#demo.example name="nucleus-icon.hbs"}}
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 50%">Icon</th>
+          <th>Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each icons as |icon|}}
+          <tr>
+            <td style="text-align: center">{{nucleus-icon icon=icon}}</td>
+            <td>{{icon}}</td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+    
+  {{/demo.example}}
+{{/docs-demo}}
