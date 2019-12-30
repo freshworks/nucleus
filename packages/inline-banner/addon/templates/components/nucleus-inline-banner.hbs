@@ -6,7 +6,7 @@
   }}
 {{else}}
   <div class="nucleus-inline-banner__icon">
-    {{svg-jar _icon class="icon" width="14" height="14"}}
+    {{nucleus-icon icon=_icon size="medium"}}
   </div>
   <div class="nucleus-inline-banner__content">
     <div data-test-id="nucleus-inline-banner-title">{{_title}}</div>
@@ -16,7 +16,7 @@
       {{nucleus-button
         type="text"
         size="mini"
-        icon="cross"
+        icon="nucleus-cross"
         onClick=(action "onCloseTip")}}
     </div>
   {{/if}}

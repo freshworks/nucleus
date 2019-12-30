@@ -3,7 +3,7 @@
   {{component item.componentName props=item.componentProps}}
 {{else}}
   <div class="nucleus-banner-item__icon {{item.type}}">
-    {{svg-jar bannerIcon width="14px" height="14px" class="icon"}}
+    {{nucleus-icon icon=bannerIcon size="medium"}}
   </div>
   <div class="nucleus-banner-item__content">
     {{item.title}}
@@ -22,6 +22,6 @@
     type="text"
     size="mini"
     customClass=(concat "nucleus-banner-item__close")
-    icon="cross"
+    icon="nucleus-cross"
     onClick=(action 'onClose' item)}}
 {{/if}}         

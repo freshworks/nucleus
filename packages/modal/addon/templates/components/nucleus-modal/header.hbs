@@ -2,7 +2,7 @@
   {{yield}}
 {{else}}
   {{#if icon}}
-    <div class="header-icon">{{svg-jar icon class="icon" width="16px"}}</div>
+    <div class="header-icon">{{nucleus-icon icon=icon size="large"}}</div>
   {{/if}}
   <div class="header-content">
     <h4 class="title">{{title}}</h4>
@@ -13,7 +13,8 @@
       type=closeButtonType
       size="small"
       customClass=(concat "nucleus-modal__close " position)
-      icon="cross"
+      icon="nucleus-cross"
+      iconSize="mini"
       onClick=(action onClose)}}
   {{/if}}
 {{/if}}
