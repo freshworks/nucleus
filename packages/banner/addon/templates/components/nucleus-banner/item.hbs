@@ -20,8 +20,9 @@
 {{#if item.isDismissible}}
   {{nucleus-button
     type="text"
-    size="mini"
+    size="small"
     customClass=(concat "nucleus-banner-item__close")
     icon="nucleus-cross"
+    iconSize="mini"
     onClick=(action 'onClose' item)}}
 {{/if}}         
