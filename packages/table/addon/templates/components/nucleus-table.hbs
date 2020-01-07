@@ -1,15 +1,17 @@
-{{#ember-table class="nucleus-table" as |t|}}
-  {{#t.head columns=columns as |h|}}
-    {{#h.row as |r|}}
-      {{r.cell}}
-    {{/h.row}}
-  {{/t.head}}
+<div class="nucleus-table-container" style="height: {{if height height}};">
+  {{#ember-table class="nucleus-table" as |t|}}
+    {{#t.head columns=columns as |h|}}
+      {{#h.row as |r|}}
+        {{r.cell}}
+      {{/h.row}}
+    {{/t.head}}
 
-  {{#t.body rows=rows as |b|}}
-    {{#b.row as |r|}}
-      {{#r.cell as |cellValue|}}
-        {{cellValue}}
-      {{/r.cell}}
-    {{/b.row}}
-  {{/t.body}}
-{{/ember-table}}
+    {{#t.body rows=rows as |b|}}
+      {{#b.row as |r|}}
+        {{#r.cell as |cellValue|}}
+          {{cellValue}}
+        {{/r.cell}}
+      {{/b.row}}
+    {{/t.body}}
+  {{/ember-table}}
+</div>

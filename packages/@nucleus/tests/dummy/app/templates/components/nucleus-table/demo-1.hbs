@@ -1,8 +1,11 @@
 {{#docs-demo as |demo|}}
   {{#demo.example name="nucleus-table.hbs"}}
-    <div class="container" style="height: 300px">
-      {{nucleus-table columns=columns rows=rows}}
-    </div>
+    {{nucleus-table columns=columns rows=rows}}
+    {{nucleus-pagination
+      recordCount=50
+      pageSize=10
+      pageNumber=1
+      dataTestSelector='my-test-selector'}}
   {{/demo.example}}
   {{demo.snippet "nucleus-table.hbs"}}
   {{demo.snippet "table-component.js" label="component.js"}}

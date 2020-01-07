@@ -3,7 +3,8 @@ import {
   tagName,
   layout as templateLayout,
 } from '@ember-decorators/component';
-// import defaultProp from '@freshworks/core/utils/default-decorator';
+import defaultProp from '@freshworks/core/utils/default-decorator';
+import { computed } from '@ember/object';
 
 import Component from '@ember/component';
 import layout from "../templates/components/nucleus-table";
@@ -22,7 +23,14 @@ import layout from "../templates/components/nucleus-table";
 @templateLayout(layout)
 @tagName('')
 class NucleusTable extends Component {
-  
+  @defaultProp
+  columns;
+
+  @defaultProp
+  rows;
+
+  @defaultProp
+  height;
 }
 
 export default NucleusTable;
