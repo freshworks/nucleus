@@ -1,6 +1,11 @@
 <div class="nucleus-table-container" style="height: {{if height height}};">
   {{#ember-table class="nucleus-table" as |t|}}
-    {{#t.head columns=columns as |h|}}
+    <span class="filter-container">{{nucleus-table/filter columns=columns}}</span>
+    {{#t.head
+      columns=columns
+      enableResize=false
+      enableReorder=false
+      as |h|}}
       {{#h.row as |r|}}
         {{r.cell}}
       {{/h.row}}

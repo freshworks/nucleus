@@ -1,21 +1,21 @@
 // BEGIN-SNIPPET table-component.js
 import Component from '@ember/component';
 import { computed } from '@ember/object';
+import { A } from '@ember/array';
 
 export default Component.extend({
   totalRecords: 9,
-  recordsPerPage: 3,
+  recordsPerPage: 9,
   columns: computed(function() {
-    return [
-      { name: 'Source', valuePath: 'A'},
-      { name: 'Contact', valuePath: 'B'},
-      { name: 'Subject', valuePath: 'C', width: 400},
-      { name: 'Status', valuePath: 'D'},
-    ];
+    return A([
+      { name: 'Source', valuePath: 'A', selected: true, disabled: false},
+      { name: 'Contact', valuePath: 'B', selected: false, disabled: false},
+      { name: 'Subject', valuePath: 'C', width: 400, selected: false, disabled: false},
+      { name: 'Status', valuePath: 'D', selected: false, disabled: false},
+    ]);
   }),
-  
   totalRows: computed(function() {
-    return [
+    return A([
       { A: 'FB', B: 'Shibu', C: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.', D: 'D' },
       { A: 'FB', B: 'Lijack', C: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.', D: 'D' },
       { A: 'FB', B: 'Naveen', C: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.', D: 'D' },
@@ -25,9 +25,8 @@ export default Component.extend({
       { A: 'FB', B: 'Maria', C: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.', D: 'D' },
       { A: 'FB', B: 'Omana', C: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.', D: 'D' },
       { A: 'FB', B: 'Alan', C: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.', D: 'D' },
-    ];
+    ]);
   }),
-  
   selectedRows: computed(function() {
     return this.get('totalRows').slice(0, this.get('recordsPerPage'));
   }),

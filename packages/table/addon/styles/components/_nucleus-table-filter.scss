@@ -1,0 +1,63 @@
+.nucleus-table-filter {
+  position: absolute;
+  top: 52px;
+  right: 4px;
+  background: $color-milk;
+  width: 400px;
+  border-radius: 4px;
+  box-shadow: 0 0 8px $color-smoke-300;
+
+  &__header {
+    display: flex;
+    padding: 8px;
+    margin: 8px 0;
+    justify-content: space-between;
+
+    a.reset {
+      font-size: $font-size-12;
+    }
+  }
+
+  &__body {
+    display: flex;
+    padding: 8px;
+    margin: 8px 0;
+    max-height: 320px;
+    overflow-y: auto;
+    justify-content: space-between;
+
+    .wd-50 {
+      width: 50%;
+    }
+
+    .selected-columns {
+      background: $color-smoke-50;
+      padding: 8px;
+      border-radius: 4px;
+
+      .card {
+        background: $color-milk;
+        box-shadow: 0 0 4px $color-smoke-300;
+        border-radius: 2px;
+        font-size: $font-size-12;
+        margin: 8px 0;
+        padding: 4px;
+      }
+    }
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+    background: $color-smoke-50;
+    padding: 8px;
+  }
+}
+
+fieldset {
+  padding: 4px;
+
+  label {
+    font-size: $font-size-12;
+  }
+}

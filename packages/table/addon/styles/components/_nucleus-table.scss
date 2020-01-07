@@ -1,6 +1,7 @@
 .nucleus-table table {
   background: $color-milk;
   width: 100%;
+  position: relative;
 
   thead {
     tr {
@@ -29,5 +30,18 @@
       line-height: 1.45;
       padding: 12px 16px;
     }
+  }
+
+  .filter-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 9;
+    height: 48px;
+    width: 48px;
+    background: $color-milk;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }

@@ -1,0 +1,32 @@
+<span {{on 'click' toggleFilters}}>⚙️</span>
+
+{{#if showFilters}}
+  <div class="nucleus-table-filter">
+    <div class="nucleus-table-filter__header">
+      <h4>Customize columns</h4>
+      {{nucleus-button label="Reset" type="link" size="small"}}
+    </div>
+    <div class="nucleus-table-filter__body">
+      <div class="wd-50 column-chooser">
+        <h5>Choose columns</h5>
+        {{#each columns as |column|}}
+          <fieldset>
+            <input type="checkbox" id="{{column.name}}" name="{{column.name}}" checked={{column.selected}} disabled={{column.disabled}}>
+            <label for="{{column.name}}">{{column.name}}</label>
+          </fieldset>
+        {{/each}}
+      </div>
+      <div class="wd-50 selected-columns">
+        <h5>Selected Columns</h5>
+        {{#each selectedColumns as |column|}}
+          <div class="card">{{column.name}}</div>
+        {{/each}}
+      </div>
+    </div>
+    <div class="nucleus-table-filter__footer">
+      {{nucleus-button label="Update"}}
+      {{nucleus-button label="Cancel" type="secondary"}}
+    </div>
+
+  </div>
+{{/if}}

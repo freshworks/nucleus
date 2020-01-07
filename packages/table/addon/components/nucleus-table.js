@@ -4,7 +4,6 @@ import {
   layout as templateLayout,
 } from '@ember-decorators/component';
 import defaultProp from '@freshworks/core/utils/default-decorator';
-import { computed } from '@ember/object';
 
 import Component from '@ember/component';
 import layout from "../templates/components/nucleus-table";
