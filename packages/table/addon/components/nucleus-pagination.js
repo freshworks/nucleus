@@ -18,6 +18,9 @@ class NucleusPagination extends Component {
   @defaultProp
   pageNumber = 1;
 
+  @defaultProp
+  onPageSelect = null;
+
   @gt('totalPages', 1)
   displayPaginator;
 
@@ -91,7 +94,7 @@ class NucleusPagination extends Component {
   getPage(newPageNumber) {
     if (newPageNumber !== this.get('pageNumber')) {
       this.pageNumber = newPageNumber;
-      this.get('onPageSelect')(newPageNumber);
+      this.get('onPageSelect') && this.get('onPageSelect')(newPageNumber);
     }
   }
 }

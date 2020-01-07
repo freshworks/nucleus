@@ -1,11 +1,11 @@
 {{#docs-demo as |demo|}}
-  {{#demo.example name="nucleus-table.hbs"}}
-    {{nucleus-table columns=columns rows=rows}}
-    {{nucleus-pagination
-      recordCount=50
-      pageSize=10
-      pageNumber=1
-      dataTestSelector='my-test-selector'}}
+  {{#demo.example name="nucleus-table.hbs" class="demo-dark"}}
+    {{nucleus-table
+      columns=columns
+      rows=selectedRows
+      onPageSelect=(action 'getPageContent')
+      recordCount=totalRecords
+      pageSize=recordsPerPage}}
   {{/demo.example}}
   {{demo.snippet "nucleus-table.hbs"}}
   {{demo.snippet "table-component.js" label="component.js"}}
