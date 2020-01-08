@@ -61,6 +61,30 @@ class NucleusButton extends Component {
   size = null;
 
   /**
+  * Icon sizes: `mini`, `small`, `medium`, `large`
+  *
+  * @field size
+  * @type string
+  * @default null
+  * @public
+  */
+  @defaultProp
+  iconSize = null;
+
+  /**
+  * _iconSize
+  *
+  * @computed _iconSize
+  * @private
+  */
+  @computed('iconSize', 'size')
+  get _iconSize() {
+    let iconSize = this.get('iconSize');
+    let defaultSize = this.get('size') ? this.get('size') : 'small';
+    return iconSize ? iconSize : defaultSize;
+  }
+
+  /**
   * Button display types: `primary`, `secondary`, `danger`, `text` & `link`
   *
   * @field type

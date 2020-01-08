@@ -60,9 +60,9 @@ module('Integration | Component | nucleus-button', function(hooks) {
   });
 
   test('it with icon property shows icon', async function(assert) {
-    await render(hbs`{{nucleus-button icon="cross"}}`);
+    await render(hbs`{{nucleus-button icon="nucleus-cross"}}`);
 
-    assert.dom('button svg').hasClass('icon', 'svg icon is rendered');
+    assert.dom('button svg').hasClass('nucleus-icon', 'svg icon is rendered');
   });
 
   test('it sends onClick action with "value" property as a parameter', async function(assert) {

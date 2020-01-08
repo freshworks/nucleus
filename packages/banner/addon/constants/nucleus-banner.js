@@ -4,10 +4,10 @@ const DEFAULT_CONFIG = {
 }
 
 const ICON_MAP = {
-  'success': 'circle-check',
-  'danger': 'circle-cross',
-  'warning': 'circle-info',
-  'info': 'circle-help'
+  'success': 'nucleus-circle-check',
+  'danger': 'nucleus-circle-cross',
+  'warning': 'nucleus-circle-info',
+  'info': 'nucleus-circle-help'
 }
 
 export { DEFAULT_CONFIG, ICON_MAP };

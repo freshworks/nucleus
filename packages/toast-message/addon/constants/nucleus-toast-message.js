@@ -1,8 +1,8 @@
 const ICON_MAP = {
-  'Info': 'circle-help',
-  'Success': 'circle-check',
-  'Warning': 'circle-info',
-  'Danger': 'circle-cross'
+  'Info': 'nucleus-circle-help',
+  'Success': 'nucleus-circle-check',
+  'Warning': 'nucleus-circle-info',
+  'Danger': 'nucleus-circle-cross'
 };
 
 export { ICON_MAP };
