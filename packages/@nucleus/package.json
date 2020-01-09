@@ -23,6 +23,7 @@
   "dependencies": {
     "@freshworks/banner": "^0.1.7",
     "@freshworks/button": "^0.1.7",
+    "@freshworks/icon": "^0.1.1",
     "@freshworks/inline-banner": "^0.1.7",
     "@freshworks/modal": "^0.1.7",
     "@freshworks/toast-message": "^0.1.8",
