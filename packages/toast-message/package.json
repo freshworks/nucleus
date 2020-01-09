@@ -1,6 +1,6 @@
 {
   "name": "@freshworks/toast-message",
-  "version": "0.1.1",
+  "version": "0.3.0",
   "description": "Toast message component in Nucleus",
   "keywords": [
     "ember-addon"
@@ -22,9 +22,9 @@
     "test:dev": "COVERAGE=TRUE ember test --server -launch=false"
   },
   "dependencies": {
-    "@freshworks/button": "^0.1.1",
-    "@freshworks/core": "^0.1.1",
-    "@freshworks/icon": "^0.1.1",
+    "@freshworks/button": "^0.3.0",
+    "@freshworks/core": "^0.1.5",
+    "@freshworks/icon": "^0.3.0",
     "ember-classic-decorator": "^1.0.5",
     "ember-cli-babel": "^7.11.1",
     "ember-cli-flash": "^1.7.2",
@@ -89,5 +89,5 @@
     "access": "public"
   },
   "homepage": "https://freshdesk.github.io/nucleus",
-  "gitHead": "ffde693fb1fb8438b7e7b502ea74c0ed7db42b32"
+  "gitHead": "272f136386ba4d45348c6498f55a1dabe873d1fc"
 }
