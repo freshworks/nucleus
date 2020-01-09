@@ -10,6 +10,10 @@ Router.map(function() {
   docsRoute(this, function() { 
     this.route("usage");
 
+    this.route("foundation", function() {
+      this.route("nucleus-icon");
+    });
+
     this.route("components", function() {
       this.route("nucleus-button");
       this.route("nucleus-inline-banner");
