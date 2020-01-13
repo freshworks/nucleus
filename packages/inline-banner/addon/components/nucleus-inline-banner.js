@@ -1,4 +1,3 @@
-import classic from 'ember-classic-decorator';
 import defaultProp from '@freshworks/core/utils/default-decorator';
 import { classNames, attributeBindings, classNameBindings, layout as templateLayout } from '@ember-decorators/component';
 import Component from '@ember/component';
@@ -17,7 +16,6 @@ import { ICON_MAP } from '../constants/nucleus-inline-banner';
   @extends Ember.Component
   @public
 */
-@classic
 @templateLayout(layout)
 @classNames('nucleus-inline-banner')
 @classNameBindings('_typeClass', '_isOpen:show:hide')

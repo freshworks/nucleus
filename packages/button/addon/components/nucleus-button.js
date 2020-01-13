@@ -1,4 +1,3 @@
-import classic from 'ember-classic-decorator';
 import {
   classNames,
   attributeBindings,
@@ -25,7 +24,6 @@ import { BUTTON_STATE } from "../constants/nucleus-button";
   @extends Ember.Component
   @public
 */
-@classic
 @templateLayout(layout)
 @tagName('button')
 @classNames('nucleus-button')
