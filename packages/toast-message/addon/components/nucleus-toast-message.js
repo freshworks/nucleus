@@ -1,4 +1,3 @@
-import classic from 'ember-classic-decorator';
 import defaultProp from '@freshworks/core/utils/default-decorator';
 import { layout as templateLayout } from '@ember-decorators/component';
 import { inject } from '@ember/service';
@@ -15,7 +14,6 @@ import { ICON_MAP } from '../constants/nucleus-toast-message';
   @extends Ember.Component
   @public
 */
-@classic
 @templateLayout(layout)
 class NucleusToastMessage extends Component {
   /**
