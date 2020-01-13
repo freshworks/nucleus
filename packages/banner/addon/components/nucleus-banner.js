@@ -1,4 +1,3 @@
-import classic from 'ember-classic-decorator';
 import { layout as templateLayout } from '@ember-decorators/component';
 import defaultProp from '@freshworks/core/utils/default-decorator';
 import { observes } from '@ember-decorators/object';
@@ -17,7 +16,6 @@ import { action, computed } from '@ember/object';
   @extends Ember.Component
   @public
 */
-@classic
 @templateLayout(layout)
 class NucleusBanner extends Component {
   /**
