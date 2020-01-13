@@ -14,19 +14,19 @@ module('Integration | Component | nucleus-icon', function(hooks) {
   });
 
   test('it has correct markup', async function(assert) {
-    await render(hbs`{{nucleus-icon icon="nucleus-cross"}}`);
+    await render(hbs`{{nucleus-icon name="nucleus-cross"}}`);
 
     assert.dom('svg').hasClass('nucleus-icon', 'icon has nucleus-icon class');
   });
 
   test('it has correct size', async function(assert) {
-    await render(hbs`{{nucleus-icon icon="nucleus-cross" size="mini"}}`);
+    await render(hbs`{{nucleus-icon name="nucleus-cross" size="mini"}}`);
 
     assert.dom('svg').hasClass('nucleus-icon--mini', 'icon has correct size class');
   });
 
   test('it passes a11y tests', async function(assert) {
-    await render(hbs`{{nucleus-icon icon="nucleus-cross"}}`);
+    await render(hbs`{{nucleus-icon name="nucleus-cross"}}`);
    
     return a11yAudit(this.element).then(() => {
       assert.ok(true, 'no a11y errors found!');
