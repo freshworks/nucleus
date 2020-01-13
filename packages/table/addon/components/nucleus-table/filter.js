@@ -1,4 +1,3 @@
-import classic from 'ember-classic-decorator';
 import {
   tagName,
   layout as templateLayout,
@@ -19,7 +18,6 @@ import layout from "../../templates/components/nucleus-table/filter";
   @extends Ember.Component
   @public
 */
-@classic
 @templateLayout(layout)
 @tagName('')
 class NucleusTableFilter extends Component {
@@ -31,7 +29,6 @@ class NucleusTableFilter extends Component {
 
   @computed('columns.[]')
   get selectedColumns() {
-    debugger;
     let columns = this.get('columns');
     return columns.filterBy('selected');
   }
@@ -43,7 +40,6 @@ class NucleusTableFilter extends Component {
 
   @action
   clickColumn(column) {
-    debugger;
     let columns = this.get('columns');
     columns.forEach((currentColumn, index) => {
       if(currentColumn.name === column.name) {

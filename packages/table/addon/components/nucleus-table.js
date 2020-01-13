@@ -1,4 +1,3 @@
-import classic from 'ember-classic-decorator';
 import {
   tagName,
   layout as templateLayout,
@@ -18,7 +17,6 @@ import layout from "../templates/components/nucleus-table";
   @extends Ember.Component
   @public
 */
-@classic
 @templateLayout(layout)
 @tagName('')
 class NucleusTable extends Component {

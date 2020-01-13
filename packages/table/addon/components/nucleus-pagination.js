@@ -1,4 +1,3 @@
-import classic from 'ember-classic-decorator';
 import { attributeBindings } from '@ember-decorators/component';
 import { action, computed } from '@ember/object';
 import { gt, equal } from '@ember/object/computed';
@@ -8,7 +7,6 @@ import Component from '@ember/component';
 import { layout as templateLayout } from '@ember-decorators/component';
 import layout from "../templates/components/nucleus-pagination";
 
-@classic
 @templateLayout(layout)
 @attributeBindings('dataTestSelector:data-test-selector')
 class NucleusPagination extends Component {
