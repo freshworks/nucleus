@@ -1,4 +1,3 @@
-import classic from 'ember-classic-decorator';
 import Component from '@ember/component';
 import defaultProp from '@freshworks/core/utils/default-decorator';
 import { classNames, tagName, classNameBindings, layout as templateLayout } from '@ember-decorators/component';
@@ -12,7 +11,6 @@ import layout from '../../templates/components/nucleus-modal/footer';
   @extends Ember.Component
   @public
 */
-@classic
 @templateLayout(layout)
 @tagName('form')
 @classNames('nucleus-modal__footer')

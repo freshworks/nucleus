@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.4.0 (2020-01-13)
+
+
+### Bug Fixes
+
+* **nucleus:** removed classic decorator dependency ([#87](https://github.com/freshdesk/nucleus/issues/87)) ([c73753a](https://github.com/freshdesk/nucleus/commit/c73753a7c7566be81a5d7caf9376e3f61ab8ad2b))
+* **packages:** refactored dependencies ([#83](https://github.com/freshdesk/nucleus/issues/83)) ([cb1dc9f](https://github.com/freshdesk/nucleus/commit/cb1dc9f0e9c3f53cfdd78a072e92cc454be17c60))
+* **toast-message:** refactored icons ([#82](https://github.com/freshdesk/nucleus/issues/82)) ([16074ec](https://github.com/freshdesk/nucleus/commit/16074eca6fbbc18505e7428d893afbe9b4cbe968))
+
+
+### Features
+
+* **icon:** Implemented {{nucleus-icon}} ([#85](https://github.com/freshdesk/nucleus/issues/85)) ([a567468](https://github.com/freshdesk/nucleus/commit/a5674681147082f5f9790738cec1d632cac5debe))
+
+
+
+
+
 # [0.2.0](https://github.com/freshdesk/nucleus/compare/@freshworks/toast-message@0.1.8...@freshworks/toast-message@0.2.0) (2020-01-09)
 
 

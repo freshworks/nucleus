@@ -1,4 +1,3 @@
-import classic from 'ember-classic-decorator';
 import { layout as templateLayout } from '@ember-decorators/component';
 import { observes } from '@ember-decorators/object';
 import defaultProp from '@freshworks/core/utils/default-decorator';
@@ -26,7 +25,6 @@ import layout from "../templates/components/nucleus-modal";
   @extends Ember.Component
   @public
 */
-@classic
 @templateLayout(layout)
 class Modal extends Component {
   /**

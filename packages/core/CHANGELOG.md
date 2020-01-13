@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.1.6 (2020-01-13)
+
+
+### Bug Fixes
+
+* **packages:** refactored dependencies ([#83](https://github.com/freshdesk/nucleus/issues/83)) ([cb1dc9f](https://github.com/freshdesk/nucleus/commit/cb1dc9f0e9c3f53cfdd78a072e92cc454be17c60))
+
+
+
+
+
 ## [0.1.5](https://github.com/freshdesk/nucleus/compare/@freshworks/core@0.1.4...@freshworks/core@0.1.5) (2019-12-19)
 
 

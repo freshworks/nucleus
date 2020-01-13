@@ -1,4 +1,3 @@
-import classic from 'ember-classic-decorator';
 import { classNames, layout as templateLayout } from '@ember-decorators/component';
 import defaultProp from '@freshworks/core/utils/default-decorator';
 import Component from '@ember/component';
@@ -11,7 +10,6 @@ import layout from '../../templates/components/nucleus-modal/header';
   @extends Ember.Component
   @public
 */
-@classic
 @templateLayout(layout)
 @classNames('nucleus-modal__header')
 class Header extends Component {
