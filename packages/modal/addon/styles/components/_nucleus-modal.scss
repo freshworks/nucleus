@@ -1,3 +1,5 @@
+$slider-width: 600px;
+
 .nucleus-modal {
   position: fixed;
   top: 0;
@@ -43,7 +45,7 @@
     }
 
     &--slider {
-      width: 600px; // Same value has been set for close-button's right
+      width: $slider-width;
       height: 100vh;
       max-height: 100vh;
       border-radius: 0;
@@ -123,7 +125,7 @@
 
     &.right {
       top: 0;
-      right: 600px; //Moves the button to edge of the slider window 
+      right: $slider-width;
       border-radius: 0 0 0 2px;
     }
   }
