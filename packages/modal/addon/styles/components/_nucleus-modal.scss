@@ -43,7 +43,7 @@
     }
 
     &--slider {
-      width: 600px;
+      width: 600px; // Same value has been set for close-button's right
       height: 100vh;
       max-height: 100vh;
       border-radius: 0;
@@ -58,6 +58,7 @@
     transition: all .1s linear;
     display: flex;
     justify-content: space-between;
+    flex: 1 0 auto;
 
     &.sticky {
       position: sticky;
@@ -101,6 +102,7 @@
     border-radius: 0 0 $radius $radius;
     display: flex;
     justify-content: flex-end;
+    flex: 1 0 auto;
 
     &.sticky {
       position: sticky;
@@ -121,7 +123,7 @@
 
     &.right {
       top: 0;
-      left: -24px;  // to place the close outside of bounding box in sliders
+      right: 600px; //Moves the button to edge of the slider window 
       border-radius: 0 0 0 2px;
     }
   }
