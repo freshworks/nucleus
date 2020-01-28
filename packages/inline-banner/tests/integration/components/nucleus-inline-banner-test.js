@@ -4,6 +4,7 @@ import test from 'ember-sinon-qunit/test-support/test';
 import a11yAudit from 'ember-a11y-testing/test-support/audit';
 import { render, click } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
+import backstop from 'ember-backstop/test-support/backstop';
 
 module('Integration | Component | nucleus-inline-banner', function(hooks) {
   setupRenderingTest(hooks);
@@ -68,5 +69,30 @@ module('Integration | Component | nucleus-inline-banner', function(hooks) {
     return a11yAudit(this.element).then(() => {
       assert.ok(true, 'no a11y errors found!');
     });
+  });
+
+  test('it passes visual regression tests', async function(assert){
+    await render(hbs`<div style="width: 900px; height: 500px; margin: auto">{{nucleus-inline-banner
+      type="success"
+      title="Banner title"}}
+      <br/>
+      {{nucleus-inline-banner
+        type="danger"
+        title="Banner title"}}
+        <br/>
+        {{nucleus-inline-banner
+        type="warning"
+        title="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."}}
+        <br/>
+        {{nucleus-inline-banner
+          type="info"
+          title="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."}}     
+        <br/>
+        {{#nucleus-inline-banner type="success" as |banner|}}
+        <div>Some custom content. <a class="docs-link" onclick={{action banner.close}}>Click here to close.</a></div>
+      {{/nucleus-inline-banner}}
+        </div>
+        `);
+    await backstop(assert, {scenario:{misMatchThreshold:0.00}});
   });
 });

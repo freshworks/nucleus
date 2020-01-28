@@ -7,6 +7,7 @@ import hbs from 'htmlbars-inline-precompile';
 import a11yAudit from 'ember-a11y-testing/test-support/audit';
 import setupBanner from '../../helpers/setup-banner';
 import { ITEMS } from '../../constants/nucleus-banner';
+import backstop from 'ember-backstop/test-support/backstop';
 
 let StubMapsService = Service.extend({
   items: ITEMS
@@ -49,5 +50,40 @@ module('Integration | Component | nucleus-banner', function(hooks) {
     return a11yAudit(this.element).then(() => {
       assert.ok(true, 'no a11y errors found!');
     });
+  });
+
+  test('normal banner passes visual regression tests', async function(assert){ 
+    this.set("displayedItems", [{ title: 'This is a banner',
+    type: 'success',
+    isDismissible: false,
+    }])
+    await render(hbs`
+    {{nucleus-banner
+      bannerItems=displayedItems
+    }}
+    `);
+    await backstop(assert, {scenario: {misMatchThreshold: 0.00}});
+  });
+
+  test('banner with link passes visual regression tests', async function(assert){ 
+    let closeAction = this.spy();
+    this.set("displayedItems", [{ title: 'This is another banner',
+    type: 'danger',
+    isDismissible: true,
+    content: {
+      linkAction: closeAction,
+      linkText: 'Click here'
+    },
+    }, {
+      title:"This is another banner",
+      type: 'danger',
+      isDismissible: true
+    }])
+    await render(hbs`
+    {{nucleus-banner
+      bannerItems=displayedItems
+    }}
+    `);
+    await backstop(assert,{scenario: {misMatchThreshold: 0.00}});
   });
 });

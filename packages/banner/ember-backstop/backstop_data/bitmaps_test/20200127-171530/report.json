@@ -1,0 +1,21 @@
+{
+  "testSuite": "BackstopJS",
+  "tests": [
+    {
+      "pair": {
+        "reference": "../bitmaps_reference/ember-backstoptest_Integration__Component__nucleus-banner__it_passes_visual_regression_tests__assert0_0_document_0_webview.png",
+        "test": "../bitmaps_test/20200127-171530/ember-backstoptest_Integration__Component__nucleus-banner__it_passes_visual_regression_tests__assert0_0_document_0_webview.png",
+        "selector": "document",
+        "fileName": "ember-backstoptest_Integration__Component__nucleus-banner__it_passes_visual_regression_tests__assert0_0_document_0_webview.png",
+        "label": "Integration | Component | nucleus-banner | it passes visual regression tests | assert0",
+        "misMatchThreshold": 0.1,
+        "url": "http://localhost:4003/backstop/dview/20200127-171530/db89a077",
+        "expect": 0,
+        "viewportLabel": "webview",
+        "error": "Reference file not found /Users/shsriram/Freshworks/BackCheck/nucleus/packages/banner/ember-backstop/backstop_data/bitmaps_reference/ember-backstoptest_Integration__Component__nucleus-banner__it_passes_visual_regression_tests__assert0_0_document_0_webview.png"
+      },
+      "status": "fail"
+    }
+  ],
+  "id": "ember-backstop test"
+}

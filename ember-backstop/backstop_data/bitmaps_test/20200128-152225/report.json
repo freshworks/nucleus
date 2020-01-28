@@ -1,0 +1,28 @@
+{
+  "testSuite": "BackstopJS",
+  "tests": [
+    {
+      "pair": {
+        "reference": "../bitmaps_reference/ember-backstoptest_Integration__Component__nucleus-icon__it_passes_visual_regression_tests__assert0_0_document_0_webview.png",
+        "test": "../bitmaps_test/20200128-152225/ember-backstoptest_Integration__Component__nucleus-icon__it_passes_visual_regression_tests__assert0_0_document_0_webview.png",
+        "selector": "document",
+        "fileName": "ember-backstoptest_Integration__Component__nucleus-icon__it_passes_visual_regression_tests__assert0_0_document_0_webview.png",
+        "label": "Integration | Component | nucleus-icon | it passes visual regression tests | assert0",
+        "misMatchThreshold": 0,
+        "url": "http://localhost:1514/backstop/dview/20200128-152225/1e71fac4",
+        "expect": 0,
+        "viewportLabel": "webview",
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
+      },
+      "status": "pass"
+    }
+  ],
+  "id": "ember-backstop test"
+}

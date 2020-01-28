@@ -1,0 +1,72 @@
+{
+  "testSuite": "BackstopJS",
+  "tests": [
+    {
+      "pair": {
+        "reference": "../bitmaps_reference/ember-backstoptest_Integration__Component__nucleus-button__buttons_pass_visual_regression_tests__assert0_0_document_0_webview.png",
+        "test": "../bitmaps_test/20200128-135038/ember-backstoptest_Integration__Component__nucleus-button__buttons_pass_visual_regression_tests__assert0_0_document_0_webview.png",
+        "selector": "document",
+        "fileName": "ember-backstoptest_Integration__Component__nucleus-button__buttons_pass_visual_regression_tests__assert0_0_document_0_webview.png",
+        "label": "Integration | Component | nucleus-button | buttons pass visual regression tests | assert0",
+        "misMatchThreshold": 0,
+        "url": "http://localhost:4003/backstop/dview/20200128-135038/81113e8b",
+        "expect": 0,
+        "viewportLabel": "webview",
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
+      },
+      "status": "pass"
+    },
+    {
+      "pair": {
+        "reference": "../bitmaps_reference/ember-backstoptest_Integration__Component__nucleus-button__hovered_buttons_pass_visual_regression_tests__assert0_0_document_0_webview.png",
+        "test": "../bitmaps_test/20200128-135038/ember-backstoptest_Integration__Component__nucleus-button__hovered_buttons_pass_visual_regression_tests__assert0_0_document_0_webview.png",
+        "selector": "document",
+        "fileName": "ember-backstoptest_Integration__Component__nucleus-button__hovered_buttons_pass_visual_regression_tests__assert0_0_document_0_webview.png",
+        "label": "Integration | Component | nucleus-button | hovered buttons pass visual regression tests | assert0",
+        "misMatchThreshold": 0,
+        "url": "http://localhost:4003/backstop/dview/20200128-135038/4fd2ebb0",
+        "expect": 0,
+        "viewportLabel": "webview",
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
+      },
+      "status": "pass"
+    },
+    {
+      "pair": {
+        "reference": "../bitmaps_reference/ember-backstoptest_Integration__Component__nucleus-button__clicked_buttons_pass_visual_regression_tests__assert0_0_document_0_webview.png",
+        "test": "../bitmaps_test/20200128-135038/ember-backstoptest_Integration__Component__nucleus-button__clicked_buttons_pass_visual_regression_tests__assert0_0_document_0_webview.png",
+        "selector": "document",
+        "fileName": "ember-backstoptest_Integration__Component__nucleus-button__clicked_buttons_pass_visual_regression_tests__assert0_0_document_0_webview.png",
+        "label": "Integration | Component | nucleus-button | clicked buttons pass visual regression tests | assert0",
+        "misMatchThreshold": 0,
+        "url": "http://localhost:4003/backstop/dview/20200128-135038/f63af1e4",
+        "expect": 0,
+        "viewportLabel": "webview",
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
+      },
+      "status": "pass"
+    }
+  ],
+  "id": "ember-backstop test"
+}

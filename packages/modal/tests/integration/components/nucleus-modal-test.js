@@ -5,6 +5,7 @@ import a11yAudit from 'ember-a11y-testing/test-support/audit';
 import { render, click, triggerKeyEvent } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 import setupModal from '../../helpers/setup-modal';
+import backstop from 'ember-backstop/test-support/backstop';
 
 module('Integration | Component | nucleus-modal', function(hooks) {
   setupRenderingTest(hooks);
@@ -137,5 +138,67 @@ module('Integration | Component | nucleus-modal', function(hooks) {
     return a11yAudit(this.element, axeOptions).then(() => {
       assert.ok(true, 'no a11y errors found!');
     });
+  });
+
+
+  //Note: All Visual Regression Tests for modal based objects require a div container with a fixed height
+  test('visual regression for modal', async function(assert) {
+    await render(hbs`<div id="viewport-container" style="height:900px">
+    </div>
+  {{#nucleus-modal open=true as |modal|}}
+    {{modal.header title="Dialog"}}
+    {{#modal.body}}Hello world!{{/modal.body}}
+    {{modal.footer closeTitle="Ok"}}
+  {{/nucleus-modal}}
+    `)
+    await backstop(assert, {scenario:{misMatchThreshold: 0.00}});
+  });
+
+  test('visual regression for normal confirm dialog', async function(assert) {
+    await render(hbs`<div id="viewport-container" style="height:900px">
+    </div>
+  {{#nucleus-confirm-dialog
+    title="Account Cancellation"
+    open=true as |modal|
+   }}
+    Your account will be shut down in 24 hours
+  {{/nucleus-confirm-dialog}}
+    `)
+    await backstop(assert, {scenario: {misMatchThreshold: 0.00}});
+  });
+
+  test('visual regression for slider', async function(assert) {
+    await render(hbs`<div id="viewport-container" style="height:900px">
+    </div>
+    {{#nucleus-slider
+      open=true as |modal|}}
+      {{modal.header
+        title="Title"
+        icon="rewards"
+        description="Some description"}}
+      {{#modal.body}}
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Adipiscing diam donec adipiscing tristique risus nec. Ullamcorper morbi tincidunt ornare massa eget egestas. Vestibulum lectus mauris ultrices eros in cursus. Justo laoreet sit amet cursus. Mi quis hendrerit dolor magna eget est lorem ipsum dolor. In mollis nunc sed id semper risus in. Et pharetra pharetra massa massa ultricies mi quis. A scelerisque purus semper eget duis at tellus. Duis convallis convallis tellus id. Cursus vitae congue mauris rhoncus aenean vel elit. Phasellus egestas tellus rutrum tellus pellentesque eu tincidunt tortor aliquam. Leo a diam sollicitudin tempor. Velit laoreet id donec ultrices tincidunt. Et magnis dis parturient montes nascetur ridiculus. Massa enim nec dui nunc. Feugiat sed lectus vestibulum mattis. Ac tincidunt vitae semper quis lectus nulla at volutpat.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Adipiscing diam donec adipiscing tristique risus nec. Ullamcorper morbi tincidunt ornare massa eget egestas. Vestibulum lectus mauris ultrices eros in cursus. Justo laoreet sit amet cursus. Mi quis hendrerit dolor magna eget est lorem ipsum dolor. In mollis nunc sed id semper risus in. Et pharetra pharetra massa massa ultricies mi quis. A scelerisque purus semper eget duis at tellus. Duis convallis convallis tellus id. Cursus vitae congue mauris rhoncus aenean vel elit. Phasellus egestas tellus rutrum tellus pellentesque eu tincidunt tortor aliquam. Leo a diam sollicitudin tempor. Velit laoreet id donec ultrices tincidunt. Et magnis dis parturient montes nascetur ridiculus. Massa enim nec dui nunc. Feugiat sed lectus vestibulum mattis. Ac tincidunt vitae semper quis lectus nulla at volutpat.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Adipiscing diam donec adipiscing tristique risus nec. Ullamcorper morbi tincidunt ornare massa eget egestas. Vestibulum lectus mauris ultrices eros in cursus. Justo laoreet sit amet cursus. Mi quis hendrerit dolor magna eget est lorem ipsum dolor. In mollis nunc sed id semper risus in. Et pharetra pharetra massa massa ultricies mi quis. A scelerisque purus semper eget duis at tellus. Duis convallis convallis tellus id. Cursus vitae congue mauris rhoncus aenean vel elit. Phasellus egestas tellus rutrum tellus pellentesque eu tincidunt tortor aliquam. Leo a diam sollicitudin tempor. Velit laoreet id donec ultrices tincidunt. Et magnis dis parturient montes nascetur ridiculus. Massa enim nec dui nunc. Feugiat sed lectus vestibulum mattis. Ac tincidunt vitae semper quis lectus nulla at volutpat.</p>
+      {{/modal.body}}
+      {{modal.footer submitTitle="Next" closeTitle="Close"}}
+    {{/nucleus-slider}}
+    `)
+    await backstop(assert, {scenario: {misMatchThreshold: 0.00}});
+  });
+
+  test('visual regression for large confirm dialog', async function(assert) {
+    await render(hbs`<div id="viewport-container" style="height:900px">
+    </div>
+  {{#nucleus-confirm-dialog
+    size = "large"
+    title="Account Cancellation"
+    type="danger"
+    open=true as |modal|
+   }}
+    Your account will be shut down in 24 hours
+  {{/nucleus-confirm-dialog}}
+    `)
+    await backstop(assert, {scenario: {misMatchThreshold: 0.00}});
   });
 });
