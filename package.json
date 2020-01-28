@@ -8,7 +8,7 @@
   ],
   "scripts": {
     "start": "yarn workspace nucleus start",
-    "test": "ember backstop-remote & lerna run test --parallel --no-private --since origin/master && ember backstop-stop",
+    "test": "ember backstop-remote & lerna run test --parallel --no-private && ember backstop-stop",
     "build": "lerna run build --parallel --no-private",
     "lint": "lerna run lint:hbs",
     "lerna:version": "lerna version prerelease --preid beta",
