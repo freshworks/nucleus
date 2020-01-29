@@ -86,4 +86,8 @@
       color: $text-warning;
     }
   }
+  @media screen and (max-width: 320px)
+  {
+   width: 300px;
+  }
 }

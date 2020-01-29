@@ -11,6 +11,7 @@ $slider-width: 600px;
   outline: 0;
   display: flex;
 
+
   &--center {
     align-items: center;
     justify-content: center;
@@ -45,7 +46,7 @@ $slider-width: 600px;
     }
 
     &--slider {
-      width: $slider-width;
+      width: 600px;
       height: 100vh;
       max-height: 100vh;
       border-radius: 0;
@@ -96,6 +97,7 @@ $slider-width: 600px;
     position: relative;
     flex: 1 1 auto;
     overflow-y: auto;
+
   }
 
   &__footer {
@@ -125,7 +127,7 @@ $slider-width: 600px;
 
     &.right {
       top: 0;
-      right: $slider-width;
+      right: 0px;
       border-radius: 0 0 0 2px;
     }
   }
@@ -142,5 +144,27 @@ $slider-width: 600px;
 
   &--open {
     overflow: hidden;
+  }
+
+  @media screen and (max-width: 320px)
+  {
+    &__dialog {
+     &--large {
+      width: 300px;
+    }
+    &--small {
+      width: 300px;
+    }
+     &--slider {
+      width: 300px;
+      }
+    }
+
+    &__close {
+    &.right {
+      right: 0px;
+      }
+    }
+
   }
 }

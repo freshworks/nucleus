@@ -9,6 +9,7 @@
   justify-content: center;
   align-items: center;
   height: 40px;
+  font-size: $font-size-14;
 
   &--fixed {
     position: fixed;
@@ -18,7 +19,7 @@
     display: flex;
     max-width: 75%;
     white-space: nowrap;
-    overflow: hidden;
+    overflow: auto;//changes
     font-size: $font-size-14;
     font-weight: $font-weight-500;
     text-overflow: ellipsis;
@@ -34,7 +35,7 @@
       position: absolute;
       top: 40px;
       right: 0;
-      width: 400px;
+      width: 100px;
       background: #fff;
       box-shadow: 0 2px 8px 0 rgba(0, 0, 0, .15);
       padding: 8px;
