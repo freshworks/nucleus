@@ -93,6 +93,6 @@ module('Integration | Component | nucleus-inline-banner', function(hooks) {
       {{/nucleus-inline-banner}}
         </div>
         `);
-    await backstop(assert, {scenario:{misMatchThreshold:0.00}});
+    await backstop(assert, {scenario:{misMatchThreshold:0.99}});
   });
 });

@@ -62,7 +62,7 @@ module('Integration | Component | nucleus-banner', function(hooks) {
     await render(hbs`
     {{nucleus-banner}}
     `);
-    await backstop(assert, {scenario: {misMatchThreshold: 0.00}});
+    await backstop(assert, {scenario: {misMatchThreshold: 0.99}});
   });
 
   test('banner with link passes visual regression tests', async function(assert){ 
@@ -86,6 +86,6 @@ module('Integration | Component | nucleus-banner', function(hooks) {
     await render(hbs`
     {{nucleus-banner}}
     `);
-    await backstop(assert,{scenario: {misMatchThreshold: 0.00}});
+    await backstop(assert,{scenario: {misMatchThreshold: 0.99}});
   });
 });
