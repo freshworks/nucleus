@@ -22,3 +22,8 @@ jobs:
 
     - name: Run test suite
       run: yarn test
+    
+    - name: Download Artifact
+      uses: actions/download-artifact@v1.0.0
+      with:
+        name: ember-backstop/backstop_data/bitmaps_test
