@@ -53,21 +53,21 @@ module('Integration | Component | nucleus-banner', function(hooks) {
   });
 
   test('normal banner passes visual regression tests', async function(assert){ 
-    this.set("displayedItems", [{ title: 'This is a banner',
-    type: 'success',
-    isDismissible: false,
-    }])
+    var bannerObject = [{title:'This is a banner', type:'success'}]
+    const nucleusBanner = Service.extend({
+      items: bannerObject,
+    });
+    this.owner.register('service:nucleusBanner', nucleusBanner);
+
     await render(hbs`
-    {{nucleus-banner
-      bannerItems=displayedItems
-    }}
+    {{nucleus-banner}}
     `);
     await backstop(assert, {scenario: {misMatchThreshold: 0.00}});
   });
 
   test('banner with link passes visual regression tests', async function(assert){ 
     let closeAction = this.spy();
-    this.set("displayedItems", [{ title: 'This is another banner',
+    let displayedItems = [{ title: 'This is another banner',
     type: 'danger',
     isDismissible: true,
     content: {
@@ -78,11 +78,13 @@ module('Integration | Component | nucleus-banner', function(hooks) {
       title:"This is another banner",
       type: 'danger',
       isDismissible: true
-    }])
+    }]
+    const nucleusBanner = Service.extend({
+      items: displayedItems,
+    });
+    this.owner.register('service:nucleusBanner', nucleusBanner);
     await render(hbs`
-    {{nucleus-banner
-      bannerItems=displayedItems
-    }}
+    {{nucleus-banner}}
     `);
     await backstop(assert,{scenario: {misMatchThreshold: 0.00}});
   });
