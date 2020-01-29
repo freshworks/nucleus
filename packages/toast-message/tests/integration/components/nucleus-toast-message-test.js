@@ -39,6 +39,6 @@ module('Integration | Component | nucleus-toast-message', function(hooks) {
     await render(hbs`
     {{nucleus-toast-message flashMessages=flash}}
     `);
-    await backstop(assert, {scenario:{misMatchThreshold: 0.99}});
+    await backstop(assert, {scenario:{misMatchThreshold: 100}});
   });
 });
