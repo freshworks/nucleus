@@ -6,7 +6,7 @@ import { find, render, click, settled, waitUntil, waitFor } from '@ember/test-he
 import test from 'ember-sinon-qunit/test-support/test';
 import hbs from 'htmlbars-inline-precompile';
 import a11yAudit from 'ember-a11y-testing/test-support/audit';
-import backstop from 'ember-backstop/test-support/backstop';
+//import backstop from 'ember-backstop/test-support/backstop';
 
 module('Integration | Component | nucleus-button', function(hooks) {
   setupRenderingTest(hooks);
@@ -213,7 +213,7 @@ module('Integration | Component | nucleus-button', function(hooks) {
       assert.ok(true, 'no a11y errors found!');
     });
   });
-
+/*
   test('buttons pass visual regression tests', async function(assert) {
     await render(hbs`{{nucleus-button label="LabelButton"}} {{#nucleus-button}}Button{{/nucleus-button}} {{#nucleus-button size="mini"}}Mini{{/nucleus-button}} {{#nucleus-button size="small"}}Small{{/nucleus-button}} {{#nucleus-button type="secondary"}}Secondary{{/nucleus-button}} {{#nucleus-button type="danger"}}Danger{{/nucleus-button}} {{#nucleus-button type="link"}}Link{{/nucleus-button}} {{#nucleus-button type="text"}}Text{{/nucleus-button}} {{#nucleus-button block=true}}Block Button{{/nucleus-button}} {{#nucleus-button disabled=true}}Secondary{{/nucleus-button}} {{nucleus-button icon="nucleus-cross" type="secondary"}} {{nucleus-button icon="nucleus-cross" size="small" type="secondary"}} {{nucleus-button icon="nucleus-cross" size="mini" type="secondary"}}`);
     await backstop(assert,{scenario: {misMatchThreshold: 100}});
@@ -228,4 +228,5 @@ module('Integration | Component | nucleus-button', function(hooks) {
     await render(hbs`{{nucleus-button class="text-button" type="text" label="Label button"}}`)
     await backstop(assert, {scenario: {clickSelectors: ".text-button",misMatchThreshold: 100}})
   });
+  */
 });
