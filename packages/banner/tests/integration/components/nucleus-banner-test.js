@@ -7,7 +7,7 @@ import hbs from 'htmlbars-inline-precompile';
 import a11yAudit from 'ember-a11y-testing/test-support/audit';
 import setupBanner from '../../helpers/setup-banner';
 import { ITEMS } from '../../constants/nucleus-banner';
-//import backstop from 'ember-backstop/test-support/backstop';
+import backstop from 'ember-backstop/test-support/backstop';
 
 let StubMapsService = Service.extend({
   items: ITEMS
@@ -52,7 +52,7 @@ module('Integration | Component | nucleus-banner', function(hooks) {
     });
   });
 
-/*  test('normal banner passes visual regression tests', async function(assert){ 
+  test('normal banner passes visual regression tests', async function(assert){ 
     var bannerObject = [{title:'This is a banner', type:'success'}]
     const nucleusBanner = Service.extend({
       items: bannerObject,
@@ -87,5 +87,5 @@ module('Integration | Component | nucleus-banner', function(hooks) {
     {{nucleus-banner}}
     `);
     await backstop(assert,{scenario: {misMatchThreshold: 100}});
-  }); */
+  });
 });
