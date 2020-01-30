@@ -19,7 +19,7 @@
     display: flex;
     max-width: 75%;
     white-space: nowrap;
-    overflow: auto;//changes
+    overflow: hidden;
     font-size: $font-size-14;
     font-weight: $font-weight-500;
     text-overflow: ellipsis;
@@ -113,5 +113,12 @@
     &:last-child {
       margin-bottom: 0;
     }
+  }
+
+  @media screen and (max-width: 320px)
+  {
+  &__main {
+    overflow: auto;
+  }
   }
 }
