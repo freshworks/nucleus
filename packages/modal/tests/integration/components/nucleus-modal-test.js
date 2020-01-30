@@ -5,7 +5,7 @@ import a11yAudit from 'ember-a11y-testing/test-support/audit';
 import { render, click, triggerKeyEvent } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 import setupModal from '../../helpers/setup-modal';
-import backstop from 'ember-backstop/test-support/backstop';
+//import backstop from 'ember-backstop/test-support/backstop';
 
 module('Integration | Component | nucleus-modal', function(hooks) {
   setupRenderingTest(hooks);
@@ -140,6 +140,7 @@ module('Integration | Component | nucleus-modal', function(hooks) {
     });
   });
 
+  /*
 
   //Note: All Visual Regression Tests for modal based objects require a div container with a fixed height
   test('visual regression for modal', async function(assert) {
@@ -200,5 +201,5 @@ module('Integration | Component | nucleus-modal', function(hooks) {
   {{/nucleus-confirm-dialog}}
     `)
     await backstop(assert, {scenario: {misMatchThreshold: 100}});
-  });
+  }); */
 });
