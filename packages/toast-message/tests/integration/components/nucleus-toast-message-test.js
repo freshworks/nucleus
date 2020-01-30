@@ -5,7 +5,7 @@ import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 import FlashMessage from 'ember-cli-flash/flash/object';
 import setupToastMessage from '../../helpers/setup-toast-message';
-//import backstop from 'ember-backstop/test-support/backstop';
+import backstop from 'ember-backstop/test-support/backstop';
 
 module('Integration | Component | nucleus-toast-message', function(hooks) {
   setupRenderingTest(hooks);
@@ -33,12 +33,12 @@ module('Integration | Component | nucleus-toast-message', function(hooks) {
     assert.dom('.nucleus-toast-message').hasClass('alert-danger', 'Toast message has corresponding class.');
   });
 
-  /*test('it passes visual regression tests', async function(assert) {
+  test('it passes visual regression tests', async function(assert) {
     let closeAction = this.spy();
     this.set('flash', { queue: [ FlashMessage.create({ message: "This is a successful message", sticky: true, type: 'success' }), FlashMessage.create({ message: "This is not a successful message", content:{linkText:"Undo Action", linkAction: closeAction}, sticky: true, type: 'success' })  ] });
     await render(hbs`
     {{nucleus-toast-message flashMessages=flash}}
     `);
     await backstop(assert, {scenario:{misMatchThreshold: 100}});
-  }); */
+  }); 
 });
