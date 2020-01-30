@@ -216,16 +216,16 @@ module('Integration | Component | nucleus-button', function(hooks) {
 
   test('buttons pass visual regression tests', async function(assert) {
     await render(hbs`{{nucleus-button label="LabelButton"}} {{#nucleus-button}}Button{{/nucleus-button}} {{#nucleus-button size="mini"}}Mini{{/nucleus-button}} {{#nucleus-button size="small"}}Small{{/nucleus-button}} {{#nucleus-button type="secondary"}}Secondary{{/nucleus-button}} {{#nucleus-button type="danger"}}Danger{{/nucleus-button}} {{#nucleus-button type="link"}}Link{{/nucleus-button}} {{#nucleus-button type="text"}}Text{{/nucleus-button}} {{#nucleus-button block=true}}Block Button{{/nucleus-button}} {{#nucleus-button disabled=true}}Secondary{{/nucleus-button}} {{nucleus-button icon="nucleus-cross" type="secondary"}} {{nucleus-button icon="nucleus-cross" size="small" type="secondary"}} {{nucleus-button icon="nucleus-cross" size="mini" type="secondary"}}`);
-    await backstop(assert,{scenario: {misMatchThreshold: 0.00}});
+    await backstop(assert,{scenario: {misMatchThreshold: 0.1}});
   });
 
   test('hovered buttons pass visual regression tests', async function(assert){
     await render(hbs`{{nucleus-button class="link-button" type="link" label="Label button"}}`)
-    await backstop(assert,{scenario: {hoverSelector:".link-button",misMatchThreshold: 0.00}})
+    await backstop(assert,{scenario: {hoverSelector:".link-button",misMatchThreshold: 0.1}})
   });
 
   test('clicked buttons pass visual regression tests', async function(assert){
     await render(hbs`{{nucleus-button class="text-button" type="text" label="Label button"}}`)
-    await backstop(assert, {scenario: {clickSelectors: ".text-button",misMatchThreshold: 0.00}})
+    await backstop(assert, {scenario: {clickSelectors: ".text-button",misMatchThreshold: 0.1}})
   });
 });
