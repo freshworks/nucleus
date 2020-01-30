@@ -4,7 +4,7 @@ import test from 'ember-sinon-qunit/test-support/test';
 import a11yAudit from 'ember-a11y-testing/test-support/audit';
 import { render, click } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
-//import backstop from 'ember-backstop/test-support/backstop';
+import backstop from 'ember-backstop/test-support/backstop';
 
 module('Integration | Component | nucleus-inline-banner', function(hooks) {
   setupRenderingTest(hooks);
@@ -71,11 +71,11 @@ module('Integration | Component | nucleus-inline-banner', function(hooks) {
     });
   });
 
- /* test('it passes visual regression tests', async function(assert){
+  test('it passes visual regression tests', async function(assert){
     await render(hbs`{{nucleus-inline-banner
       type="success"
       title="Banner title"}}
         `);
     await backstop(assert, {scenario:{misMatchThreshold:100}});
-  }); */
+  }); 
 });
