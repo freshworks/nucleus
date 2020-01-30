@@ -36,6 +36,6 @@ module('Integration | Component | nucleus-icon', function(hooks) {
 
   test('it passes visual regression tests', async function(assert) {
     await render(hbs`{{nucleus-icon name="nucleus-cross" size="mini"}}{{nucleus-icon name="nucleus-cross" size="small"}}{{nucleus-icon name="nucleus-cross" size="medium"}}{{nucleus-icon name="nucleus-cross" size="large"}}`);
-    await backstop(assert, {scenario: {misMatchThreshold: 100}});
+    await backstop(assert, {scenario: {misMatchThreshold: 0.00}});
   }); 
 });

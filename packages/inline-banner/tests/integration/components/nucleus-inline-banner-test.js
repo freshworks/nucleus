@@ -76,6 +76,6 @@ module('Integration | Component | nucleus-inline-banner', function(hooks) {
       type="success"
       title="Banner title"}}
         `);
-    await backstop(assert, {scenario:{misMatchThreshold:100}});
+    await backstop(assert, {scenario:{misMatchThreshold:0.00}});
   }); 
 });

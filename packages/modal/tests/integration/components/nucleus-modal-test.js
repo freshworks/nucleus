@@ -150,7 +150,7 @@ module('Integration | Component | nucleus-modal', function(hooks) {
     {{modal.footer closeTitle="Ok"}}
   {{/nucleus-modal}}
     `)
-    await backstop(assert, {scenario:{misMatchThreshold: 0.99}});
+    await backstop(assert, {scenario:{misMatchThreshold: 0.00}});
   });
 
   test('visual regression for normal confirm dialog', async function(assert) {
@@ -163,7 +163,7 @@ module('Integration | Component | nucleus-modal', function(hooks) {
     Your account will be shut down in 24 hours
   {{/nucleus-confirm-dialog}}
     `)
-    await backstop(assert, {scenario: {misMatchThreshold: 0.99}});
+    await backstop(assert, {scenario: {misMatchThreshold: 0.00}});
   });
 
   test('visual regression for slider', async function(assert) {
@@ -183,7 +183,7 @@ module('Integration | Component | nucleus-modal', function(hooks) {
       {{modal.footer submitTitle="Next" closeTitle="Close"}}
     {{/nucleus-slider}}
     `)
-    await backstop(assert, {scenario: {misMatchThreshold: 100}});
+    await backstop(assert, {scenario: {misMatchThreshold: 0.00}});
   });
 
   test('visual regression for large confirm dialog', async function(assert) {
@@ -198,6 +198,6 @@ module('Integration | Component | nucleus-modal', function(hooks) {
     Your account will be shut down in 24 hours
   {{/nucleus-confirm-dialog}}
     `)
-    await backstop(assert, {scenario: {misMatchThreshold: 100}});
+    await backstop(assert, {scenario: {misMatchThreshold: 0.00}});
   }); 
 });
