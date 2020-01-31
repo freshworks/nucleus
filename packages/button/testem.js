@@ -20,5 +20,11 @@ module.exports = {
         '--window-size=1440,900'
       ].filter(Boolean)
     }
+  },
+  proxies: {
+    '/backstop': {
+      target: 'http://localhost:1509',
+      secure: false
+    }
   }
 }
