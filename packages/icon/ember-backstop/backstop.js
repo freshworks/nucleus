@@ -31,8 +31,8 @@ module.exports = {
   engineOptions: {
     args: ['--no-sandbox'],
   },
-  asyncCaptureLimit: 20,
-  asyncCompareLimit: 100,
+  asyncCaptureLimit: 10,
+  asyncCompareLimit: 50,
   debug: false,
   debugWindow: false,
 };
