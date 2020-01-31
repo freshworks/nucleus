@@ -142,8 +142,7 @@ module('Integration | Component | nucleus-modal', function(hooks) {
 
   //Note: All Visual Regression Tests for modal based objects require a div container with a fixed height
   test('visual regression for modal', async function(assert) {
-    await render(hbs`<div id="viewport-container" style="height:900px">
-    </div>
+    await render(hbs`
   {{#nucleus-modal open=true as |modal|}}
     {{modal.header title="Dialog"}}
     {{#modal.body}}Hello world!{{/modal.body}}
@@ -154,8 +153,7 @@ module('Integration | Component | nucleus-modal', function(hooks) {
   });
 
   test('visual regression for normal confirm dialog', async function(assert) {
-    await render(hbs`<div id="viewport-container" style="height:900px">
-    </div>
+    await render(hbs`
   {{#nucleus-confirm-dialog
     title="Account Cancellation"
     open=true as |modal|
@@ -167,8 +165,7 @@ module('Integration | Component | nucleus-modal', function(hooks) {
   });
 
   test('visual regression for slider', async function(assert) {
-    await render(hbs`<div id="viewport-container" style="height:900px">
-    </div>
+    await render(hbs`
     {{#nucleus-slider
       open=true as |modal|}}
       {{modal.header
@@ -187,16 +184,15 @@ module('Integration | Component | nucleus-modal', function(hooks) {
   });
 
   test('visual regression for large confirm dialog', async function(assert) {
-    await render(hbs`<div id="viewport-container" style="height:900px">
-    </div>
-  {{#nucleus-confirm-dialog
+    await render(hbs`
+    {{#nucleus-confirm-dialog
     size = "large"
     title="Account Cancellation"
     type="danger"
     open=true as |modal|
-   }}
+    }}
     Your account will be shut down in 24 hours
-  {{/nucleus-confirm-dialog}}
+    {{/nucleus-confirm-dialog}}
     `)
     await backstop(assert, {scenario: {misMatchThreshold: 0.1}});
   }); 

@@ -74,8 +74,22 @@ module('Integration | Component | nucleus-inline-banner', function(hooks) {
   test('it passes visual regression tests', async function(assert){
     await render(hbs`{{nucleus-inline-banner
       type="success"
-      title="Banner title"}}
+      title="Success Inline Banner"}}
+      {{nucleus-inline-banner
+        type="info"
+        title="Just for your information"}}
+      {{nucleus-inline-banner
+        type="warning"
+        title="This is a warning"
+        isDismissible=false}}
+        {{nucleus-inline-banner
+         type="danger"
+         title="This is dangerous"
+         isDismissible=false}}
+        {{#nucleus-inline-banner type="success"}}
+         <div>Some custom content just for you</div>
+        {{/nucleus-inline-banner}}
         `);
-    await backstop(assert, {scenario:{misMatchThreshold:0.00}});
+    await backstop(assert, {scenario:{misMatchThreshold:0.1}});
   }); 
 });
