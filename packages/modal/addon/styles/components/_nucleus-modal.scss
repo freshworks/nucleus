@@ -46,7 +46,7 @@ $slider-width: 600px;
     }
 
     &--slider {
-      width: 600px;
+      width: $slider-width;
       height: 100vh;
       max-height: 100vh;
       border-radius: 0;
@@ -127,7 +127,7 @@ $slider-width: 600px;
 
     &.right {
       top: 0;
-      right: 0px;
+      right: $slider-width;
       border-radius: 0 0 0 2px;
     }
   }
@@ -146,25 +146,23 @@ $slider-width: 600px;
     overflow: hidden;
   }
 
-  @media screen and (max-width: 320px)
-  {
+  @media screen and (max-width: 320px) {
     &__dialog {
-     &--large {
-      width: 300px;
-    }
-    &--small {
-      width: 300px;
-    }
-     &--slider {
-      width: 300px;
+      &--large {
+        width: 300px;
       }
+      &--small {
+        width: 300px;
+      }
+      &--slider {
+        width: 300px;
+      } 
     }
 
     &__close {
-    &.right {
-      right: 0px;
+      &.right {
+        right: 0px;
       }
     }
-
   }
 }

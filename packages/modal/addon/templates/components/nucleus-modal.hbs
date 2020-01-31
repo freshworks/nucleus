@@ -1,6 +1,4 @@
 {{#if isOpen}}
-
-
   {{#ember-wormhole to="nucleus-modal-wormhole" renderInPlace=renderInPlace}}
     {{#nucleus-modal/dialog
       id=modalId
@@ -9,8 +7,6 @@
       size=size
       keyboard=isDismissible
     }}
-    
-
       {{yield
         (hash
           header=(component "nucleus-modal/header"
@@ -31,8 +27,6 @@
           submit=(action "submit")
         )
       }}
-      
-
     {{/nucleus-modal/dialog}}
     {{#transition-group transitionClass="fade"}}
       {{#if _showBackdrop}}

@@ -35,7 +35,7 @@
       position: absolute;
       top: 40px;
       right: 0;
-      width: 100px;
+      width: 400px;
       background: #fff;
       box-shadow: 0 2px 8px 0 rgba(0, 0, 0, .15);
       padding: 8px;
@@ -115,10 +115,9 @@
     }
   }
 
-  @media screen and (max-width: 320px)
-  {
-  &__main {
-    overflow: auto;
-  }
+  @media screen and (max-width: 320px) {
+    &__main {
+      overflow: auto;
+    }
   }
 }
