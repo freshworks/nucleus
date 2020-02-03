@@ -9,7 +9,6 @@
   justify-content: center;
   align-items: center;
   height: 40px;
-  font-size: $font-size-14;
 
   &--fixed {
     position: fixed;
@@ -115,9 +114,9 @@
     }
   }
 
-  @media screen and (max-width: 320px) {
+  @media screen and (min-width: $mobile-screen-min-width) and (max-width: $mobile-screen-max-width) {
     &__main {
-      overflow: auto;
+    overflow-x: auto;
     }
   }
 }

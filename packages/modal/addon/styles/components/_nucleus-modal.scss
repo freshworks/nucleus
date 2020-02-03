@@ -1,5 +1,5 @@
 $slider-width: 600px;
-
+$full-screen-width:100%;
 .nucleus-modal {
   position: fixed;
   top: 0;
@@ -145,24 +145,19 @@ $slider-width: 600px;
   &--open {
     overflow: hidden;
   }
-
-  @media screen and (max-width: 320px) {
+  @media screen and (min-width: $mobile-screen-min-width) and (max-width: $mobile-screen-max-width) {
     &__dialog {
-      &--large {
-        width: 300px;
-      }
+        max-height: 100vh;
+        width: $full-screen-width;
+      
       &--small {
-        width: 300px;
-      }
-      &--slider {
-        width: 300px;
-      } 
+        width:  $mobile-screen-min-width;          //Smartphones Mobiles
+      }      
     }
-
     &__close {
       &.right {
         right: 0px;
       }
     }
-  }
+  }     
 }
