@@ -1,3 +1,5 @@
+$slider-width: 600px;
+
 .nucleus-modal {
   position: fixed;
   top: 0;
@@ -43,7 +45,7 @@
     }
 
     &--slider {
-      width: 600px;
+      width: $slider-width;
       height: 100vh;
       max-height: 100vh;
       border-radius: 0;
@@ -58,6 +60,7 @@
     transition: all .1s linear;
     display: flex;
     justify-content: space-between;
+    flex: 1 0 auto;
 
     &.sticky {
       position: sticky;
@@ -101,6 +104,7 @@
     border-radius: 0 0 $radius $radius;
     display: flex;
     justify-content: flex-end;
+    flex: 1 0 auto;
 
     &.sticky {
       position: sticky;
@@ -121,7 +125,7 @@
 
     &.right {
       top: 0;
-      left: -24px;  // to place the close outside of bounding box in sliders
+      right: $slider-width;
       border-radius: 0 0 0 2px;
     }
   }
