@@ -27,7 +27,9 @@ class NucleusTableFilter extends Component {
   @defaultProp
   columns;
 
-  @computed('columns.[]')
+  _columns = this.get('columns');
+
+  @computed('columns.@each.selected')
   get selectedColumns() {
     let columns = this.get('columns');
     return columns.filterBy('selected');
@@ -41,13 +43,24 @@ class NucleusTableFilter extends Component {
   @action
   clickColumn(column) {
     let columns = this.get('columns');
-    columns.forEach((currentColumn, index) => {
+    columns.forEach((currentColumn) => {
       if(currentColumn.name === column.name) {
-        set(currentColumn, 'selected', true);
-        // this.set(`${this.get('columns')}[${index}].selected`, !column.selected);
+        set(currentColumn, 'selected', !currentColumn.selected);
       }
     });
     this.set('columns', columns);
+  }
+
+  @action
+  onFilterUpdate() {
+    let selectedColumns = this.get('selectedColumns');
+    this.get('onUpdate') && this.get('onUpdate')(selectedColumns);
+  }
+
+  @action
+  onReset() {
+    this.send('toggleFilters');
+    // this.set('columns', allColumns);
   }
 }
 

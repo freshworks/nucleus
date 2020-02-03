@@ -4,14 +4,19 @@
   <div class="nucleus-table-filter">
     <div class="nucleus-table-filter__header">
       <h4>Customize columns</h4>
-      {{nucleus-button label="Reset" type="link" size="small"}}
+      {{nucleus-button onClick=(action "onReset") label="Reset" type="link" size="small"}}
     </div>
     <div class="nucleus-table-filter__body">
       <div class="wd-50 column-chooser">
         <h5>Choose columns</h5>
         {{#each columns as |column|}}
           <fieldset>
-            <input type="checkbox" id="{{column.name}}" name="{{column.name}}" checked={{column.selected}} disabled={{column.disabled}}>
+            {{input
+              change=(action 'clickColumn' column)
+              type='checkbox'
+              checked=column.selected
+              disabled=column.disabled
+              }}
             <label for="{{column.name}}">{{column.name}}</label>
           </fieldset>
         {{/each}}
@@ -24,8 +29,8 @@
       </div>
     </div>
     <div class="nucleus-table-filter__footer">
-      {{nucleus-button label="Update"}}
-      {{nucleus-button label="Cancel" type="secondary"}}
+      {{nucleus-button label="Update" onClick=(action "onFilterUpdate")}}
+      {{nucleus-button label="Cancel" onClick=(action "toggleFilters") type="secondary"}}
     </div>
 
   </div>
