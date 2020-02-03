@@ -147,17 +147,22 @@ $full-screen-width:100%;
   }
   @media screen and (min-width: $mobile-screen-min-width) and (max-width: $mobile-screen-max-width) {
     &__dialog {
+      &--large {
         max-height: 100vh;
         width: $full-screen-width;
-      
+      }
       &--small {
         width:  $mobile-screen-min-width;          //Smartphones Mobiles
-      }      
+      }
+      &--slider {
+        width: $full-screen-width;
+      } 
     }
+
     &__close {
       &.right {
         right: 0px;
       }
     }
-  }     
+  }   
 }
