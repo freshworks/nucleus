@@ -1,6 +1,6 @@
 name: CI
 
-on: 
+on:
   pull_request:
     branches:
     - master
@@ -11,7 +11,7 @@ jobs:
     runs-on: macos-latest
     steps:
     - uses: actions/checkout@v2
-    
+
     - name: Set Node.js 10.13.0
       uses: actions/setup-node@master
       with:
@@ -19,6 +19,9 @@ jobs:
 
     - name: Install dependencies
       run: yarn
+
+    - name: Run lint check
+      run: yarn lint
 
     - name: Run test suite
       run: yarn test
