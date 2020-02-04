@@ -11,6 +11,7 @@
     "test": "lerna run test --no-private --stream --concurrency 1",
     "build": "lerna run build --parallel --no-private",
     "lint": "lerna run lint:hbs && lerna run lint:js",
+    "lint-staged": "lint-staged",
     "lerna:version": "lerna version prerelease --preid beta",
     "lerna:publish": "lerna publish --canary --yes --dist-tag beta",
     "deploy": "yarn workspace nucleus deploy",
@@ -21,8 +22,17 @@
     "ember-cli": "~3.11.0",
     "ember-source-channel-url": "^2.0.0",
     "ember-try": "^1.1.0",
-    "lerna": "^3.20.2"
+    "lerna": "^3.20.2",
+    "lint-staged": "^10.0.7",
+    "pre-commit": "^1.2.2"
   },
+  "lint-staged": {
+    "*.js": "lerna run lint:js",
+    "*.hbs": "lerna run lint:hbs"
+  },
+  "pre-commit": [
+    "lint-staged"
+  ],
   "engines": {
     "node": "^10.13.0",
     "yarn": "^1.17.3"
