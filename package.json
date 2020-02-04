@@ -10,7 +10,7 @@
     "start": "yarn workspace nucleus start",
     "test": "lerna run test --no-private --stream --concurrency 1",
     "build": "lerna run build --parallel --no-private",
-    "lint": "lerna run lint:hbs",
+    "lint": "lerna run lint:hbs && lerna run lint:js",
     "lerna:version": "lerna version prerelease --preid beta",
     "lerna:publish": "lerna publish --canary --yes --dist-tag beta",
     "deploy": "yarn workspace nucleus deploy",
