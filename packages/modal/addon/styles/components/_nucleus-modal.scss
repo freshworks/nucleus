@@ -1,5 +1,4 @@
 $slider-width: 600px;
-$full-screen-width:100%;
 
 .nucleus-modal {
   position: fixed;
@@ -148,7 +147,7 @@ $full-screen-width:100%;
   @media screen and (min-width: $mobile-screen-min-width) and (max-width: $mobile-screen-max-width) {
     .nucleus-modal__dialog {
       max-height: 100vh;
-      width: $full-screen-width;
+      width: 100%;
     }
 
     &__close {
