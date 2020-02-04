@@ -1,5 +1,6 @@
 $slider-width: 600px;
 $full-screen-width:100%;
+
 .nucleus-modal {
   position: fixed;
   top: 0;
@@ -10,7 +11,6 @@ $full-screen-width:100%;
   overflow: hidden;
   outline: 0;
   display: flex;
-
 
   &--center {
     align-items: center;
@@ -97,7 +97,6 @@ $full-screen-width:100%;
     position: relative;
     flex: 1 1 auto;
     overflow-y: auto;
-
   }
 
   &__footer {
@@ -145,24 +144,17 @@ $full-screen-width:100%;
   &--open {
     overflow: hidden;
   }
+
   @media screen and (min-width: $mobile-screen-min-width) and (max-width: $mobile-screen-max-width) {
-    &__dialog {
-      &--large {
-        max-height: 100vh;
-        width: $full-screen-width;
-      }
-      &--small {
-        width:  $mobile-screen-min-width;          //Smartphones Mobiles
-      }
-      &--slider {
-        width: $full-screen-width;
-      } 
+    .nucleus-modal__dialog {
+      max-height: 100vh;
+      width: $full-screen-width;
     }
 
     &__close {
       &.right {
-        right: 0px;
+        right: 0;
       }
     }
-  }   
+  }
 }

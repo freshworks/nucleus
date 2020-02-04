@@ -86,8 +86,8 @@
       color: $text-warning;
     }
   }
+
   @media screen and (min-width: $mobile-screen-min-width) and (max-width: $mobile-screen-max-width) {
-    width:$mobile-screen-min-width;
+    width: $mobile-screen-min-width;
   }
-  
 }
