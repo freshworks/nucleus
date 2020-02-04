@@ -113,4 +113,10 @@
       margin-bottom: 0;
     }
   }
+
+  @media screen and (min-width: $mobile-screen-min-width) and (max-width: $mobile-screen-max-width) {
+    &__main {
+      overflow-x: auto;
+    }
+  }
 }
