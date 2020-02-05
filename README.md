@@ -1,6 +1,6 @@
 Nucleus - The Freshworks Design System in Ember
 ==============================================================================
-![CI](https://github.com/freshdesk/nucleus/workflows/CI/badge.svg?branch=master)
+![Build](https://github.com/freshdesk/nucleus/workflows/Build/badge.svg?branch=master)
 ![npm (scoped with tag)](https://img.shields.io/npm/v/@freshworks/button/latest)
 ![npm (scoped with tag)](https://img.shields.io/npm/v/@freshworks/button/beta)
 
