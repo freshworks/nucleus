@@ -1,5 +1,4 @@
-const path = require('path');
-
+/* eslint-env node */
 module.exports = {
   id: `ember-backstop test`,
   viewports: [
