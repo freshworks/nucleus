@@ -11,12 +11,12 @@
             ariaLabel="Show more"
             block=true
             type="link"
-            label=(concat "+ " stackedItems.length " more")
+            label=(concat "+ " stackedItems.length " " showMore)
             onClick=(action "toggleShowMore")}}
           {{#if _isShowMore}}
             {{#transition-group transitionClass="fade"}}
               <div class="more-card">
-                <h5>System alerts</h5>
+                <h5>{{systemAlerts}}</h5>
                 <ul class="nucleus-banners">
                   {{#each stackedItems as |hiddenItem|}}
                     <li class="nucleus-banner--mini nucleus-banner--{{hiddenItem.type}}">

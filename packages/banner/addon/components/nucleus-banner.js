@@ -46,6 +46,26 @@ class NucleusBanner extends Component {
   */
   @defaultProp
   isFixed = false;
+  
+  /**
+  * Text to be used for localisation of additional banner items message
+  *
+  * @field showMore
+  * @type string
+  * @public
+  */
+ @defaultProp
+ showMore = 'more';
+
+ /**
+  * Text to be used for localisation of System Alerts message
+  *
+  * @field systemAlerts
+  * @type string
+  * @public
+  */
+ @defaultProp
+ systemAlerts = 'System Alerts';
 
   /**
   * List of banner items to be rendered.
