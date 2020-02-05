@@ -55,7 +55,7 @@ class NucleusBanner extends Component {
   * @public
   */
  @defaultProp
- showMore = 'more';
+ showMoreLabel = 'more';
 
  /**
   * Text to be used for localisation of System Alerts message
@@ -65,7 +65,7 @@ class NucleusBanner extends Component {
   * @public
   */
  @defaultProp
- systemAlerts = 'System Alerts';
+ stackLabel = 'System Alerts';
 
   /**
   * List of banner items to be rendered.
