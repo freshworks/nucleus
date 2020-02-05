@@ -50,7 +50,7 @@ class NucleusBanner extends Component {
   /**
   * Button Label that describes the presence of multiple banners
   *
-  * @field showMore
+  * @field showMoreLabel
   * @type string
   * @public
   */
@@ -60,7 +60,7 @@ class NucleusBanner extends Component {
  /**
   * Title text that describes the stack of multiple banners
   *
-  * @field systemAlerts
+  * @field stackTitle
   * @type string
   * @public
   */
