@@ -48,7 +48,7 @@ class NucleusBanner extends Component {
   isFixed = false;
   
   /**
-  * Text to be used for localisation of additional banner items message
+  * Button Label that describes the presence of multiple banners
   *
   * @field showMore
   * @type string
@@ -58,14 +58,14 @@ class NucleusBanner extends Component {
  showMoreLabel = 'more';
 
  /**
-  * Text to be used for localisation of System Alerts message
+  * Title text that describes the stack of multiple banners
   *
   * @field systemAlerts
   * @type string
   * @public
   */
  @defaultProp
- stackLabel = 'System Alerts';
+ stackTitle = 'System Alerts';
 
   /**
   * List of banner items to be rendered.
