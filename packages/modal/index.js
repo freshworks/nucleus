@@ -1,6 +1,8 @@
 /* eslint-env node */
 'use strict';
+// eslint-disable-next-line node/no-unpublished-require
 const mergeTrees = require('broccoli-merge-trees');
+// eslint-disable-next-line node/no-unpublished-require
 const Funnel = require('broccoli-funnel');
 const path = require('path');
 
