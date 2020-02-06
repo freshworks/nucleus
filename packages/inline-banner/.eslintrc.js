@@ -45,6 +45,7 @@ module.exports = {
         node: true
       },
       plugins: ['node'],
+      // eslint-disable-next-line node/no-unpublished-require
       rules: Object.assign({}, require('eslint-plugin-node').configs.recommended.rules, {
         'comma-dangle': ['error', 'never'],
         'ember/new-module-imports': 'off',

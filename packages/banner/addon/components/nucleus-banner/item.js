@@ -1,4 +1,3 @@
-import classic from 'ember-classic-decorator';
 import { tagName, layout as templateLayout } from '@ember-decorators/component';
 import { reads } from '@ember/object/computed';
 import Component from '@ember/component';
@@ -12,7 +11,6 @@ import { ICON_MAP } from '../../constants/nucleus-banner';
   @extends Ember.Component
   @public
 */
-@classic
 @templateLayout(layout)
 @tagName('')
 class Item extends Component {

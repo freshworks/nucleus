@@ -1,4 +1,3 @@
-import classic from 'ember-classic-decorator';
 import { classNames, attributeBindings, classNameBindings, layout as templateLayout } from '@ember-decorators/component';
 import defaultProp from '@freshworks/core/utils/default-decorator';
 import { readOnly } from '@ember/object/computed';
@@ -15,7 +14,6 @@ import scroll from "../../mixins/scroll";
   @extends Ember.Component
   @public
 */
-@classic
 @templateLayout(layout)
 @classNames('nucleus-modal')
 @classNameBindings('positionClass')

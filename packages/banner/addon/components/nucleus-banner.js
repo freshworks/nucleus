@@ -1,4 +1,3 @@
-import classic from 'ember-classic-decorator';
 import { layout as templateLayout } from '@ember-decorators/component';
 import defaultProp from '@freshworks/core/utils/default-decorator';
 import { observes } from '@ember-decorators/object';
@@ -17,7 +16,6 @@ import { action, computed } from '@ember/object';
   @extends Ember.Component
   @public
 */
-@classic
 @templateLayout(layout)
 class NucleusBanner extends Component {
   /**
@@ -48,6 +46,26 @@ class NucleusBanner extends Component {
   */
   @defaultProp
   isFixed = false;
+  
+  /**
+  * Button Label that describes the presence of multiple banners
+  *
+  * @field showMoreLabel
+  * @type string
+  * @public
+  */
+ @defaultProp
+ showMoreLabel = 'more';
+
+ /**
+  * Title text that describes the stack of multiple banners
+  *
+  * @field stackTitle
+  * @type string
+  * @public
+  */
+ @defaultProp
+ stackTitle = 'System Alerts';
 
   /**
   * List of banner items to be rendered.

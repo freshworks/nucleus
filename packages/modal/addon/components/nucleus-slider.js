@@ -1,4 +1,3 @@
-import classic from 'ember-classic-decorator';
 import { layout as templateLayout } from '@ember-decorators/component';
 import defaultProp from '@freshworks/core/utils/default-decorator';
 import Modal from './nucleus-modal';
@@ -17,7 +16,6 @@ import layout from '../templates/components/nucleus-slider';
   @extends Ember.Component
   @public
 */
-@classic
 @templateLayout(layout)
 class NucleusSlider extends Modal {
   /**

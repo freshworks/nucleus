@@ -1,8 +1,12 @@
 'use strict';
 
+// eslint-disable-next-line node/no-unpublished-require
 const EmberAddon = require('ember-cli/lib/broccoli/ember-addon');
+// eslint-disable-next-line node/no-unpublished-require
 const { UnwatchedDir } = require('broccoli-source');
+// eslint-disable-next-line node/no-unpublished-require
 const MergeTrees = require('broccoli-merge-trees');
+// eslint-disable-next-line node/no-unpublished-require
 const Funnel = require('broccoli-funnel');
 const { readdirSync } = require('fs');
 

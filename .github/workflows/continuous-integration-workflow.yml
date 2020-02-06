@@ -1,19 +1,38 @@
-name: CI
+name: Build
 
-on: 
+on:
   pull_request:
     branches:
     - master
 
+  push:
+    branches:
+    - master
+
 jobs:
-  build:
-    name: Build
-    runs-on: ubuntu-latest
+  Lint:
+    name: Lint
+    runs-on: macos-latest
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
+
+    - name: Set Node.js 10.13.0
+      uses: actions/setup-node@master
       with:
-        ref: master
-    
+        node-version: 10.13.0
+
+    - name: Install dependencies
+      run: yarn
+
+    - name: Run lint check
+      run: yarn lint
+
+  Test:
+    name: Test
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v2
+
     - name: Set Node.js 10.13.0
       uses: actions/setup-node@master
       with:
