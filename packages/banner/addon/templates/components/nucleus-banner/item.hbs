@@ -8,7 +8,7 @@
   <div class="nucleus-banner-item__content">
     {{item.title}}
     {{#if item.content}}
-      <a role="button" 
+      <a role="button"
       class="nucleus-banner-item__link"
       aria-label={{item.content.linkText}}
       onClick={{action item.content.linkAction}}>
@@ -24,5 +24,5 @@
     customClass=(concat "nucleus-banner-item__close")
     icon="nucleus-cross"
     iconSize="mini"
-    onClick=(action 'onClose' item)}}
-{{/if}}         
+    onClick=(action "onClose" item)}}
+{{/if}}

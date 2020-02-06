@@ -46,6 +46,26 @@ class NucleusBanner extends Component {
   */
   @defaultProp
   isFixed = false;
+  
+  /**
+  * Button Label that describes the presence of multiple banners
+  *
+  * @field showMoreLabel
+  * @type string
+  * @public
+  */
+ @defaultProp
+ showMoreLabel = 'more';
+
+ /**
+  * Title text that describes the stack of multiple banners
+  *
+  * @field stackTitle
+  * @type string
+  * @public
+  */
+ @defaultProp
+ stackTitle = 'System Alerts';
 
   /**
   * List of banner items to be rendered.

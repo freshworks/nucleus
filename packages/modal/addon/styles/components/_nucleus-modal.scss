@@ -143,4 +143,17 @@ $slider-width: 600px;
   &--open {
     overflow: hidden;
   }
+
+  @media screen and (min-width: $mobile-screen-min-width) and (max-width: $mobile-screen-max-width) {
+    .nucleus-modal__dialog {
+      max-height: 100vh;
+      width: 100%;
+    }
+
+    &__close {
+      &.right {
+        right: 0;
+      }
+    }
+  }
 }
