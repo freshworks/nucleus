@@ -16,6 +16,7 @@
     "build": "ember build",
     "lint:hbs": "ember-template-lint .",
     "lint:js": "eslint . --fix",
+    "lint:style": "stylelint **/*.scss",
     "start": "ember serve -p 4003",
     "deploy": "ember deploy production",
     "test": "ember backstop-remote & COVERAGE=TRUE ember test --test-port=1512",

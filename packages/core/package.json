@@ -15,6 +15,7 @@
   "scripts": {
     "build": "ember build",
     "start": "ember serve -p 4003",
+    "lint:style": "stylelint **/*.scss",
     "deploy": "ember deploy production",
     "test": "COVERAGE=TRUE ember test --test-port=1508",
     "test:dev": "COVERAGE=TRUE ember test --server -launch=false"
