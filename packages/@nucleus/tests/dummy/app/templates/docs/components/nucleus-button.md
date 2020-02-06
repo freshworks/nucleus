@@ -23,7 +23,7 @@ Button with yieldable content.
 
 {{#docs-demo as |demo|}}
   {{#demo.example name='nucleus-button-block-form.hbs'}}
-    {{#nucleus-button type="primary" ariaLabel="concise label"}}
+    {{#nucleus-button variant="primary" ariaLabel="concise label"}}
       Some yield content here
     {{/nucleus-button}}
   {{/demo.example}}
@@ -37,14 +37,14 @@ Dynamic button which has different states: pending and success. Supply an `actio
 
 ## Styles
 
-#### 1. Different types:
+#### 1. Different variants:
 {{#docs-demo as |demo|}}
   {{#demo.example name='nucleus-button-light.hbs'}}
     {{nucleus-button label="Click here"}}
-    {{nucleus-button label="Click here" type="secondary"}}
-    {{nucleus-button label="Click here" type="danger"}}
-    {{nucleus-button label="Click here" type="link"}}
-    {{nucleus-button label="Click here" type="text"}}
+    {{nucleus-button label="Click here" variant="secondary"}}
+    {{nucleus-button label="Click here" variant="danger"}}
+    {{nucleus-button label="Click here" variant="link"}}
+    {{nucleus-button label="Click here" variant="text"}}
   {{/demo.example}}
   {{demo.snippet 'nucleus-button-light.hbs'}}
 {{/docs-demo}}
@@ -61,15 +61,15 @@ Dynamic button which has different states: pending and success. Supply an `actio
 #### 3. Icon buttons:
 {{#docs-demo as |demo|}}
   {{#demo.example name='nucleus-button-dense.hbs'}}
-    {{nucleus-button icon="nucleus-cross" size="small" type="text"}}
-    {{nucleus-button icon="nucleus-cross" size="mini" type="text"}}
+    {{nucleus-button icon="nucleus-cross" size="small" variant="text"}}
+    {{nucleus-button icon="nucleus-cross" size="mini" variant="text"}}
   {{/demo.example}}
   {{demo.snippet 'nucleus-button-dense.hbs'}}
 {{/docs-demo}}
 
 {{#docs-demo as |demo|}}
   {{#demo.example name='nucleus-button-icon.hbs'}}
-    {{nucleus-button icon="nucleus-cross" label="Click here" type="danger"}}
+    {{nucleus-button icon="nucleus-cross" label="Click here" variant="danger"}}
   {{/demo.example}}
   {{demo.snippet 'nucleus-button-icon.hbs'}}
 {{/docs-demo}}
@@ -86,7 +86,7 @@ Dynamic button which has different states: pending and success. Supply an `actio
 To toggle the 'disabled' property, set 'disabled' to true
 {{#docs-demo as |demo|}}
   {{#demo.example name='nucleus-button-disabled.hbs'}}
-    {{nucleus-button type="primary" label="Click here" disabled=true}}
+    {{nucleus-button variant="primary" label="Click here" disabled=true}}
   {{/demo.example}}
   {{demo.snippet 'nucleus-button-disabled.hbs'}}
 {{/docs-demo}}

@@ -11,7 +11,7 @@ Buttons means operation or series of operations. Buttons are interactive compone
 
 Scenario
 ------------------------------------------------------------------------------
-There are several button types used throughout the product. They are used in pages such as articles, forms, wizards and perform actions such as saving, cancelling or sending, or call users to those actions. 
+There are several button variants used throughout the product. They are used in pages such as articles, forms, wizards and perform actions such as saving, cancelling or sending, or call users to those actions. 
 
 Guidelines
 ------------------------------------------------------------------------------
