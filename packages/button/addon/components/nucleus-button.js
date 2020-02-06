@@ -61,7 +61,7 @@ class NucleusButton extends Component {
   /**
   * Icon sizes: `mini`, `small`, `medium`, `large`
   *
-  * @field size
+  * @field iconSize
   * @type string
   * @default null
   * @public
@@ -83,15 +83,15 @@ class NucleusButton extends Component {
   }
 
   /**
-  * Button display types: `primary`, `secondary`, `danger`, `text` & `link`
+  * Button display variants: `primary`, `secondary`, `danger`, `text` & `link`
   *
-  * @field type
+  * @field variant
   * @type string
   * @default 'primary'
   * @public
   */
   @defaultProp
-  type = 'primary';
+  variant = 'primary';
 
   /**
   * Attribute bound to button type
@@ -179,14 +179,14 @@ class NucleusButton extends Component {
   }
 
   /**
-  * Value to be passed as argument for `onClick` action
+  * Function Arguments for `onClick` action
   *
-  * @field value
+  * @field args
   * @type string|number|object
   * @public
   */
   @defaultProp
-  value = null;
+  args = null;
 
   /**
   * Timeout after which the default label replaces fulfilled/rejected label.
@@ -333,8 +333,8 @@ class NucleusButton extends Component {
   */
   @computed('type')
   get _typeClass() {
-    let type = this.get('type');
-    return type ? `nucleus-button--${this.get('type')}` : 'nucleus-button--primary';
+    let type = this.get('variant');
+    return type ? `nucleus-button--${this.get('variant')}` : 'nucleus-button--primary';
   }
 
   /**
@@ -388,7 +388,7 @@ class NucleusButton extends Component {
     }
 
     if (!this.get('_isPending')) {
-      let promise = action(this.get('value'));
+      let promise = action(this.get('args'));
 
       if (promise && typeof promise.then === 'function' && !this.get('isDestroyed')) {
         set(this, '_buttonState', BUTTON_STATE.PENDING);
