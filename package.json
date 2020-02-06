@@ -11,7 +11,6 @@
     "test": "lerna run test --no-private --stream --concurrency 1",
     "build": "lerna run build --parallel --no-private",
     "lint": "lerna run lint:hbs --parallel && lerna run lint:js --parallel && lerna run lint:style --parallel",
-    "style": "lerna run lint:style",
     "lint-staged": "lint-staged",
     "lerna:version": "lerna version prerelease --preid beta",
     "lerna:publish": "lerna publish --canary --yes --dist-tag beta",
