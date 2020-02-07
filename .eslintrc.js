@@ -1,3 +1,6 @@
+// eslint-disable-next-line node/no-extraneous-require
+const ESLINT_PLUGIN_NODE = require('eslint-plugin-node');
+
 module.exports = {
   root: true,
   parser: 'babel-eslint',
@@ -38,7 +41,10 @@ module.exports = {
         'tests/dummy/app/**'
       ],
       parserOptions: {
-        sourceType: 'script'
+        sourceType: 'script',
+        "ecmaFeatures": {
+          "legacyDecorators": true
+        }
       },
       env: {
         browser: false,
@@ -46,7 +52,7 @@ module.exports = {
       },
       plugins: ['node'],
       // eslint-disable-next-line node/no-extraneous-require
-      rules: Object.assign({}, require('eslint-plugin-node').configs.recommended.rules, {
+      rules: Object.assign({}, ESLINT_PLUGIN_NODE.configs.recommended.rules, {
         'comma-dangle': ['error', 'never'],
         'ember/new-module-imports': 'off',
         'ember/order-in-components': 2,
