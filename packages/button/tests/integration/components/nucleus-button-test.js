@@ -20,7 +20,7 @@ module('Integration | Component | nucleus-button', function(hooks) {
     await render(hbs`{{nucleus-button label="Test"}}`);
 
     assert.dom('button').hasClass('nucleus-button', 'button has nucleus-button class');
-    assert.dom('button').hasClass('nucleus-button--primary', 'button has default primary type class');
+    assert.dom('button').hasClass('nucleus-button--primary', 'button has default primary variant class');
   });
 
   test('it has correct size', async function(assert) {
@@ -29,11 +29,11 @@ module('Integration | Component | nucleus-button', function(hooks) {
     assert.dom('button').hasClass('nucleus-button--mini', 'button has correct size class');
   });
 
-  test('it has correct type', async function(assert) {
-    await render(hbs`{{#nucleus-button type="secondary"}}Test{{/nucleus-button}}`);
+  test('it has correct variant', async function(assert) {
+    await render(hbs`{{#nucleus-button variant="secondary"}}Test{{/nucleus-button}}`);
 
     assert.dom('button').hasClass('nucleus-button', 'button has nucleus-button class');
-    assert.dom('button').hasClass('nucleus-button--secondary', 'button has appropriate type class');
+    assert.dom('button').hasClass('nucleus-button--secondary', 'button has appropriate variant class');
     assert.dom('button').doesNotHaveClass('nucleus-button--primary', 'button does not have primary class');
   });
 
@@ -66,13 +66,13 @@ module('Integration | Component | nucleus-button', function(hooks) {
     assert.dom('button svg').hasClass('nucleus-icon', 'svg icon is rendered');
   });
 
-  test('it sends onClick action with "value" property as a parameter', async function(assert) {
+  test('it sends onClick action with "args" property as a parameter', async function(assert) {
     let action = this.spy();
     this.actions.testAction = action;
-    await render(hbs`{{nucleus-button onClick=(action "testAction") value="foo"}}`);
+    await render(hbs`{{nucleus-button onClick=(action "testAction") args="foo"}}`);
 
     await click('button');
-    assert.ok(action.calledWith('foo'), 'onClick action has been called with button value');
+    assert.ok(action.calledWith('foo'), 'onClick action has been called with button arguments');
   });
 
   test('it changes text according to button state', async function(assert) {
@@ -215,17 +215,17 @@ module('Integration | Component | nucleus-button', function(hooks) {
   });
 
   test('buttons pass visual regression tests', async function(assert) {
-    await render(hbs`{{nucleus-button label="LabelButton"}} {{#nucleus-button}}Button{{/nucleus-button}} {{#nucleus-button size="mini"}}Mini{{/nucleus-button}} {{#nucleus-button size="small"}}Small{{/nucleus-button}} {{#nucleus-button type="secondary"}}Secondary{{/nucleus-button}} {{#nucleus-button type="danger"}}Danger{{/nucleus-button}} {{#nucleus-button type="link"}}Link{{/nucleus-button}} {{#nucleus-button type="text"}}Text{{/nucleus-button}} {{#nucleus-button block=true}}Block Button{{/nucleus-button}} {{#nucleus-button disabled=true}}Secondary{{/nucleus-button}} {{nucleus-button icon="nucleus-cross" type="secondary"}} {{nucleus-button icon="nucleus-cross" size="small" type="secondary"}} {{nucleus-button icon="nucleus-cross" size="mini" type="secondary"}}`);
+    await render(hbs`{{nucleus-button label="LabelButton"}} {{#nucleus-button}}Button{{/nucleus-button}} {{#nucleus-button size="mini"}}Mini{{/nucleus-button}} {{#nucleus-button size="small"}}Small{{/nucleus-button}} {{#nucleus-button variant="secondary"}}Secondary{{/nucleus-button}} {{#nucleus-button variant="danger"}}Danger{{/nucleus-button}} {{#nucleus-button variant="link"}}Link{{/nucleus-button}} {{#nucleus-button variant="text"}}Text{{/nucleus-button}} {{#nucleus-button block=true}}Block Button{{/nucleus-button}} {{#nucleus-button disabled=true}}Secondary{{/nucleus-button}} {{nucleus-button icon="nucleus-cross" variant="secondary"}} {{nucleus-button icon="nucleus-cross" size="small" variant="secondary"}} {{nucleus-button icon="nucleus-cross" size="mini" variant="secondary"}}`);
     await backstop(assert,{scenario: {misMatchThreshold: 0.1}});
   });
 
   test('hovered buttons pass visual regression tests', async function(assert){
-    await render(hbs`{{nucleus-button class="link-button" type="link" label="Label button"}}`)
+    await render(hbs`{{nucleus-button class="link-button" variant="link" label="Label button"}}`)
     await backstop(assert,{scenario: {hoverSelector:".link-button",misMatchThreshold: 0.1}})
   });
 
   test('clicked buttons pass visual regression tests', async function(assert){
-    await render(hbs`{{nucleus-button class="text-button" type="text" label="Label button"}}`)
+    await render(hbs`{{nucleus-button class="text-button" variant="text" label="Label button"}}`)
     await backstop(assert, {scenario: {clickSelectors: ".text-button",misMatchThreshold: 0.1}})
   });
 });
