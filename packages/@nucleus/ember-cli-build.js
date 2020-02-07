@@ -44,14 +44,7 @@ module.exports = function(defaults) {
   );
 
   let app = new EmberAddon(defaults, {
-    stylelint: {
-      linterConfig:{
-        syntax: 'scss'
-      },
-      includePaths: [
-        'app/styles'
-      ]
-    },
+    hinting: false,
     'ember-cli-addon-docs': {
       projects: {
         main: tree
