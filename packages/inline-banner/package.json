@@ -14,7 +14,7 @@
   },
   "scripts": {
     "build": "ember build",
-    "lint:hbs": "ember-template-lint .",
+    "lint:hbs": "ember-template-lint . --config-path ../../.template-lintrc.js",
     "lint:js": "eslint . --fix --ignore-path ../../.gitignore",
     "lint:style": "stylelint **/*.scss",
     "start": "ember serve -p 4003",
