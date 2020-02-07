@@ -72,17 +72,6 @@ class NucleusInlineBanner extends Component {
   title = null;
 
   /**
-  * _title
-  *
-  * @computed _title
-  * @private
-  */
-  @computed('title', function () {
-    return this.get('title');
-  })
-  _title;
-
-  /**
   * _typeClass
   *
   * @computed _typeClass
