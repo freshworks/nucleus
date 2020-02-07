@@ -13,7 +13,7 @@
     "lint:js": "eslint . --fix --ignore-path .gitignore",
     "lint:style": "stylelint **/*.scss",
     "lint:hbs": "ember-template-lint .",
-    "lint": "yarn lint:js & yarn lint:style & yarn lint:hbs",
+    "lint": "yarn lint:js && yarn lint:style && yarn lint:hbs",
     "lint-staged": "lint-staged",
     "lerna:version": "lerna version prerelease --preid beta",
     "lerna:publish": "lerna publish --canary --yes --dist-tag beta",
@@ -22,12 +22,21 @@
     "try:legacy": "ember try:one ember-lts-2.18"
   },
   "devDependencies": {
+    "babel-eslint": "^10.0.3",
     "ember-cli": "~3.11.0",
+    "ember-cli-eslint": "^5.1.0",
+    "ember-cli-stylelint": "^3.0.2",
     "ember-source-channel-url": "^2.0.0",
+    "ember-template-lint": "^1.13.2",
     "ember-try": "^1.1.0",
+    "eslint-plugin-ember": "^7.7.2",
+    "eslint-plugin-node": "^11.0.0",
     "lerna": "^3.20.2",
     "lint-staged": "^10.0.7",
-    "pre-commit": "^1.2.2"
+    "pre-commit": "^1.2.2",
+    "stylelint": "^13.0.0",
+    "stylelint-config-standard": "^19.0.0",
+    "stylelint-order": "^4.0.0"
   },
   "lint-staged": {
     "*.js": "eslint . --fix --ignore-path .gitignore",
