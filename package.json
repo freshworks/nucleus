@@ -27,9 +27,9 @@
     "pre-commit": "^1.2.2"
   },
   "lint-staged": {
-    "*.js": "lerna run lint:js",
-    "*.hbs": "lerna run lint:hbs",
-    "*.scss": "lerna run lint:style"
+    "*.js": "eslint --fix",
+    "*.hbs": "ember-template-lint",
+    "*.scss": "stylelint"
   },
   "pre-commit": [
     "lint-staged"
