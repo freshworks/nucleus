@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.3](https://github.com/freshdesk/nucleus/compare/@freshworks/modal@0.4.2...@freshworks/modal@0.4.3) (2020-02-07)
+
+**Note:** Version bump only for package @freshworks/modal
+
+
+
+
+
 # [0.2.0](https://github.com/freshdesk/nucleus/compare/@freshworks/modal@0.1.7...@freshworks/modal@0.2.0) (2020-01-09)
 
 
