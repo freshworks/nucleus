@@ -130,11 +130,6 @@ $active-box-shadow: inset 0 0 4px 0 rgba(0, 0, 0, .25);
     font-size: $font-size-10;
     min-width: 16px;
     height: 16px;
-
-    svg.icon {
-      width: 8px;
-      height: 8px;
-    }
   }
 
   &--small {
@@ -142,10 +137,5 @@ $active-box-shadow: inset 0 0 4px 0 rgba(0, 0, 0, .25);
     font-size: $font-size-12;
     min-width: 16px;
     height: 24px;
-
-    svg.icon {
-      width: 10px;
-      height: 10px;
-    }
   }
 }
