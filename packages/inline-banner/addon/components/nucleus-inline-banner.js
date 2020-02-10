@@ -17,7 +17,7 @@ import { ICON_MAP } from '../constants/nucleus-inline-banner';
 */
 @templateLayout(layout)
 @classNames('nucleus-inline-banner')
-@classNameBindings('_typeClass', '_isOpen:show:hide')
+@classNameBindings('_typeClass', '_isOpen:nucleus-active:nucleus-inactive')
 @attributeBindings('data-test-id')
 class NucleusInlineBanner extends Component {
   /**
