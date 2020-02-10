@@ -4,7 +4,7 @@ import test from 'ember-sinon-qunit/test-support/test';
 import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 import FlashMessage from 'ember-cli-flash/flash/object';
-import setupToastMessage from '../../helpers/setup-toast-message';
+import setupToastMessage from '@freshworks/toast-message/test-support/setup-toast-message';
 import backstop from 'ember-backstop/test-support/backstop';
 
 module('Integration | Component | nucleus-toast-message', function(hooks) {
