@@ -1,0 +1,33 @@
+name: Release
+
+on:
+  push:
+    branches:
+    - release-tests
+
+jobs:
+  Release:
+    name: Release
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set Node.js 10.13.0
+      uses: actions/setup-node@master
+      with:
+        node-version: 10.13.0
+
+    - name: Install dependencies
+      run: yarn
+
+    - name: Version
+      run: yarn lerna:version
+
+    - name: Create pull request
+      uses: gha-utilities/init-pull-request@v0.0.6
+      with:
+        pull_request_token: ${{ secrets.GIT_TOKEN }}
+        head: release-test
+        base: master
+        title: '[Release] Release merge request'
+        body: 'Automated release merge request'
