@@ -1,30 +1,28 @@
-{{#ember-wormhole to="nucleus-toast-messages-wormhole"}}
-  <div class="nucleus-toast-messages {{position}}">
-    {{#each flashMessages.queue as |flash|}}
-      {{#transition-group transitionClass="slide-down"}}
-        {{#flash-message flash=flash class="nucleus-toast-message" as |component flash close|}}
-          <div class="nucleus-toast-message__icon">{{nucleus-icon name=(get _iconMap component.flashType) size="medium"}}</div>
-          <div class="nucleus-toast-message__content">
-            <p>{{flash.message}}</p>
-            {{#if flash.content}}
-              <a role="button"
-              class="link"
-              aria-label={{flash.content.linkText}}
-              onClick={{action flash.content.linkAction}}>
-                {{flash.content.linkText}}
-              </a>
-            {{/if}}
-          </div>
-          <div class="nucleus-toast-message__close">
-            {{nucleus-button
-              variant="text"
-              size="mini"
-              customClass=(concat "flash-message-close")
-              icon="nucleus-cross"
-              onClick=(action close)}}
-          </div>
-        {{/flash-message}}
-      {{/transition-group}}
-    {{/each}}
-  </div>
-{{/ember-wormhole}}
+<div class="nucleus-toast-messages {{position}}">
+  {{#each flashMessages.queue as |flash|}}
+    {{#transition-group transitionClass="slide-down"}}
+      {{#flash-message flash=flash class="nucleus-toast-message" as |component flash close|}}
+        <div class="nucleus-toast-message__icon">{{nucleus-icon name=(get _iconMap component.flashType) size="medium"}}</div>
+        <div class="nucleus-toast-message__content">
+          <p class="title">{{flash.message}}</p>
+          {{#if flash.content}}
+            <a role="button"
+            class="link"
+            aria-label={{flash.content.linkText}}
+            onClick={{action flash.content.linkAction}}>
+              {{flash.content.linkText}}
+            </a>
+          {{/if}}
+        </div>
+        <div class="nucleus-toast-message__close">
+          {{nucleus-button
+            variant="text"
+            size="mini"
+            customClass=(concat "flash-message-close")
+            icon="nucleus-cross"
+            onClick=(action close)}}
+        </div>
+      {{/flash-message}}
+    {{/transition-group}}
+  {{/each}}
+</div>

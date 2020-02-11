@@ -3,6 +3,7 @@
     <table>
       <thead>
         <tr>
+          {{!-- template-lint-disable no-inline-styles  --}}
           <th style="width: 50%">Icon</th>
           <th>Name</th>
         </tr>
@@ -10,12 +11,13 @@
       <tbody>
         {{#each icons as |icon|}}
           <tr>
+            {{!-- template-lint-disable no-inline-styles  --}}
             <td style="text-align: center">{{nucleus-icon name=icon}}</td>
             <td>{{icon}}</td>
           </tr>
         {{/each}}
       </tbody>
     </table>
-    
+
   {{/demo.example}}
 {{/docs-demo}}
