@@ -61,8 +61,10 @@ Dynamic button which has different states: pending and success. Supply an `actio
 #### 3. Icon buttons:
 {{#docs-demo as |demo|}}
   {{#demo.example name='nucleus-button-dense.hbs'}}
-    {{nucleus-button icon="nucleus-cross" size="small" variant="text"}}
-    {{nucleus-button icon="nucleus-cross" size="mini" variant="text"}}
+    {{nucleus-button icon="nucleus-cross" iconOnly=true iconSize="medium" 
+      variant="text"}}
+    {{nucleus-button icon="nucleus-cross" iconOnly=true size="small" variant="text"}}
+    {{nucleus-button icon="nucleus-cross" iconOnly=true size="mini" variant="text"}}
   {{/demo.example}}
   {{demo.snippet 'nucleus-button-dense.hbs'}}
 {{/docs-demo}}
