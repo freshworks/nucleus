@@ -15,8 +15,8 @@
     "lint:hbs": "ember-template-lint .",
     "lint": "yarn lint:js && yarn lint:style && yarn lint:hbs",
     "lint-staged": "lint-staged",
-    "lerna:version": "lerna version prerelease --preid beta",
-    "lerna:publish": "lerna publish --canary --yes --dist-tag beta",
+    "lerna:version": "lerna version --conventional-commits --yes",
+    "lerna:publish": "lerna publish --yes",
     "deploy": "yarn workspace nucleus deploy",
     "try": "ember try:each",
     "try:legacy": "ember try:one ember-lts-2.18"
