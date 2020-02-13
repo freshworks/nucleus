@@ -59,12 +59,17 @@ Dynamic button which has different states: pending and success. Supply an `actio
 {{/docs-demo}}
 
 #### 3. Icon buttons:
+It is possible to create buttons that contain only icons with the `iconOnly` attribute. 
+The `iconSize` property specifies the size of the icon. If the iconSize is not mentioned, the icon takes the size of the button.
+
 {{#docs-demo as |demo|}}
   {{#demo.example name='nucleus-button-dense.hbs'}}
-    {{nucleus-button icon="nucleus-cross" iconOnly=true iconSize="medium" 
+    {{nucleus-button icon="nucleus-circle-check" iconOnly=true iconSize="medium" 
       variant="text"}}
-    {{nucleus-button icon="nucleus-cross" iconOnly=true size="small" variant="text"}}
-    {{nucleus-button icon="nucleus-cross" iconOnly=true size="mini" variant="text"}}
+    {{nucleus-button icon="nucleus-circle-check" iconOnly=true size="small" 
+      iconSize="small" variant="text"}}
+    {{nucleus-button icon="nucleus-circle-check" iconOnly=true size="mini" 
+      iconSize="mini" variant="text"}}
   {{/demo.example}}
   {{demo.snippet 'nucleus-button-dense.hbs'}}
 {{/docs-demo}}
