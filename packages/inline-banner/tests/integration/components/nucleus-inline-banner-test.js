@@ -43,7 +43,7 @@ module('Integration | Component | nucleus-inline-banner', function(hooks) {
     }}`);
 
     await click('.nucleus-inline-banner__close button');
-    assert.dom('.nucleus-inline-banner').hasClass('hide', 'Banner has been dismissed.');
+    assert.dom('.nucleus-inline-banner').hasClass('nucleus-inactive', 'Banner has been dismissed.');
   });
 
   test('it calls onClose action and gets dismissed on close', async function(assert) {
@@ -58,7 +58,7 @@ module('Integration | Component | nucleus-inline-banner', function(hooks) {
 
     await click('.nucleus-inline-banner__close button');
     assert.ok(closeAction.calledOnce, 'close action has been called.');
-    assert.dom('.nucleus-inline-banner').hasClass('hide', 'Banner has been dismissed.');
+    assert.dom('.nucleus-inline-banner').hasClass('nucleus-inactive', 'Banner has been dismissed.');
   });
 
   test('it passes a11y tests', async function(assert) {
