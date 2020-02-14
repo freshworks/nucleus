@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.5](https://github.com/freshdesk/nucleus/compare/nucleus@0.4.4...nucleus@0.4.5) (2020-02-14)
+
+
+### Bug Fixes
+
+* **button:** CSS code cleanup and enhancements ([#113](https://github.com/freshdesk/nucleus/issues/113)) ([2ea58af](https://github.com/freshdesk/nucleus/commit/2ea58afc6d1d68d685d87ecb8408b033885d63c2))
+
+
+
+
+
 ## [0.4.4](https://github.com/freshdesk/nucleus/compare/nucleus@0.4.3...nucleus@0.4.4) (2020-02-10)
 
 **Note:** Version bump only for package nucleus

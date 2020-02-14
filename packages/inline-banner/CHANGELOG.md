@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.4](https://github.com/freshdesk/nucleus/compare/@freshworks/inline-banner@0.4.3...@freshworks/inline-banner@0.4.4) (2020-02-14)
+
+
+### Bug Fixes
+
+* **Inline-banner:** Freshdesk conflicts ([#111](https://github.com/freshdesk/nucleus/issues/111)) ([73e8e41](https://github.com/freshdesk/nucleus/commit/73e8e41ca5b52e5d612497c37f225543a04d4422))
+
+
+
+
+
 ## [0.4.3](https://github.com/freshdesk/nucleus/compare/@freshworks/inline-banner@0.4.2...@freshworks/inline-banner@0.4.3) (2020-02-07)
 
 **Note:** Version bump only for package @freshworks/inline-banner
