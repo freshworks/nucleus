@@ -242,7 +242,9 @@ class Modal extends Component {
   *
   */
   attachEventHandlers() {
-    window.addEventListener("focusin", event => this.loopFocus(event));
+    let focusListener = this.loopFocus.bind(this);
+    set(this, "_focusListener", focusListener);
+    window.addEventListener("focusin", focusListener);
   }
 
   /**
@@ -253,7 +255,7 @@ class Modal extends Component {
   *
   */
   removeEventHandlers() {
-    window.removeEventListener("focusin", this.loopFocus(event), false);
+    window.removeEventListener("focusin", this._focusListener, false);
   }
 
   /**
