@@ -347,7 +347,7 @@ class NucleusButton extends Component {
     let type = this.get('variant');
     return type ? `nucleus-button--${this.get('variant')}` : 'nucleus-button--primary';
   }
-  
+
   /**
   * _iconClass
   *
@@ -426,7 +426,9 @@ class NucleusButton extends Component {
         })
         .finally(() => {
           run.later(() => {
-            set(this, '_buttonState', BUTTON_STATE.DEFAULT)
+            if (!this.isDestroyed) {
+              set(this, '_buttonState', BUTTON_STATE.DEFAULT)
+            }
           }, this.labelTimeout);
         });
       }
