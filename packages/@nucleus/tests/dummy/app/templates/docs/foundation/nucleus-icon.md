@@ -8,7 +8,7 @@ yarn add @freshworks/icon
 
 {{#docs-demo as |demo|}}
   {{#demo.example name='nucleus-icon-eg.hbs'}}
-    {{nucleus-icon name="nucleus-circle-check" size="small" variant="primary"}}
+    {{nucleus-icon name="nucleus-circle-check" size="small"}}
     {{nucleus-icon name="nucleus-circle-cross" size="medium" variant="danger"}}
     {{nucleus-icon name="nucleus-circle-help" size="large" variant="success"}}
   {{/demo.example}}

@@ -76,8 +76,8 @@ class NucleusIcon extends Component {
   @computed('size', 'variant', 'customClass')
   get _classNames() {
     let customClass = this.get('customClass');
-    let size = this.get('size') ? this.get('size') : DEFAULT_SIZE;
-    let variant = this.get('variant') ? this.get('variant') : DEFAULT_VARIANT;
+    let size = this.get('size');
+    let variant = this.get('variant');
     let classNames = `nucleus-icon nucleus-icon--${size} nucleus-icon--${variant}`;
     return customClass ? `${classNames} ${customClass}` : classNames;
   }
