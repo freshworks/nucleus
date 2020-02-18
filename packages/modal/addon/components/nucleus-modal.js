@@ -3,7 +3,7 @@ import { observes } from '@ember-decorators/object';
 import defaultProp from '@freshworks/core/utils/default-decorator';
 import Component from "@ember/component";
 import { set, setProperties, computed, action } from "@ember/object";
-import { later } from '@ember/runloop';
+import { scheduleOnce } from '@ember/runloop';
 import layout from "../templates/components/nucleus-modal";
 import EventHandler from "../utils/event-handler";
 
@@ -232,12 +232,13 @@ class Modal extends Component {
   *
   */
   attachEventHandlers() {
-    let _focusCallback = EventHandler.bindEvent({
+    let _focusListener = EventHandler.bindEvent({
       context: this, 
       eventName: 'focusin',
       callback: this.loopFocus
     });
-    set(this, '_focusListener', _focusCallback);
+    set(this, '_focusListener', _focusListener);
+    this._takeFocus();
   }
 
   /**
@@ -258,14 +259,15 @@ class Modal extends Component {
 
   _initialize() {
     this._show();
-    later(this, () => { // to make sure the DOM has rendered
-      this.attachEventHandlers();
-      this._takeFocus();
-    }, 500);
+    scheduleOnce('afterRender', this, this.attachEventHandlers);
   }
 
   _dismantle() {
     this._hide();
+    EventHandler.unbindEvent({
+      eventName: 'focusin',
+      callback: this._focusListener
+    });
   }
 
   willDestroyElement() {
@@ -275,7 +277,6 @@ class Modal extends Component {
       callback: this._focusListener
     });
   }
-
 }
 
 export default Modal;
