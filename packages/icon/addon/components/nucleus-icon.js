@@ -43,6 +43,17 @@ class NucleusIcon extends Component {
   size = 'medium';
 
   /**
+  * Variant
+  *
+  * @field variant
+  * @type string
+  * @default null
+  * @public
+  */
+  @defaultProp
+  variant = 'primary';
+
+  /**
   * Custom class
   *
   * @field customClass
@@ -59,11 +70,12 @@ class NucleusIcon extends Component {
   * @computed _disabled
   * @private
   */
-  @computed('size', 'customClass')
+  @computed('size', 'variant', 'customClass')
   get _classNames() {
     let customClass = this.get('customClass');
     let size = this.get('size') ? this.get('size') : 'medium';
-    let classNames = `nucleus-icon nucleus-icon--${size}`;
+    let variant = this.get('variant') ? this.get('variant') : 'primary';
+    let classNames = `nucleus-icon nucleus-icon--${size} nucleus-icon--${variant}`;
     return customClass ? `${classNames} ${customClass}` : classNames;
   }
 }
