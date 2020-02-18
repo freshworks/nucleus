@@ -3,7 +3,6 @@ import { observes } from '@ember-decorators/object';
 import defaultProp from '@freshworks/core/utils/default-decorator';
 import Component from "@ember/component";
 import { set, setProperties, computed, action } from "@ember/object";
-import { reads } from "@ember/object/computed";
 import { later } from '@ember/runloop';
 import layout from "../templates/components/nucleus-modal";
 
@@ -85,16 +84,6 @@ class Modal extends Component {
   */
   @defaultProp
   isDismissible = true;
-
-  /**
-  * _showBackdrop
-  *
-  * @field _showBackdrop
-  * @type boolean
-  * @private
-  */
-  @reads("backdrop")
-  _showBackdrop;
 
   /**
   * Modal sizes: `small`, `medium` & `large`
