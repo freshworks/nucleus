@@ -13,6 +13,7 @@ import Component from '@ember/component';
 import { set, computed } from '@ember/object';
 import layout from "../templates/components/nucleus-button";
 import { BUTTON_STATE } from "../constants/nucleus-button";
+import safeSet from "../utils/safe-set";
 
 /**
   __Usage:__
@@ -413,22 +414,16 @@ class NucleusButton extends Component {
     if (!this.get('_isPending')) {
       let promise = action(this.get('args'));
 
-      if (promise && typeof promise.then === 'function' && !this.get('isDestroyed')) {
-        set(this, '_buttonState', BUTTON_STATE.PENDING);
+      if (promise && typeof promise.then === 'function') {
+        safeSet(this, '_buttonState', BUTTON_STATE.PENDING);
         promise.then(() => {
-          if (!this.isDestroyed) {
-            set(this, '_buttonState', BUTTON_STATE.FULFILLED);
-          }
+          safeSet(this, '_buttonState', BUTTON_STATE.FULFILLED);
         }, () => {
-          if (!this.isDestroyed) {
-            set(this, '_buttonState', BUTTON_STATE.REJECTED);
-          }
+          safeSet(this, '_buttonState', BUTTON_STATE.REJECTED);
         })
         .finally(() => {
           run.later(() => {
-            if (!this.isDestroyed) {
-              set(this, '_buttonState', BUTTON_STATE.DEFAULT)
-            }
+            safeSet(this, '_buttonState', BUTTON_STATE.DEFAULT)
           }, this.labelTimeout);
         });
       }
