@@ -6,6 +6,7 @@ import { set, setProperties, computed, action } from "@ember/object";
 import { reads } from "@ember/object/computed";
 import { later } from '@ember/runloop';
 import layout from "../templates/components/nucleus-modal";
+import { bindEvent, unbindEvent } from "../../utils/event-handler";
 
 /**
   __Usage:__
@@ -242,20 +243,8 @@ class Modal extends Component {
   *
   */
   attachEventHandlers() {
-    let focusListener = this.loopFocus.bind(this);
-    set(this, "_focusListener", focusListener);
-    window.addEventListener("focusin", focusListener);
-  }
-
-  /**
-  * removeEventHandlers
-  *
-  * @method removeEventHandlers
-  * @private
-  *
-  */
-  removeEventHandlers() {
-    window.removeEventListener("focusin", this._focusListener, false);
+    let _focusCallback = bindEvent(this, "focusin", this.loopFocus);
+    set(this, "_focusListener", _focusCallback);
   }
 
   /**
@@ -288,7 +277,7 @@ class Modal extends Component {
 
   willDestroyElement() {
     super.willDestroyElement(...arguments);
-    this.removeEventHandlers();
+    unbindEvent('focusin', this._focusListener);
   }
 
 }

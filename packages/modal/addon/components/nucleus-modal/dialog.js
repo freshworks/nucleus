@@ -5,7 +5,7 @@ import Component from '@ember/component';
 import { set, computed } from '@ember/object';
 import { isBlank } from '@ember/utils';
 import layout from '../../templates/components/nucleus-modal/dialog';
-import scroll from "../../mixins/scroll";
+import { bindEvent, unbindEvent } from "../../utils/event-handler";
 
 /**
   Dialog Usage:
@@ -18,7 +18,7 @@ import scroll from "../../mixins/scroll";
 @classNames('nucleus-modal')
 @classNameBindings('positionClass')
 @attributeBindings('tabindex', 'ariaLabelledby:aria-labelledby', 'ariaModal:aria-modal')
-class Dialog extends Component.extend(scroll) {
+class Dialog extends Component {
   ariaRole = 'dialog';
 
   @readOnly('titleId')
@@ -167,12 +167,13 @@ class Dialog extends Component.extend(scroll) {
   didInsertElement() {
     super.didInsertElement(...arguments);
     this.getOrSetTitleId();
-    this.bindScrolling('.nucleus-modal__body');
+    let _scrollCallback = bindEvent(this, 'scroll', this.scrolled, '.nucleus-modal__body');
+    set(this, '_scrollCallback', _scrollCallback);
   }
 
   willDestroyElement() {
     super.willDestroyElement(...arguments);
-    this.unbindScrolling();
+    unbindEvent('scroll', this._scrollCallback, '.nucleus-modal__body');
   }
 }
 

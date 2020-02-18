@@ -1,3 +1,5 @@
+// [TODO] Move to core if required
+
 import { set } from '@ember/object';
 
 export default function safeSet(context, key, value) {

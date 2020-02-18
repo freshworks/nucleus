@@ -10,7 +10,7 @@ import defaultProp from '@freshworks/core/utils/default-decorator';
 import { or, equal } from '@ember/object/computed';
 import { run } from '@ember/runloop';
 import Component from '@ember/component';
-import { set, computed } from '@ember/object';
+import { computed } from '@ember/object';
 import layout from "../templates/components/nucleus-button";
 import { BUTTON_STATE } from "../constants/nucleus-button";
 import safeSet from "../utils/safe-set";
