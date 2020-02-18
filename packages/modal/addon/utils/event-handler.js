@@ -1,15 +1,22 @@
 import { isPresent } from '@ember/utils';
 
-export function bindEvent(context, eventName, callback, element) {
-  let eventCallback = callback.bind(context);
-  let domElement = isPresent(element) ? document.querySelector(element) : document;
+export default {
+  bindEvent({ context = this, eventName, callback, element } = {}) {
+    let eventCallback = callback.bind(context);
+    let domElement = isPresent(element) ? document.querySelector(element) : document;
+    
+    if(isPresent(domElement)) {
+      domElement.addEventListener(eventName, eventCallback);
+    }
 
-  domElement && domElement.addEventListener(eventName, eventCallback);
-
-  return eventCallback;
+    return eventCallback;
+  },
+  unbindEvent({ eventName, callback, element } = {}) {
+    let domElement = isPresent(element) ? document.querySelector(element) : document;
+  
+    if(isPresent(domElement)) {
+      domElement.removeEventListener(eventName, callback);
+    }
+  }
 }
 
-export function unbindEvent(eventName, callback, element) {
-  let domElement = isPresent(element) ? document.querySelector(element) : document;
-  domElement && domElement.removeEventListener(eventName, callback);
-}

@@ -5,7 +5,7 @@ import Component from '@ember/component';
 import { set, computed } from '@ember/object';
 import { isBlank } from '@ember/utils';
 import layout from '../../templates/components/nucleus-modal/dialog';
-import { bindEvent, unbindEvent } from "../../utils/event-handler";
+import EventHandler from "../../utils/event-handler";
 
 /**
   Dialog Usage:
@@ -167,13 +167,22 @@ class Dialog extends Component {
   didInsertElement() {
     super.didInsertElement(...arguments);
     this.getOrSetTitleId();
-    let _scrollCallback = bindEvent(this, 'scroll', this.scrolled, '.nucleus-modal__body');
+    let _scrollCallback = EventHandler.bindEvent({
+      context: this,
+      eventName: 'scroll',
+      callback: this.scrolled, 
+      element: '.nucleus-modal__body'
+    });
     set(this, '_scrollCallback', _scrollCallback);
   }
 
   willDestroyElement() {
     super.willDestroyElement(...arguments);
-    unbindEvent('scroll', this._scrollCallback, '.nucleus-modal__body');
+    EventHandler.unbindEvent({
+      eventName: 'scroll',
+      callback: this._scrollCallback, 
+      element: '.nucleus-modal__body'
+    });
   }
 }
 
