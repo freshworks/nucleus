@@ -29,6 +29,7 @@ $slider-width: 600px;
   }
 
   &__dialog {
+    position: relative;
     max-height: 70vh;
     width: 512px;
     background: $color-milk;
@@ -131,12 +132,12 @@ $slider-width: 600px;
   }
 
   &__backdrop {
-    position: fixed;
+    position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-    z-index: 2147483637;  // since other app elements like app-header and app-sidebar have z-index till 9
+    z-index: -1;  // CSS trick used in bootstrap backdrop
     background-color: rgba(0, 0, 0, .5);
   }
 
