@@ -159,11 +159,9 @@ class Dialog extends Component {
   *
   */
   attachEventHandlers() {
-    let _scrollCallback = this.scrolled.bind(this);
-
-    EventHandler.bindEvent({
+    let _scrollCallback = EventHandler.bindEvent({
       eventName: 'scroll',
-      callback: _scrollCallback, 
+      callback: this.scrolled.bind(this), 
       element: '.nucleus-modal__body'
     });
     set(this, '_scrollCallback', _scrollCallback);
