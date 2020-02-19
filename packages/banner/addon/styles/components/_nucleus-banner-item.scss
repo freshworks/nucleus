@@ -34,6 +34,11 @@
     top: 8px;
     right: 16px;
   }
+
+  &__content {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }
 
 .nucleus-banner--mini {
