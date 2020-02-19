@@ -151,6 +151,24 @@ class Dialog extends Component {
     }
   }
 
+  /**
+  * attachEventHandlers for scrolls
+  *
+  * @method attachEventHandlers
+  * @private
+  *
+  */
+  attachEventHandlers() {
+    let _scrollCallback = this.scrolled.bind(this);
+
+    EventHandler.bindEvent({
+      eventName: 'scroll',
+      callback: _scrollCallback, 
+      element: '.nucleus-modal__body'
+    });
+    set(this, '_scrollCallback', _scrollCallback);
+  }
+
   scrolled() {
     const modalNode = this.get('element');
     if(modalNode) {
@@ -167,13 +185,7 @@ class Dialog extends Component {
   didInsertElement() {
     super.didInsertElement(...arguments);
     this.getOrSetTitleId();
-    let _scrollCallback = EventHandler.bindEvent({
-      context: this,
-      eventName: 'scroll',
-      callback: this.scrolled, 
-      element: '.nucleus-modal__body'
-    });
-    set(this, '_scrollCallback', _scrollCallback);
+    this.attachEventHandlers();
   }
 
   willDestroyElement() {

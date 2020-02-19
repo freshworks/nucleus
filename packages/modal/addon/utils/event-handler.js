@@ -24,21 +24,16 @@ export default {
    *
    * @function bindEvent
    * @public
-   * @param {object} context reference of the instance
    * @param {string} eventName Name of the event to bind the callback to
    * @param {function} callback Callback function for the eventhandler 
-   * @param {string} element element selector. Defaults to document 
-   * @return {function} Returns the reference of the callback binded
+   * @param {string} element element selector. Defaults to document
   */
-  bindEvent({ context = this, eventName, callback, element } = {}) {
-    let eventCallback = callback.bind(context);
+  bindEvent({ eventName, callback, element } = {}) {
     let domElement = isPresent(element) ? document.querySelector(element) : document;
     
     if(isPresent(domElement)) {
-      domElement.addEventListener(eventName, eventCallback);
+      domElement.addEventListener(eventName, callback);
     }
-
-    return eventCallback;
   },
 
   /**

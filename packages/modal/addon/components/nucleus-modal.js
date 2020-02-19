@@ -232,10 +232,10 @@ class Modal extends Component {
   *
   */
   attachEventHandlers() {
-    let _focusListener = EventHandler.bindEvent({
-      context: this, 
+    let _focusListener = this.loopFocus.bind(this);
+    EventHandler.bindEvent({
       eventName: 'focusin',
-      callback: this.loopFocus
+      callback: _focusListener
     });
     set(this, '_focusListener', _focusListener);
     this._takeFocus();
