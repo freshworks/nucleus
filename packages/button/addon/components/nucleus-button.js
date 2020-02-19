@@ -32,7 +32,8 @@ import { BUTTON_STATE } from "../constants/nucleus-button";
   'block:nucleus-button--block',
   '_sizeClass',
   '_typeClass',
-  'customClass'
+  'customClass',
+  '_iconClass'
 )
 @attributeBindings('_disabled:disabled', '_buttonType:type', '_label:aria-label', 'autofocus')
 class NucleusButton extends Component {
@@ -144,6 +145,16 @@ class NucleusButton extends Component {
   */
   @defaultProp
   icon = null;
+
+  /**
+  * Specifies it is an icon-only button
+  *
+  * @field iconOnly
+  * @type boolean
+  * @public
+  */
+ @defaultProp
+ iconOnly = false;
 
   /**
   * Custom class names to be added to the button.
@@ -335,6 +346,18 @@ class NucleusButton extends Component {
   get _typeClass() {
     let type = this.get('variant');
     return type ? `nucleus-button--${this.get('variant')}` : 'nucleus-button--primary';
+  }
+  
+  /**
+  * _iconClass
+  *
+  * @computed _iconClass
+  * @private
+  */
+  @computed('iconButton')
+  get _iconClass() {
+    let iconButton = this.get('iconOnly');
+    return iconButton ? `nucleus-button--iconOnly` : null;
   }
 
   /**

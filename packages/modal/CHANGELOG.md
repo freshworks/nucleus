@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.4](https://github.com/freshdesk/nucleus/compare/@freshworks/modal@0.4.3...@freshworks/modal@0.4.4) (2020-02-14)
+
+
+### Bug Fixes
+
+* **button:** CSS code cleanup and enhancements ([#113](https://github.com/freshdesk/nucleus/issues/113)) ([2ea58af](https://github.com/freshdesk/nucleus/commit/2ea58afc6d1d68d685d87ecb8408b033885d63c2))
+
+
+
+
+
+## [0.4.3](https://github.com/freshdesk/nucleus/compare/@freshworks/modal@0.4.2...@freshworks/modal@0.4.3) (2020-02-07)
+
+**Note:** Version bump only for package @freshworks/modal
+
+
+
+
+
 # [0.2.0](https://github.com/freshdesk/nucleus/compare/@freshworks/modal@0.1.7...@freshworks/modal@0.2.0) (2020-01-09)
 
 

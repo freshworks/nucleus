@@ -1,0 +1,26 @@
+name: CD
+
+on:
+  push:
+    branches:
+    - master
+
+jobs:
+  publish:
+    name: publish
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set Node.js 10.13.0
+      uses: actions/setup-node@master
+      with:
+        node-version: 10.13.0
+
+    - name: Install dependencies
+      run: yarn install
+
+    - name: Publish
+      run: yarn lerna:publish
+      env:
+        NODE_AUTH_TOKEN: ${{secrets.npm_token}}

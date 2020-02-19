@@ -1,7 +1,7 @@
 {
   "name": "nucleus",
   "private": true,
-  "version": "0.3.0",
+  "version": "0.4.5",
   "description": "Umbrella package which holds the documentation",
   "keywords": [
     "ember-addon"
@@ -21,12 +21,12 @@
     "test:dev": "COVERAGE=TRUE ember test --server -launch=false"
   },
   "dependencies": {
-    "@freshworks/banner": "^0.3.0",
-    "@freshworks/button": "^0.3.0",
-    "@freshworks/icon": "^0.3.0",
-    "@freshworks/inline-banner": "^0.3.0",
-    "@freshworks/modal": "^0.3.0",
-    "@freshworks/toast-message": "^0.3.0",
+    "@freshworks/banner": "^0.4.4",
+    "@freshworks/button": "^0.4.4",
+    "@freshworks/icon": "^0.4.2",
+    "@freshworks/inline-banner": "^0.4.4",
+    "@freshworks/modal": "^0.4.4",
+    "@freshworks/toast-message": "^0.5.1",
     "ember-cli-autoprefixer": "^0.8.1",
     "ember-cli-babel": "^7.11.1",
     "ember-cli-htmlbars": "^4.0.0",
@@ -36,7 +36,6 @@
   },
   "devDependencies": {
     "@ember/optional-features": "^1.0.0",
-    "babel-eslint": "^10.0.3",
     "broccoli-asset-rev": "^3.0.0",
     "broccoli-funnel": "^2.0.1",
     "broccoli-merge-trees": "^3.0.0",
@@ -51,13 +50,10 @@
     "ember-cli-deploy-build": "^1.1.1",
     "ember-cli-deploy-git": "^1.3.3",
     "ember-cli-deploy-git-ci": "^1.0.1",
-    "ember-cli-eslint": "^5.1.0",
     "ember-cli-flash": "^1.7.2",
     "ember-cli-inject-live-reload": "^2.0.1",
     "ember-cli-sass": "^10.0.0",
     "ember-cli-sri": "^2.1.1",
-    "ember-cli-stylelint": "^2.2.0",
-    "ember-cli-template-lint": "^1.0.0-beta.3",
     "ember-cli-uglify": "^3.0.0",
     "ember-disable-prototype-extensions": "^1.1.3",
     "ember-export-application-global": "^2.0.0",
@@ -69,14 +65,9 @@
     "ember-sinon-qunit": "^3.4.0",
     "ember-source": "~3.13.0",
     "ember-test-selectors": "^2.1.0",
-    "eslint-plugin-ember": "^7.1.0",
-    "eslint-plugin-node": "^10.0.0",
     "loader.js": "^4.7.0",
     "qunit-dom": "^0.9.0",
-    "sass": "^1.23.0",
-    "stylelint": "^9.10.1",
-    "stylelint-config-standard": "^18.2.0",
-    "stylelint-order": "^2.1.0"
+    "sass": "^1.23.0"
   },
   "engines": {
     "node": "8.* || >= 10.*"
