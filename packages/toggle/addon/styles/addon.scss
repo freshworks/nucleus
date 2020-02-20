@@ -1,2 +1,107 @@
 @import "nucleus/variables";
-@import "./components/nucleus-toggle";
+
+$toggle-on: #2c5cc5;
+$toggle-off: #576c7d;
+
+// $toggle-btn-shadow: -2px 1px 2px 0px rgba(39, 49, 58, .24);
+$toggle-btn-shadow: 0 1px 8px rgba(0, 0, 0, .6);
+
+$large-variant: 24px;
+$medium-variant: 20px;
+$small-variant: 16px;
+
+.nucleus-toggle {
+  position: relative;
+  display: inline-block;
+
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 12px;
+    background: $toggle-off;
+
+    & .circle {
+      position: absolute;
+      top: -2px;
+      border-radius: 50%;
+      border: 1px solid $toggle-off;
+      background-color: $color-milk;
+      -webkit-transition: .3s;
+      transition: .3s;
+    }
+  }
+
+  &--small {
+    width: 28px;
+    height: 12px;
+
+    .slider .circle {
+      width: $small-variant;
+      height: $small-variant;
+    }
+
+    input:checked + .slider .circle {
+      -webkit-transform: translateX(12px);
+      -ms-transform: translateX(12px);
+      transform: translateX(12px);
+    }
+  }
+
+  &--medium {
+    width: 36px;
+    height: 16px;
+
+    .slider .circle {
+      width: $medium-variant;
+      height: $medium-variant;
+    }
+
+    input:checked + .slider .circle {
+      -webkit-transform: translateX(16px);
+      -ms-transform: translateX(16px);
+      transform: translateX(16px);
+    }
+  }
+
+  &--large {
+    width: 44px;
+    height: 20px;
+
+    .slider .circle {
+      width: $large-variant;
+      height: $large-variant;
+    }
+
+    input:checked + .slider .circle {
+      -webkit-transform: translateX(20px);
+      -ms-transform: translateX(20px);
+      transform: translateX(20px);
+    }
+  }
+
+  input:checked + .slider {
+    background-color: $toggle-on;
+  }
+
+  input:checked + .slider .circle {
+    content: '';
+    border: 1px solid $toggle-on;
+  }
+
+  input:focus + .slider::before {
+    box-shadow: $toggle-btn-shadow;
+  }
+
+  input {
+    display: none;
+  }
+
+  input:disabled + .slider {
+    opacity: .4;
+    cursor: not-allowed;
+  }
+}
