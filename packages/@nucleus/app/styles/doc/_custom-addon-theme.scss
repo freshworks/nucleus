@@ -1,6 +1,21 @@
 :root {
-  // --brand-primary: #12344d;
-  font-size: 15px;
+  --brand-primary: #2c5cc5;
+  // eslint-disable-next-line
+  font-size: 14px;
+}
+
+.docs-text-brand,
+h4 a.heading-anchor {
+  color: #2c5cc5 !important;
+  text-decoration: none;
+}
+
+.docs-shadow {
+  box-shadow: 0 2px 8px 0 rgba(166, 191, 217, .5);
+}
+
+.AddonDocs-DocsViewer-Nav {
+  border-color: #edf2f7;
 }
 
 .docs-list-reset .docs-capitalize {
@@ -9,12 +24,62 @@
   text-transform: uppercase;
 }
 
+.docs-viewer {
+  background-color: #f8fafc;
+}
+
+.docs-rounded {
+  margin: 1rem 0;
+}
+
+.docs-my-8 {
+  box-shadow: 0 2px 8px 0 rgba(166, 191, 217, .25);
+}
+
+.docs-rounded,
+.docs-bg-code-base {
+  background-color: #fff;
+}
+
+.docs-rounded .docs-p-4 {
+  border-bottom: 1px dashed #dbe6f0;
+}
+
+.docs-tracking-tight {
+  background-color: #fff;
+  border-color: #dbe6f0;
+  border-style: dashed;
+}
+
 .docs-no-padding {
   padding: 0 !important; // to prevent blank spaces while rendering logic templates
 }
 
 .docs-link {
   color: #2c5cc5; // used in demos
+}
+
+button.docs-text-grey-lighter {
+  color: #12344d;
+  padding: 4px;
+  background: #edf2f7;
+
+  &:hover {
+    color: #fff;
+    background-color: #12344d;
+    border-radius: 2px;
+  }
+}
+
+button.docs-text-grey-dark {
+  color: #26587c;
+  padding: 4px;
+
+  &:hover {
+    color: #fff;
+    background-color: #12344d;
+    border-radius: 2px;
+  }
 }
 
 button,
