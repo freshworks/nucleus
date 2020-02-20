@@ -10,6 +10,8 @@ $large-variant: 24px;
 $medium-variant: 20px;
 $small-variant: 16px;
 
+$transform: calc(100% - 4px);
+
 .nucleus-toggle {
   position: relative;
   display: inline-block;
@@ -43,12 +45,6 @@ $small-variant: 16px;
       width: $small-variant;
       height: $small-variant;
     }
-
-    input:checked + .slider .circle {
-      -webkit-transform: translateX(12px);
-      -ms-transform: translateX(12px);
-      transform: translateX(12px);
-    }
   }
 
   &--medium {
@@ -58,12 +54,6 @@ $small-variant: 16px;
     .slider .circle {
       width: $medium-variant;
       height: $medium-variant;
-    }
-
-    input:checked + .slider .circle {
-      -webkit-transform: translateX(16px);
-      -ms-transform: translateX(16px);
-      transform: translateX(16px);
     }
   }
 
@@ -75,12 +65,6 @@ $small-variant: 16px;
       width: $large-variant;
       height: $large-variant;
     }
-
-    input:checked + .slider .circle {
-      -webkit-transform: translateX(20px);
-      -ms-transform: translateX(20px);
-      transform: translateX(20px);
-    }
   }
 
   input:checked + .slider {
@@ -90,6 +74,9 @@ $small-variant: 16px;
   input:checked + .slider .circle {
     content: '';
     border: 1px solid $toggle-on;
+    -webkit-transform: translateX($transform);
+    -ms-transform: translateX($transform);
+    transform: translateX($transform);
   }
 
   input:focus + .slider::before {
