@@ -4,6 +4,16 @@
   font-size: 14px;
 }
 
+.docs-bg-brand {
+  background-color: #2c5cc5 !important;
+}
+
+.docs-text-jumbo-1 span {
+  opacity: .5;
+  font-size: 1.5rem;
+  margin-bottom: 16px;
+}
+
 .docs-text-brand,
 h4 a.heading-anchor {
   color: #2c5cc5 !important;
@@ -45,7 +55,7 @@ h4 a.heading-anchor {
   border-bottom: 1px dashed #dbe6f0;
 }
 
-.docs-tracking-tight {
+.docs-demo__snippets-nav.docs-tracking-tight {
   background-color: #fff;
   border-color: #dbe6f0;
   border-style: dashed;
