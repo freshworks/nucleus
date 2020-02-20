@@ -1,6 +1,6 @@
 {
   "name": "@freshworks/modal",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Modal component in Nucleus",
   "keywords": [
     "ember-addon"
@@ -21,9 +21,9 @@
     "test:dev": "COVERAGE=TRUE ember test --server -launch=false"
   },
   "dependencies": {
-    "@freshworks/button": "^0.3.0",
-    "@freshworks/core": "^0.1.5",
-    "@freshworks/icon": "^0.3.0",
+    "@freshworks/button": "^0.3.1",
+    "@freshworks/core": "^0.1.6",
+    "@freshworks/icon": "^0.3.1",
     "ember-cli-babel": "^7.11.1",
     "ember-cli-htmlbars": "^4.0.0",
     "ember-cli-sass": "^10.0.0",
