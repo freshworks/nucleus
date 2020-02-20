@@ -8,12 +8,11 @@ on:
 jobs:
   publish:
     name: publish
+    if: contains(github.head_commit.message, '[Release]')
     runs-on: macos-latest
     steps:
-    - name: Dump GitHub x
-      env:
-        GITHUB_CONTEXT: ${{ toJson(github) }}
-      run: echo "$GITHUB_CONTEXT"
+    - name: 'Validate PR'
+      run: echo "Invalid pr - ${{github.event.commits[0].message}}"
 
     - name: 'Checkout'
       uses: actions/checkout@v2
