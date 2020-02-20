@@ -11,8 +11,8 @@ jobs:
     runs-on: macos-latest
     steps:
     - name: 'Validate branch'
-      if: github.ref != 'yahoo'
-      run: echo "Invalid branch ${{github.ref}}"
+      if: github.base_ref != 'yahoo'
+      run: echo "Invalid branch ${{github.base_ref}}"
 
     - uses: actions/checkout@v2
 
