@@ -8,7 +8,6 @@ on:
 jobs:
   publish:
     name: publish
-    if: startsWith(github.event.commits[0].message, '[Release]')
     runs-on: macos-latest
     steps:
     - name: 'Validate PR'
