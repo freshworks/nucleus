@@ -26,10 +26,9 @@ import layout from "../templates/components/nucleus-toggle";
 @templateLayout(layout)
 @tagName('div')
 @classNames('nucleus-toggle')
-@classNameBindings(
-  '_sizeClass'
-)
-@attributeBindings('_disabled:disabled')
+@classNameBindings('_sizeClass')
+@attributeBindings('disabled:disabled')
+
 class NucleusToggle extends Component {
   @computed('size')
   get _sizeClass() {
@@ -38,8 +37,14 @@ class NucleusToggle extends Component {
   }
   
   @defaultProp
-  value = true;
+  value = false;
   @alias('value') checkedValue;
+
+  @defaultProp
+  size = 'medium';
+
+  @defaultProp
+  disabled = false;
 
   @action
   onValueChange(value) {

@@ -1,8 +1,15 @@
-<label for="nucleus-toggle" role="checkbox" tabindex="0" aria-checked={{checkedValue}}>
-  <input id="nucleus-toggle" type="checkbox" checked={{checkedValue}} onClick={{action "onValueChange" value="target.checked"}}>
-  <span class="slider">
+<label for="nucleus-toggle" role="checkbox">
+  <input
+    id="nucleus-toggle"
+    type="checkbox"
+    tabindex="0"
+    disabled={{disabled}}
+    checked={{checkedValue}}
+    onClick={{action "onValueChange" value="target.checked"}}
+  >
+  <div class="slider">
     <span class="circle">
       {{!-- {{svg-jar (if checkedValue 'nucleus-tick' 'nucleus-cross') aria-hidden=true role="img"}} --}}
     </span>
-  </span>
+  </div>
 </label>
