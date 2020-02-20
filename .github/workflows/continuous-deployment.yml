@@ -11,8 +11,8 @@ jobs:
     runs-on: macos-latest
     steps:
     - name: 'Validate branch'
-      if: github.base_ref != 'yahoo'
-      run: echo "${{github.event.commits[0].message}}"
+      if: startsWith(github.event.commits[0].message, '[Release]')
+      run: echo "test"
 
     - uses: actions/checkout@v2
 
