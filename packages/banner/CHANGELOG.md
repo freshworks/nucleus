@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.3.1 (2020-02-20)
+
+**Note:** Version bump only for package @freshworks/banner
+
+
+
+
+
 # [0.2.0](https://github.com/freshdesk/nucleus/compare/@freshworks/banner@0.1.7...@freshworks/banner@0.2.0) (2020-01-09)
 
 

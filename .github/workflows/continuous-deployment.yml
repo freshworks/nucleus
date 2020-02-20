@@ -15,21 +15,17 @@ jobs:
       run: echo "Invalid pr - ${{github.event.commits[0].message}}"
 
     - name: 'Checkout'
-      if: success()
       uses: actions/checkout@v2
 
     - name: Set Node.js 10.13.0
-      if: success()
       uses: actions/setup-node@master
       with:
         node-version: 10.13.0
 
     - name: Install dependencies
-      if: success()
       run: yarn install
 
     - name: Publish
-      if: success()
       run: yarn lerna:publish
       env:
         NODE_AUTH_TOKEN: ${{secrets.npm_token}}
