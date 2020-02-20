@@ -10,8 +10,10 @@ jobs:
     name: publish
     runs-on: macos-latest
     steps:
-    - name: 'Validate PR'
-      run: echo "Invalid prs - ${{github.event.commits[0].message}}"
+    - name: Dump GitHub x
+      env:
+        GITHUB_CONTEXT: ${{ toJson(github) }}
+      run: echo "$GITHUB_CONTEXT"
 
     - name: 'Checkout'
       uses: actions/checkout@v2
