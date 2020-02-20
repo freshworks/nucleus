@@ -10,12 +10,13 @@ jobs:
     name: publish
     runs-on: macos-latest
     steps:
-    - name: 'Validate branch'
+    - name: 'Validate PR'
       if: startsWith(github.event.commits[0].message, '[Release]')
-      run: echo "Invalid branch"
-
-    - uses: actions/checkout@v2
+      run: echo "Invalid pr - ${{github.event.commits[0].message}}"
+    
+    - name: 'Checkout'
       if: success()
+      uses: actions/checkout@v2
 
     - name: Set Node.js 10.13.0
       if: success()
