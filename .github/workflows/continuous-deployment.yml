@@ -11,6 +11,7 @@ jobs:
     runs-on: macos-latest
     steps:
     - uses: actions/checkout@v2
+      if: github.ref == 'yahoo'
 
     - name: Set Node.js 10.13.0
       uses: actions/setup-node@master

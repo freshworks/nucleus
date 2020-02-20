@@ -1,17 +1,13 @@
-name: Build
+name: Release
 
 on:
-  pull_request:
-    branches:
-    - master
-
   push:
     branches:
-    - master
+    - yahoo
 
 jobs:
-  Lint:
-    name: Lint
+  Release:
+    name: Release
     runs-on: macos-latest
     steps:
     - uses: actions/checkout@v2
@@ -24,22 +20,14 @@ jobs:
     - name: Install dependencies
       run: yarn
 
-    - name: Run lint check
-      run: yarn lint
+    - name: Version
+      run: yarn lerna:version
 
-  Test:
-    name: Test
-    runs-on: macos-latest
-    steps:
-    - uses: actions/checkout@v2
-
-    - name: Set Node.js 10.13.0
-      uses: actions/setup-node@master
+    - name: Create pull request
+      uses: gha-utilities/init-pull-request@v0.0.6
       with:
-        node-version: 10.13.0
-
-    - name: Install dependencies
-      run: yarn
-
-    - name: Run test suite
-      run: yarn test
+        pull_request_token: ${{ secrets.GIT_TOKEN }}
+        head: yahoo
+        base: master
+        title: 'chore: Release a new version'
+        body: 'New release merge request'
