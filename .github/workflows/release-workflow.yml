@@ -3,7 +3,7 @@ name: Release
 on:
   push:
     branches:
-    - release
+    - release-master
 
 jobs:
   Release:
@@ -27,7 +27,7 @@ jobs:
       uses: gha-utilities/init-pull-request@v0.0.6
       with:
         pull_request_token: ${{ secrets.GIT_TOKEN }}
-        head: release
+        head: release-master
         base: master
         title: 'chore: Release a new version'
         body: 'New release merge request'
