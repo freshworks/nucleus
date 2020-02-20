@@ -11,7 +11,7 @@ jobs:
     runs-on: macos-latest
     steps:
     - name: 'Validate PR'
-      run: echo "Invalid pr - ${{github.event.commits[0].message}}"
+      run: echo "Invalid prs - ${{github.event.commits[0].message}}"
 
     - name: 'Checkout'
       uses: actions/checkout@v2
