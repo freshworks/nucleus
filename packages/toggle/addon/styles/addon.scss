@@ -23,7 +23,7 @@ $transform: calc(100% - 4px);
     border-radius: 12px;
     background: $toggle-off;
 
-    & .circle {
+    &__circle {
       position: absolute;
       top: -2px;
       border-radius: 50%;
@@ -31,7 +31,18 @@ $transform: calc(100% - 4px);
       background-color: $color-milk;
       transition: .3s;
       -webkit-transition: .3s;
-      box-shadow: -2px 1px 2px 0 rgba(39, 49, 58, .3);
+      box-shadow: 0 1px 2px 0 rgba(39, 49, 58, .3);
+
+      &--icon {
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        margin: auto;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+      }
     }
   }
 
@@ -39,7 +50,7 @@ $transform: calc(100% - 4px);
     width: 28px;
     height: 12px;
 
-    .slider .circle {
+    .slider__circle {
       width: $small-variant;
       height: $small-variant;
     }
@@ -49,7 +60,7 @@ $transform: calc(100% - 4px);
     width: 36px;
     height: 16px;
 
-    .slider .circle {
+    .slider__circle {
       width: $medium-variant;
       height: $medium-variant;
     }
@@ -59,7 +70,7 @@ $transform: calc(100% - 4px);
     width: 44px;
     height: 20px;
 
-    .slider .circle {
+    .slider__circle {
       width: $large-variant;
       height: $large-variant;
     }
@@ -67,9 +78,16 @@ $transform: calc(100% - 4px);
 
   input:checked + .slider {
     background-color: $toggle-on;
+
+    &__circle {
+      border: 1px solid $toggle-on;
+      transform: translateX($transform);
+      -ms-transform: translateX($transform);
+      -webkit-transform: translateX($transform);
+    }
   }
 
-  input:checked + .slider .circle {
+  input:checked + .slider .slider__circle {
     border: 1px solid $toggle-on;
     transform: translateX($transform);
     -ms-transform: translateX($transform);

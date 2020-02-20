@@ -8,8 +8,8 @@
     onClick={{action "onValueChange" value="target.checked"}}
   >
   <div class="slider">
-    <span class="circle">
-      {{!-- {{svg-jar (if checkedValue 'nucleus-tick' 'nucleus-cross') aria-hidden=true role="img"}} --}}
+    <span class="slider__circle">
+      {{svg-jar (if checkedValue "nucleus-tick" "nucleus-cross") class="slider__circle--icon" aria-hidden=true role="img"}}
     </span>
   </div>
 </label>
