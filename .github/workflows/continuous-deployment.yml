@@ -12,7 +12,7 @@ jobs:
     steps:
     - name: 'Validate branch'
       if: github.base_ref != 'yahoo'
-      run: echo "${{ toJson(github) }}"
+      run: echo "${{github.event.commits[0].message}}"
 
     - uses: actions/checkout@v2
 
