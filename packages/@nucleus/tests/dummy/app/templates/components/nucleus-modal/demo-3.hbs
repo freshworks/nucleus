@@ -5,7 +5,9 @@
   {{#demo.example name="modal-demo-3.hbs" class="docs-no-padding"}}
     {{#nucleus-slider
       open=isModal3
-      onSubmit=(action "onSubmit" "Slider submit action") as |modal|}}
+      onSubmit=(action "onSubmit" "Slider submit action")
+      onClose=(action (mut isModal3) false)
+      as |modal|}}
       {{modal.header
         title="Title"
         icon="rewards"

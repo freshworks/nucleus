@@ -9,17 +9,13 @@ export default Component.extend({
   isModal1: false,
   actions: {
     onSubmit(value) {
-      get(this, 'flashMessages').success('Modal action complete.');
       return new RSVP.Promise((resolve) => {
         let wait = setTimeout(() => {
           clearTimeout(wait);
+          get(this, 'flashMessages').success('Modal action complete.');
           resolve(value);
         }, 1000);
       });
-    },
-    onClose() {
-      // this.set('isModal1', false);
-      get(this, 'flashMessages').success('Modal closed.');
     }
   }
 });

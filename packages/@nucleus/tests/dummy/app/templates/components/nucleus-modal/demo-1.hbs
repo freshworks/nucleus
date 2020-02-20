@@ -7,7 +7,7 @@
       size="large"
       open=isModal1
       onSubmit=(action "onSubmit" "Opened!")
-      onClose=(action "onClose") as |modal|}}
+      onClose=(action (mut isModal1) false) as |modal|}}
       {{modal.header
         title="Title"
         icon="rewards"

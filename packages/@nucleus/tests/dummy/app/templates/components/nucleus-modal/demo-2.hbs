@@ -8,6 +8,7 @@
       isDismissible=false
       type="danger"
       onSubmit=(action "onSubmit" "Submit action called")
+      onClose=(action (mut isModal2) false)
       title="Account cancellation"}}
       <p>Your account will be cancelled in <b>7 days</b> on <b>July 4, 2019</b>. Your account and data will be irrevocably deleted two weeks later.</p>
     {{/nucleus-confirm-dialog}}
