@@ -43,5 +43,5 @@ Contribution guidelines
 License
 ------------------------------------------------------------------------------
 
-This project is licensed under the [MIT License](LICENSE.md). Test sss
+This project is licensed under the [MIT License](LICENSE.md). Test ssss
 
