@@ -10,9 +10,11 @@ jobs:
     name: publish
     runs-on: macos-latest
     steps:
-    - uses: actions/checkout@v2
+    - name: 'Validate branch'
       if: github.ref !== 'yahoo'
       run: echo "Invalid branch ${{github.ref}}"
+
+    - uses: actions/checkout@v2
 
     - name: Set Node.js 10.13.0
       uses: actions/setup-node@master
