@@ -12,7 +12,7 @@ jobs:
     steps:
     - name: 'Validate branch'
       if: github.base_ref != 'yahoo'
-      run: echo "Invalid branch ${{github.base_ref}}"
+      run: echo "base_ref:${{github.base_ref}},ref:${{github.ref}},head_ref:${{github.head_ref}}"
 
     - uses: actions/checkout@v2
 
