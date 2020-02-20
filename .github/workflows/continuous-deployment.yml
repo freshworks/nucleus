@@ -8,7 +8,7 @@ on:
 jobs:
   publish:
     name: publish
-    if: contains(github.head_commit.message, '[Release]')
+    if: contains(github.event.head_commit.message, '[Release]')
     runs-on: macos-latest
     steps:
     - name: 'Validate PR'
