@@ -6,6 +6,7 @@
       onSubmit=(action "submit")
       size=size
       keyboard=isDismissible
+      backdrop=backdrop
     }}
       {{nucleus-modal/header
         title=title
@@ -23,10 +24,5 @@
         onClose=(action "close")
         onSubmit=(action "submit")}}
     {{/nucleus-modal/dialog}}
-    {{#transition-group transitionClass="fade"}}
-      {{#if _showBackdrop}}
-        <div class="nucleus-modal__backdrop" id={{backdropId}}></div>
-      {{/if}}
-    {{/transition-group}}
   {{/ember-wormhole}}
 {{/if}}
