@@ -8,11 +8,11 @@ on:
 jobs:
   publish:
     name: publish
-    # if: contains(github.head_commit.message, '[Release]')
+    if: contains(github.head_commit.message, '[Release]')
     runs-on: macos-latest
     steps:
     - name: 'Validate PR'
-      run: echo "Invalid pr - ${{github.head_commit.message}}"
+      run: echo "Invalid pr - ${{github.event.head_commit.message}}"
 
     - name: 'Checkout'
       uses: actions/checkout@v2
