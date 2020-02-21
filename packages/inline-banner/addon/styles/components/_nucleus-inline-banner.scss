@@ -31,11 +31,6 @@
     background-color: $bg-warning;
     border: 1px solid $border-warning-color;
 
-    .nucleus-inline-banner__icon {
-      background-color: $bg-warning;
-      color: $text-warning;
-    }
-
     .nucleus-inline-banner__content {
       color: $text-default;
       border-left-color: $border-warning-color;
@@ -45,11 +40,6 @@
   &--danger {
     background-color: $bg-danger;
     border: 1px solid $border-danger-color;
-
-    .nucleus-inline-banner__icon {
-      background-color: $bg-danger;
-      color: $text-danger;
-    }
 
     .nucleus-inline-banner__content {
       color: $text-default;
@@ -61,11 +51,6 @@
     background-color: $bg-info;
     border: 1px solid $border-info-color;
 
-    .nucleus-inline-banner__icon {
-      background-color: $bg-info;
-      color: $text-info;
-    }
-
     .nucleus-inline-banner__content {
       color: $text-default;
       border-left-color: $border-info-color;
@@ -75,11 +60,6 @@
   &--success {
     background-color: $bg-success;
     border: 1px solid $border-success-color;
-
-    .nucleus-inline-banner__icon {
-      background-color: $bg-success;
-      color: $text-success;
-    }
 
     .nucleus-inline-banner__content {
       color: $text-default;

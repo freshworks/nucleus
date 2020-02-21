@@ -5,7 +5,7 @@ import Component from '@ember/component';
 import { set, computed } from '@ember/object';
 import { isBlank } from '@ember/utils';
 import layout from '../../templates/components/nucleus-modal/dialog';
-import scroll from "../../mixins/scroll";
+import EventHandler from "../../utils/event-handler";
 
 /**
   Dialog Usage:
@@ -18,7 +18,7 @@ import scroll from "../../mixins/scroll";
 @classNames('nucleus-modal')
 @classNameBindings('positionClass')
 @attributeBindings('tabindex', 'ariaLabelledby:aria-labelledby', 'ariaModal:aria-modal')
-class Dialog extends Component.extend(scroll) {
+class Dialog extends Component {
   ariaRole = 'dialog';
 
   @readOnly('titleId')
@@ -151,6 +151,22 @@ class Dialog extends Component.extend(scroll) {
     }
   }
 
+  /**
+  * attachEventHandlers for scrolls
+  *
+  * @method attachEventHandlers
+  * @private
+  *
+  */
+  attachEventHandlers() {
+    let _scrollCallback = EventHandler.bindEvent({
+      eventName: 'scroll',
+      callback: this.scrolled.bind(this), 
+      element: '.nucleus-modal__body'
+    });
+    set(this, '_scrollCallback', _scrollCallback);
+  }
+
   scrolled() {
     const modalNode = this.get('element');
     if(modalNode) {
@@ -167,12 +183,16 @@ class Dialog extends Component.extend(scroll) {
   didInsertElement() {
     super.didInsertElement(...arguments);
     this.getOrSetTitleId();
-    this.bindScrolling('.nucleus-modal__body');
+    this.attachEventHandlers();
   }
 
   willDestroyElement() {
     super.willDestroyElement(...arguments);
-    this.unbindScrolling();
+    EventHandler.unbindEvent({
+      eventName: 'scroll',
+      callback: this._scrollCallback, 
+      element: '.nucleus-modal__body'
+    });
   }
 }
 
