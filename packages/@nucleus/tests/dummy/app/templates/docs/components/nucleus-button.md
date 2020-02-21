@@ -76,7 +76,9 @@ The `iconSize` property specifies the size of the icon. If the iconSize is not m
 
 {{#docs-demo as |demo|}}
   {{#demo.example name='nucleus-button-icon.hbs'}}
-    {{nucleus-button icon="nucleus-circle-check" label="Click here" variant="danger"}}
+    {{nucleus-button icon="nucleus-circle-help" label="Click here" variant="primary"}}
+    {{nucleus-button icon="nucleus-circle-check" label="Click here" variant="secondary"}}
+    {{nucleus-button icon="nucleus-circle-minus" label="Click here" variant="danger"}}
   {{/demo.example}}
   {{demo.snippet 'nucleus-button-icon.hbs'}}
 {{/docs-demo}}
