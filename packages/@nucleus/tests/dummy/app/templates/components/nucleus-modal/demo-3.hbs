@@ -1,13 +1,13 @@
 {{#docs-demo as |demo|}}
   {{#demo.example name="modal-demo-3-helper.hbs"}}
-    <button onclick={{action (mut isModal3 true)}} class="docs-btn">
-      Click here to open slider
-    </button>
+    {{nucleus-button variant="secondary" onClick=(action (mut isModal3) true) label="Open slider"}}
   {{/demo.example}}
   {{#demo.example name="modal-demo-3.hbs" class="docs-no-padding"}}
     {{#nucleus-slider
       open=isModal3
-      onSubmit=(action "onSubmit" "Slider submit action") as |modal|}}
+      onSubmit=(action "onSubmit" "Slider submit action")
+      onClose=(action (mut isModal3) false)
+      as |modal|}}
       {{modal.header
         title="Title"
         icon="rewards"

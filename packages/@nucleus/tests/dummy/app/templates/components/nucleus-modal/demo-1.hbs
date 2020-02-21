@@ -1,15 +1,13 @@
 {{#docs-demo as |demo|}}
   {{#demo.example name="modal-demo-1-helper.hbs"}}
-    <button onclick={{action (mut isModal1 true)}} class="docs-btn">
-      Click here to open simple modal
-    </button>
+    {{nucleus-button variant="secondary" onClick=(action (mut isModal1) true) label="Open simple modal"}}
   {{/demo.example}}
   {{#demo.example name="modal-demo-1.hbs" class="docs-no-padding"}}
     {{#nucleus-modal
       size="large"
       open=isModal1
       onSubmit=(action "onSubmit" "Opened!")
-      onClose=(action "onClose") as |modal|}}
+      onClose=(action (mut isModal1) false) as |modal|}}
       {{modal.header
         title="Title"
         icon="rewards"
