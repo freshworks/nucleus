@@ -3,8 +3,8 @@ import Component from '@ember/component';
 
 export default Component.extend({
   actions: {
-    onClose(value) {
-      alert(value);
+    onClose() {
+      // Perform some action here
     }
   }
 });

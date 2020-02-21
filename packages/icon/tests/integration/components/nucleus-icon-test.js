@@ -26,6 +26,12 @@ module('Integration | Component | nucleus-icon', function(hooks) {
     assert.dom('svg').hasClass('nucleus-icon--mini', 'icon has correct size class');
   });
 
+  test('it has correct variant', async function(assert) {
+    await render(hbs`{{nucleus-icon name="nucleus-cross" variant="danger"}}`);
+
+    assert.dom('svg').hasClass('nucleus-icon--danger', 'icon has correct variant class');
+  });
+
   test('it passes a11y tests', async function(assert) {
     await render(hbs`{{nucleus-icon name="nucleus-cross"}}`);
    

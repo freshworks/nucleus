@@ -1,17 +1,9 @@
 {{#docs-demo as |demo|}}
   {{#demo.example name="nucleus-banner.hbs"}}
-    <button onclick={{action "addItem" "success"}} class="docs-btn">
-      Success
-    </button>
-    <button onclick={{action "addItem" "danger"}} class="docs-btn">
-      Danger
-    </button>
-    <button onclick={{action "addItemWithLink" "info"}} class="docs-btn">
-      Info [with link]
-    </button>
-    <button onclick={{action "addItem" "warning"}} class="docs-btn">
-      Warning
-    </button>
+    {{nucleus-button variant="secondary" label="Success banner" onClick=(action "addItem" "success")}}
+    {{nucleus-button variant="secondary" label="Failure banner" onClick=(action "addItem" "danger")}}
+    {{nucleus-button variant="secondary" label="Info banner" onClick=(action "addItem" "info")}}
+    {{nucleus-button variant="secondary" label="Warning banner" onClick=(action "addItem" "warning")}}
   {{/demo.example}}
   {{demo.snippet "nucleus-banner.js"}}
 {{/docs-demo}}

@@ -10,19 +10,13 @@ Best use of modals is to get the task quickly done and may also support in compl
 
 #### 1. Simple Modal
 
-![Modal screenshots](../../images/modal.png)
-
 {{nucleus-modal/demo-1}}
 
 #### 2. Confirm Dialog
 
-![Modal screenshots](../../images/confirm-dialog.png)
-
 {{nucleus-modal/demo-2}}
 
 #### 3. Slider
-
-![Modal screenshots](../../images/slider.png)
 
 {{nucleus-modal/demo-3}}
 
