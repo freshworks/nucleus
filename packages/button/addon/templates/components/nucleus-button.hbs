@@ -1,11 +1,7 @@
 {{#if icon}}
-  {{#if iconOnly}}
+  <span class="iconHolder {{unless iconOnly "active"}}">
     {{nucleus-icon name=icon size=_iconSize}}
-  {{else}}
-    <span class="icon-holder">
-      {{nucleus-icon name=icon size=_iconSize}}
-    </span>
-  {{/if}}
+  </span>
 {{/if}}
 {{#if (and _isLoading _isShowLoading)}}
   <div data-test-button-loader class="circle-loader {{if _isLoadingComplete "load-complete"}}">
