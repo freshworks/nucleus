@@ -80,7 +80,7 @@ class NucleusButton extends Component {
   @computed('iconSize', 'size')
   get _iconSize() {
     let iconSize = this.get('iconSize');
-    let defaultSize = this.get('size') ? this.get('size') : 'small';
+    let defaultSize = this.get('size') ? this.get('size') : 'medium';
     return iconSize ? iconSize : defaultSize;
   }
 
