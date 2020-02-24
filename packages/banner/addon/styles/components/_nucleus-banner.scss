@@ -34,10 +34,11 @@
       position: absolute;
       top: 40px;
       right: 0;
-      width: 400px;
+      max-width: 400px;
+      width: calc(100vw - 16px);
       background: #fff;
       box-shadow: 0 2px 8px 0 rgba(0, 0, 0, .15);
-      padding: 8px;
+      padding: 8px 8px 0;
       border-radius: 4px;
       max-height: 400px;
       overflow-y: auto;
@@ -45,7 +46,7 @@
       ul.nucleus-banners {
         list-style: none;
         padding: 0;
-        margin: 8px 0 0;
+        margin: 8px 0;
       }
     }
   }
@@ -117,6 +118,7 @@
   @media screen and (min-width: $mobile-screen-min-width) and (max-width: $mobile-screen-max-width) {
     &__main {
       overflow-x: auto;
+      padding-left: 8px;
     }
   }
 }
