@@ -1,4 +1,12 @@
-{{#if icon}}{{nucleus-icon name=icon size=_iconSize}}{{/if}}
+{{#if icon}}
+  {{#if iconOnly}}
+    {{nucleus-icon name=icon size=_iconSize}}
+  {{else}}
+    <span class="icon-holder">
+      {{nucleus-icon name=icon size=_iconSize}}
+    </span>
+  {{/if}}
+{{/if}}
 {{#if (and _isLoading _isShowLoading)}}
   <div data-test-button-loader class="circle-loader {{if _isLoadingComplete "load-complete"}}">
     <div class="checkmark draw"></div>
