@@ -1,11 +1,13 @@
-{{#if icon}}{{nucleus-icon name=icon size=_iconSize}}{{/if}}
-{{#if (and _isLoading _isShowLoading)}}
-  <div data-test-button-loader class="circle-loader {{if _isLoadingComplete "load-complete"}}">
-    <div class="checkmark draw"></div>
-  </div>
-{{else}}
-  {{_buttonText}}
-{{/if}}
-{{#if hasBlock}}
-  {{yield}}
-{{/if}}
+<div class="nucleus-button__content">
+  {{#if icon}}{{nucleus-icon name=icon size=_iconSize}}{{/if}}
+  {{#if (and _isLoading _isShowLoading)}}
+    <div data-test-button-loader class="circle-loader {{if _isLoadingComplete "load-complete"}}">
+      <div class="checkmark draw"></div>
+    </div>
+  {{else}}
+    {{_buttonText}}
+  {{/if}}
+  {{#if hasBlock}}
+    {{yield}}
+  {{/if}}
+</div>

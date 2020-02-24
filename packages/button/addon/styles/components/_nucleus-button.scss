@@ -41,6 +41,13 @@ $active-box-shadow: inset 0 0 4px 0 rgba(0, 0, 0, .25);
   height: 32px;
   min-width: 80px;
 
+  & .nucleus-button__content {
+    width: 100%;
+    display: inherit;
+    align-items: inherit;
+    justify-content: inherit;
+  }
+
   &:focus {
     border: 1px solid $color-azure-800;
     box-shadow: 0 0 0 1px $color-azure-800;
