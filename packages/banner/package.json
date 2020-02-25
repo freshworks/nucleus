@@ -1,6 +1,6 @@
 {
   "name": "@freshworks/banner",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "description": "Banner component in Nucleus",
   "keywords": [
     "ember-addon"
@@ -21,9 +21,9 @@
     "test:dev": "ember test --server -launch=false"
   },
   "dependencies": {
-    "@freshworks/button": "^0.5.1",
-    "@freshworks/core": "^0.1.10",
-    "@freshworks/icon": "^0.5.1",
+    "@freshworks/button": "^0.5.2",
+    "@freshworks/core": "^0.1.11",
+    "@freshworks/icon": "^0.5.2",
     "ember-cli-babel": "^7.11.1",
     "ember-cli-htmlbars": "^4.0.0",
     "ember-cli-sass": "^10.0.0",
