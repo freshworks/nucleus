@@ -217,7 +217,6 @@ class Modal extends Component {
       return;
     }
     setProperties(this, {
-      open: false,
       isOpen: false,
       _isOpen: false
     });

@@ -3,7 +3,7 @@ import { layout as templateLayout } from '@ember-decorators/component';
 import { inject } from '@ember/service';
 import Component from '@ember/component';
 import layout from '../templates/components/nucleus-toast-message';
-import { ICON_MAP } from '../constants/nucleus-toast-message';
+import { ICON_MAP, VARIANT_MAP } from '../constants/nucleus-toast-message';
 
 /**
   __Usage:__
@@ -38,7 +38,23 @@ class NucleusToastMessage extends Component {
   @defaultProp
   position = 'top center';
 
+  /**
+  * Mapper to get the icon name from flashmessage.type
+  *
+  * @field _iconMap
+  * @type string
+  * @private
+  */
   _iconMap = ICON_MAP;
+
+  /**
+  * Mapper to get the icon variant from flashmessage.type
+  *
+  * @field _variantMap
+  * @type string
+  * @private
+  */
+  _variantMap = VARIANT_MAP;
 }
 
 export default NucleusToastMessage;
