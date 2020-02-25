@@ -5,4 +5,12 @@ const BUTTON_STATE = {
   REJECTED: "rejected"
 };
 
-export { BUTTON_STATE };
+const ICON_VARIANT_MAP = {
+  primary: "secondary",
+  secondary: "primary",
+  danger: "secondary",
+  text: "primary",
+  icon: "info"
+}
+
+export { BUTTON_STATE, ICON_VARIANT_MAP };
