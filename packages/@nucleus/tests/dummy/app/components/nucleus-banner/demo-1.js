@@ -10,8 +10,7 @@ export default Component.extend({
       const nucleusBanner = get(this, 'nucleusBanner');
       nucleusBanner.add({
         title: 'Lorem ipsum dolor sit amet chrisy, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-        type,
-        isDismissible: true
+        type
       });
     },
     addItemWithLink(type) {
