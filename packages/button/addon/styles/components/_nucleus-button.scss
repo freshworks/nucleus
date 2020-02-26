@@ -24,7 +24,8 @@ $active-box-shadow: inset 0 0 4px 0 rgba(0, 0, 0, .25);
 
 .nucleus-button {
   font-size: $font-size-14;
-  line-height: 1;
+  vertical-align: middle;
+  line-height: 1.2;
   padding: 6px 12px;
   border: 1px solid transparent;
   border-radius: 4px;
@@ -41,11 +42,12 @@ $active-box-shadow: inset 0 0 4px 0 rgba(0, 0, 0, .25);
   height: 32px;
   min-width: 80px;
 
-  & .nucleus-button__content {
-    width: 100%;
+  &__icon {
     display: inherit;
-    align-items: inherit;
-    justify-content: inherit;
+
+    &.nucleus--active {
+      margin-right: 2px;
+    }
   }
 
   &:focus {
@@ -146,6 +148,7 @@ $active-box-shadow: inset 0 0 4px 0 rgba(0, 0, 0, .25);
     padding: 2px 2px;
     font-size: $font-size-10;
     min-width: 16px;
+    line-height: 1;
     height: 16px;
   }
 
