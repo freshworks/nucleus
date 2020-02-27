@@ -368,7 +368,7 @@ class NucleusButton extends Component {
   * @computed _iconClass
   * @private
   */
-  @computed('iconButton')
+  @computed('iconOnly')
   get _iconClass() {
     let iconButton = this.get('iconOnly');
     return iconButton ? `nucleus-button--iconOnly` : null;
