@@ -1,5 +1,15 @@
-<div class="nucleus-toggle">
-  <label>
-    <input type="checkbox" data-toggle="toggle">
-  </label>
-</div>
+<label for="nucleus-toggle" role="checkbox">
+  <input
+    id="nucleus-toggle"
+    type="checkbox"
+    tabindex="0"
+    disabled={{disabled}}
+    checked={{checkedValue}}
+    onClick={{action "onValueChange" value="target.checked"}}
+  >
+  <div class="slider">
+    <span class="slider__circle">
+      {{svg-jar (if checkedValue "nucleus-tick" "nucleus-cross") class="slider__circle--icon" aria-hidden=true role="img"}}
+    </span>
+  </div>
+</label>
