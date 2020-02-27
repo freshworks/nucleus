@@ -1,6 +1,6 @@
 {
   "name": "@freshworks/toggle",
-  "version": "0.1.0",
+  "version": "0.5.0",
   "description": "Toggle component in Nucleus",
   "keywords": [
     "ember-addon"
@@ -21,14 +21,15 @@
     "test:dev": "COVERAGE=TRUE ember test --server -launch=false"
   },
   "dependencies": {
-    "@freshworks/core": "^0.1.5",
+    "@freshworks/core": "^0.1.9",
     "ember-cli-babel": "^7.11.1",
     "ember-cli-htmlbars": "^4.0.0",
     "ember-cli-sass": "^10.0.0",
     "ember-css-transitions": "^0.1.16",
     "ember-decorators": "^6.1.1",
     "ember-decorators-polyfill": "shibulijack-fd/ember-decorators-polyfill#master",
-    "ember-svg-jar": "^2.1.0"
+    "ember-svg-jar": "^2.1.0",
+    "ember-truth-helpers": "^2.1.0"
   },
   "devDependencies": {
     "@ember/optional-features": "^1.0.0",

@@ -11,7 +11,7 @@ Description
 #### 1. Simplest use case
 {{#docs-demo as |demo|}}
   {{#demo.example name="nucleus-toggle.hbs"}}
-    {{nucleus-toggle}}
+    {{nucleus-toggle size="small"}}
   {{/demo.example}}
   {{demo.snippet 'nucleus-toggle.hbs'}}
 {{/docs-demo}}
