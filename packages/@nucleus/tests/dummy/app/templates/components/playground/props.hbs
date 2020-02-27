@@ -1,0 +1,41 @@
+{{#each properties as |property|}}
+  <div class="item">
+    <label for="{{property.name}}" class="item--label">
+      {{property.name}}
+    </label>
+
+    {{!-- select box --}}
+    {{#if property.select}}
+      <select
+        onchange={{action 'handleChange' property}}
+        name="{{property.name}}"
+        id="{{property.name}}"
+        value="{{property.value}}">
+          {{#each property.types as |type|}}
+            <option value="{{type}}">{{type}}</option>
+          {{/each}}
+      </select>
+    {{/if}}
+
+    {{!-- input --}}
+    {{#if property.input}}
+      <input
+        value="{{property.value}}"
+        id="{{property.name}}"
+        name="{{property.name}}"
+        oninput={{action 'handleChange' property}}>
+    {{/if}}
+
+    {{!-- toggle --}}
+     {{#if property.toggle}}
+      <input
+        type="checkbox"
+        value="{{property.value}}"
+        id="{{property.name}}"
+        name="{{property.name}}"
+        oninput={{action 'handleChange' property}}>
+    {{/if}}
+
+  </div>
+
+{{/each}}

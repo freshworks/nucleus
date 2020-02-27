@@ -1,0 +1,21 @@
+// icon tiles
+.icon-container {
+  display: flex;
+  flex-wrap: wrap;
+
+  .icon {
+    text-align: center;
+    padding: 10px 5px 5px;
+    margin: 5px;
+    width: 150px;
+    cursor: pointer;
+
+    &:hover {
+      background: #dae1e7;
+    }
+
+    &--text {
+      padding: 5px 0;
+    }
+  }
+}

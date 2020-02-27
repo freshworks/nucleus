@@ -1,0 +1,15 @@
+{{!-- Demo with variants --}}
+{{#playground/container as |playground|}}
+  {{!-- component --}}
+  {{#playground.component}}
+    {{nucleus-icon name="nucleus-circle-help" size=size.value variant=variant.value}}
+  {{/playground.component}}
+
+  {{!-- props --}}
+  {{#playground.props}}
+    {{playground/props onchange=(action 'onchange') properties=properties}}
+  {{/playground.props}}
+
+  {{!-- code --}}
+  {{playground.codeblock code=code}}
+{{/playground/container}}

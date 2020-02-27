@@ -1,0 +1,19 @@
+{{!-- Demo with variants --}}
+{{#playground/container as |playground|}}
+  {{!-- component --}}
+  {{#playground.component}}
+    {{nucleus-inline-banner
+      type=type.value
+      title=title.value
+      isDismissible=isDismissible.value
+    }}
+  {{/playground.component}}
+
+  {{!-- props --}}
+  {{#playground.props}}
+    {{playground/props onchange=(action 'onchange') properties=properties}}
+  {{/playground.props}}
+
+  {{!-- code --}}
+  {{playground.codeblock code=code}}
+{{/playground/container}}

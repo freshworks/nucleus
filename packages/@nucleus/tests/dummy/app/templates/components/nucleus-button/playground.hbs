@@ -1,0 +1,25 @@
+{{!-- Demo with variants --}}
+{{#playground/container as |playground|}}
+
+  {{!-- component --}}
+  {{#playground.component}}
+    {{nucleus-button
+      label=label.value
+      variant=type.value
+      size=size.value
+      block=block.value
+      disabled=disabled.value
+      icon=icon.value
+      iconSize=iconSize.value
+      iconOnly=iconOnly.value
+    }}
+  {{/playground.component}}
+
+  {{!-- props --}}
+  {{#playground.props}}
+    {{playground/props onchange=(action 'onchange') properties=properties}}
+  {{/playground.props}}
+
+  {{!-- code --}}
+  {{playground.codeblock code=code}}
+{{/playground/container}}

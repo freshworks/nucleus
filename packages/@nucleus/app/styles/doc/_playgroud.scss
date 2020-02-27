@@ -1,0 +1,45 @@
+$playground-border-color: #dae1e7;
+
+.playground-container {
+  display: flex;
+  border-bottom: 1px dotted $playground-border-color;
+  padding: 10px;
+  justify-content: space-around;
+
+  &--component {
+    align-self: center;
+    width: 50%;
+    text-align: center;
+    padding-right: 10px;
+  }
+
+  &--props {
+    padding-left: 10px;
+    border-left: 1px dotted $playground-border-color;
+    max-height: 25vh;
+    width: 50%;
+    overflow-y: auto;
+
+    .item {
+      margin: 10px;
+
+      &--label {
+        display: block;
+        padding-bottom: 5px;
+        font-weight: 700;
+      }
+    }
+  }
+
+  &--code {
+    position: relative;
+    padding: 20px;
+  }
+
+  &--code-copy {
+    position: absolute;
+    right: 0;
+    bottom: -1px;
+    padding: 0;
+  }
+}
