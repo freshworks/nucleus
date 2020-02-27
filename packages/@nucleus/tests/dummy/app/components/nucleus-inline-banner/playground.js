@@ -57,7 +57,7 @@ class Playground extends Component {
     });
 
     set(this, 'code', generateCode({
-      component: 'nucleus-icon',
+      component: 'nucleus-inline-banner',
       attributes,
       multiline:true
     }));

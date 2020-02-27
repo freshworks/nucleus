@@ -11,29 +11,32 @@
         name="{{property.name}}"
         id="{{property.name}}"
         value="{{property.value}}">
-          {{#each property.types as |type|}}
-            <option value="{{type}}">{{type}}</option>
-          {{/each}}
+        {{#each property.types as |type|}}
+          <option value="{{type}}">{{type}}</option>
+        {{/each}}
       </select>
     {{/if}}
 
     {{!-- input --}}
     {{#if property.input}}
-      <input
+      <Input
+        @type="text"
         value="{{property.value}}"
         id="{{property.name}}"
         name="{{property.name}}"
-        oninput={{action 'handleChange' property}}>
+        {{on "input" (fn this.handleChange property)}}
+      />
     {{/if}}
 
     {{!-- toggle --}}
-     {{#if property.toggle}}
-      <input
-        type="checkbox"
-        value="{{property.value}}"
-        id="{{property.name}}"
-        name="{{property.name}}"
-        oninput={{action 'handleChange' property}}>
+    {{#if property.toggle}}
+      <Input
+        @type="checkbox"
+        id={{property.name}}
+        name={{property.name}}
+        @checked={{property.value}}
+        {{on "change" (fn this.handleChange property)}}
+      />
     {{/if}}
 
   </div>

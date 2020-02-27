@@ -4,10 +4,7 @@ import { action } from '@ember/object';
 class Props extends Component {
   @action
   handleChange(property, e) {
-    let value = e.target.value;
-    if (property.toggle) {
-      value = (value === 'false') ? true : false;
-    }
+    let value = (property.toggle) ? e.target.checked : e.target.value;
     this.onchange(property.name, value, e);
   }
 
