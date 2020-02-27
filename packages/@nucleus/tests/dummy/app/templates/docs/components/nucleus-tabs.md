@@ -14,24 +14,114 @@ It's easy for the user to quickly distinguish which tab belongs to which content
 
 {{#docs-demo as |demo|}}
   {{#demo.example name="nucleus-tabs.hbs"}}
-    {{nucleus-tabs}}
+    {{#nucleus-tabs 
+        description="site-navigation" 
+        selected="I want apples" 
+        variant="default" as |tabs| }}
+      {{#tabs.panel props=tabs.props name="I want apples" }}
+        <div>This is apples section</div>
+      {{/tabs.panel}}
+      {{#tabs.panel props=tabs.props name="I want oranges" }}
+        <div>This is oranges section</div>
+      {{/tabs.panel}}
+      {{#tabs.panel props=tabs.props name="I want grapes" }}
+        <div>This is grapes section</div>
+      {{/tabs.panel}}
+    {{/nucleus-tabs}}
   {{/demo.example}}
   {{demo.snippet 'nucleus-tabs.hbs'}}
+{{/docs-demo}}
+
+#### 2. Custom actions on changing tab
+
+{{nucleus-tabs/demo-1}}
+
+#### 3. Disabled tab
+
+{{#docs-demo as |demo|}}
+  {{#demo.example name="nucleus-tabs-3.hbs"}}
+    {{#nucleus-tabs 
+        description="site-navigation" 
+        selected="I want apples" 
+        variant="default" as |tabs| }}
+      {{#tabs.panel props=tabs.props name="I want apples" }}
+        <div>This is apples section</div>
+      {{/tabs.panel}}
+      {{#tabs.panel props=tabs.props name="I want oranges" }}
+        <div>This is oranges section</div>
+      {{/tabs.panel}}
+      {{#tabs.panel props=tabs.props name="I want grapes" disabled="true" }}
+        <div>This is grapes section</div>
+      {{/tabs.panel}}
+    {{/nucleus-tabs}}
+  {{/demo.example}}
+  {{demo.snippet 'nucleus-tabs-3.hbs'}}
+{{/docs-demo}}
+
+## Styles
+
+#### 1. Default 
+
+{{#docs-demo as |demo|}}
+  {{#demo.example name="nucleus-tabs-variant1.hbs"}}
+    {{#nucleus-tabs 
+        description="site-navigation" 
+        selected="I want apples" 
+        variant="default" as |tabs| }}
+      {{#tabs.panel props=tabs.props name="I want apples" }}
+        <div>This is apples section</div>
+      {{/tabs.panel}}
+      {{#tabs.panel props=tabs.props name="I want oranges" }}
+        <div>This is oranges section</div>
+      {{/tabs.panel}}
+      {{#tabs.panel props=tabs.props name="I want grapes" }}
+        <div>This is grapes section</div>
+      {{/tabs.panel}}
+    {{/nucleus-tabs}}
+  {{/demo.example}}
+  {{demo.snippet 'nucleus-tabs-variant1.hbs'}}
+{{/docs-demo}}
+
+
+
+#### 2. With Background 
+Pass 'variant' property as 'background'.
+
+{{#docs-demo as |demo|}}
+  {{#demo.example name="nucleus-tabs-variant2.hbs"}}
+    {{#nucleus-tabs 
+        description="site-navigation" 
+        selected="I want apples" 
+        variant="background" as |tabs| }}
+      {{#tabs.panel props=tabs.props name="I want apples" }}
+        <div>This is apples section</div>
+      {{/tabs.panel}}
+      {{#tabs.panel props=tabs.props name="I want oranges" }}
+        <div>This is oranges section</div>
+      {{/tabs.panel}}
+      {{#tabs.panel props=tabs.props name="I want grapes" }}
+        <div>This is grapes section</div>
+      {{/tabs.panel}}
+    {{/nucleus-tabs}}
+  {{/demo.example}}
+  {{demo.snippet 'nucleus-tabs-variant2.hbs'}}
 {{/docs-demo}}
 
 
 ## Guidelines
 
-✅**Do's**
+✅ **Do's**
 
 1. Tabs should be placed in a single row over the content
 
 2. Include all interactive states for the tabs
 
 
-🚫**Dont's**
+🚫 **Dont's**
 
 1. Dont use tabs for sequential content. Users can navigate to any tab at any time and cannot be expected to do it sequentially.
+
+2. Dont use tabs for content in different levels of hierarchy.
 
 ## Accessibility
 

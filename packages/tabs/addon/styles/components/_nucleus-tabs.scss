@@ -1,3 +1,94 @@
 .nucleus-tabs {
   display: flex;
+  flex-direction: column;
+
+  &--list {
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    padding: 0 12px;
+    border-bottom: 1px solid $color-smoke-50;
+    border-radius: 4px;
+
+    &--item {
+      all: unset;
+      flex-shrink: 0;
+      position: relative;
+      text-align: center;
+      line-height: 20px;
+      padding: 10px 8px;
+      margin: 0 4px;
+      font-size: 14px;
+      color: $color-smoke-700;
+
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        width: 100%;
+        bottom: -1px;
+        box-sizing: border-box;
+      }
+
+      &:hover {
+        outline: none;
+        border: 0;
+        box-shadow: none;
+        cursor: pointer;
+
+        &::after {
+          border-bottom: 2px solid $color-smoke-100;
+        }
+      }
+
+      &:focus {
+        outline: none;
+        border: 0;
+        box-shadow: none;
+
+        &::after {
+          height: calc(100% + 2px);
+          border: 2px solid $color-azure-800;
+          border-radius: 4px;
+        }
+      }
+    }
+
+    &--item.disabled {
+      color: $color-smoke-300;
+
+      &:hover {
+        cursor: default;
+
+        &::after {
+          display: none;
+        }
+      }
+    }
+
+    &--item.active {
+      color: $color-azure-800;
+
+      &::after {
+        border-bottom: 2px solid $color-azure-800;
+      }
+    }
+  }
+
+  &--panel {
+    width: 100%;
+    display: none;
+    padding: 8px 20px;
+  }
+
+  &--panel.active {
+    display: block;
+  }
+
+  &--background {
+    .nucleus-tabs--list {
+      background: $color-smoke-25;
+      border: 1px solid $color-smoke-50;
+    }
+  }
 }
