@@ -3,9 +3,9 @@ import { observes } from '@ember-decorators/object';
 import defaultProp from '@freshworks/core/utils/default-decorator';
 import Component from "@ember/component";
 import { set, setProperties, computed, action } from "@ember/object";
-import { reads } from "@ember/object/computed";
-import { later } from '@ember/runloop';
+import { scheduleOnce } from '@ember/runloop';
 import layout from "../templates/components/nucleus-modal";
+import EventHandler from "../utils/event-handler";
 
 /**
   __Usage:__
@@ -85,16 +85,6 @@ class Modal extends Component {
   */
   @defaultProp
   isDismissible = true;
-
-  /**
-  * _showBackdrop
-  *
-  * @field _showBackdrop
-  * @type boolean
-  * @private
-  */
-  @reads("backdrop")
-  _showBackdrop;
 
   /**
   * Modal sizes: `small`, `medium` & `large`
@@ -227,7 +217,6 @@ class Modal extends Component {
       return;
     }
     setProperties(this, {
-      open: false,
       isOpen: false,
       _isOpen: false
     });
@@ -242,18 +231,12 @@ class Modal extends Component {
   *
   */
   attachEventHandlers() {
-    window.addEventListener("focusin", event => this.loopFocus(event));
-  }
-
-  /**
-  * removeEventHandlers
-  *
-  * @method removeEventHandlers
-  * @private
-  *
-  */
-  removeEventHandlers() {
-    window.removeEventListener("focusin", this.loopFocus(event), false);
+    let _focusListener = EventHandler.bindEvent({
+      eventName: 'focusin',
+      callback: this.loopFocus.bind(this)
+    });
+    set(this, '_focusListener', _focusListener);
+    this._takeFocus();
   }
 
   /**
@@ -274,21 +257,24 @@ class Modal extends Component {
 
   _initialize() {
     this._show();
-    later(this, () => { // to make sure the DOM has rendered
-      this.attachEventHandlers();
-      this._takeFocus();
-    }, 500);
+    scheduleOnce('afterRender', this, this.attachEventHandlers);
   }
 
   _dismantle() {
     this._hide();
+    EventHandler.unbindEvent({
+      eventName: 'focusin',
+      callback: this._focusListener
+    });
   }
 
   willDestroyElement() {
     super.willDestroyElement(...arguments);
-    this.removeEventHandlers();
+    EventHandler.unbindEvent({
+      eventName: 'focusin',
+      callback: this._focusListener
+    });
   }
-
 }
 
 export default Modal;

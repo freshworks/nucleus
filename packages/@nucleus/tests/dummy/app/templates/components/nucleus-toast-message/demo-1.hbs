@@ -1,18 +1,9 @@
 {{#docs-demo as |demo|}}
   {{#demo.example name="nucleus-toast.hbs"}}
-    <button onclick={{action "success"}} class="docs-btn">
-      Success
-    </button>
-    <button onclick={{action "danger"}} class="docs-btn">
-      Danger
-    </button>
-    <button onclick={{action "info"}} class="docs-btn">
-      Info
-    </button>
-    <button onclick={{action "warning"}} class="docs-btn">
-      Warning
-    </button>
-    {{nucleus-toast-message}}
+    {{nucleus-button variant="secondary" onClick=(action "success") label="Success toast"}}
+    {{nucleus-button variant="secondary" onClick=(action "danger") label="Failure toast"}}
+    {{nucleus-button variant="secondary" onClick=(action "info") label="Info toast"}}
+    {{nucleus-button variant="secondary" onClick=(action "warning") label="Warning toast"}}
   {{/demo.example}}
   {{demo.snippet "toast-message-component.js" label="component.js"}}
 {{/docs-demo}}

@@ -3,22 +3,6 @@
     position: relative;
     top: 2px;
     margin-right: 4px;
-
-    &.warning {
-      color: $text-warning;
-    }
-
-    &.danger {
-      color: $text-danger;
-    }
-
-    &.info {
-      color: $text-info;
-    }
-
-    &.success {
-      color: $text-success;
-    }
   }
 
   &__link {
@@ -33,6 +17,11 @@
     position: absolute;
     top: 8px;
     right: 16px;
+  }
+
+  &__content {
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
 

@@ -10,9 +10,10 @@ import defaultProp from '@freshworks/core/utils/default-decorator';
 import { or, equal } from '@ember/object/computed';
 import { run } from '@ember/runloop';
 import Component from '@ember/component';
-import { set, computed } from '@ember/object';
+import { computed } from '@ember/object';
 import layout from "../templates/components/nucleus-button";
-import { BUTTON_STATE } from "../constants/nucleus-button";
+import { BUTTON_STATE, ICON_VARIANT_MAP } from "../constants/nucleus-button";
+import safeSet from "../utils/safe-set";
 
 /**
   __Usage:__
@@ -79,7 +80,7 @@ class NucleusButton extends Component {
   @computed('iconSize', 'size')
   get _iconSize() {
     let iconSize = this.get('iconSize');
-    let defaultSize = this.get('size') ? this.get('size') : 'small';
+    let defaultSize = this.get('size') ? this.get('size') : 'medium';
     return iconSize ? iconSize : defaultSize;
   }
 
@@ -93,6 +94,19 @@ class NucleusButton extends Component {
   */
   @defaultProp
   variant = 'primary';
+
+  /**
+  * Attribute bound to icon variant
+  *
+  * @field _iconVariant
+  * @type string
+  * @private
+  */
+  @computed('variant')
+  get _iconVariant() {
+    let variant = this.get('variant');
+    return ICON_VARIANT_MAP[variant];
+  }
 
   /**
   * Attribute bound to button type
@@ -347,7 +361,7 @@ class NucleusButton extends Component {
     let type = this.get('variant');
     return type ? `nucleus-button--${this.get('variant')}` : 'nucleus-button--primary';
   }
-  
+
   /**
   * _iconClass
   *
@@ -405,28 +419,23 @@ class NucleusButton extends Component {
   */
   click() {
     let action = this.get('onClick');
-
     if (action === null || action === undefined) {
       return;
     }
 
     if (!this.get('_isPending')) {
-      let promise = action(this.get('args'));
+      let promise = (action)(this.get('args'));
 
-      if (promise && typeof promise.then === 'function' && !this.get('isDestroyed')) {
-        set(this, '_buttonState', BUTTON_STATE.PENDING);
+      if (promise && typeof promise.then === 'function') {
+        safeSet(this, '_buttonState', BUTTON_STATE.PENDING);
         promise.then(() => {
-          if (!this.isDestroyed) {
-            set(this, '_buttonState', BUTTON_STATE.FULFILLED);
-          }
+          safeSet(this, '_buttonState', BUTTON_STATE.FULFILLED);
         }, () => {
-          if (!this.isDestroyed) {
-            set(this, '_buttonState', BUTTON_STATE.REJECTED);
-          }
+          safeSet(this, '_buttonState', BUTTON_STATE.REJECTED);
         })
         .finally(() => {
           run.later(() => {
-            set(this, '_buttonState', BUTTON_STATE.DEFAULT)
+            safeSet(this, '_buttonState', BUTTON_STATE.DEFAULT)
           }, this.labelTimeout);
         });
       }

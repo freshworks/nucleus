@@ -8,6 +8,9 @@ import { computed } from '@ember/object';
 import Component from '@ember/component';
 import layout from "../templates/components/nucleus-icon";
 
+const DEFAULT_SIZE = 'medium';
+const DEFAULT_VARIANT = 'primary';
+
 /**
   __Usage:__
   [Refer component page](/docs/components/nucleus-icon)
@@ -40,7 +43,18 @@ class NucleusIcon extends Component {
   * @public
   */
   @defaultProp
-  size = 'medium';
+  size = DEFAULT_SIZE;
+
+  /**
+  * Variant
+  *
+  * @field variant
+  * @type string
+  * @default null
+  * @public
+  */
+  @defaultProp
+  variant = DEFAULT_VARIANT;
 
   /**
   * Custom class
@@ -59,11 +73,12 @@ class NucleusIcon extends Component {
   * @computed _disabled
   * @private
   */
-  @computed('size', 'customClass')
+  @computed('size', 'variant', 'customClass')
   get _classNames() {
     let customClass = this.get('customClass');
-    let size = this.get('size') ? this.get('size') : 'medium';
-    let classNames = `nucleus-icon nucleus-icon--${size}`;
+    let size = this.get('size');
+    let variant = this.get('variant');
+    let classNames = `nucleus-icon nucleus-icon--${size} nucleus-icon--${variant}`;
     return customClass ? `${classNames} ${customClass}` : classNames;
   }
 }
