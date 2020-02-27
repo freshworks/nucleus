@@ -24,13 +24,13 @@ Buttons are interactive components that the users can click or touch to trigger 
 Button with yieldable content.
 
 {{#docs-demo as |demo|}}
-  {{#demo.example name='nucleus-button-block-forms.hbs'}}
+  {{#demo.example name='nucleus-button-block-form.hbs'}}
     {{#nucleus-button variant="secondary" ariaLabel="concise label"}}
       Some yield content here
     {{/nucleus-button}}
   {{/demo.example}}
 
-  {{demo.snippet 'nucleus-button-block-forms.hbs'}}
+  {{demo.snippet 'nucleus-button-block-form.hbs'}}
 {{/docs-demo}}
 
 #### 2. Asynchronous Button
