@@ -5,4 +5,11 @@ const ICON_MAP = {
   'Danger': 'nucleus-circle-cross'
 };
 
-export { ICON_MAP };
+const VARIANT_MAP = {
+  'Info': 'info',
+  'Success': 'success',
+  'Warning': 'warning',
+  'Danger': 'danger'
+};
+
+export { ICON_MAP, VARIANT_MAP };
