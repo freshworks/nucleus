@@ -14,17 +14,17 @@ const handlePropertyChange = (properties, name, value) => {
   set(prop, 'value', value);
 }
 
-const generateCode = (component, attributes, block = false) => {
+const generateCode = ({ component, attributes, multiline = false }) => {
   let code = `{{${component}`
 
   attributes.forEach((attr) => {
     let ignoreProp = (attr.value === 'none' || !attr.value);
     if (!ignoreProp) {
-      code = `${code}${block ? '\n    ': ''} ${attr.name}="${attr.value}"`;
+      code = `${code}${multiline ? '\n    ': ''} ${attr.name}="${attr.value}"`;
     }
   });
 
-  code = `${code} ${block ? '\n  ': ''}}}`
+  code = `${code} ${multiline ? '\n  ': ''}}}`
 
   return code;
 };

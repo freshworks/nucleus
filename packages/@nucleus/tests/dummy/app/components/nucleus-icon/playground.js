@@ -62,7 +62,10 @@ class Playground extends Component {
       }
     ];
 
-    set(this, 'code', generateCode('nucleus-icon', [...staticProps, ...props]));
+    set(this, 'code', generateCode({
+      component: 'nucleus-icon',
+      attributes: [...staticProps, ...props]
+    }));
   }
 }
 

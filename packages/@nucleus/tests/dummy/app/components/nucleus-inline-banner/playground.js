@@ -49,14 +49,18 @@ class Playground extends Component {
 
 
   _generateCode() {
-    let props = get(this, 'properties').map((prop) => {
+    let attributes = get(this, 'properties').map((prop) => {
       return {
         name: prop.name,
         value: prop.value,
       }
     });
 
-    set(this, 'code', generateCode('nucleus-icon', props, true));
+    set(this, 'code', generateCode({
+      component: 'nucleus-icon',
+      attributes,
+      multiline:true
+    }));
   }
 }
 
