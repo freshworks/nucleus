@@ -1,15 +1,17 @@
 {{!-- Demo with variants --}}
-{{#playground/container as |playground|}}
+{{#docs-playground as |p|}}
   {{!-- component --}}
-  {{#playground.component}}
-    {{nucleus-icon name="nucleus-circle-help" size=size.value variant=variant.value}}
-  {{/playground.component}}
+  {{#p.component}}
+    {{nucleus-icon
+      name=name.value
+      size=size.value
+      variant=variant.value
+    }}
+  {{/p.component}}
 
   {{!-- props --}}
-  {{#playground.props}}
-    {{playground/props onchange=(action 'onchange') properties=properties}}
-  {{/playground.props}}
+  {{p.props onchange=(action 'onchange') properties=properties}}
 
   {{!-- code --}}
-  {{playground.codeblock code=code}}
-{{/playground/container}}
+  {{p.codeblock code=code}}
+{{/docs-playground}}

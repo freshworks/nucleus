@@ -28,6 +28,11 @@ $playground-border-color: #dae1e7;
         padding-bottom: 5px;
         font-weight: 700;
       }
+
+      .ember-text-field {
+        border: 1px solid $playground-border-color;
+        padding: 5px;
+      }
     }
   }
 

@@ -5,8 +5,16 @@ import {
   handlePropertyChange,
   generateCode
 } from '../../utils/playground';
+import icons from '../../constants/icons';
+
 
 const PROPERTIES = [
+  {
+    name: 'name',
+    select: true,
+    value: 'nucleus-circle-check',
+    types: icons
+  },
   {
     name: 'size',
     select: true,
@@ -48,23 +56,16 @@ class Playground extends Component {
 
 
   _generateCode() {
-    let props = get(this, 'properties').map((prop) => {
+    let attributes = get(this, 'properties').map((prop) => {
       return {
         name: prop.name,
         value: prop.value,
       }
     });
 
-    let staticProps = [
-      {
-        name: 'name',
-        value: 'nucleus-circle-help'
-      }
-    ];
-
     set(this, 'code', generateCode({
       component: 'nucleus-icon',
-      attributes: [...staticProps, ...props]
+      attributes
     }));
   }
 }

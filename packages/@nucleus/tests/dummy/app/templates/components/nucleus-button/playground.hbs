@@ -1,8 +1,7 @@
 {{!-- Demo with variants --}}
-{{#playground/container as |playground|}}
-
+{{#docs-playground as |p|}}
   {{!-- component --}}
-  {{#playground.component}}
+  {{#p.component}}
     {{nucleus-button
       label=label.value
       variant=type.value
@@ -13,13 +12,11 @@
       iconSize=iconSize.value
       iconOnly=iconOnly.value
     }}
-  {{/playground.component}}
+  {{/p.component}}
 
   {{!-- props --}}
-  {{#playground.props}}
-    {{playground/props onchange=(action 'onchange') properties=properties}}
-  {{/playground.props}}
+  {{p.props onchange=(action 'onchange') properties=properties}}
 
   {{!-- code --}}
-  {{playground.codeblock code=code}}
-{{/playground/container}}
+  {{p.codeblock code=code}}
+{{/docs-playground}}

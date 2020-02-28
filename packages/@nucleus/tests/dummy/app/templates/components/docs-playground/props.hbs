@@ -12,7 +12,11 @@
         id="{{property.name}}"
         value="{{property.value}}">
         {{#each property.types as |type|}}
-          <option value="{{type}}">{{type}}</option>
+          <option
+            value="{{type}}"
+            selected={{if (eq type property.value) 'selected'}}>
+              {{type}}
+          </option>
         {{/each}}
       </select>
     {{/if}}

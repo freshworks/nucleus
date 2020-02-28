@@ -2,17 +2,7 @@
 import Component from '@ember/component';
 import { inject } from '@ember/service';
 import copyToClipboard from '../../utils/copy-to-clipboard';
-
-const ICON_LIST = [
-  "nucleus-circle-check",
-  "nucleus-circle-cross",
-  "nucleus-circle-help",
-  "nucleus-circle-info",
-  "nucleus-circle-minus",
-  "nucleus-circle-plus",
-  "nucleus-cross-thin",
-  "nucleus-cross"
-];
+import icons from '../../constants/icons';
 
 export default Component.extend({
   flashMessages: inject(),
@@ -21,7 +11,7 @@ export default Component.extend({
 
   init() {
     this._super(...arguments);
-    this.set('icons', ICON_LIST)
+    this.set('icons', icons)
   },
 
   actions: {
