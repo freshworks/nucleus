@@ -1,13 +1,13 @@
 {{!-- Demo with variants --}}
 {{#docs-playground as |p|}}
   {{!-- component --}}
-  {{#p.component}}
+  {{#p.preview}}
     {{nucleus-inline-banner
       type=type.value
       title=title.value
       isDismissible=isDismissible.value
     }}
-  {{/p.component}}
+  {{/p.preview}}
 
   {{!-- props --}}
   {{p.props onchange=(action 'onchange') properties=properties}}

@@ -19,10 +19,9 @@
           </option>
         {{/each}}
       </select>
-    {{/if}}
 
     {{!-- input --}}
-    {{#if property.input}}
+    {{else if property.input}}
       <Input
         @type="text"
         placeholder="Enter text here"
@@ -31,10 +30,9 @@
         name="{{property.name}}"
         {{on "input" (fn this.handleChange property)}}
       />
-    {{/if}}
 
     {{!-- toggle --}}
-    {{#if property.toggle}}
+    {{else if property.toggle}}
       <Input
         @type="checkbox"
         id={{property.name}}

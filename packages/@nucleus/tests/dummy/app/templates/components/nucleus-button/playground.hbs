@@ -1,7 +1,7 @@
 {{!-- Demo with variants --}}
 {{#docs-playground as |p|}}
-  {{!-- component --}}
-  {{#p.component}}
+  {{!-- preview --}}
+  {{#p.preview}}
     {{nucleus-button
       label=label.value
       variant=type.value
@@ -12,7 +12,7 @@
       iconSize=iconSize.value
       iconOnly=iconOnly.value
     }}
-  {{/p.component}}
+  {{/p.preview}}
 
   {{!-- props --}}
   {{p.props onchange=(action 'onchange') properties=properties}}

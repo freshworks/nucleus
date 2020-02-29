@@ -85,18 +85,11 @@ class Playground extends Component {
   @action
   onchange(name, value) {
     let properties = get(this, 'properties');
-    if (name === 'iconOnly' && !name.value) {
-      let changables = ['label', 'type', 'icon'];
-      let [
-        label,
-        type,
-        icon
-      ] = properties.filter(prop => changables.includes(prop.name));
 
-      set(label, 'value', '');
-      set(type, 'value', 'text');
-      set(icon, 'value', (icon.value === 'none') ? icon.types[1] : icon.value);
+    if (name === 'iconOnly' && !name.value) {
+      this._handleIconOnly(properties);
     }
+
     handlePropertyChange(properties, name, value);
     this._generateCode();
   }
@@ -115,6 +108,19 @@ class Playground extends Component {
       attributes,
       multiline: true
     }));
+  }
+
+  _handleIconOnly(properties) {
+     let changables = ['label', 'type', 'icon'];
+      let [
+        label,
+        type,
+        icon
+      ] = properties.filter(prop => changables.includes(prop.name));
+
+      set(label, 'value', '');
+      set(type, 'value', 'text');
+      set(icon, 'value', (icon.value === 'none') ? icon.types[1] : icon.value);
   }
 }
 
