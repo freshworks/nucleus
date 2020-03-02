@@ -14,8 +14,15 @@ const handlePropertyChange = (properties, name, value) => {
   set(prop, 'value', value);
 }
 
-const generateCode = ({ component, attributes, multiline = false }) => {
+const generateCode = ({ component, properties, multiline = false }) => {
   let code = `{{${component}`
+
+  let attributes = properties.map((prop) => {
+    return {
+      name: prop.name,
+      value: prop.value,
+    }
+  });
 
   attributes.forEach((attr) => {
     let ignoreProp = (attr.value === 'none' || !attr.value);

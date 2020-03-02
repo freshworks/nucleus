@@ -49,16 +49,9 @@ class Playground extends Component {
 
 
   _generateCode() {
-    let attributes = get(this, 'properties').map((prop) => {
-      return {
-        name: prop.name,
-        value: prop.value,
-      }
-    });
-
     set(this, 'code', generateCode({
       component: 'nucleus-inline-banner',
-      attributes,
+      properties: get(this, 'properties'),
       multiline:true
     }));
   }

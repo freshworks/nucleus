@@ -6,6 +6,8 @@ import {
   generateCode
 } from '../../utils/playground';
 
+import icons from '../../constants/icons';
+
 const PROPERTIES = [
   {
     name: 'label',
@@ -13,7 +15,7 @@ const PROPERTIES = [
     value: 'Click here',
   },
   {
-    name: 'type',
+    name: 'variant',
     select: true,
     value: 'primary',
     types: [
@@ -50,8 +52,7 @@ const PROPERTIES = [
     value: 'none',
     types: [
       'none',
-      'nucleus-circle-check',
-      'nucleus-cross'
+      ...icons
     ]
   },
   {
@@ -96,16 +97,9 @@ class Playground extends Component {
 
 
   _generateCode() {
-    let attributes = get(this, 'properties').map((prop) => {
-      return {
-        name: prop.name,
-        value: prop.value,
-      }
-    });
-
     set(this, 'code', generateCode({
       component:'nucleus-button',
-      attributes,
+      properties: get(this, 'properties'),
       multiline: true
     }));
   }
