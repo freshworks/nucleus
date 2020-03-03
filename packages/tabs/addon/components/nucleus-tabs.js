@@ -2,7 +2,7 @@ import { classNames, classNameBindings, layout as templateLayout } from '@ember-
 import { A } from '@ember/array';
 import defaultProp from '@freshworks/core/utils/default-decorator';
 import Component from '@ember/component';
-import { set, computed, action } from '@ember/object';
+import { set, get, computed, action } from '@ember/object';
 import { oneWay }from '@ember/object/computed';
 import layout from "../templates/components/nucleus-tabs";
 
@@ -54,7 +54,7 @@ class NucleusTabs extends Component {
   * @public
   */
   @defaultProp
-  variant = "line";
+  variant = 'line';
 
   /**
   * tabPanels: Collection of all tab panels
@@ -81,7 +81,7 @@ class NucleusTabs extends Component {
   * @type string|null
   * @public
   */
-  @oneWay("selected")
+  @oneWay('selected')
   default;
 
   /**
@@ -92,7 +92,7 @@ class NucleusTabs extends Component {
   * @public
   */
   @computed('variant', function() {
-    return "nucleus-tabs--" + this.variant;
+    return 'nucleus-tabs--' + get(this, 'variant');
   })
   variantClass;
 
@@ -106,7 +106,7 @@ class NucleusTabs extends Component {
   */
   @action
   registerPanel(tab) {
-    this.get('tabPanels').pushObject(tab);
+    get(this, 'tabPanels').pushObject(tab);
   }
 
   /**
@@ -119,7 +119,7 @@ class NucleusTabs extends Component {
   */
   @action
   registerTabListItem(tabList) {
-    this.get('tabListItems').pushObject(tabList);
+    get(this, 'tabListItems').pushObject(tabList);
   }
 
   /**

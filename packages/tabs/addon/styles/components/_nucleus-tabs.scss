@@ -4,11 +4,15 @@
 
   &--list {
     width: 100%;
-    display: flex;
-    flex-wrap: nowrap;
-    padding: 0 12px;
-    border-bottom: 1px solid $color-smoke-50;
-    border-radius: 4px;
+    overflow: scroll hidden;
+
+    &--container {
+      display: flex;
+      flex-wrap: nowrap;
+      width: 100%;
+      padding: 0 12px;
+      border-bottom: 1px solid $color-smoke-50;
+    }
 
     &--item {
       all: unset;
@@ -25,8 +29,8 @@
         content: '';
         position: absolute;
         left: 0;
-        width: 100%;
         bottom: -1px;
+        width: 100%;
         box-sizing: border-box;
       }
 
@@ -47,7 +51,7 @@
         box-shadow: none;
 
         &::after {
-          height: calc(100% + 2px);
+          height: calc(100%);
           border: 2px solid $color-azure-800;
           border-radius: 4px;
         }

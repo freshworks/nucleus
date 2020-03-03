@@ -1,6 +1,6 @@
 import { classNames, attributeBindings, classNameBindings, tagName, layout as templateLayout } from '@ember-decorators/component';
 import Component from '@ember/component';
-import { computed } from '@ember/object';
+import { get, computed } from '@ember/object';
 import defaultProp from '@freshworks/core/utils/default-decorator';
 import { once } from '@ember/runloop';
 import layout from '../../templates/components/nucleus-tabs/tab-list-item';
@@ -27,7 +27,7 @@ class TabListItem extends Component {
   * @public
   */
   @defaultProp
-  disabled = "false";
+  disabled = 'false';
 
   /**
   * controls : idref to what panel this tab item controls
@@ -49,7 +49,7 @@ class TabListItem extends Component {
   * @default 'tab'
   * @public
   */
-  role = "tab";
+  role = 'tab';
 
   /**
   * tabindex
@@ -59,7 +59,7 @@ class TabListItem extends Component {
   * @public
   */
   @computed('index', function() {
-    return (this.index == 0)? null : '-1';
+    return (get(this, 'index') === 0)? null : '-1';
   })
   tabindex;
 
@@ -71,7 +71,7 @@ class TabListItem extends Component {
   * @public
   */
   @computed('default', function() {
-    return (this.default === this.name);
+    return (get(this, 'default') === get(this, 'name'));
   })
   isActive;
 
@@ -83,7 +83,7 @@ class TabListItem extends Component {
   * @public
   */
   @computed('disabled', function() {
-    return (this.disabled === "true")? true : false;
+    return (get(this, 'disabled') === 'true')? true : false;
   })
   isDisabled;
 
@@ -95,7 +95,7 @@ class TabListItem extends Component {
   * @public
   */
   @computed('controls', function() {
-    return this.controls;
+    return get(this, 'controls');
   })
   "aria-controls";
 
@@ -107,7 +107,7 @@ class TabListItem extends Component {
   * @public
   */
   @computed('default', function() {
-    return (this.default === this.name).toString();
+    return (get(this, 'default') === get(this, 'name')).toString();
   })
   "aria-selected";
 
@@ -120,9 +120,9 @@ class TabListItem extends Component {
   */
   init() {
     super.init(...arguments);
-    once(this, this.registerTabListItem, {
-      id: this.elementId,
-      name: this.name
+    once(this, get(this, 'registerTabListItem'), {
+      id: get(this, 'elementId'),
+      name: get(this, 'name')
     });
   }
 
@@ -134,10 +134,10 @@ class TabListItem extends Component {
   *
   */
   click(event) {
-    if(this.disabled === "false") {
-      this.handleActivateTab(this.name, event);
-    }
     event.target.focus();
+    if(get(this, 'disabled') === 'false') {
+      this.handleActivateTab(get(this, 'name'), event);
+    }
   }
 
   /**

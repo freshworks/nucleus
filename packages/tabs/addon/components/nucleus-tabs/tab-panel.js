@@ -1,6 +1,6 @@
 import { classNames, attributeBindings, classNameBindings, tagName, layout as templateLayout } from '@ember-decorators/component';
 import Component from '@ember/component';
-import { computed } from '@ember/object';
+import { get, computed } from '@ember/object';
 import layout from '../../templates/components/nucleus-tabs/tab-panel';
 import { once } from '@ember/runloop';
 import defaultProp from '@freshworks/core/utils/default-decorator';
@@ -24,7 +24,7 @@ class TabPanel extends Component {
   * @public
   */
   @defaultProp
-  disabled = "false";
+  disabled = 'false';
 
   /**
   * tabindex
@@ -33,7 +33,7 @@ class TabPanel extends Component {
   * @type String
   * @public
   */
-  tabindex = "0";
+  tabindex = '0';
 
   /**
   * role
@@ -42,7 +42,7 @@ class TabPanel extends Component {
   * @type String
   * @public
   */
-  role = "tabpanel"
+  role = 'tabpanel'
 
   /**
   * isActive
@@ -52,7 +52,7 @@ class TabPanel extends Component {
   * @public
   */
   @computed('props.[]', function() {
-    return (this.props.default === this.name);
+    return (get(this.props, 'default') === get(this, 'name'));
   })
   isActive;
 
@@ -64,7 +64,8 @@ class TabPanel extends Component {
   * @public
   */
   @computed('props.tabList.[]', function() {
-    let tabList = this.props.tabListItems.findBy('name', this.name);
+    let tabListItems = get(this.props, 'tabListItems');
+    let tabList = tabListItems.findBy('name', get(this, 'name'));
     return (tabList)? tabList.id : "";
   })
   "aria-labelledby";
@@ -78,10 +79,10 @@ class TabPanel extends Component {
   */
   init() {
     super.init(...arguments);
-    once(this, this.props.registerPanel, {
-      id: this.elementId,
-      name: this.name,
-      disabled: this.disabled
+    once(this, get(this.props, 'registerPanel'), {
+      id: get(this, 'elementId'),
+      name: get(this, 'name'),
+      disabled: get(this, 'disabled')
     });
   }
 }
