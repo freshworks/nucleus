@@ -1,12 +1,12 @@
 <div class="nucleus-tabs--list" role="tablist" aria-label={{description}}>
   <div class="nucleus-tabs--list--container">
-    {{#each this.tabPanels key="id" as |tab index|}}
+    {{#each tabPanels key="id" as |tab index|}}
       {{#nucleus-tabs/tab-list-item 
-          default=default 
           name=tab.name 
           disabled=tab.disabled
-          index=index 
           controls=tab.id 
+          index=index 
+          default=default 
           registerTabListItem=(action registerTabListItem) 
           handleActivateTab=(action activateTab)}}
         {{tab.name}}

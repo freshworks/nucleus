@@ -51,7 +51,7 @@
         box-shadow: none;
 
         &::after {
-          height: calc(100%);
+          height: calc(100% + 1px);
           border: 2px solid $color-azure-800;
           border-radius: 4px;
         }
@@ -93,6 +93,7 @@
     .nucleus-tabs--list {
       background: $color-smoke-25;
       border: 1px solid $color-smoke-50;
+      border-radius: 4px;
     }
   }
 }
