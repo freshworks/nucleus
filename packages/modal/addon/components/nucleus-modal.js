@@ -132,6 +132,18 @@ class Modal extends Component {
   })
   modalElement;
 
+   /**
+  * modalDialog
+  *
+  * @field modalDialog
+  * @type function
+  * @private
+  */
+  @computed('modalDialog', function() {
+    return document.getElementById('nucleusDialog');
+  })
+  modalDialog;
+
   /**
   * close
   *
@@ -171,23 +183,25 @@ class Modal extends Component {
   }
 
   /**
-  * takeFocus
+  * focusTrap
   *
-  * @method takeFocus
+  * @method focusTrap
   * @private
   *
   */
-  _takeFocus() {
-    let modalEl = this.get('modalElement');
-    let focusElement = modalEl && modalEl.querySelector("[autofocus]");
+  _focusTrap() {
+    let modalDialog = this.get('modalDialog');
+    let focusElements = modalDialog.querySelectorAll('a[href]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input[type="text"]:not([disabled]), input[type="radio"]:not([disabled]), input[type="checkbox"]:not([disabled]), select:not([disabled])');    
+    let focusEl = modalDialog && modalDialog.querySelector("[autofocus]");
 
-    if (!focusElement) {
-      focusElement = modalEl;
+    if (!focusEl) {
+      focusEl = focusElements[0];
     }
 
-    if (focusElement) {
-      focusElement.focus();
+    if (focusEl) {
+      focusEl.focus();
     }
+    document.addEventListener('keydown', this.loopFocus);
   }
 
   /**
@@ -247,33 +261,44 @@ class Modal extends Component {
   * @param {any} event
   */
   loopFocus(event) {
-    let modalEl = this.get('modalElement');
-
-    if (event && modalEl && modalEl !== event.target && !modalEl.contains(event.target)) {
-      event.preventDefault();
-      this._takeFocus(event);
+    var isTab = (event.key === 'Tab' || event.keyCode === 9);
+    let focusElements = modalDialog.querySelectorAll('a[href]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input[type="text"]:not([disabled]), input[type="radio"]:not([disabled]), input[type="checkbox"]:not([disabled]), select:not([disabled])');    
+    if (!isTab) {
+      return;
     }
+    if(event.shiftKey) {
+      if (document.activeElement === focusElements[0]) {
+        focusElements[focusElements.length-1].focus();
+        event.preventDefault();
+      }
+    } 
+    else {
+      if (document.activeElement === focusElements[focusElements.length - 1]) {
+        focusElements[0].focus();
+        event.preventDefault();
+      }
+    }
+  }
+
+  saveState() {
+    let prevElement = document.activeElement;
+    this._focusTrap();
+    document.addEventListener('keydown',loopFocus);
   }
 
   _initialize() {
     this._show();
-    scheduleOnce('afterRender', this, this.attachEventHandlers);
+    this._focusTrap();
   }
 
   _dismantle() {
     this._hide();
-    EventHandler.unbindEvent({
-      eventName: 'focusin',
-      callback: this._focusListener
-    });
+    
   }
 
   willDestroyElement() {
     super.willDestroyElement(...arguments);
-    EventHandler.unbindEvent({
-      eventName: 'focusin',
-      callback: this._focusListener
-    });
+   
   }
 }
 
