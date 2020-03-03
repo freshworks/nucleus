@@ -3,10 +3,11 @@ import { observes } from '@ember-decorators/object';
 import defaultProp from '@freshworks/core/utils/default-decorator';
 import Component from "@ember/component";
 import { set, setProperties, computed, action } from "@ember/object";
-import { scheduleOnce } from '@ember/runloop';
+import { later } from '@ember/runloop';
 import layout from "../templates/components/nucleus-modal";
 import EventHandler from "../utils/event-handler";
 
+var _modalD;
 /**
   __Usage:__
   [Refer component page](/docs/components/nucleus-modal)
@@ -156,7 +157,7 @@ class Modal extends Component {
     if (this.get('onClose')) {
       this.get('onClose')();
     }
-    this._hide();
+    this._dismantle();
   }
 
   /**
@@ -190,17 +191,24 @@ class Modal extends Component {
   *
   */
   _focusTrap() {
+    let prevElement = document.activeElement;
+    prevElement.blur();
+    let outsideDOM = document.body;
+    console.log(outsideDOM);
+    outsideDOM.tabIndex = -1;
     let modalDialog = this.get('modalDialog');
+    modalDialog.tabIndex = 0;
     let focusElements = modalDialog.querySelectorAll('a[href]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input[type="text"]:not([disabled]), input[type="radio"]:not([disabled]), input[type="checkbox"]:not([disabled]), select:not([disabled])');    
     let focusEl = modalDialog && modalDialog.querySelector("[autofocus]");
-
-    if (!focusEl) {
-      focusEl = focusElements[0];
-    }
-
     if (focusEl) {
       focusEl.focus();
     }
+    else {
+      focusEl = focusElements[0];
+      focusEl.focus();
+    }
+    
+    _modalD = modalDialog;
     document.addEventListener('keydown', this.loopFocus);
   }
 
@@ -261,6 +269,7 @@ class Modal extends Component {
   * @param {any} event
   */
   loopFocus(event) {
+    let modalDialog = _modalD;
     var isTab = (event.key === 'Tab' || event.keyCode === 9);
     let focusElements = modalDialog.querySelectorAll('a[href]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input[type="text"]:not([disabled]), input[type="radio"]:not([disabled]), input[type="checkbox"]:not([disabled]), select:not([disabled])');    
     if (!isTab) {
@@ -282,18 +291,20 @@ class Modal extends Component {
 
   saveState() {
     let prevElement = document.activeElement;
+    prevElement.blur();
     this._focusTrap();
     document.addEventListener('keydown',loopFocus);
   }
 
   _initialize() {
     this._show();
-    this._focusTrap();
+    later(this, () => {
+      this._focusTrap();
+    }, 500);
   }
 
   _dismantle() {
     this._hide();
-    
   }
 
   willDestroyElement() {
