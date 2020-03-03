@@ -1088,111 +1088,6 @@
     unique-filename "^1.1.1"
     which "^1.3.1"
 
-"@freshworks/banner@0.5.3":
-  version "0.5.3"
-  resolved "https://registry.yarnpkg.com/@freshworks/banner/-/banner-0.5.3.tgz#11e22a577df9c5baba639bf58422f28180dcf8df"
-  integrity sha512-K8DGXcWV/nD1OXCJOAHh/MQSrjS7dQfeFCW0URvo0khWR276FXbdhrJHzb2QN2ep/Yuw96YFqWbs8Y/aNmiHyQ==
-  dependencies:
-    "@freshworks/button" "^0.5.3"
-    "@freshworks/core" "^0.1.12"
-    "@freshworks/icon" "^0.5.3"
-    ember-cli-babel "^7.11.1"
-    ember-cli-htmlbars "^4.0.0"
-    ember-cli-sass "^10.0.0"
-    ember-css-transitions "^0.1.16"
-    ember-decorators "^6.1.1"
-    ember-decorators-polyfill shibulijack-fd/ember-decorators-polyfill#master
-    ember-truth-helpers "^2.1.0"
-    ember-wormhole "^0.5.5"
-
-"@freshworks/button@0.5.3", "@freshworks/button@^0.5.3":
-  version "0.5.3"
-  resolved "https://registry.yarnpkg.com/@freshworks/button/-/button-0.5.3.tgz#67cbd4e1716c0ee329715c5462657cf8b3bde8aa"
-  integrity sha512-PQ05eG6U9TsEuHVNjj6HkEu5dt8JftTVsUbOR9D2bYeVN8C8YQ/Zh7PHhH8bx2bja4CxNFw8kqgt+K/EmNR1xg==
-  dependencies:
-    "@freshworks/core" "^0.1.12"
-    "@freshworks/icon" "^0.5.3"
-    ember-cli-babel "^7.11.1"
-    ember-cli-htmlbars "^4.0.0"
-    ember-cli-sass "^10.0.0"
-    ember-css-transitions "^0.1.16"
-    ember-decorators "^6.1.1"
-    ember-decorators-polyfill shibulijack-fd/ember-decorators-polyfill#master
-    ember-truth-helpers "^2.1.0"
-
-"@freshworks/core@0.1.12", "@freshworks/core@^0.1.12":
-  version "0.1.12"
-  resolved "https://registry.yarnpkg.com/@freshworks/core/-/core-0.1.12.tgz#adbb1c4fdf219b7c4d81680cce3d861641c72f7e"
-  integrity sha512-hPDTJmrSb4oCDD9ACsPK3psBRYd8puz8tBwCPlS3CVsZxY/lPqMN8wLW6UFmg2eOBzQsw0SIsnHuT6zNHiJ7Fw==
-  dependencies:
-    ember-cli-babel "^7.11.1"
-    ember-cli-htmlbars "^4.0.0"
-    ember-cli-sass "^10.0.0"
-
-"@freshworks/icon@0.5.3", "@freshworks/icon@^0.5.3":
-  version "0.5.3"
-  resolved "https://registry.yarnpkg.com/@freshworks/icon/-/icon-0.5.3.tgz#ecc5e0683486bde12b330f1e97c2632385d5e451"
-  integrity sha512-1Eim/0PL0SuM+u+L4JHgXgm5U9Xj+cqw1l/t9bILV2ScQvOeCBiDO/KjqMYhb1X/xTWA71vkslBFvt7WXq4V1g==
-  dependencies:
-    "@freshworks/core" "^0.1.12"
-    ember-cli-babel "^7.11.1"
-    ember-cli-htmlbars "^4.0.0"
-    ember-cli-sass "^10.0.0"
-    ember-css-transitions "^0.1.16"
-    ember-decorators "^6.1.1"
-    ember-decorators-polyfill shibulijack-fd/ember-decorators-polyfill#master
-    ember-svg-jar "^2.1.0"
-
-"@freshworks/inline-banner@0.5.3":
-  version "0.5.3"
-  resolved "https://registry.yarnpkg.com/@freshworks/inline-banner/-/inline-banner-0.5.3.tgz#68a8d8ef42beaaec1beb19fc7836111ecf088b05"
-  integrity sha512-Ptctn8CUTh3xK7luigQfh/ziRJ6J3bdrL/jnehRzzzoALokjR6wUSbAjGrS2a494YY4oqW0InJStlLwzp9e3Bw==
-  dependencies:
-    "@freshworks/button" "^0.5.3"
-    "@freshworks/core" "^0.1.12"
-    "@freshworks/icon" "^0.5.3"
-    ember-cli-babel "^7.11.1"
-    ember-cli-htmlbars "^4.0.0"
-    ember-cli-sass "^10.0.0"
-    ember-css-transitions "^0.1.16"
-    ember-decorators "^6.1.1"
-    ember-decorators-polyfill shibulijack-fd/ember-decorators-polyfill#master
-    ember-truth-helpers "^2.1.0"
-
-"@freshworks/modal@0.5.3":
-  version "0.5.3"
-  resolved "https://registry.yarnpkg.com/@freshworks/modal/-/modal-0.5.3.tgz#1d3821d89cba0b6cdee6c2a4eca5fc6a2336eec8"
-  integrity sha512-rgE2qj8nrFaCbFGQtm/Tuu+MUQQpURgi6ghRV9BRJ4BzJUx9tnUr5Etb/9xizXWlqLAi6kY9aIk7YBkHWQ1EQA==
-  dependencies:
-    "@freshworks/button" "^0.5.3"
-    "@freshworks/core" "^0.1.12"
-    "@freshworks/icon" "^0.5.3"
-    ember-cli-babel "^7.11.1"
-    ember-cli-htmlbars "^4.0.0"
-    ember-cli-sass "^10.0.0"
-    ember-css-transitions "^0.1.16"
-    ember-decorators "^6.1.1"
-    ember-decorators-polyfill shibulijack-fd/ember-decorators-polyfill#master
-    ember-truth-helpers "^2.1.0"
-    ember-wormhole "^0.5.5"
-
-"@freshworks/toast-message@0.6.3":
-  version "0.6.3"
-  resolved "https://registry.yarnpkg.com/@freshworks/toast-message/-/toast-message-0.6.3.tgz#ad310fc229b7aaaf1f0bf9a5f392227eb24978f2"
-  integrity sha512-6Xgh173oh6GP4wzc7R1HOgJyyAxan7oQbdTgVthkPLgmwaza5XgTUmqqz6QXS6HxsMocBa9GqlcWEB0820N9qA==
-  dependencies:
-    "@freshworks/button" "^0.5.3"
-    "@freshworks/core" "^0.1.12"
-    "@freshworks/icon" "^0.5.3"
-    ember-cli-babel "^7.11.1"
-    ember-cli-flash "^1.7.2"
-    ember-cli-htmlbars "^4.0.0"
-    ember-cli-sass "^10.0.0"
-    ember-css-transitions "^0.1.16"
-    ember-decorators "^6.1.1"
-    ember-decorators-polyfill shibulijack-fd/ember-decorators-polyfill#master
-    ember-truth-helpers "^2.1.0"
-
 "@glimmer/di@^0.2.0":
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/@glimmer/di/-/di-0.2.1.tgz#5286b6b32040232b751138f6d006130c728d4b3d"
@@ -7494,14 +7389,6 @@ ember-css-transitions@^0.1.16:
     ember-cli-babel "^7.12.0"
     ember-cli-typescript "^3.0.0"
     ember-inflector "^3.0.1"
-
-"ember-decorators-polyfill@github:shibulijack-fd/ember-decorators-polyfill#master":
-  version "1.1.1"
-  resolved "https://codeload.github.com/shibulijack-fd/ember-decorators-polyfill/tar.gz/626c3ad30b47772aaedb75bc25649d26ed0c5e94"
-  dependencies:
-    ember-cli-babel "^7.1.2"
-    ember-cli-version-checker "^3.1.3"
-    ember-compatibility-helpers "^1.2.0"
 
 ember-decorators-polyfill@shibulijack-fd/ember-decorators-polyfill#master:
   version "1.1.1"
