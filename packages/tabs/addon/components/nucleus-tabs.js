@@ -77,12 +77,12 @@ class NucleusTabs extends Component {
   /**
   * default
   *
-  * @field default : takes intial value from selected
+  * @field currentSelected : takes intial value from selected
   * @type string|null
   * @public
   */
   @oneWay('selected')
-  default;
+  currentSelected;
 
   /**
   * variantClass
@@ -133,7 +133,7 @@ class NucleusTabs extends Component {
   */
   @action
   activateTab(name, event) {
-    set(this, 'default', name);
+    set(this, 'currentSelected', name);
     if(this.onChange) {
       this.onChange(name, event);
     }

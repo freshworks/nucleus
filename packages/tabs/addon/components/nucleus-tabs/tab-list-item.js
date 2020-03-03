@@ -70,8 +70,8 @@ class TabListItem extends Component {
   * @type boolean
   * @public
   */
-  @computed('default', function() {
-    return (get(this, 'default') === get(this, 'name'));
+  @computed('currentSelected', function() {
+    return (get(this, 'currentSelected') === get(this, 'name'));
   })
   isActive;
 
@@ -106,8 +106,8 @@ class TabListItem extends Component {
   * @type boolean
   * @public
   */
-  @computed('default', function() {
-    return (get(this, 'default') === get(this, 'name')).toString();
+  @computed('currentSelected', function() {
+    return (get(this, 'currentSelected') === get(this, 'name')).toString();
   })
   "aria-selected";
 

@@ -52,7 +52,7 @@ class TabPanel extends Component {
   * @public
   */
   @computed('props.[]', function() {
-    return (get(this.props, 'default') === get(this, 'name'));
+    return (get(this.props, 'currentSelected') === get(this, 'name'));
   })
   isActive;
 

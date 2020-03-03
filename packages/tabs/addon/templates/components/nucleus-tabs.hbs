@@ -6,7 +6,7 @@
           disabled=tab.disabled
           controls=tab.id 
           index=index 
-          default=default 
+          currentSelected=currentSelected 
           registerTabListItem=(action registerTabListItem) 
           handleActivateTab=(action activateTab)}}
         {{tab.name}}
@@ -19,7 +19,7 @@
   panel=(component "nucleus-tabs/tab-panel")
   props=(hash
     registerPanel=(action "registerPanel")
-    default=default
+    currentSelected=currentSelected
     tabListItems=tabListItems
   )
 )}}
