@@ -15,6 +15,7 @@ import { TABS_KEY_CODE } from '../../constants/nucleus-tabs'
 @attributeBindings('role')
 @attributeBindings('aria-controls')
 @attributeBindings('aria-selected')
+@attributeBindings('isDisabled:disabled')
 class TabListItem extends Component {
 
   /**
@@ -27,7 +28,7 @@ class TabListItem extends Component {
   * @public
   */
   @defaultProp
-  disabled = 'false';
+  disabled = null;
 
   /**
   * controls : idref to what panel this tab item controls
@@ -150,8 +151,6 @@ class TabListItem extends Component {
   keyDown(event) {
     event.stopPropagation();
     let target = event.target;
-    let nextSibling = target.nextElementSibling;
-    let previousSibling = target.previousElementSibling;
     let firstElement = target.parentElement.firstElementChild;
     let lastElement = target.parentElement.lastElementChild;
 
@@ -167,13 +166,39 @@ class TabListItem extends Component {
         firstElement.focus();
         break; 
       case keyCode.LEFT: 
-        (previousSibling)? previousSibling.focus() : lastElement.focus();
+        this.focusPreviousTab(target);
         break;
       case keyCode.RIGHT: 
-        (nextSibling)? nextSibling.focus() : firstElement.focus();
+        this.focusNextTab(target);
         break;
       default:
         break;
+    }
+  }
+
+  focusNextTab(element, elementInFocus) {
+    let nextElement = element.nextElementSibling;
+    nextElement = (nextElement)? nextElement : element.parentElement.firstElementChild;
+
+    if(elementInFocus && (elementInFocus.id === nextElement.id)) {
+      return;
+    } else if(nextElement.disabled) {
+      get(this, 'focusNextTab').call(this, nextElement, element);
+    } else {
+      nextElement.focus();
+    }
+  }
+
+  focusPreviousTab(element, elementInFocus) {
+    let previousElement = element.previousElementSibling;
+    previousElement = (previousElement)? previousElement : element.parentElement.lastElementChild;
+
+    if(elementInFocus && (elementInFocus.id === previousElement.id)) {
+      return;
+    } else if(previousElement.disabled) {
+      get(this, 'focusPreviousTab').call(this, previousElement, element);
+    } else {
+      previousElement.focus();
     }
   }
 }
