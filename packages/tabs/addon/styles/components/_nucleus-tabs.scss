@@ -60,6 +60,7 @@
 
     &--item.disabled {
       color: $color-smoke-300;
+      -webkit-text-fill-color: $color-smoke-300;
 
       &:hover {
         cursor: default;
