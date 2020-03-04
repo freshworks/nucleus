@@ -6,6 +6,9 @@ import { set, computed } from '@ember/object';
 import { isBlank } from '@ember/utils';
 import layout from '../../templates/components/nucleus-modal/dialog';
 import EventHandler from "../../utils/event-handler";
+import { later } from '@ember/runloop';
+
+var _modalD;
 
 /**
   Dialog Usage:
@@ -103,6 +106,17 @@ class Dialog extends Component {
   positionClass;
 
   /**
+  * modalDialog
+  *
+  * @field modalDialog
+  * @type function
+  * @private
+  */
+  @computed('modalDialog', function() {
+   return document.getElementById('nucleusDialog');
+  })
+  modalDialog;
+  /**
    * The id of the `.modal-title` element
    *
    * @field titleId
@@ -164,7 +178,13 @@ class Dialog extends Component {
       callback: this.scrolled.bind(this), 
       element: '.nucleus-modal__body'
     });
+    let _focusListener = EventHandler.bindEvent({
+      eventName: 'keydown',
+      callback: this.loopFocus.bind(this)
+    });
     set(this, '_scrollCallback', _scrollCallback);
+    set(this, '_focusListener', _focusListener);
+    this._focusTrap();
   }
 
   scrolled() {
@@ -180,9 +200,57 @@ class Dialog extends Component {
     }
   }
 
+   /**
+  * focusTrap
+  *
+  * @method focusTrap
+  * @private
+  *
+  */
+ _focusTrap() {
+  let modalDialog = _modalD;
+  let focusEl = modalDialog && modalDialog.querySelector("[autofocus]");
+  if(focusEl) {
+    focusEl.focus();
+  }
+}
+
+   /**
+  * loopFocus
+  *
+  * @method loopFocus
+  * @private
+  * @param {any} event
+  */
+ loopFocus(event) {
+  let modalDialog = _modalD;
+  var isTab = (event.key === 'Tab' || event.keyCode === 9);
+  if (!isTab) {
+    return;
+  }
+  let focusElements = [...modalDialog.querySelectorAll('a[href]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input[type="text"]:not([disabled]), input[type="radio"]:not([disabled]), input[type="checkbox"]:not([disabled]), select:not([disabled])')];    
+  let currentIndex = focusElements.indexOf(document.activeElement);
+  if (currentIndex === -1) {
+    focusElements[0].focus();
+  }
+  if(event.shiftKey) {
+    if (currentIndex === 0) {
+      event.preventDefault();
+      focusElements[focusElements.length-1].focus();
+    }
+  } 
+  else {
+    if (currentIndex === (focusElements.length - 1)) {
+      event.preventDefault();
+      focusElements[0].focus();
+    }
+  }
+}
+
   didInsertElement() {
     super.didInsertElement(...arguments);
     this.getOrSetTitleId();
+    _modalD = this.get('modalDialog');
     this.attachEventHandlers();
   }
 
@@ -192,6 +260,10 @@ class Dialog extends Component {
       eventName: 'scroll',
       callback: this._scrollCallback, 
       element: '.nucleus-modal__body'
+    });
+    EventHandler.unbindEvent({
+      eventName: 'keydown',
+      callback: this._focusListener
     });
   }
 }
