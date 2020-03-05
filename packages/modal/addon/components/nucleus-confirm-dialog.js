@@ -60,7 +60,7 @@ class NucleusConfirmDialog extends Modal {
   submitTitle = 'Confirm';
   
   /**
-  * Disable the action button
+  * Disable the submit button
   *
   * @field submitDisabled
   * @type boolean
