@@ -1,8 +1,9 @@
 {{#docs-demo as |demo|}}
-  {{#demo.example name="nucleus-tabs-2.hbs" }}
+  {{#demo.example name="nucleus-tabs-3.hbs" }}
     {{#nucleus-tabs 
         description="site-navigation" 
         selected="I want apples" 
+        beforeChange=(action "beforeChange") 
         onChange=(action "onChange") as |tabs| }}
       {{#tabs.panel props=tabs.props name="I want apples" }}
         <div>This is apples section</div>
@@ -16,6 +17,6 @@
     {{/nucleus-tabs}}
   {{/demo.example}}
 
-  {{demo.snippet "nucleus-tabs-2.hbs"}}
-  {{demo.snippet "nucleus-tabs-2.js" label="component.js"}}
+  {{demo.snippet "nucleus-tabs-3.hbs"}}
+  {{demo.snippet "nucleus-tabs-3.js" label="component.js"}}
 {{/docs-demo}}

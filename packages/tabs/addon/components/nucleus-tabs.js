@@ -132,10 +132,17 @@ class NucleusTabs extends Component {
   *
   */
   @action
-  activateTab(name, event) {
-    set(this, 'currentSelected', name);
-    if(this.onChange) {
-      this.onChange(name, event);
+  async activateTab(changedTo, event) {
+    let _this = this;
+    const beforeChange = get(_this, 'beforeChange');
+    const onChange =  get(_this, 'onChange');
+    const currentTab = get(_this, 'currentSelected');
+    if(beforeChange) {
+      await beforeChange.call(_this, changedTo, currentTab, event);
+    }
+    set(_this, 'currentSelected', changedTo);
+    if(onChange) {
+      await onChange.call(_this, changedTo, currentTab, event);
     }
   }
 }

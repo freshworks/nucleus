@@ -93,9 +93,9 @@ module('Integration | Component | nucleus-tabs', function(hooks) {
     assert.dom('.nucleus-tabs .nucleus-tabs--list--item.active').hasText('home');
   });
 
-  test('it should yeilds onchange action', async function(assert) {
-    let onchangeAction = this.spy();
-    this.actions.onChange = onchangeAction;
+  test('it should yeilds onChange action', async function(assert) {
+    let onChangeAction = this.spy();
+    this.actions.onChange = onChangeAction;
     await render(hbs`
       {{#nucleus-tabs description="site-navigation" selected="home" onChange=(action "onChange") as |tabs|}}
         {{#tabs.panel name="home" props=tabs.props }}
@@ -108,7 +108,51 @@ module('Integration | Component | nucleus-tabs', function(hooks) {
     `);
 
     await click('.nucleus-tabs .nucleus-tabs--list--item:not(.active)');
-    assert.ok(onchangeAction.calledOnce, 'onChange action has been called.');
+    assert.ok(onChangeAction.calledOnce, 'onChange action has been called.');
+  });
+
+  test('it should yeilds beforeChange action', async function(assert) {
+    let beforeChangeAction = this.spy();
+    this.actions.beforeChange = beforeChangeAction;
+    await render(hbs`
+      {{#nucleus-tabs description="site-navigation" selected="home" beforeChange=(action "beforeChange") as |tabs|}}
+        {{#tabs.panel name="home" props=tabs.props }}
+          <div>This is the home section</div>
+        {{/tabs.panel}}
+        {{#tabs.panel name="about" props=tabs.props }}
+          <div>This is the about section</div>
+        {{/tabs.panel}}
+      {{/nucleus-tabs}}
+    `);
+
+    await click('.nucleus-tabs .nucleus-tabs--list--item:not(.active)');
+    assert.ok(beforeChangeAction.calledOnce, 'beforeChange action has been called.');
+  });
+
+  test('it should call beforeChange action ahead of onChange action', async function(assert) {
+    let beforeChangeAction = this.spy(function() {
+      assert.step('beforeChange');
+    });
+    this.actions.beforeChange = beforeChangeAction;
+    let onChangeAction = this.spy(function() {
+      assert.step('onChange');
+    });
+    this.actions.onChange = onChangeAction;
+    await render(hbs`
+      {{#nucleus-tabs description="site-navigation" selected="home" beforeChange=(action "beforeChange") onChange=(action "onChange") as |tabs|}}
+        {{#tabs.panel name="home" props=tabs.props }}
+          <div>This is the home section</div>
+        {{/tabs.panel}}
+        {{#tabs.panel name="about" props=tabs.props }}
+          <div>This is the about section</div>
+        {{/tabs.panel}}
+      {{/nucleus-tabs}}
+    `);
+
+    await click('.nucleus-tabs .nucleus-tabs--list--item:not(.active)');
+    assert.ok(beforeChangeAction.calledOnce, 'beforeChange action has been called.');
+    assert.ok(onChangeAction.calledOnce, 'beforeChange action has been called.');
+    assert.verifySteps(['beforeChange', 'onChange']);
   });
 
   test('it has accessibility attributes', async function(assert) {

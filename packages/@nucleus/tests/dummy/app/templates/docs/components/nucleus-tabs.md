@@ -32,14 +32,18 @@ It's easy for the user to quickly distinguish which tab belongs to which content
   {{demo.snippet 'nucleus-tabs.hbs'}}
 {{/docs-demo}}
 
-#### 2. Custom actions on changing tab
+#### 2. Custom action 'on' changing tab
 
 {{nucleus-tabs/demo-1}}
 
-#### 3. Disabled tab
+#### 3. Custom action 'before' changing tab
+
+{{nucleus-tabs/demo-2}}
+
+#### 4. Disabled tab
 
 {{#docs-demo as |demo|}}
-  {{#demo.example name="nucleus-tabs-3.hbs"}}
+  {{#demo.example name="nucleus-tabs-4.hbs"}}
     {{#nucleus-tabs 
         description="site-navigation" 
         selected="I want apples" 
@@ -55,7 +59,7 @@ It's easy for the user to quickly distinguish which tab belongs to which content
       {{/tabs.panel}}
     {{/nucleus-tabs}}
   {{/demo.example}}
-  {{demo.snippet 'nucleus-tabs-3.hbs'}}
+  {{demo.snippet 'nucleus-tabs-4.hbs'}}
 {{/docs-demo}}
 
 ## Styles
