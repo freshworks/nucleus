@@ -209,9 +209,13 @@ class Dialog extends Component {
   */
  _focusTrap() {
   let modalDialog = _modalD;
+  let focusElements = [...modalDialog.querySelectorAll('a[href]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input[type="text"]:not([disabled]), input[type="radio"]:not([disabled]), input[type="checkbox"]:not([disabled]), select:not([disabled])')];    
   let focusEl = modalDialog && modalDialog.querySelector("[autofocus]");
   if(focusEl) {
     focusEl.focus();
+  }
+  else {
+    focusElements[1].focus();
   }
 }
 
@@ -250,8 +254,13 @@ class Dialog extends Component {
   didInsertElement() {
     super.didInsertElement(...arguments);
     this.getOrSetTitleId();
-    _modalD = this.get('modalDialog');
-    this.attachEventHandlers();
+    _modalD = this.element.querySelector('#nucleusDialog');
+    let focusEl = _modalD && _modalD.querySelector("[autofocus]");
+    focusEl.removeAttribute("autofocus");
+    console.log(focusEl);
+    later(this, () => {
+      this.attachEventHandlers();
+    }, 300);
   }
 
   willDestroyElement() {
