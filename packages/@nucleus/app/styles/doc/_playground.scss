@@ -1,20 +1,21 @@
 $playground-border-color: #dae1e7;
+$padding: 8px;
 
 .playground-container {
   display: flex;
   border-bottom: 1px dotted $playground-border-color;
-  padding: 10px;
   justify-content: space-around;
 
-  &--component {
+  &--preview {
+    display: flex;
     align-self: center;
-    width: 50%;
-    text-align: center;
-    padding-right: 10px;
+    width: 75%;
+    justify-content: center;
+    padding: $padding;
   }
 
   &--props {
-    padding-left: 10px;
+    padding: $padding;
     border-left: 1px dotted $playground-border-color;
     max-height: 25vh;
     width: 50%;
@@ -25,26 +26,26 @@ $playground-border-color: #dae1e7;
 
       &--label {
         display: block;
-        padding-bottom: 5px;
+        padding-bottom: $padding;
         font-weight: 700;
       }
 
       .ember-text-field {
         border: 1px solid $playground-border-color;
-        padding: 5px;
+        padding: $padding;
       }
     }
   }
 
   &--code {
     position: relative;
-    padding: 20px;
+    margin: 8px;
+    padding: $padding 0;
   }
 
   &--code-copy {
     position: absolute;
     right: 0;
-    bottom: -1px;
-    padding: 0;
+    bottom: 0;
   }
 }
