@@ -5,6 +5,16 @@ import { get, computed } from '@ember/object';
 import defaultProp from '@freshworks/core/utils/default-decorator';
 import { once } from '@ember/runloop';
 
+/**
+  __Usage:__
+
+  [Refer component page](/docs/components/nucleus-tabs)
+
+  @class Nucleus Tab
+  @namespace Components
+  @extends Ember.Component
+  @public
+*/
 @tagName('div')
 @templateLayout(layout)
 @classNames('nucleus-tabs__panel')

@@ -11,7 +11,7 @@ import { oneWay }from '@ember/object/computed';
 
   [Refer component page](/docs/components/nucleus-tabs)
 
-  @class Nucleus Tab
+  @class Nucleus Tabs
   @namespace Components
   @extends Ember.Component
   @public

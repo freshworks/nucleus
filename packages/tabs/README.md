@@ -20,5 +20,3 @@ Guidelines
 
 **Dont's**
 1. Dont use tabs for sequential content. Users can navigate to any tab at any time and cannot be expected to do it sequentially.
-
-

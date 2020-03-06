@@ -31,21 +31,21 @@ module('Integration | Component | nucleus-tabs', function(hooks) {
   test('it should yield tab-list items and tab-panels', async function(assert) {
     await render(sampleTabsTemplate);
     assert.dom('.nucleus-tabs').exists({ count: 1 }, 'Tabs component exists.');
-    assert.dom('.nucleus-tabs .nucleus-tabs--list').exists({ count: 1 }, 'Tabs component has a Tab list');
-    assert.dom('.nucleus-tabs .nucleus-tabs--list--item').exists({ count: 3 }, 'Tabs component has 3 Tab list items');
-    assert.dom('.nucleus-tabs .nucleus-tabs--panel').exists({ count: 3 }, 'Tabs component has right number of Tab panels');
+    assert.dom('.nucleus-tabs .nucleus-tabs__list').exists({ count: 1 }, 'Tabs component has a Tab list');
+    assert.dom('.nucleus-tabs .nucleus-tabs__list__item').exists({ count: 3 }, 'Tabs component has 3 Tab list items');
+    assert.dom('.nucleus-tabs .nucleus-tabs__panel').exists({ count: 3 }, 'Tabs component has right number of Tab panels');
   });
 
   test('it should have only selected panel as active', async function(assert) {
     await render(sampleTabsTemplate);
-    assert.dom('.nucleus-tabs .nucleus-tabs--panel.active').exists({ count: 1 }, 'Only one active panel at a time');
-    assert.dom('.nucleus-tabs .nucleus-tabs--panel.active').hasText('This is the home section');
+    assert.dom('.nucleus-tabs .nucleus-tabs__panel.active').exists({ count: 1 }, 'Only one active panel at a time');
+    assert.dom('.nucleus-tabs .nucleus-tabs__panel.active').hasText('This is the home section');
   });
 
   test('it should have only selected tab list item as active', async function(assert) {
     await render(sampleTabsTemplate);
-    assert.dom('.nucleus-tabs .nucleus-tabs--list--item.active').exists({ count: 1 }, 'Only one active panel at a time');
-    assert.dom('.nucleus-tabs .nucleus-tabs--list--item.active').hasText('home');
+    assert.dom('.nucleus-tabs .nucleus-tabs__list__item.active').exists({ count: 1 }, 'Only one active panel at a time');
+    assert.dom('.nucleus-tabs .nucleus-tabs__list__item.active').hasText('home');
   });
 
   test('it should attach appropriate background class for the background variant', async function(assert) {
@@ -75,7 +75,7 @@ module('Integration | Component | nucleus-tabs', function(hooks) {
         {{/tabs.panel}}
       {{/nucleus-tabs}}
     `);
-    assert.dom('.nucleus-tabs .nucleus-tabs--list--item.disabled').exists({ count: 1 }, 'Has disabled class when disabled prop is passed');
+    assert.dom('.nucleus-tabs .nucleus-tabs__list__item.disabled').exists({ count: 1 }, 'Has disabled class when disabled prop is passed');
   });
 
   test('it should not enable tab when tab list item is disabled', async function(assert) {
@@ -89,8 +89,8 @@ module('Integration | Component | nucleus-tabs', function(hooks) {
         {{/tabs.panel}}
       {{/nucleus-tabs}}
     `);
-    await click('.nucleus-tabs .nucleus-tabs--list--item:not(.active)');
-    assert.dom('.nucleus-tabs .nucleus-tabs--list--item.active').hasText('home');
+    await click('.nucleus-tabs .nucleus-tabs__list__item:not(.active)');
+    assert.dom('.nucleus-tabs .nucleus-tabs__list__item.active').hasText('home');
   });
 
   test('it should yeilds onChange action', async function(assert) {
@@ -107,7 +107,7 @@ module('Integration | Component | nucleus-tabs', function(hooks) {
       {{/nucleus-tabs}}
     `);
 
-    await click('.nucleus-tabs .nucleus-tabs--list--item:not(.active)');
+    await click('.nucleus-tabs .nucleus-tabs__list__item:not(.active)');
     assert.ok(onChangeAction.calledOnce, 'onChange action has been called.');
   });
 
@@ -125,7 +125,7 @@ module('Integration | Component | nucleus-tabs', function(hooks) {
       {{/nucleus-tabs}}
     `);
 
-    await click('.nucleus-tabs .nucleus-tabs--list--item:not(.active)');
+    await click('.nucleus-tabs .nucleus-tabs__list__item:not(.active)');
     assert.ok(beforeChangeAction.calledOnce, 'beforeChange action has been called.');
   });
 
@@ -149,7 +149,7 @@ module('Integration | Component | nucleus-tabs', function(hooks) {
       {{/nucleus-tabs}}
     `);
 
-    await click('.nucleus-tabs .nucleus-tabs--list--item:not(.active)');
+    await click('.nucleus-tabs .nucleus-tabs__list__item:not(.active)');
     assert.ok(beforeChangeAction.calledOnce, 'beforeChange action has been called.');
     assert.ok(onChangeAction.calledOnce, 'beforeChange action has been called.');
     assert.verifySteps(['beforeChange', 'onChange']);
@@ -157,14 +157,14 @@ module('Integration | Component | nucleus-tabs', function(hooks) {
 
   test('it has accessibility attributes', async function(assert) {
     await render(sampleTabsTemplate);
-    assert.dom('.nucleus-tabs .nucleus-tabs--list').hasAttribute('role', 'tablist');
-    assert.dom('.nucleus-tabs .nucleus-tabs--list').hasAttribute('aria-label', 'site-navigation');
-    assert.dom('.nucleus-tabs .nucleus-tabs--list button').hasAttribute('role', 'tab');
-    assert.dom('.nucleus-tabs .nucleus-tabs--list button.active').hasAttribute('aria-selected', 'true');
-    assert.dom('.nucleus-tabs .nucleus-tabs--list button:not(.active)').hasAttribute('aria-selected', 'false');
-    assert.dom('.nucleus-tabs .nucleus-tabs--list button').hasAttribute('aria-controls');
-    assert.dom('.nucleus-tabs .nucleus-tabs--panel').hasAttribute('role', 'tabpanel');
-    assert.dom('.nucleus-tabs .nucleus-tabs--panel').hasAttribute('aria-labelledby');
+    assert.dom('.nucleus-tabs .nucleus-tabs__list').hasAttribute('role', 'tablist');
+    assert.dom('.nucleus-tabs .nucleus-tabs__list').hasAttribute('aria-label', 'site-navigation');
+    assert.dom('.nucleus-tabs .nucleus-tabs__list button').hasAttribute('role', 'tab');
+    assert.dom('.nucleus-tabs .nucleus-tabs__list button.active').hasAttribute('aria-selected', 'true');
+    assert.dom('.nucleus-tabs .nucleus-tabs__list button:not(.active)').hasAttribute('aria-selected', 'false');
+    assert.dom('.nucleus-tabs .nucleus-tabs__list button').hasAttribute('aria-controls');
+    assert.dom('.nucleus-tabs .nucleus-tabs__panel').hasAttribute('role', 'tabpanel');
+    assert.dom('.nucleus-tabs .nucleus-tabs__panel').hasAttribute('aria-labelledby');
   });
 
   test('it passes a11y tests', async function(assert) {

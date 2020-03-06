@@ -52,14 +52,33 @@ class TabListItem extends Component {
   role = 'tab';
 
   /**
+  * tabOrder : order in which tabs are displayed. Only first tabs will not have tabIndex value.
+  *
+  * @field tabOrder
+  * @type number
+  * @readonly
+  * @public
+  */
+  tabOrder;
+
+  /**
+  * currentSelected : currently selected tab
+  *
+  * @field currentSelected
+  * @readonly
+  * @public
+  */
+  currentSelected;
+
+  /**
   * tabindex
   *
   * @field tabindex
   * @type string|null
   * @public
   */
-  @computed('index', function() {
-    return (get(this, 'index') === 0)? null : '-1';
+  @computed('tabOrder', function() {
+    return (get(this, 'tabOrder') === 0)? null : '-1';
   })
   tabindex;
 
@@ -136,7 +155,7 @@ class TabListItem extends Component {
   click(event) {
     event.target.focus();
     if(get(this, 'disabled') === 'false') {
-      this.handleActivateTab(get(this, 'name'), event);
+      get(this, 'handleActivateTab').call(this, get(this, 'name'), event);
     }
   }
 
@@ -149,14 +168,14 @@ class TabListItem extends Component {
   */
   keyDown(event) {
     event.stopPropagation();
-    const target = event.target;
-    const firstElement = target.parentElement.firstElementChild;
-    const lastElement = target.parentElement.lastElementChild;
+    const targetElement = event.target;
+    const firstElement = targetElement.parentElement.firstElementChild;
+    const lastElement = targetElement.parentElement.lastElementChild;
 
     const keyCode = TABS_KEY_CODE;
     switch (event.keyCode) {
       case (keyCode.ENTER || keyCode.SPACE):
-        target.click();
+        targetElement.click();
         break;
       case keyCode.END: 
         lastElement.focus();
@@ -165,10 +184,10 @@ class TabListItem extends Component {
         firstElement.focus();
         break; 
       case keyCode.LEFT: 
-        this.focusPreviousTab(target);
+        get(this, 'focusPreviousTab').call(this, targetElement);
         break;
       case keyCode.RIGHT: 
-        this.focusNextTab(target);
+        get(this, 'focusNextTab').call(this, targetElement);
         break;
       default:
         break;
