@@ -19,6 +19,7 @@ import layout from "../templates/components/nucleus-tabs";
 @templateLayout(layout)
 @classNames('nucleus-tabs')
 @classNameBindings('variantClass')
+@classNameBindings('customClasses')
 class NucleusTabs extends Component {
   /**
   * Description : to add aria label
@@ -31,6 +32,17 @@ class NucleusTabs extends Component {
   */
   @defaultProp
   description = null;
+
+  /**
+  * customClasses : to add custom class to the tabs component
+  *
+  * @field customClasses
+  * @type string
+  * @readonly
+  * @public
+  */
+  @defaultProp 
+  customClasses = "";
 
   /**
   * selected : default open tab 

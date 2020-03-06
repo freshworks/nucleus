@@ -15,6 +15,7 @@ It's easy for the user to quickly distinguish which tab belongs to which content
 {{#docs-demo as |demo|}}
   {{#demo.example name="nucleus-tabs.hbs"}}
     {{#nucleus-tabs 
+        customClasses="contacts-tab contacts-tab-simple"
         description="site-navigation" 
         selected="I want apples" 
         variant="default" as |tabs| }}
