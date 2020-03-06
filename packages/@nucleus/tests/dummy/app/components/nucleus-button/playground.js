@@ -105,7 +105,7 @@ class Playground extends Component {
   }
 
   _handleIconOnly(properties) {
-     let changables = ['label', 'type', 'icon'];
+     let changables = ['label', 'variant', 'icon'];
       let [
         label,
         type,
