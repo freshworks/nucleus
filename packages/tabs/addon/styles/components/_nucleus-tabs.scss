@@ -2,11 +2,11 @@
   display: flex;
   flex-direction: column;
 
-  &--list {
+  &__list {
     width: 100%;
     overflow: scroll hidden;
 
-    &--container {
+    &__container {
       display: flex;
       flex-wrap: nowrap;
       width: 100%;
@@ -14,7 +14,7 @@
       border-bottom: 1px solid $color-smoke-50;
     }
 
-    &--item {
+    &__item {
       all: unset;
       flex-shrink: 0;
       position: relative;
@@ -58,7 +58,7 @@
       }
     }
 
-    &--item.disabled {
+    &__item.disabled {
       color: $color-smoke-300;
       -webkit-text-fill-color: $color-smoke-300;
 
@@ -71,7 +71,7 @@
       }
     }
 
-    &--item.active {
+    &__item.active {
       color: $color-azure-800;
 
       &::after {
@@ -80,18 +80,18 @@
     }
   }
 
-  &--panel {
+  &__panel {
     width: 100%;
     display: none;
     padding: 8px 20px;
   }
 
-  &--panel.active {
+  &__panel.active {
     display: block;
   }
 
   &--background {
-    .nucleus-tabs--list {
+    .nucleus-tabs__list {
       background: $color-smoke-25;
       border: 1px solid $color-smoke-50;
       border-radius: 4px;

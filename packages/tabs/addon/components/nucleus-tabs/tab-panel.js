@@ -1,13 +1,13 @@
-import { classNames, attributeBindings, classNameBindings, tagName, layout as templateLayout } from '@ember-decorators/component';
 import Component from '@ember/component';
-import { get, computed } from '@ember/object';
+import { classNames, attributeBindings, classNameBindings, tagName, layout as templateLayout } from '@ember-decorators/component';
 import layout from '../../templates/components/nucleus-tabs/tab-panel';
-import { once } from '@ember/runloop';
+import { get, computed } from '@ember/object';
 import defaultProp from '@freshworks/core/utils/default-decorator';
+import { once } from '@ember/runloop';
 
 @tagName('div')
 @templateLayout(layout)
-@classNames('nucleus-tabs--panel')
+@classNames('nucleus-tabs__panel')
 @classNameBindings('isActive:active')
 @attributeBindings('tabindex')
 @attributeBindings('role')
@@ -30,6 +30,7 @@ class TabPanel extends Component {
   * tabindex
   *
   * @field tabindex
+  * @default '0'
   * @type String
   * @public
   */
@@ -57,15 +58,15 @@ class TabPanel extends Component {
   isActive;
 
   /**
-  * isActive
+  * aria-labelledby
   *
-  * @field isActive
-  * @type Boolean
+  * @field aria-labelledby
+  * @type String
   * @public
   */
   @computed('props.tabList.[]', function() {
-    let tabListItems = get(this.props, 'tabListItems');
-    let tabList = tabListItems.findBy('name', get(this, 'name'));
+    const tabListItems = get(this.props, 'tabListItems');
+    const tabList = tabListItems.findBy('name', get(this, 'name'));
     return (tabList)? tabList.id : "";
   })
   "aria-labelledby";

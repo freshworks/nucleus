@@ -1,14 +1,14 @@
-import { classNames, attributeBindings, classNameBindings, tagName, layout as templateLayout } from '@ember-decorators/component';
 import Component from '@ember/component';
+import { classNames, attributeBindings, classNameBindings, tagName, layout as templateLayout } from '@ember-decorators/component';
+import layout from '../../templates/components/nucleus-tabs/tab-list-item';
 import { get, computed } from '@ember/object';
 import defaultProp from '@freshworks/core/utils/default-decorator';
 import { once } from '@ember/runloop';
-import layout from '../../templates/components/nucleus-tabs/tab-list-item';
 import { TABS_KEY_CODE } from '../../constants/nucleus-tabs'
 
 @tagName('button')
 @templateLayout(layout)
-@classNames('nucleus-tabs--list--item')
+@classNames('nucleus-tabs__list__item')
 @classNameBindings('isActive:active')
 @classNameBindings('isDisabled:disabled')
 @attributeBindings('tabindex')
@@ -23,7 +23,7 @@ class TabListItem extends Component {
   *
   * @field disabled
   * @type string
-  * @default 'false'
+  * @default null
   * @readonly
   * @public
   */
@@ -35,7 +35,6 @@ class TabListItem extends Component {
   *
   * @field controls
   * @type string|null
-  * @default null
   * @readonly
   * @public
   */
@@ -150,9 +149,9 @@ class TabListItem extends Component {
   */
   keyDown(event) {
     event.stopPropagation();
-    let target = event.target;
-    let firstElement = target.parentElement.firstElementChild;
-    let lastElement = target.parentElement.lastElementChild;
+    const target = event.target;
+    const firstElement = target.parentElement.firstElementChild;
+    const lastElement = target.parentElement.lastElementChild;
 
     const keyCode = TABS_KEY_CODE;
     switch (event.keyCode) {
@@ -176,10 +175,16 @@ class TabListItem extends Component {
     }
   }
 
+  /**
+  * focusNextTab : focus the next tab that is not disabled. 
+  * When last item, focus must circle back to previous item.
+  *
+  * @method focusNextTab
+  * @public
+  *
+  */
   focusNextTab(element, elementInFocus) {
-    let nextElement = element.nextElementSibling;
-    nextElement = (nextElement)? nextElement : element.parentElement.firstElementChild;
-
+    const nextElement = (element.nextElementSibling)? element.nextElementSibling : element.parentElement.firstElementChild;
     if(elementInFocus && (elementInFocus.id === nextElement.id)) {
       return;
     } else if(nextElement.disabled) {
@@ -189,10 +194,16 @@ class TabListItem extends Component {
     }
   }
 
+  /**
+  * focusPreviousTab : focus the previous tab that is not disabled.
+  * When first item, focus must go back to last item.
+  *
+  * @method focusPreviousTab
+  * @public
+  *
+  */
   focusPreviousTab(element, elementInFocus) {
-    let previousElement = element.previousElementSibling;
-    previousElement = (previousElement)? previousElement : element.parentElement.lastElementChild;
-
+    const previousElement = (element.previousElementSibling)? element.previousElementSibling : element.parentElement.lastElementChild;
     if(elementInFocus && (elementInFocus.id === previousElement.id)) {
       return;
     } else if(previousElement.disabled) {

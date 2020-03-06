@@ -1,10 +1,10 @@
-import { classNames, classNameBindings, layout as templateLayout } from '@ember-decorators/component';
-import { A } from '@ember/array';
-import defaultProp from '@freshworks/core/utils/default-decorator';
 import Component from '@ember/component';
-import { set, get, computed, action } from '@ember/object';
-import { oneWay }from '@ember/object/computed';
+import { classNames, classNameBindings, layout as templateLayout } from '@ember-decorators/component';
 import layout from "../templates/components/nucleus-tabs";
+import { set, get, computed, action } from '@ember/object';
+import defaultProp from '@freshworks/core/utils/default-decorator';
+import { A } from '@ember/array';
+import { oneWay }from '@ember/object/computed';
 
 /**
   __Usage:__
@@ -22,7 +22,7 @@ import layout from "../templates/components/nucleus-tabs";
 @classNameBindings('customClasses')
 class NucleusTabs extends Component {
   /**
-  * Description : to add aria label
+  * description : to add aria label
   *
   * @field description
   * @type string|null
@@ -145,11 +145,11 @@ class NucleusTabs extends Component {
   */
   @action
   async activateTab(changedTo, event) {
-    let _this = this;
+    const _this = this;
     const beforeChange = get(_this, 'beforeChange');
     const onChange =  get(_this, 'onChange');
     const currentTab = get(_this, 'currentSelected');
-    if(beforeChange) {
+    if(beforeChange) { 
       await beforeChange.call(_this, changedTo, currentTab, event);
     }
     set(_this, 'currentSelected', changedTo);
