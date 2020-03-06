@@ -41,6 +41,7 @@ $padding: 8px;
     position: relative;
     margin: 8px;
     padding: $padding 0;
+    overflow-x: hidden;
   }
 
   &--code-copy {

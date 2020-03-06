@@ -21,7 +21,7 @@ const PROPERTIES = [
   {
     name: 'title',
     input: true,
-    value: 'This message has been identified as spam.',
+    value: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.',
   },
   {
     name: 'isDismissible',
