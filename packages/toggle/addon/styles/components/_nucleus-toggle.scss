@@ -97,10 +97,6 @@ $transform: calc(100% - 8px);
         right: 0;
       }
     }
-
-    &:hover::before {
-      opacity: .4;
-    }
   }
 
   &[checked] {
@@ -123,18 +119,35 @@ $transform: calc(100% - 8px);
     }
   }
 
-  &[disabled] {
-    cursor: not-allowed;
-    opacity: .4;
+  &:hover {
+    .thumb::before {
+      opacity: .4;
+    }
   }
 
   input {
-    display: none;
+    width: 0;
+    height: 0;
+    opacity: 0;
+
+    &:focus + .thumb::before {
+      opacity: .4;
+    }
   }
 
   label {
     width: inherit;
     height: inherit;
     display: block;
+    cursor: pointer;
+  }
+
+  &[disabled] {
+    cursor: not-allowed;
+    opacity: .4;
+
+    label {
+      pointer-events: none;
+    }
   }
 }
