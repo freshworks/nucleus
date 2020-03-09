@@ -1,0 +1,16 @@
+{{#docs-demo as |demo|}}
+  <div class="playground-container">
+    <div class="playground-container--preview">
+      {{yield (hash preview=(component "docs-playground/preview"))}}
+    </div>
+
+    <div class="playground-container--props">
+      <h3>Properties</h3>
+      {{yield (hash props=(component "docs-playground/props"))}}
+    </div>
+  </div>
+
+  <div class="playground-container--code">
+    {{yield (hash codeblock=(component "docs-playground/code"))}}
+  </div>
+{{/docs-demo}}

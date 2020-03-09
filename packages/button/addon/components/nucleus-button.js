@@ -356,10 +356,10 @@ class NucleusButton extends Component {
   * @computed _typeClass
   * @private
   */
-  @computed('type')
+  @computed('variant')
   get _typeClass() {
     let type = this.get('variant');
-    return type ? `nucleus-button--${this.get('variant')}` : 'nucleus-button--primary';
+    return type ? `nucleus-button--${type}` : 'nucleus-button--primary';
   }
 
   /**
@@ -368,7 +368,7 @@ class NucleusButton extends Component {
   * @computed _iconClass
   * @private
   */
-  @computed('iconButton')
+  @computed('iconOnly')
   get _iconClass() {
     let iconButton = this.get('iconOnly');
     return iconButton ? `nucleus-button--iconOnly` : null;
