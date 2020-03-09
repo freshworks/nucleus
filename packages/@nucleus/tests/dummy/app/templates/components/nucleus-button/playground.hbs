@@ -1,0 +1,22 @@
+{{!-- Demo with variants --}}
+{{#docs-playground as |p|}}
+  {{!-- preview --}}
+  {{#p.preview}}
+    {{nucleus-button
+      label=label.value
+      variant=variant.value
+      size=size.value
+      block=block.value
+      disabled=disabled.value
+      icon=icon.value
+      iconSize=iconSize.value
+      iconOnly=iconOnly.value
+    }}
+  {{/p.preview}}
+
+  {{!-- props --}}
+  {{p.props onchange=(action 'onchange') properties=properties}}
+
+  {{!-- code --}}
+  {{p.codeblock code=code}}
+{{/docs-playground}}
