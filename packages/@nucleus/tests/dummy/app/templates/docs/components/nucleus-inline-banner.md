@@ -8,11 +8,24 @@ Inline messages are those which stay in the screen for a limited period of time 
 
 ## Usage
 
-#### 1. Simple use case
+{{#docs-demo as |demo|}}
+  {{#docs-snippet name="nucleus-inline-banners.hbs"}}
+    {{nucleus-inline-banner
+      type="warning"
+      title="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+      onClose=(action "onClose")
+    }}
+  {{/docs-snippet}}
+{{/docs-demo}}
 
-{{nucleus-inline-banner/demo-1}}
 
-#### 2. Custom content
+## Playground
+
+{{nucleus-inline-banner/playground}}
+
+## Usecases
+
+#### 1.Custom content
 
 {{nucleus-inline-banner/demo-2}}
 
@@ -22,9 +35,9 @@ Inline messages are those which stay in the screen for a limited period of time 
 
 1. When used in a form, in-line messages are used at the bottom before the CTA button. However, based on the content, it can be placed above as well.
 
-2. Follow the character limit guidelines mentioned in Typography.   
+2. Follow the character limit guidelines mentioned in Typography.
 
-🚫**Dont's** 
+🚫**Dont's**
 
 1. Do not include buttons in an in-line message.
 

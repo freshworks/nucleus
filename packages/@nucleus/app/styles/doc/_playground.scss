@@ -1,0 +1,52 @@
+$playground-border-color: #dae1e7;
+$padding: 8px;
+
+.playground-container {
+  display: flex;
+  border-bottom: 1px dotted $playground-border-color;
+  justify-content: space-around;
+
+  &--preview {
+    display: flex;
+    align-self: center;
+    width: 75%;
+    justify-content: center;
+    padding: $padding;
+  }
+
+  &--props {
+    padding: $padding;
+    border-left: 1px dotted $playground-border-color;
+    max-height: 25vh;
+    width: 50%;
+    overflow-y: auto;
+
+    .item {
+      margin: 10px;
+
+      &--label {
+        display: block;
+        padding-bottom: $padding;
+        font-weight: 700;
+      }
+
+      .ember-text-field {
+        border: 1px solid $playground-border-color;
+        padding: $padding;
+      }
+    }
+  }
+
+  &--code {
+    position: relative;
+    margin: 8px;
+    padding: $padding 0;
+    overflow-x: hidden;
+  }
+
+  &--code-copy {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+}
