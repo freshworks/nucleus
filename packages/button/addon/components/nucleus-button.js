@@ -12,7 +12,7 @@ import { run } from '@ember/runloop';
 import Component from '@ember/component';
 import { computed } from '@ember/object';
 import layout from "../templates/components/nucleus-button";
-import { BUTTON_STATE } from "../constants/nucleus-button";
+import { BUTTON_STATE, ICON_VARIANT_MAP } from "../constants/nucleus-button";
 import safeSet from "../utils/safe-set";
 
 /**
@@ -94,6 +94,19 @@ class NucleusButton extends Component {
   */
   @defaultProp
   variant = 'primary';
+
+  /**
+  * Attribute bound to icon variant
+  *
+  * @field _iconVariant
+  * @type string
+  * @private
+  */
+  @computed('variant')
+  get _iconVariant() {
+    let variant = this.get('variant');
+    return ICON_VARIANT_MAP[variant];
+  }
 
   /**
   * Attribute bound to button type
@@ -343,10 +356,10 @@ class NucleusButton extends Component {
   * @computed _typeClass
   * @private
   */
-  @computed('type')
+  @computed('variant')
   get _typeClass() {
     let type = this.get('variant');
-    return type ? `nucleus-button--${this.get('variant')}` : 'nucleus-button--primary';
+    return type ? `nucleus-button--${type}` : 'nucleus-button--primary';
   }
 
   /**
@@ -355,7 +368,7 @@ class NucleusButton extends Component {
   * @computed _iconClass
   * @private
   */
-  @computed('iconButton')
+  @computed('iconOnly')
   get _iconClass() {
     let iconButton = this.get('iconOnly');
     return iconButton ? `nucleus-button--iconOnly` : null;
@@ -406,13 +419,12 @@ class NucleusButton extends Component {
   */
   click() {
     let action = this.get('onClick');
-
     if (action === null || action === undefined) {
       return;
     }
 
     if (!this.get('_isPending')) {
-      let promise = action(this.get('args'));
+      let promise = (action)(this.get('args'));
 
       if (promise && typeof promise.then === 'function') {
         safeSet(this, '_buttonState', BUTTON_STATE.PENDING);
