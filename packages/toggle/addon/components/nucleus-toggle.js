@@ -25,7 +25,7 @@ import layout from "../templates/components/nucleus-toggle";
 @tagName('div')
 @classNames('nucleus-toggle')
 @classNameBindings('_sizeClass')
-@attributeBindings('disabled:disabled')
+@attributeBindings('disabled:disabled', 'checkedValue:checked')
 
 class NucleusToggle extends Component {
   @computed('size')

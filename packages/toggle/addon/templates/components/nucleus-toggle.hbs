@@ -7,9 +7,10 @@
     checked={{checkedValue}}
     onClick={{action "onValueChange" value="target.checked"}}
   >
-  <div class="slider">
-    <span class="slider__circle">
-      {{svg-jar (if checkedValue "nucleus-tick" "nucleus-cross") class="slider__circle--icon" aria-hidden=true role="img"}}
-    </span>
+  <div class="track"></div>
+  <div class="thumb">
+    <div class="thumb__control">
+      {{svg-jar (if checkedValue "nucleus-tick" "nucleus-cross") class="thumb__control--icon" aria-hidden=true role="img"}}
+    </div>
   </div>
 </label>
