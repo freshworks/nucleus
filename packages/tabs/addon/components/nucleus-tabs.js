@@ -22,9 +22,10 @@ import { oneWay }from '@ember/object/computed';
 @classNameBindings('customClasses')
 class NucleusTabs extends Component {
   /**
-  * description : to add aria label
+  * description
   *
   * @field description
+  * @description to add aria label
   * @type string|null
   * @default null
   * @readonly
@@ -34,9 +35,10 @@ class NucleusTabs extends Component {
   description = null;
 
   /**
-  * customClasses : to add custom class to the tabs component
+  * customClasses
   *
   * @field customClasses
+  * @description to add custom class to the tabs component
   * @type string
   * @readonly
   * @public
@@ -45,9 +47,10 @@ class NucleusTabs extends Component {
   customClasses = "";
 
   /**
-  * selected : default open tab 
+  * selected
   *
   * @field selected
+  * @description default open tab 
   * @type string|null
   * @default null
   * @readonly
@@ -57,9 +60,10 @@ class NucleusTabs extends Component {
   selected = null;
 
   /**
-  * variant: tab styles, line/background
+  * variant
   *
   * @field variant
+  * @description tab styles, line/background
   * @type string
   * @default 'line'
   * @readonly
@@ -69,27 +73,30 @@ class NucleusTabs extends Component {
   variant = 'line';
 
   /**
-  * tabPanels: Collection of all tab panels
+  * tabPanels
   *
   * @field tabPanels
-  * @type Array
+  * @description Collection of all tab panels
+  * @type array
   * @public
   */
   tabPanels = A([]);
 
   /**
-  * tabListItems: Collection of all tab list items
+  * tabListItems
   *
   * @field tabListItems
-  * @type Array
+  * @description Collection of all tab list items
+  * @type array
   * @public
   */
   tabListItems = A([]);
 
   /**
-  * default
+  * currentSelected
   *
-  * @field currentSelected : takes intial value from selected
+  * @field currentSelected
+  * @description takes intial value from selected
   * @type string|null
   * @public
   */
@@ -135,9 +142,10 @@ class NucleusTabs extends Component {
   }
 
   /**
-  * activateTab : Handler that will be called when a tab is clicked
+  * activateTab
   *
   * @method activateTab
+  * @description Handler that will be called when a tab is clicked
   * @param {string} name
   * @param {any} event
   * @public

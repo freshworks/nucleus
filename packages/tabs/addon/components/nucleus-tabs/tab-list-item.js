@@ -6,6 +6,16 @@ import defaultProp from '@freshworks/core/utils/default-decorator';
 import { once } from '@ember/runloop';
 import { TABS_KEY_CODE } from '../../constants/nucleus-tabs'
 
+/**
+  __Usage:__
+
+  [Refer component page](/docs/components/nucleus-tabs)
+
+  @class Nucleus Tab List Item
+  @namespace Components
+  @extends Ember.Component
+  @private
+*/
 @tagName('button')
 @templateLayout(layout)
 @classNames('nucleus-tabs__list__item')
@@ -31,9 +41,10 @@ class TabListItem extends Component {
   disabled = null;
 
   /**
-  * controls : idref to what panel this tab item controls
+  * controls
   *
   * @field controls
+  * @description idref to what panel this tab item controls
   * @type string|null
   * @readonly
   * @public
@@ -52,9 +63,10 @@ class TabListItem extends Component {
   role = 'tab';
 
   /**
-  * tabOrder : order in which tabs are displayed. Only first tabs will not have tabIndex value.
+  * tabOrder
   *
   * @field tabOrder
+  * @description order in which tabs are displayed. Only first tabs will not have tabIndex value
   * @type number
   * @readonly
   * @public
@@ -62,9 +74,10 @@ class TabListItem extends Component {
   tabOrder;
 
   /**
-  * currentSelected : currently selected tab
+  * currentSelected
   *
   * @field currentSelected
+  * @description currently selected tab
   * @readonly
   * @public
   */
@@ -131,9 +144,10 @@ class TabListItem extends Component {
   "aria-selected";
 
   /**
-  * init : lifecycle event
+  * init
   *
   * @method init
+  * @description lifecycle event
   * @public
   *
   */
@@ -146,9 +160,10 @@ class TabListItem extends Component {
   }
 
   /**
-  * click : event handler
+  * click
   *
   * @method click
+  * @description event handler
   * @public
   *
   */
@@ -160,9 +175,10 @@ class TabListItem extends Component {
   }
 
   /**
-  * keyDown : event handler
+  * keyDown
   *
   * @method keyDown
+  * @description event handler
   * @public
   *
   */
@@ -184,10 +200,10 @@ class TabListItem extends Component {
         firstElement.focus();
         break; 
       case keyCode.LEFT: 
-        get(this, 'focusPreviousTab').call(this, targetElement);
+        get(this, '_focusPreviousTab').call(this, targetElement);
         break;
       case keyCode.RIGHT: 
-        get(this, 'focusNextTab').call(this, targetElement);
+        get(this, '_focusNextTab').call(this, targetElement);
         break;
       default:
         break;
@@ -195,14 +211,15 @@ class TabListItem extends Component {
   }
 
   /**
-  * focusNextTab : focus the next tab that is not disabled. 
+  * _focusNextTab
   * When last item, focus must circle back to previous item.
   *
-  * @method focusNextTab
-  * @public
+  * @method _focusNextTab
+  * @description focus the next tab that is not disabled
+  * @private
   *
   */
-  focusNextTab(element, elementInFocus) {
+  _focusNextTab(element, elementInFocus) {
     const nextElement = (element.nextElementSibling)? element.nextElementSibling : element.parentElement.firstElementChild;
     if(elementInFocus && (elementInFocus.id === nextElement.id)) {
       return;
@@ -214,14 +231,15 @@ class TabListItem extends Component {
   }
 
   /**
-  * focusPreviousTab : focus the previous tab that is not disabled.
+  * _focusPreviousTab
   * When first item, focus must go back to last item.
   *
-  * @method focusPreviousTab
-  * @public
+  * @method _focusPreviousTab
+  * @description focus the previous tab that is not disabled
+  * @private
   *
   */
-  focusPreviousTab(element, elementInFocus) {
+  _focusPreviousTab(element, elementInFocus) {
     const previousElement = (element.previousElementSibling)? element.previousElementSibling : element.parentElement.lastElementChild;
     if(elementInFocus && (elementInFocus.id === previousElement.id)) {
       return;

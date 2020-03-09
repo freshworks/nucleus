@@ -10,7 +10,7 @@ import { once } from '@ember/runloop';
 
   [Refer component page](/docs/components/nucleus-tabs)
 
-  @class Nucleus Tab
+  @class Nucleus Tab Panel
   @namespace Components
   @extends Ember.Component
   @public
@@ -41,7 +41,7 @@ class TabPanel extends Component {
   *
   * @field tabindex
   * @default '0'
-  * @type String
+  * @type string
   * @public
   */
   tabindex = '0';
@@ -50,7 +50,7 @@ class TabPanel extends Component {
   * role
   *
   * @field role
-  * @type String
+  * @type string
   * @public
   */
   role = 'tabpanel'
@@ -59,7 +59,7 @@ class TabPanel extends Component {
   * isActive
   *
   * @field isActive
-  * @type Boolean
+  * @type boolean
   * @public
   */
   @computed('props.[]', function() {
@@ -71,7 +71,7 @@ class TabPanel extends Component {
   * aria-labelledby
   *
   * @field aria-labelledby
-  * @type String
+  * @type string
   * @public
   */
   @computed('props.tabList.[]', function() {
