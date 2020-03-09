@@ -3,7 +3,7 @@ import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import test from 'ember-sinon-qunit/test-support/test';
 import hbs from 'htmlbars-inline-precompile';
-// import backstop from 'ember-backstop/test-support/backstop';
+import backstop from 'ember-backstop/test-support/backstop';
 
 module('Integration | Component | nucleus-toggle', function(hooks) {
   setupRenderingTest(hooks);
@@ -46,7 +46,7 @@ module('Integration | Component | nucleus-toggle', function(hooks) {
   test('it must render toggle state based icon', async function(assert) {
     await render(hbs`{{nucleus-toggle}}`);
 
-    assert.dom('.nucleus-toggle svg').hasClass('slider__circle--icon', 'svg icon is rendered');
+    assert.dom('.nucleus-toggle svg').hasClass('thumb__control--icon', 'svg icon is rendered');
   });
 
   // test('it sends onClick action with "args" property as a parameter', async function(assert) {
@@ -73,21 +73,15 @@ module('Integration | Component | nucleus-toggle', function(hooks) {
   //   assert.notOk(parentClick.called);
   // });
 
-  // test('buttons pass visual regression tests', async function(assert) {
-  //   await render(hbs`
-  //     {{nucleus-toggle label="LabelButton"}}
-  //     {{#nucleus-toggle}}Button{{/nucleus-toggle}}
-  //     {{#nucleus-toggle size="mini"}}Mini{{/nucleus-toggle}}
-  //     {{#nucleus-toggle size="small"}}Small{{/nucleus-toggle}}
-  //     {{#nucleus-toggle variant="secondary"}}Secondary{{/nucleus-toggle}}
-  //     {{#nucleus-toggle variant="danger"}}Danger{{/nucleus-toggle}}
-  //     {{#nucleus-toggle variant="link"}}Link{{/nucleus-toggle}}
-  //     {{#nucleus-toggle variant="text"}}Text{{/nucleus-toggle}}
-  //     {{#nucleus-toggle block=true}}Block Button{{/nucleus-toggle}}
-  //     {{#nucleus-toggle disabled=true}}Secondary{{/nucleus-toggle}}
-  //     {{nucleus-toggle icon="nucleus-circle-check" iconOnly=true variant="secondary"}}
-  //     {{nucleus-toggle icon="nucleus-circle-check" iconOnly=true size="small" variant="secondary"}}
-  //     {{nucleus-toggle icon="nucleus-circle-check" iconOnly=true size="mini" variant="secondary"}}`);
-  //   await backstop(assert,{scenario: {misMatchThreshold: 0.1}});
-  // });
+  test('toggle pass visual regression tests', async function(assert) {
+    await render(hbs`
+      {{nucleus-toggle size="large"}}
+      {{nucleus-toggle size="medium"}}
+      {{nucleus-toggle size="small"}}
+      {{nucleus-toggle disabled=true}}
+      {{nucleus-toggle disabled=false}}
+      {{nucleus-toggle value=true}}
+      {{nucleus-toggle value=false}}`);
+    await backstop(assert,{scenario: {misMatchThreshold: 0.1}});
+  });
 });
