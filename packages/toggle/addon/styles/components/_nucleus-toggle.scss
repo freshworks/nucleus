@@ -63,6 +63,7 @@ $transform: calc(100% - 8px);
     position: absolute;
     transition: .3s;
     -webkit-transition: .3s;
+    pointer-events: none;
 
     &::before {
       content: '';
@@ -126,8 +127,9 @@ $transform: calc(100% - 8px);
   }
 
   input {
-    width: 0;
-    height: 0;
+    width: inherit;
+    height: inherit;
+    cursor: pointer;
     opacity: 0;
 
     &:focus + .thumb::before {
@@ -135,19 +137,8 @@ $transform: calc(100% - 8px);
     }
   }
 
-  label {
-    width: inherit;
-    height: inherit;
-    display: block;
-    cursor: pointer;
-  }
-
   &[disabled] {
     cursor: not-allowed;
     opacity: .4;
-
-    label {
-      pointer-events: none;
-    }
   }
 }

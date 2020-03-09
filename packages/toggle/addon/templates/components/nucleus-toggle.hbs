@@ -1,16 +1,14 @@
-<label for="nucleus-toggle" aria-checked={{checkedValue}}>
-  <div class="track"></div>
-  <input
-    id="nucleus-toggle"
-    type="checkbox"
-    tabindex="0"
-    disabled={{disabled}}
-    checked={{checkedValue}}
-    onClick={{action "onValueChange" value="target.checked"}}
-  >
-  <div class="thumb">
-    <div class="thumb__control">
-      {{svg-jar (if checkedValue "nucleus-tick" "nucleus-cross") class="thumb__control--icon" aria-hidden=true role="img"}}
-    </div>
+<div class="track"></div>
+<input
+  id="nucleus-toggle"
+  type="checkbox"
+  tabindex="0"
+  disabled={{disabled}}
+  checked={{checkedValue}}
+  onClick={{action "onValueChange" value="target.checked"}}
+>
+<div class="thumb">
+  <div class="thumb__control">
+    {{svg-jar (if checkedValue "nucleus-tick" "nucleus-cross") class="thumb__control--icon" aria-hidden=true role="img"}}
   </div>
-</label>
+</div>
