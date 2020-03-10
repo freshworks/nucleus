@@ -6,7 +6,6 @@ import { set, computed } from '@ember/object';
 import { isBlank } from '@ember/utils';
 import layout from '../../templates/components/nucleus-modal/dialog';
 import EventHandler from "../../utils/event-handler";
-import { later } from '@ember/runloop';
 
 var _modalD;
 
@@ -255,12 +254,7 @@ class Dialog extends Component {
     super.didInsertElement(...arguments);
     this.getOrSetTitleId();
     _modalD = this.element.querySelector('#nucleusDialog');
-    //let focusEl = _modalD && _modalD.querySelector("[autofocus]");
-    //focusEl.removeAttribute("autofocus");
-    //console.log(focusEl);
-    later(this, () => {
-      this.attachEventHandlers();
-    }, 300);
+    this.attachEventHandlers();
   }
 
   willDestroyElement() {
