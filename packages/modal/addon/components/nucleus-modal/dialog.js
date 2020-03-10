@@ -2,7 +2,7 @@ import { classNames, attributeBindings, classNameBindings, layout as templateLay
 import defaultProp from '@freshworks/core/utils/default-decorator';
 import { readOnly } from '@ember/object/computed';
 import Component from '@ember/component';
-import { set, computed } from '@ember/object';
+import { set, setProperties, computed } from '@ember/object';
 import { isBlank } from '@ember/utils';
 import layout from '../../templates/components/nucleus-modal/dialog';
 import EventHandler from "../../utils/event-handler";
@@ -168,7 +168,7 @@ class Dialog extends Component {
       eventName: 'keydown',
       callback: this.loopFocus.bind(this)
     });
-    this.setProperties({
+    setProperties(this, {
       '_scrollCallback': _scrollCallback,
       '_focusListener': _focusListener
     });
