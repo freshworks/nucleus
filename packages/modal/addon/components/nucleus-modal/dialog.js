@@ -7,8 +7,6 @@ import { isBlank } from '@ember/utils';
 import layout from '../../templates/components/nucleus-modal/dialog';
 import EventHandler from "../../utils/event-handler";
 
-var _modalD;
-
 /**
   Dialog Usage:
   @class Dialog
@@ -105,17 +103,6 @@ class Dialog extends Component {
   positionClass;
 
   /**
-  * modalDialog
-  *
-  * @field modalDialog
-  * @type function
-  * @private
-  */
-  @computed('modalDialog', function() {
-   return document.getElementById('nucleusDialog');
-  })
-  modalDialog;
-  /**
    * The id of the `.modal-title` element
    *
    * @field titleId
@@ -183,7 +170,7 @@ class Dialog extends Component {
     });
     set(this, '_scrollCallback', _scrollCallback);
     set(this, '_focusListener', _focusListener);
-    this._focusTrap();
+    this._createFocus();
   }
 
   scrolled() {
@@ -199,61 +186,59 @@ class Dialog extends Component {
     }
   }
 
-   /**
-  * focusTrap
+  /**
+  * createFocus
   *
-  * @method focusTrap
+  * @method createFocus
   * @private
   *
   */
- _focusTrap() {
-  let modalDialog = _modalD;
-  let focusElements = [...modalDialog.querySelectorAll('a[href]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input[type="text"]:not([disabled]), input[type="radio"]:not([disabled]), input[type="checkbox"]:not([disabled]), select:not([disabled])')];    
-  let focusEl = modalDialog && modalDialog.querySelector("[autofocus]");
-  if(focusEl) {
-    focusEl.focus();
+  _createFocus() {
+    let modalDialog = this.element;
+    let focusEl = modalDialog && modalDialog.querySelector("[autofocus]");
+    if(focusEl) {
+      focusEl.focus();
+    }
+    else {
+      modalDialog.focus();
+    }
   }
-  else {
-    focusElements[1].focus();
-  }
-}
 
-   /**
+  /**
   * loopFocus
   *
   * @method loopFocus
   * @private
   * @param {any} event
   */
- loopFocus(event) {
-  let modalDialog = _modalD;
-  var isTab = (event.key === 'Tab' || event.keyCode === 9);
-  if (!isTab) {
-    return;
-  }
-  let focusElements = [...modalDialog.querySelectorAll('a[href]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input[type="text"]:not([disabled]), input[type="radio"]:not([disabled]), input[type="checkbox"]:not([disabled]), select:not([disabled])')];    
-  let currentIndex = focusElements.indexOf(document.activeElement);
-  if (currentIndex === -1) {
-    focusElements[0].focus();
-  }
-  if(event.shiftKey) {
-    if (currentIndex === 0) {
-      event.preventDefault();
-      focusElements[focusElements.length-1].focus();
+  loopFocus(event) {
+    let modalDialog = this.element.querySelector(".nucleus-modal__dialog");
+    var isTab = (event.key === 'Tab' || event.keyCode === 9);
+    if (!isTab) {
+      return;
     }
-  } 
-  else {
-    if (currentIndex === (focusElements.length - 1)) {
-      event.preventDefault();
+    let focusElements = [...modalDialog.querySelectorAll('a[href]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input[type="text"]:not([disabled]), input[type="radio"]:not([disabled]), input[type="checkbox"]:not([disabled]), select:not([disabled])')];    
+    let currentIndex = focusElements.indexOf(document.activeElement);
+    if (currentIndex === -1) {
       focusElements[0].focus();
     }
+    if(event.shiftKey) {
+      if (currentIndex === 0) {
+        event.preventDefault();
+        focusElements[focusElements.length-1].focus();
+      }
+    } 
+    else {
+      if (currentIndex === (focusElements.length - 1)) {
+        event.preventDefault();
+        focusElements[0].focus();
+      }
+    }
   }
-}
 
   didInsertElement() {
     super.didInsertElement(...arguments);
     this.getOrSetTitleId();
-    _modalD = this.element.querySelector('#nucleusDialog');
     this.attachEventHandlers();
   }
 

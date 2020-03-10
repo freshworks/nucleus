@@ -107,30 +107,6 @@ class Modal extends Component {
   renderInPlace = false;
 
   /**
-  * modalId
-  *
-  * @field modalId
-  * @type string
-  * @private
-  */
-  @computed('elementId', function() {
-    return `nucleus-modal-${this.get('elementId')}`;
-  })
-  modalId;
-
-  /**
-  * modalElement
-  *
-  * @field modalElement
-  * @type function
-  * @private
-  */
-  @computed('modalId', function() {
-    return document.getElementById(this.get('modalId'));
-  })
-  modalElement;
-
-  /**
   * close
   *
   * @method close
