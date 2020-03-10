@@ -65,6 +65,17 @@ class NucleusToggle extends Component {
   size = 'medium';
 
   /**
+  * Default button text
+  *
+  * @field label
+  * @type string|null
+  * @default null
+  * @public
+  */
+  @defaultProp
+  label = null;
+
+  /**
   * Flag to set disabled attribute
   *
   * @field disabled

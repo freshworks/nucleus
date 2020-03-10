@@ -18,7 +18,6 @@ module('Integration | Component | nucleus-toggle', function(hooks) {
     await render(hbs`{{nucleus-toggle}}`);
 
     assert.dom('.nucleus-toggle').exists({ count: 1 }, 'Toggle wrap exists.');
-    assert.dom('#nucleus-toggle').exists({ count: 1 }, 'Toggle checkbox exists.');
   });
 
   test('Rendes ', async function(assert) {
@@ -87,7 +86,7 @@ module('Integration | Component | nucleus-toggle', function(hooks) {
   });
 
   test('it passes a11y tests', async function(assert) {
-    await render(hbs`{{nucleus-toggle}}`);
+    await render(hbs`{{nucleus-toggle label="test" size="large"}}`);
    
     return a11yAudit(this.element).then(() => {
       assert.ok(true, 'no a11y errors found!');
