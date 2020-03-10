@@ -185,9 +185,6 @@ class Modal extends Component {
     this._hide();
   }
 
-  willDestroyElement() {
-    super.willDestroyElement(...arguments);
-  }
 }
 
 export default Modal;

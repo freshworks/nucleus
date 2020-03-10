@@ -168,8 +168,10 @@ class Dialog extends Component {
       eventName: 'keydown',
       callback: this.loopFocus.bind(this)
     });
-    set(this, '_scrollCallback', _scrollCallback);
-    set(this, '_focusListener', _focusListener);
+    this.setProperties({
+      '_scrollCallback': _scrollCallback,
+      '_focusListener': _focusListener
+    });
     this._createFocus();
   }
 
@@ -212,27 +214,23 @@ class Dialog extends Component {
   * @param {any} event
   */
   loopFocus(event) {
-    let modalDialog = this.element.querySelector(".nucleus-modal__dialog");
     let isTab = (event.key === 'Tab' || event.keyCode === 9);
     if (!isTab) {
       return;
     }
+    let modalDialog = this.element.querySelector(".nucleus-modal__dialog");
     let focusElements = [...modalDialog.querySelectorAll('a[href]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input[type="text"]:not([disabled]), input[type="radio"]:not([disabled]), input[type="checkbox"]:not([disabled]), select:not([disabled])')];    
     let currentIndex = focusElements.indexOf(document.activeElement);
     if (currentIndex === -1) {
       focusElements[0].focus();
     }
-    if(event.shiftKey) {
-      if (currentIndex === 0) {
-        event.preventDefault();
-        focusElements[focusElements.length-1].focus();
-      }
+    if(event.shiftKey && currentIndex === 0) {
+      event.preventDefault();
+      focusElements[focusElements.length-1].focus();
     } 
-    else {
-      if (currentIndex === (focusElements.length - 1)) {
-        event.preventDefault();
-        focusElements[0].focus();
-      }
+    else if (currentIndex === (focusElements.length - 1)) {
+      event.preventDefault();
+      focusElements[0].focus();
     }
   }
 
