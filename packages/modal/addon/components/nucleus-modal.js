@@ -118,7 +118,7 @@ class Modal extends Component {
     if (this.get('onClose')) {
       this.get('onClose')();
     }
-    this._dismantle();
+    this._hide();
   }
 
   /**

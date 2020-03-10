@@ -213,7 +213,7 @@ class Dialog extends Component {
   */
   loopFocus(event) {
     let modalDialog = this.element.querySelector(".nucleus-modal__dialog");
-    var isTab = (event.key === 'Tab' || event.keyCode === 9);
+    let isTab = (event.key === 'Tab' || event.keyCode === 9);
     if (!isTab) {
       return;
     }
