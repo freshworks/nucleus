@@ -26,6 +26,7 @@ import { TABS_KEY_CODE } from '../../constants/nucleus-tabs'
 @attributeBindings('aria-controls')
 @attributeBindings('aria-selected')
 @attributeBindings('isDisabled:disabled')
+@attributeBindings('title')
 class TabListItem extends Component {
 
   /**
@@ -118,6 +119,18 @@ class TabListItem extends Component {
     return (get(this, 'disabled') === 'true')? true : false;
   })
   isDisabled;
+
+  /**
+  * title
+  *
+  * @field title
+  * @type string
+  * @public
+  */
+  @computed('name', function() {
+    return get(this, 'name');
+  })
+  title;
 
   /**
   * aria-controls
@@ -224,7 +237,7 @@ class TabListItem extends Component {
     if(elementInFocus && (elementInFocus.id === nextElement.id)) {
       return;
     } else if(nextElement.disabled) {
-      get(this, 'focusNextTab').call(this, nextElement, element);
+      get(this, '_focusNextTab').call(this, nextElement, element);
     } else {
       nextElement.focus();
     }
@@ -244,7 +257,7 @@ class TabListItem extends Component {
     if(elementInFocus && (elementInFocus.id === previousElement.id)) {
       return;
     } else if(previousElement.disabled) {
-      get(this, 'focusPreviousTab').call(this, previousElement, element);
+      get(this, '_focusPreviousTab').call(this, previousElement, element);
     } else {
       previousElement.focus();
     }

@@ -24,6 +24,24 @@
       margin: 0 4px;
       font-size: 14px;
       color: $color-smoke-700;
+      -webkit-text-fill-color: $color-smoke-700;
+
+      &:first-child {
+        margin-left: 0;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      &::before {
+        display: block;
+        content: attr(title);
+        font-weight: 500;
+        height: 0;
+        overflow: hidden;
+        visibility: hidden;
+      }
 
       &::after {
         content: '';
@@ -73,6 +91,8 @@
 
     &__item.active {
       color: $color-azure-800;
+      -webkit-text-fill-color: $color-azure-800;
+      font-weight: 500;
 
       &::after {
         border-bottom: 2px solid $color-azure-800;
