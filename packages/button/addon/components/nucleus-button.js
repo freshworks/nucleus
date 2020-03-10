@@ -80,7 +80,7 @@ class NucleusButton extends Component {
   @computed('iconSize', 'size')
   get _iconSize() {
     let iconSize = this.get('iconSize');
-    let defaultSize = this.get('size') ? this.get('size') : 'medium';
+    let defaultSize = this.get('size') ? this.get('size') : 'small';
     return iconSize ? iconSize : defaultSize;
   }
 
@@ -356,10 +356,10 @@ class NucleusButton extends Component {
   * @computed _typeClass
   * @private
   */
-  @computed('type')
+  @computed('variant')
   get _typeClass() {
     let type = this.get('variant');
-    return type ? `nucleus-button--${this.get('variant')}` : 'nucleus-button--primary';
+    return type ? `nucleus-button--${type}` : 'nucleus-button--primary';
   }
 
   /**
@@ -368,7 +368,7 @@ class NucleusButton extends Component {
   * @computed _iconClass
   * @private
   */
-  @computed('iconButton')
+  @computed('iconOnly')
   get _iconClass() {
     let iconButton = this.get('iconOnly');
     return iconButton ? `nucleus-button--iconOnly` : null;

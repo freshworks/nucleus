@@ -24,8 +24,12 @@ $active-box-shadow: inset 0 0 4px 0 rgba(0, 0, 0, .25);
 
 .nucleus-button {
   font-size: $font-size-14;
+  vertical-align: middle;
   line-height: 1.2;
   padding: 6px 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   border: 1px solid transparent;
   border-radius: 4px;
   outline: 0;
@@ -38,9 +42,10 @@ $active-box-shadow: inset 0 0 4px 0 rgba(0, 0, 0, .25);
   min-width: 80px;
 
   &__icon {
+    display: inline-flex;
+
     &.nucleus--active {
-      position: relative;
-      top: .125em;
+      margin-right: 4px;
     }
   }
 
@@ -135,7 +140,6 @@ $active-box-shadow: inset 0 0 4px 0 rgba(0, 0, 0, .25);
 
   &--block {
     width: 100%;
-    display: block;
   }
 
   &--mini {
