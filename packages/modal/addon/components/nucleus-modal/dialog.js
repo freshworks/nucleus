@@ -255,9 +255,9 @@ class Dialog extends Component {
     super.didInsertElement(...arguments);
     this.getOrSetTitleId();
     _modalD = this.element.querySelector('#nucleusDialog');
-    let focusEl = _modalD && _modalD.querySelector("[autofocus]");
-    focusEl.removeAttribute("autofocus");
-    console.log(focusEl);
+    //let focusEl = _modalD && _modalD.querySelector("[autofocus]");
+    //focusEl.removeAttribute("autofocus");
+    //console.log(focusEl);
     later(this, () => {
       this.attachEventHandlers();
     }, 300);
