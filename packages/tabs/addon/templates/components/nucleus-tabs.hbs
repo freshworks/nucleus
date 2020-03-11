@@ -2,12 +2,12 @@
   <div class="nucleus-tabs__list__container">
     {{#each tabPanels key="id" as |tab index|}}
       {{#nucleus-tabs/tab-list-item 
+          registerTabListItem=(action registerTabListItem) 
           name=tab.name 
           disabled=tab.disabled
           controls=tab.id 
           tabOrder=index 
-          currentSelected=currentSelected 
-          registerTabListItem=(action registerTabListItem) 
+          selected=selected 
           handleActivateTab=(action activateTab)}}
         {{tab.name}}
       {{/nucleus-tabs/tab-list-item}}
@@ -16,10 +16,5 @@
 </div>
 
 {{yield (hash
-  panel=(component "nucleus-tabs/tab-panel")
-  props=(hash
-    registerPanel=(action "registerPanel")
-    currentSelected=currentSelected
-    tabListItems=tabListItems
-  )
+  panel=(component "nucleus-tabs/tab-panel" registerPanel=(action "registerPanel") selected=selected tabListItems=tabListItems)
 )}}

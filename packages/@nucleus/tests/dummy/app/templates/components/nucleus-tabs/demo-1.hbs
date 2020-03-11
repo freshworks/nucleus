@@ -2,15 +2,15 @@
   {{#demo.example name="nucleus-tabs-2.hbs" }}
     {{#nucleus-tabs 
         description="site-navigation" 
-        selected="I want apples" 
+        select="I want apples" 
         onChange=(action "onChange") as |tabs| }}
-      {{#tabs.panel props=tabs.props name="I want apples" }}
+      {{#tabs.panel name="I want apples" }}
         <div>This is apples section</div>
       {{/tabs.panel}}
-      {{#tabs.panel props=tabs.props name="I want oranges" }}
+      {{#tabs.panel name="I want oranges" }}
         <div>This is oranges section</div>
       {{/tabs.panel}}
-      {{#tabs.panel props=tabs.props name="I want grapes" }}
+      {{#tabs.panel name="I want grapes" }}
         <div>This is grapes section</div>
       {{/tabs.panel}}
     {{/nucleus-tabs}}

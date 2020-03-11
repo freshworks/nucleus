@@ -15,17 +15,17 @@ It's easy for the user to quickly distinguish which tab belongs to which content
 {{#docs-demo as |demo|}}
   {{#demo.example name="nucleus-tabs.hbs"}}
     {{#nucleus-tabs 
-        customClasses="contacts-tab contacts-tab-simple"
+        customClasses="sample-tab sample-tab-simple"
         description="site-navigation" 
-        selected="I want apples" 
+        select="I want apples" 
         variant="default" as |tabs| }}
-      {{#tabs.panel props=tabs.props name="I want apples" }}
+      {{#tabs.panel name="I want apples" }}
         <div>This is apples section</div>
       {{/tabs.panel}}
-      {{#tabs.panel props=tabs.props name="I want oranges" }}
+      {{#tabs.panel name="I want oranges" }}
         <div>This is oranges section</div>
       {{/tabs.panel}}
-      {{#tabs.panel props=tabs.props name="I want grapes" }}
+      {{#tabs.panel name="I want grapes" }}
         <div>This is grapes section</div>
       {{/tabs.panel}}
     {{/nucleus-tabs}}
@@ -47,15 +47,15 @@ It's easy for the user to quickly distinguish which tab belongs to which content
   {{#demo.example name="nucleus-tabs-4.hbs"}}
     {{#nucleus-tabs 
         description="site-navigation" 
-        selected="I want apples" 
+        select="I want apples" 
         variant="default" as |tabs| }}
-      {{#tabs.panel props=tabs.props name="I want apples" }}
+      {{#tabs.panel name="I want apples" }}
         <div>This is apples section</div>
       {{/tabs.panel}}
-      {{#tabs.panel props=tabs.props name="I want oranges" }}
+      {{#tabs.panel name="I want oranges" }}
         <div>This is oranges section</div>
       {{/tabs.panel}}
-      {{#tabs.panel props=tabs.props name="I want grapes" disabled="true" }}
+      {{#tabs.panel name="I want grapes" disabled="true" }}
         <div>This is grapes section</div>
       {{/tabs.panel}}
     {{/nucleus-tabs}}
@@ -71,15 +71,15 @@ It's easy for the user to quickly distinguish which tab belongs to which content
   {{#demo.example name="nucleus-tabs-variant1.hbs"}}
     {{#nucleus-tabs 
         description="site-navigation" 
-        selected="I want apples" 
+        select="I want apples" 
         variant="default" as |tabs| }}
-      {{#tabs.panel props=tabs.props name="I want apples" }}
+      {{#tabs.panel name="I want apples" }}
         <div>This is apples section</div>
       {{/tabs.panel}}
-      {{#tabs.panel props=tabs.props name="I want oranges" }}
+      {{#tabs.panel name="I want oranges" }}
         <div>This is oranges section</div>
       {{/tabs.panel}}
-      {{#tabs.panel props=tabs.props name="I want grapes" }}
+      {{#tabs.panel name="I want grapes" }}
         <div>This is grapes section</div>
       {{/tabs.panel}}
     {{/nucleus-tabs}}
@@ -96,15 +96,15 @@ Pass 'variant' property as 'background'.
   {{#demo.example name="nucleus-tabs-variant2.hbs"}}
     {{#nucleus-tabs 
         description="site-navigation" 
-        selected="I want apples" 
+        select="I want apples" 
         variant="background" as |tabs| }}
-      {{#tabs.panel props=tabs.props name="I want apples" }}
+      {{#tabs.panel name="I want apples" }}
         <div>This is apples section</div>
       {{/tabs.panel}}
-      {{#tabs.panel props=tabs.props name="I want oranges" }}
+      {{#tabs.panel name="I want oranges" }}
         <div>This is oranges section</div>
       {{/tabs.panel}}
-      {{#tabs.panel props=tabs.props name="I want grapes" }}
+      {{#tabs.panel name="I want grapes" }}
         <div>This is grapes section</div>
       {{/tabs.panel}}
     {{/nucleus-tabs}}
@@ -143,11 +143,11 @@ __role=tab__
 
 Indicates the element serves as a tab control.
 
-__aria-selected=true__
+__aria-select=true__
 
 Indicates the tab control is activated and its associated panel is displayed.
 
-__aria-selected=false__
+__aria-select=false__
 
 Indicates the tab control is not active and its associated panel is NOT displayed.
 

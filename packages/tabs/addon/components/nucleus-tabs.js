@@ -47,9 +47,9 @@ class NucleusTabs extends Component {
   customClasses = "";
 
   /**
-  * selected
+  * select
   *
-  * @field selected
+  * @field select
   * @description default open tab 
   * @type string|null
   * @default null
@@ -57,7 +57,7 @@ class NucleusTabs extends Component {
   * @public
   */
   @defaultProp
-  selected = null;
+  select = null;
 
   /**
   * variant
@@ -93,15 +93,15 @@ class NucleusTabs extends Component {
   tabListItems = A([]);
 
   /**
-  * currentSelected
+  * selected
   *
-  * @field currentSelected
-  * @description takes intial value from selected
+  * @field selected
+  * @description takes intial value from select
   * @type string|null
   * @public
   */
-  @oneWay('selected')
-  currentSelected;
+  @oneWay('select')
+  selected;
 
   /**
   * variantClass
@@ -156,11 +156,11 @@ class NucleusTabs extends Component {
     const _this = this;
     const beforeChange = get(_this, 'beforeChange');
     const onChange =  get(_this, 'onChange');
-    const currentTab = get(_this, 'currentSelected');
+    const currentTab = get(_this, 'selected');
     if(beforeChange) { 
       await beforeChange.call(_this, changedTo, currentTab, event);
     }
-    set(_this, 'currentSelected', changedTo);
+    set(_this, 'selected', changedTo);
     if(onChange) {
       await onChange.call(_this, changedTo, currentTab, event);
     }

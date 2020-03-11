@@ -3,7 +3,6 @@ import { classNames, attributeBindings, classNameBindings, tagName, layout as te
 import layout from '../../templates/components/nucleus-tabs/tab-panel';
 import { get, computed } from '@ember/object';
 import defaultProp from '@freshworks/core/utils/default-decorator';
-import { once } from '@ember/runloop';
 
 /**
   __Usage:__
@@ -18,7 +17,7 @@ import { once } from '@ember/runloop';
 @tagName('div')
 @templateLayout(layout)
 @classNames('nucleus-tabs__panel')
-@classNameBindings('isActive:active')
+@classNameBindings('isActive:is-active')
 @attributeBindings('tabindex')
 @attributeBindings('role')
 @attributeBindings('aria-labelledby')
@@ -62,8 +61,8 @@ class TabPanel extends Component {
   * @type boolean
   * @public
   */
-  @computed('props.[]', function() {
-    return (get(this.props, 'currentSelected') === get(this, 'name'));
+  @computed('selected', function() {
+    return (get(this, 'selected') === get(this, 'name'));
   })
   isActive;
 
@@ -74,23 +73,35 @@ class TabPanel extends Component {
   * @type string
   * @public
   */
-  @computed('props.tabList.[]', function() {
-    const tabListItems = get(this.props, 'tabListItems');
+  @computed('tabListItems.[]', function() {
+    const tabListItems = get(this, 'tabListItems');
     const tabList = tabListItems.findBy('name', get(this, 'name'));
     return (tabList)? tabList.id : "";
   })
   "aria-labelledby";
 
   /**
-  * init : lifecycle event
+  * init 
   *
   * @method init
+  * @description lifecycle event
   * @public
   *
   */
   init() {
     super.init(...arguments);
-    once(this, get(this.props, 'registerPanel'), {
+  }
+
+  /**
+  * didInsertElement
+  *
+  * @method didInsertElement
+  * @description lifecycle event
+  * @public
+  *
+  */
+  didInsertElement() {
+    get(this, 'registerPanel').call(this, {
       id: get(this, 'elementId'),
       name: get(this, 'name'),
       disabled: get(this, 'disabled')

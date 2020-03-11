@@ -1,4 +1,7 @@
 .nucleus-tabs {
+
+  $self: &;
+
   display: flex;
   flex-direction: column;
 
@@ -74,28 +77,28 @@
           border-radius: 4px;
         }
       }
-    }
 
-    &__item.disabled {
-      color: $color-smoke-300;
-      -webkit-text-fill-color: $color-smoke-300;
-
-      &:hover {
-        cursor: default;
+      &.is-active {
+        color: $color-azure-800;
+        -webkit-text-fill-color: $color-azure-800;
+        font-weight: 500;
 
         &::after {
-          display: none;
+          border-bottom: 2px solid $color-azure-800;
         }
       }
-    }
 
-    &__item.active {
-      color: $color-azure-800;
-      -webkit-text-fill-color: $color-azure-800;
-      font-weight: 500;
+      &.is-disabled {
+        color: $color-smoke-300;
+        -webkit-text-fill-color: $color-smoke-300;
 
-      &::after {
-        border-bottom: 2px solid $color-azure-800;
+        &:hover {
+          cursor: default;
+
+          &::after {
+            display: none;
+          }
+        }
       }
     }
   }
@@ -104,14 +107,14 @@
     width: 100%;
     display: none;
     padding: 8px 20px;
-  }
 
-  &__panel.active {
-    display: block;
+    &.is-active {
+      display: block;
+    }
   }
 
   &--background {
-    .nucleus-tabs__list {
+    #{ $self }__list {
       background: $color-smoke-25;
       border: 1px solid $color-smoke-50;
       border-radius: 4px;

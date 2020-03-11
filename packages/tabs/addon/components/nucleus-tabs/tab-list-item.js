@@ -3,7 +3,6 @@ import { classNames, attributeBindings, classNameBindings, tagName, layout as te
 import layout from '../../templates/components/nucleus-tabs/tab-list-item';
 import { get, computed } from '@ember/object';
 import defaultProp from '@freshworks/core/utils/default-decorator';
-import { once } from '@ember/runloop';
 import { TABS_KEY_CODE } from '../../constants/nucleus-tabs'
 
 /**
@@ -16,11 +15,11 @@ import { TABS_KEY_CODE } from '../../constants/nucleus-tabs'
   @extends Ember.Component
   @private
 */
-@tagName('button')
+@tagName('div')
 @templateLayout(layout)
 @classNames('nucleus-tabs__list__item')
-@classNameBindings('isActive:active')
-@classNameBindings('isDisabled:disabled')
+@classNameBindings('isActive:is-active')
+@classNameBindings('isDisabled:is-disabled')
 @attributeBindings('tabindex')
 @attributeBindings('role')
 @attributeBindings('aria-controls')
@@ -54,14 +53,15 @@ class TabListItem extends Component {
   controls;
 
   /**
-  * role
+  * selected
   *
-  * @field role
-  * @type string
-  * @default 'tab'
+  * @field selected
+  * @description currently selected tab
+  * @readonly
   * @public
   */
-  role = 'tab';
+  @defaultProp
+  selected;
 
   /**
   * tabOrder
@@ -72,17 +72,18 @@ class TabListItem extends Component {
   * @readonly
   * @public
   */
+  @defaultProp
   tabOrder;
 
   /**
-  * currentSelected
+  * role
   *
-  * @field currentSelected
-  * @description currently selected tab
-  * @readonly
+  * @field role
+  * @type string
+  * @default 'tab'
   * @public
   */
-  currentSelected;
+  role = 'tab';
 
   /**
   * tabindex
@@ -92,7 +93,11 @@ class TabListItem extends Component {
   * @public
   */
   @computed('tabOrder', function() {
-    return (get(this, 'tabOrder') === 0)? null : '-1';
+    let tabIndex = null;
+    if(!get(this, 'isDisabled')) {
+      tabIndex = (get(this, 'tabOrder') === 0)? "0" : "-1"
+    }
+    return tabIndex;
   })
   tabindex;
 
@@ -103,8 +108,8 @@ class TabListItem extends Component {
   * @type boolean
   * @public
   */
-  @computed('currentSelected', function() {
-    return (get(this, 'currentSelected') === get(this, 'name'));
+  @computed('selected', function() {
+    return (get(this, 'selected') === get(this, 'name'));
   })
   isActive;
 
@@ -151,8 +156,8 @@ class TabListItem extends Component {
   * @type boolean
   * @public
   */
-  @computed('currentSelected', function() {
-    return (get(this, 'currentSelected') === get(this, 'name')).toString();
+  @computed('selected', function() {
+    return (get(this, 'selected') === get(this, 'name')).toString();
   })
   "aria-selected";
 
@@ -166,7 +171,18 @@ class TabListItem extends Component {
   */
   init() {
     super.init(...arguments);
-    once(this, get(this, 'registerTabListItem'), {
+  }
+
+  /**
+  * didInsertElement
+  *
+  * @method didInsertElement
+  * @description lifecycle event
+  * @public
+  *
+  */
+  didInsertElement() {
+    get(this, 'registerTabListItem').call(this, {
       id: get(this, 'elementId'),
       name: get(this, 'name')
     });
@@ -181,7 +197,6 @@ class TabListItem extends Component {
   *
   */
   click(event) {
-    event.target.focus();
     if(get(this, 'disabled') === 'false') {
       get(this, 'handleActivateTab').call(this, get(this, 'name'), event);
     }
@@ -203,7 +218,9 @@ class TabListItem extends Component {
 
     const keyCode = TABS_KEY_CODE;
     switch (event.keyCode) {
-      case (keyCode.ENTER || keyCode.SPACE):
+      case keyCode.ENTER:
+      case keyCode.SPACE:
+        event.preventDefault();
         targetElement.click();
         break;
       case keyCode.END: 
@@ -236,7 +253,7 @@ class TabListItem extends Component {
     const nextElement = (element.nextElementSibling)? element.nextElementSibling : element.parentElement.firstElementChild;
     if(elementInFocus && (elementInFocus.id === nextElement.id)) {
       return;
-    } else if(nextElement.disabled) {
+    } else if(nextElement.getAttribute("tabindex") === null) {
       get(this, '_focusNextTab').call(this, nextElement, element);
     } else {
       nextElement.focus();
@@ -256,7 +273,7 @@ class TabListItem extends Component {
     const previousElement = (element.previousElementSibling)? element.previousElementSibling : element.parentElement.lastElementChild;
     if(elementInFocus && (elementInFocus.id === previousElement.id)) {
       return;
-    } else if(previousElement.disabled) {
+    } else if(previousElement.getAttribute("tabindex") === null) {
       get(this, '_focusPreviousTab').call(this, previousElement, element);
     } else {
       previousElement.focus();
