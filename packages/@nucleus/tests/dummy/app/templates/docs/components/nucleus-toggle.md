@@ -8,13 +8,16 @@ Description
 
 ## Usage
 
-#### 1. Simplest use case
 {{#docs-demo as |demo|}}
   {{#demo.example name="nucleus-toggle.hbs"}}
     {{nucleus-toggle}}
   {{/demo.example}}
   {{demo.snippet 'nucleus-toggle.hbs'}}
 {{/docs-demo}}
+
+## Playground
+
+{{nucleus-toggle/playground}}
 
 ## Guidelines
 

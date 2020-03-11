@@ -25,7 +25,7 @@ import layout from "../templates/components/nucleus-toggle";
 @tagName('div')
 @classNames('nucleus-toggle')
 @classNameBindings('_sizeClass')
-@attributeBindings('disabled:disabled', 'checkedValue:checked')
+@attributeBindings('disabled:disabled', 'isChecked:checked')
 
 class NucleusToggle extends Component {
   /**
@@ -42,16 +42,16 @@ class NucleusToggle extends Component {
   }
 
   /**
-  * Attribute name `checked` is added when set to true
+  * Attribute name `isChecked` is used to set aria-checked state
   *
-  * @field checkedValue
+  * @field isChecked
   * @type boolean
   * @default false
   * @public
   */
   @defaultProp
   value = false;
-  @alias('value') checkedValue;
+  @alias('value') isChecked;
 
   /**
   * toggle sizes: `large` , `medium` & `small`
@@ -65,7 +65,7 @@ class NucleusToggle extends Component {
   size = 'medium';
 
   /**
-  * Default button text
+  * Attribute name `label` used to set aria-label value
   *
   * @field label
   * @type string|null
@@ -86,9 +86,22 @@ class NucleusToggle extends Component {
   @defaultProp
   disabled = false;
 
+  /**
+  * `onClick` action handler
+  *
+  * @field onClick
+  * @type function
+  * @public
+  */
+  @defaultProp
+  onClick = null;
+
   @action
   onValueChange(value) {
-    this.set('checkedValue', value);
+    this.set('isChecked', value);
+    if (this.get('onClick')) {
+      return this.get('onClick')();
+    } 
   }
 }
 
