@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.14](https://github.com/freshdesk/nucleus/compare/@freshworks/core@0.1.13...@freshworks/core@0.1.14) (2020-03-12)
+
+
+### Bug Fixes
+
+* **modal:** Fixes bugs for focus-trap and autofocus ([#148](https://github.com/freshdesk/nucleus/issues/148)) ([198ec6f](https://github.com/freshdesk/nucleus/commit/198ec6f25ddec0bcff6f5e97a38c507b2b181a0d))
+
+
+
+
+
 ## 0.1.13 (2020-03-09)
 
 **Note:** Version bump only for package @freshworks/core
