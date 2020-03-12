@@ -18,7 +18,7 @@ It's easy for the user to quickly distinguish which tab belongs to which content
         customClasses="sample-tab sample-tab-simple"
         description="site-navigation" 
         select="I want apples" 
-        variant="default" as |tabs| }}
+        variant="line" as |tabs| }}
       {{#tabs.panel name="I want apples" }}
         <div>This is apples section</div>
       {{/tabs.panel}}
@@ -47,8 +47,7 @@ It's easy for the user to quickly distinguish which tab belongs to which content
   {{#demo.example name="nucleus-tabs-4.hbs"}}
     {{#nucleus-tabs 
         description="site-navigation" 
-        select="I want apples" 
-        variant="default" as |tabs| }}
+        variant="line" as |tabs| }}
       {{#tabs.panel name="I want apples" }}
         <div>This is apples section</div>
       {{/tabs.panel}}
@@ -72,7 +71,7 @@ It's easy for the user to quickly distinguish which tab belongs to which content
     {{#nucleus-tabs 
         description="site-navigation" 
         select="I want apples" 
-        variant="default" as |tabs| }}
+        variant="line" as |tabs| }}
       {{#tabs.panel name="I want apples" }}
         <div>This is apples section</div>
       {{/tabs.panel}}

@@ -125,6 +125,7 @@ class NucleusTabs extends Component {
   */
   @action
   registerPanel(tab) {
+    if(!get(this, 'selected') && (tab.disabled === 'false')) set(this, 'selected', tab.name); // set selected if not initially set
     get(this, 'tabPanels').pushObject(tab);
   }
 
@@ -157,13 +158,9 @@ class NucleusTabs extends Component {
     const beforeChange = get(_this, 'beforeChange');
     const onChange =  get(_this, 'onChange');
     const currentTab = get(_this, 'selected');
-    if(beforeChange) { 
-      await beforeChange.call(_this, changedTo, currentTab, event);
-    }
+    if(beforeChange) await beforeChange.call(_this, changedTo, currentTab, event);
     set(_this, 'selected', changedTo);
-    if(onChange) {
-      await onChange.call(_this, changedTo, currentTab, event);
-    }
+    if(onChange) await onChange.call(_this, changedTo, currentTab, event);
   }
 }
 
