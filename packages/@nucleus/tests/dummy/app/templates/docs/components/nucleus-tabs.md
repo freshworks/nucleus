@@ -54,7 +54,7 @@ It's easy for the user to quickly distinguish which tab belongs to which content
       {{#tabs.panel name="I want oranges" }}
         <div>This is oranges section</div>
       {{/tabs.panel}}
-      {{#tabs.panel name="I want grapes" disabled="true" }}
+      {{#tabs.panel name="I want grapes" disabled=true }}
         <div>This is grapes section</div>
       {{/tabs.panel}}
     {{/nucleus-tabs}}

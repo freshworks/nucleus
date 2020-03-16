@@ -76,9 +76,9 @@ class TabPanel extends Component {
   @computed('tabListItems.[]', function() {
     const tabListItems = get(this, 'tabListItems');
     const tabList = tabListItems.findBy('name', get(this, 'name'));
-    return (tabList)? tabList.id : "";
+    return (tabList)? tabList.id : '';
   })
-  "aria-labelledby";
+  'aria-labelledby';
 
   /**
   * init 

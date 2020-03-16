@@ -1,6 +1,6 @@
 import Component from '@ember/component';
 import { classNames, classNameBindings, layout as templateLayout } from '@ember-decorators/component';
-import layout from "../templates/components/nucleus-tabs";
+import layout from '../templates/components/nucleus-tabs';
 import { set, get, computed, action } from '@ember/object';
 import defaultProp from '@freshworks/core/utils/default-decorator';
 import { A } from '@ember/array';
@@ -44,7 +44,7 @@ class NucleusTabs extends Component {
   * @public
   */
   @defaultProp 
-  customClasses = "";
+  customClasses = '';
 
   /**
   * select

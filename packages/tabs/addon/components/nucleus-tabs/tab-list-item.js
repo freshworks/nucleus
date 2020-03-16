@@ -95,7 +95,7 @@ class TabListItem extends Component {
   @computed('tabOrder', function() {
     let tabIndex = null;
     if(!get(this, 'isDisabled')) {
-      tabIndex = (get(this, 'tabOrder') === 0)? "0" : "-1"
+      tabIndex = (get(this, 'tabOrder') === 0)? '0' : '-1';
     }
     return tabIndex;
   })
@@ -121,7 +121,7 @@ class TabListItem extends Component {
   * @public
   */
   @computed('disabled', function() {
-    return (get(this, 'disabled') === 'true')? true : false;
+    return (get(this, 'disabled').toString() === 'true')? true : false;
   })
   isDisabled;
 
@@ -147,7 +147,7 @@ class TabListItem extends Component {
   @computed('controls', function() {
     return get(this, 'controls');
   })
-  "aria-controls";
+  'aria-controls';
 
   /**
   * aria-selected
@@ -159,7 +159,7 @@ class TabListItem extends Component {
   @computed('selected', function() {
     return (get(this, 'selected') === get(this, 'name')).toString();
   })
-  "aria-selected";
+  'aria-selected';
 
   /**
   * init
@@ -197,7 +197,7 @@ class TabListItem extends Component {
   *
   */
   click(event) {
-    if(get(this, 'disabled') === 'false') {
+    if(get(this, 'isDisabled') === false) {
       get(this, 'handleActivateTab').call(this, get(this, 'name'), event);
     }
   }
@@ -253,7 +253,7 @@ class TabListItem extends Component {
     const nextElement = (element.nextElementSibling)? element.nextElementSibling : element.parentElement.firstElementChild;
     if(elementInFocus && (elementInFocus.id === nextElement.id)) {
       return;
-    } else if(nextElement.getAttribute("tabindex") === null) {
+    } else if(nextElement.getAttribute('tabindex') === null) {
       get(this, '_focusNextTab').call(this, nextElement, element);
     } else {
       nextElement.focus();
@@ -273,7 +273,7 @@ class TabListItem extends Component {
     const previousElement = (element.previousElementSibling)? element.previousElementSibling : element.parentElement.lastElementChild;
     if(elementInFocus && (elementInFocus.id === previousElement.id)) {
       return;
-    } else if(previousElement.getAttribute("tabindex") === null) {
+    } else if(previousElement.getAttribute('tabindex') === null) {
       get(this, '_focusPreviousTab').call(this, previousElement, element);
     } else {
       previousElement.focus();
