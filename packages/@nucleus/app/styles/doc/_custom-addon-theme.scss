@@ -69,6 +69,11 @@ h4 a.heading-anchor {
   color: #2c5cc5; // used in demos
 }
 
+.docs-md__code {
+  background: #282c34;
+  color: #abb2bf;
+}
+
 button.docs-text-grey-lighter {
   color: #12344d;
   padding: 4px;
@@ -97,4 +102,26 @@ html [type=button],
 [type=reset],
 [type=submit] {
   border-radius: 4px; // to prevent tailwind CSS from overriding this value in ember-cli-addon-doc
+}
+
+.mode-toggle {
+  z-index: 99999;
+  color: #202020;
+  position: absolute;
+  right: 25px;
+  top: 27px;
+}
+
+@media only screen and (max-width: 1450px) {
+  .mode-toggle {
+    top: 100px;
+    right: 25px;
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  .mode-toggle {
+    top: 100px;
+    right: 70px;
+  }
 }

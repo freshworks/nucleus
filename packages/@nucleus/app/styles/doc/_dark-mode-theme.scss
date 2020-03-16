@@ -1,0 +1,163 @@
+body.dark {
+  // For the homepage background color
+  background: #171717;
+  //Needs this also for homepage background color to be applied
+  & > .ember-view {
+    background: #171717;
+  }
+
+  :root {
+    --brand-primary: #021f60;
+  }
+
+  .docs-bg-brand {
+    background-color: #021f60 !important;
+  }
+
+  //Dark Mode Toggle Icon Fill
+  .toggle-icon {
+    fill: #ddd;
+  }
+
+  .data-search-box-input {
+    color: white;
+  }
+
+  .docs-viewer {
+    background-color: #202020;
+  }
+
+  .docs-rounded,
+  .docs-bg-code-base {
+    background-color: #272b34;
+    color: white;
+  }
+
+  ::placeholder {
+    color: #adabab;
+  }
+
+  .docs-md__code {
+    background: #272b34;
+    color: #abb2bf;
+  }
+
+  .docs-text-grey-darker {
+    color: #8d8d8d;
+  }
+
+  //Code blocks within text
+  li > code {
+    color: #202020;
+  }
+
+  p > code {
+    color: #202020;
+  }
+
+  .docs-my-8 {
+    box-shadow: 0 2px 8px 0 rgba(40, 46, 53, .25);
+  }
+
+  .docs-rounded .docs-p-4 {
+    border-bottom: 1px dashed #202020;
+  }
+
+  .docs-text-brand,
+  h4 a.heading-anchor {
+    color: #2c5cc5 !important;
+    text-decoration: none;
+  }
+
+  .AddonDocs-DocsViewer-Nav {
+    border-color: #171717;
+  }
+
+  .docs-border-grey-light {
+    border-color: #171717;
+  }
+
+  .docs-border-grey-lighter {
+    border-color: #171717;
+  }
+
+  .docs-bg-grey-lightest {
+    background-color: #151515;
+  }
+
+  .docs-bg-white {
+    background-color: #151515;
+  }
+
+  .docs-shadow {
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, .5);
+  }
+
+  .docs-demo__snippets-nav.docs-tracking-tight {
+    background-color: #272b34;
+    border-color: #272b34;
+  }
+
+  .hljs {
+    color: #caa540;
+    background: #272b34;
+  }
+
+  .hljs-comment,
+  .hljs-quote {
+    color: #a1a7a0;
+  }
+
+  .hljs-doctag,
+  .hljs-keyword,
+  .hljs-formula {
+    color: #c44ec2;
+  }
+
+  .hljs-built_in,
+  .hljs-class .hljs-title {
+    color: #e29a00;
+  }
+
+  .hljs-attr,
+  .hljs-variable,
+  .hljs-template-variable,
+  .hljs-type,
+  .hljs-selector-class,
+  .hljs-selector-attr,
+  .hljs-selector-pseudo,
+  .hljs-number {
+    color: #c38500;
+  }
+
+  //Finds all forms of text
+  .docs-font-title,
+  .docs-text-grey-darkest,
+  .docs-h1,
+  .docs-md__h1,
+  .docs-h2,
+  .docs-md__h2,
+  .docs-md__h2 a,
+  .docs-md__h3 a,
+  .docs-h3 a,
+  .docs-md > p,
+  li {
+    color: #ddd;
+  }
+
+  .playground-container {
+    border-bottom: 1px dotted #202020;
+
+    &--props {
+      border-left: 1px dotted #202020;
+
+      .item {
+        margin: 10px;
+
+        .ember-text-field {
+          border: 1px solid #202020;
+        }
+      }
+    }
+  }
+}
