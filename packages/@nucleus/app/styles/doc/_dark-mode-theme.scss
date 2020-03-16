@@ -27,6 +27,10 @@ body.dark {
     background-color: #202020;
   }
 
+  .docs-pt-8 {
+    color: #ddd;
+  }
+
   .docs-rounded,
   .docs-bg-code-base {
     background-color: #272b34;
@@ -48,11 +52,13 @@ body.dark {
 
   //Code blocks within text
   li > code {
-    color: #202020;
+    color: rgb(226, 165, 52);
+    background: rgb(57, 61, 61);
   }
 
   p > code {
-    color: #202020;
+    color: rgb(226, 165, 52);
+    background: rgb(57, 61, 61);
   }
 
   .docs-my-8 {
