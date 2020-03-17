@@ -61,7 +61,7 @@ $slider-width: 600px;
     transition: all .1s linear;
     display: flex;
     justify-content: space-between;
-    flex: 1 0 auto;
+    flex: none;
 
     &.sticky {
       position: sticky;
@@ -105,7 +105,7 @@ $slider-width: 600px;
     border-radius: 0 0 $radius $radius;
     display: flex;
     justify-content: flex-end;
-    flex: 1 0 auto;
+    flex: none;
 
     &.sticky {
       position: sticky;
