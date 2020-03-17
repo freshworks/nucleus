@@ -3,11 +3,7 @@
     {{nucleus-icon name=_icon size="medium" variant=type}}
   </div>
   <div class="nucleus-inline-banner__content">
-    {{yield
-    (hash
-      close=(action "onCloseTip")
-    )
-    }}
+    {{yield}}
   </div>
   {{#if isDismissible}}
     <div class="nucleus-inline-banner__close">
