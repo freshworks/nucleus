@@ -159,6 +159,13 @@ body.dark {
     color: #ddd;
   }
 
+  input,
+  optgroup,
+  select,
+  textarea {
+    color: #000;
+  }
+
   .playground-container {
     border-bottom: 1px dotted #202020;
 
