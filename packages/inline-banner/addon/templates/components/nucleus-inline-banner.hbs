@@ -1,34 +1,21 @@
-{{#if hasBlock}}
-  <div class="nucleus-inline-banner__icon">
-    {{nucleus-icon name=_icon size="medium" variant=type}}
-  </div>
-  <div class="nucleus-inline-banner__content">
+<div class="nucleus-inline-banner__icon">
+  {{nucleus-icon name=_icon size="medium" variant=type}}
+</div>
+<div class="nucleus-inline-banner__content">
+  {{#if hasBlock}}
     {{yield}}
-  </div>
-  {{#if isDismissible}}
-    <div class="nucleus-inline-banner__close">
-      {{nucleus-button
-        variant="text"
-        size="mini"
-        icon="nucleus-cross"
-        onClick=(action "onCloseTip")}}
-    </div>
   {{/if}}
-{{else}}
-  <div class="nucleus-inline-banner__icon">
-    {{nucleus-icon name=_icon size="medium" variant=type}}
+  <div data-test-id="nucleus-inline-banner-title">
+    {{title}}
   </div>
-  <div class="nucleus-inline-banner__content">
-    <div data-test-id="nucleus-inline-banner-title">{{title}}</div>
+</div>
+{{#if isDismissible}}
+  <div class="nucleus-inline-banner__close">
+    {{nucleus-button
+      variant="text"
+      size="mini"
+      icon="nucleus-cross"
+      iconOnly=true
+      onClick=(action "onCloseTip")}}
   </div>
-  {{#if isDismissible}}
-    <div class="nucleus-inline-banner__close">
-      {{nucleus-button
-        variant="text"
-        size="mini"
-        icon="nucleus-cross"
-        iconOnly=true
-        onClick=(action "onCloseTip")}}
-    </div>
-  {{/if}}
 {{/if}}
