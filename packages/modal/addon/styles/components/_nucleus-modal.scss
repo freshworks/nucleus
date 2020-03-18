@@ -73,7 +73,6 @@ $slider-width: 600px;
 
     .header-icon {
       margin-right: 8px;
-      margin-top: 4px;
     }
 
     .header-content {
@@ -82,6 +81,9 @@ $slider-width: 600px;
       .title {
         font-size: $font-size-18;
         font-weight: $font-weight-600;
+        margin: 0;
+        line-height: 1.1;
+        -webkit-font-smoothing: antialiased;
       }
 
       .description {
