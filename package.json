@@ -10,7 +10,7 @@
     "start": "yarn workspace nucleus start",
     "test": "lerna run test --no-private --stream --concurrency 1",
     "build": "lerna run build --parallel --no-private",
-    "lint:js": "eslint . --fix --ignore-path .gitignore",
+    "lint:js": "eslint . --fix",
     "lint:style": "stylelint **/*.scss",
     "lint:hbs": "ember-template-lint .",
     "lint": "yarn lint:js && yarn lint:style && yarn lint:hbs",
@@ -39,7 +39,7 @@
     "stylelint-order": "^4.0.0"
   },
   "lint-staged": {
-    "*.js": "eslint . --fix --ignore-path .gitignore",
+    "*.js": "eslint . --fix",
     "*.hbs": "ember-template-lint .",
     "*.scss": "stylelint **/*.scss"
   },
