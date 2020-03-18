@@ -1,7 +1,7 @@
 import Component from '@ember/component';
 import { classNames, attributeBindings, classNameBindings, tagName, layout as templateLayout } from '@ember-decorators/component';
 import layout from '../../templates/components/nucleus-tabs/tab-list-item';
-import { get, computed } from '@ember/object';
+import { get, set, computed } from '@ember/object';
 import defaultProp from '@freshworks/core/utils/default-decorator';
 import { TABS_KEY_CODE } from '../../constants/nucleus-tabs'
 
@@ -19,6 +19,7 @@ import { TABS_KEY_CODE } from '../../constants/nucleus-tabs'
 @templateLayout(layout)
 @classNames('nucleus-tabs__list__item')
 @classNameBindings('isActive:is-active')
+@classNameBindings('isPressed:is-pressed')
 @classNameBindings('isDisabled:is-disabled')
 @attributeBindings('tabindex')
 @attributeBindings('role')
@@ -84,6 +85,17 @@ class TabListItem extends Component {
   * @public
   */
   role = 'tab';
+
+  /**
+  * isPressed
+  *
+  * @field isPressed
+  * @description to solve focus on click styling
+  * @type boolean
+  * @default false
+  * @public
+  */
+  isPressed = false;
 
   /**
   * tabindex
@@ -186,6 +198,30 @@ class TabListItem extends Component {
       id: get(this, 'elementId'),
       name: get(this, 'name')
     });
+  }
+
+  /**
+  * mouseDown
+  *
+  * @method mouseDown
+  * @description event handler : We are negating the style applied on click-focus
+  * @public
+  *
+  */
+  mouseDown() {
+    if(get(this, 'isDisabled') === false) set(this, 'isPressed', true);
+  }
+
+  /**
+  * focusOut
+  *
+  * @method focusOut
+  * @description event handler : Removing style that was applied during press to negate focus
+  * @public
+  *
+  */
+  focusOut() {
+    if(get(this, 'isPressed') === true) set(this, 'isPressed', false);
   }
 
   /**
