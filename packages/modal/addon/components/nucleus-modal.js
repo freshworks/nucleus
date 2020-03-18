@@ -3,9 +3,7 @@ import { observes } from '@ember-decorators/object';
 import defaultProp from '@freshworks/core/utils/default-decorator';
 import Component from "@ember/component";
 import { set, setProperties, computed, action } from "@ember/object";
-import { scheduleOnce } from '@ember/runloop';
 import layout from "../templates/components/nucleus-modal";
-import EventHandler from "../utils/event-handler";
 
 /**
   __Usage:__
@@ -109,30 +107,6 @@ class Modal extends Component {
   renderInPlace = false;
 
   /**
-  * modalId
-  *
-  * @field modalId
-  * @type string
-  * @private
-  */
-  @computed('elementId', function() {
-    return `nucleus-modal-${this.get('elementId')}`;
-  })
-  modalId;
-
-  /**
-  * modalElement
-  *
-  * @field modalElement
-  * @type function
-  * @private
-  */
-  @computed('modalId', function() {
-    return document.getElementById(this.get('modalId'));
-  })
-  modalElement;
-
-  /**
   * close
   *
   * @method close
@@ -171,26 +145,6 @@ class Modal extends Component {
   }
 
   /**
-  * takeFocus
-  *
-  * @method takeFocus
-  * @private
-  *
-  */
-  _takeFocus() {
-    let modalEl = this.get('modalElement');
-    let focusElement = modalEl && modalEl.querySelector("[autofocus]");
-
-    if (!focusElement) {
-      focusElement = modalEl;
-    }
-
-    if (focusElement) {
-      focusElement.focus();
-    }
-  }
-
-  /**
   * show
   *
   * @method show
@@ -223,58 +177,14 @@ class Modal extends Component {
     document.body.classList.remove("nucleus-modal--open");
   }
 
-  /**
-  * attachEventHandlers
-  *
-  * @method attachEventHandlers
-  * @private
-  *
-  */
-  attachEventHandlers() {
-    let _focusListener = EventHandler.bindEvent({
-      eventName: 'focusin',
-      callback: this.loopFocus.bind(this)
-    });
-    set(this, '_focusListener', _focusListener);
-    this._takeFocus();
-  }
-
-  /**
-  * loopFocus
-  *
-  * @method loopFocus
-  * @private
-  * @param {any} event
-  */
-  loopFocus(event) {
-    let modalEl = this.get('modalElement');
-
-    if (event && modalEl && modalEl !== event.target && !modalEl.contains(event.target)) {
-      event.preventDefault();
-      this._takeFocus(event);
-    }
-  }
-
   _initialize() {
     this._show();
-    scheduleOnce('afterRender', this, this.attachEventHandlers);
   }
 
   _dismantle() {
     this._hide();
-    EventHandler.unbindEvent({
-      eventName: 'focusin',
-      callback: this._focusListener
-    });
   }
 
-  willDestroyElement() {
-    super.willDestroyElement(...arguments);
-    EventHandler.unbindEvent({
-      eventName: 'focusin',
-      callback: this._focusListener
-    });
-  }
 }
 
 export default Modal;

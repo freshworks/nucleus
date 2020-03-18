@@ -2,8 +2,9 @@ import { classNames, attributeBindings, classNameBindings, layout as templateLay
 import defaultProp from '@freshworks/core/utils/default-decorator';
 import { readOnly } from '@ember/object/computed';
 import Component from '@ember/component';
-import { set, computed } from '@ember/object';
+import { set, setProperties, computed } from '@ember/object';
 import { isBlank } from '@ember/utils';
+import { focusableElements } from '../../constants/nucleus-modal';
 import layout from '../../templates/components/nucleus-modal/dialog';
 import EventHandler from "../../utils/event-handler";
 
@@ -164,7 +165,15 @@ class Dialog extends Component {
       callback: this.scrolled.bind(this), 
       element: '.nucleus-modal__body'
     });
-    set(this, '_scrollCallback', _scrollCallback);
+    let _focusListener = EventHandler.bindEvent({
+      eventName: 'keydown',
+      callback: this.loopFocus.bind(this)
+    });
+    setProperties(this, {
+      '_scrollCallback': _scrollCallback,
+      '_focusListener': _focusListener
+    });
+    this._createFocus();
   }
 
   scrolled() {
@@ -180,6 +189,52 @@ class Dialog extends Component {
     }
   }
 
+  /**
+  * createFocus
+  *
+  * @method createFocus
+  * @private
+  *
+  */
+  _createFocus() {
+    let modalDialog = this.element;
+    let focusEl = modalDialog && modalDialog.querySelector("[autofocus]");
+    if(focusEl) {
+      focusEl.focus();
+    }
+    else {
+      modalDialog.focus();
+    }
+  }
+
+  /**
+  * loopFocus
+  *
+  * @method loopFocus
+  * @private
+  * @param {any} event
+  */
+  loopFocus(event) {
+    let isTab = (event.key === 'Tab' || event.keyCode === 9);
+    if (!isTab) {
+      return;
+    }
+    let modalDialog = this.element.querySelector(".nucleus-modal__dialog");
+    let focusElements = [...modalDialog.querySelectorAll(focusableElements)];    
+    let currentIndex = focusElements.indexOf(document.activeElement);
+    if (currentIndex === -1) {
+      focusElements[0].focus();
+    }
+    if(event.shiftKey && currentIndex === 0) {
+      event.preventDefault();
+      focusElements[focusElements.length-1].focus();
+    } 
+    else if (currentIndex === (focusElements.length - 1)) {
+      event.preventDefault();
+      focusElements[0].focus();
+    }
+  }
+
   didInsertElement() {
     super.didInsertElement(...arguments);
     this.getOrSetTitleId();
@@ -192,6 +247,10 @@ class Dialog extends Component {
       eventName: 'scroll',
       callback: this._scrollCallback, 
       element: '.nucleus-modal__body'
+    });
+    EventHandler.unbindEvent({
+      eventName: 'keydown',
+      callback: this._focusListener
     });
   }
 }
