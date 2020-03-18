@@ -18,7 +18,6 @@
     }
 
     &__item {
-      all: unset;
       flex-shrink: 0;
       position: relative;
       text-align: center;
@@ -27,7 +26,6 @@
       margin: 0 4px;
       font-size: 14px;
       color: $color-smoke-700;
-      -webkit-text-fill-color: $color-smoke-700;
 
       &:first-child {
         margin-left: 0;
@@ -88,7 +86,6 @@
 
       &.is-active {
         color: $color-azure-800;
-        -webkit-text-fill-color: $color-azure-800;
         font-weight: 500;
 
         &::after {
@@ -98,7 +95,6 @@
 
       &.is-disabled {
         color: $color-smoke-300;
-        -webkit-text-fill-color: $color-smoke-300;
 
         &:hover {
           cursor: default;
