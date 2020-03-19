@@ -1,8 +1,11 @@
 import Component from '@ember/component';
-import { set } from '@ember/object';
+import { set, computed } from '@ember/object';
 
 export default Component.extend({
   dark: true,
+  iconName: computed("dark", function(){
+    return this.dark ? "light" : "dark"
+  }),
 
   toggleDarkTheme(match) {
     document.body.classList.toggle('dark', match);
@@ -10,12 +13,7 @@ export default Component.extend({
   init() {
     this._super();
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
-    if (prefersDark.matches) {
-      set(this, 'dark', true);
-    }
-    else {
-      set(this, 'dark', false);
-    }
+    set(this, 'dark', prefersDark.matches);
     this.toggleDarkTheme(this.dark);
     prefersDark.addListener((mediaQuery) => this.toggleDarkTheme(mediaQuery.matches))
   },

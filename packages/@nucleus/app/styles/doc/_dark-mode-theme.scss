@@ -1,8 +1,6 @@
 body.dark {
-  // For the homepage background color
-  background: #171717;
-  //Needs this also for homepage background color to be applied
-  & > .ember-view {
+  .docs-container {
+    min-width: 100%;
     background: #171717;
   }
 
@@ -110,38 +108,6 @@ body.dark {
   .docs-demo__snippets-nav.docs-tracking-tight {
     background-color: #272b34;
     border-color: #272b34;
-  }
-
-  .hljs {
-    color: #caa540;
-    background: #272b34;
-  }
-
-  .hljs-comment,
-  .hljs-quote {
-    color: #a1a7a0;
-  }
-
-  .hljs-doctag,
-  .hljs-keyword,
-  .hljs-formula {
-    color: #c44ec2;
-  }
-
-  .hljs-built_in,
-  .hljs-class .hljs-title {
-    color: #e29a00;
-  }
-
-  .hljs-attr,
-  .hljs-variable,
-  .hljs-template-variable,
-  .hljs-type,
-  .hljs-selector-class,
-  .hljs-selector-attr,
-  .hljs-selector-pseudo,
-  .hljs-number {
-    color: #c38500;
   }
 
   //Finds all forms of text
