@@ -1,0 +1,149 @@
+body.dark {
+  & > .ember-view {
+    background: #171717;
+  }
+
+  :root {
+    --brand-primary: #021f60;
+  }
+
+  .docs-bg-brand {
+    background-color: #021f60 !important;
+  }
+
+  //Dark Mode Toggle Icon Fill
+  .toggle-icon {
+    fill: #ddd;
+  }
+
+  .data-search-box-input {
+    color: white;
+  }
+
+  .docs-viewer {
+    background-color: #202020;
+  }
+
+  .docs-pt-8 {
+    color: #ddd;
+  }
+
+  .docs-rounded,
+  .docs-bg-code-base {
+    background-color: #272b34;
+    color: white;
+  }
+
+  ::placeholder {
+    color: #adabab;
+  }
+
+  .docs-md__code {
+    background: #272b34;
+    color: #abb2bf;
+  }
+
+  .docs-text-black {
+    color: #ddd;
+  }
+
+  .docs-bg-grey-lighter {
+    background: #272b34;
+  }
+
+  .docs-text-grey-darker {
+    color: #8d8d8d;
+  }
+
+  //Code blocks within text
+  li > code {
+    color: rgb(226, 165, 52);
+    background: rgb(57, 61, 61);
+  }
+
+  p > code {
+    color: rgb(226, 165, 52);
+    background: rgb(57, 61, 61);
+  }
+
+  .docs-my-8 {
+    box-shadow: 0 2px 8px 0 rgba(40, 46, 53, .25);
+  }
+
+  .docs-rounded .docs-p-4 {
+    border-bottom: 1px dashed #202020;
+  }
+
+  .docs-text-brand,
+  h4 a.heading-anchor {
+    color: #2c5cc5 !important;
+    text-decoration: none;
+  }
+
+  .AddonDocs-DocsViewer-Nav {
+    border-color: #171717;
+  }
+
+  .docs-border-grey-light {
+    border-color: #171717;
+  }
+
+  .docs-border-grey-lighter {
+    border-color: #171717;
+  }
+
+  .docs-bg-grey-lightest {
+    background-color: #151515;
+  }
+
+  .docs-bg-white {
+    background-color: #151515;
+  }
+
+  .docs-shadow {
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, .5);
+  }
+
+  .docs-demo__snippets-nav.docs-tracking-tight {
+    background-color: #272b34;
+    border-color: #272b34;
+  }
+
+  //Finds all forms of text
+  .docs-font-title,
+  .docs-text-grey-darkest,
+  .docs-h1,
+  .docs-md__h1,
+  .docs-h2,
+  .docs-md__h2,
+  .docs-md__h2 a,
+  .docs-md__h3 a,
+  .docs-h3 a,
+  .docs-md > p,
+  li {
+    color: #ddd;
+  }
+
+  input,
+  optgroup,
+  select,
+  textarea {
+    color: #000;
+  }
+
+  .playground-container {
+    border-bottom: 1px dotted #202020;
+
+    &--props {
+      border-left: 1px dotted #202020;
+
+      .item {
+        margin: 10px;
+
+        .ember-text-field {
+          border: 1px solid #202020;
+        }
+      }
+    }
+  }
+}
