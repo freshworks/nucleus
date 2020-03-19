@@ -140,7 +140,7 @@ $slider-width: 600px;
     bottom: 0;
     left: 0;
     z-index: -1;  // CSS trick used in bootstrap backdrop
-    background-color: rgba(0, 0, 0, .5);
+    background-color: rgba($color-elephant-900, .5);
   }
 
   &--open {
