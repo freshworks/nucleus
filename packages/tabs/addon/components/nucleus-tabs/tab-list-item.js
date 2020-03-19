@@ -167,18 +167,6 @@ class TabListItem extends Component {
   'aria-selected';
 
   /**
-  * init
-  *
-  * @method init
-  * @description lifecycle event
-  * @public
-  *
-  */
-  init() {
-    super.init(...arguments);
-  }
-
-  /**
   * didInsertElement
   *
   * @method didInsertElement
@@ -263,10 +251,10 @@ class TabListItem extends Component {
         firstElement.focus();
         break; 
       case keyCode.LEFT: 
-        get(this, '_focusPreviousTab').call(this, targetElement);
+        get(this, '_changeTabFocus').call(this, 'previous', targetElement);
         break;
       case keyCode.RIGHT: 
-        get(this, '_focusNextTab').call(this, targetElement);
+        get(this, '_changeTabFocus').call(this, 'next', targetElement);
         break;
       default:
         break;
@@ -274,42 +262,30 @@ class TabListItem extends Component {
   }
 
   /**
-  * _focusNextTab
-  * When last item, focus must circle back to previous item.
+  * _changeTabFocus
   *
-  * @method _focusNextTab
-  * @description focus the next tab that is not disabled
+  * @method _changeTabFocus
+  * @description Change focus based on direction
+  * @param {string} direction takes either  'next' or 'previous'
+  * @param {Object} element 
+  * @param {Object} [elementInFocus]
   * @private
   *
   */
-  _focusNextTab(element, elementInFocus) {
-    const nextElement = (element.nextElementSibling)? element.nextElementSibling : element.parentElement.firstElementChild;
-    if(elementInFocus && (elementInFocus.id === nextElement.id)) {
-      return;
-    } else if(nextElement.getAttribute('tabindex') === null) {
-      get(this, '_focusNextTab').call(this, nextElement, element);
+  _changeTabFocus(direction, element, elementInFocus) {
+    let adjacentElement;
+    if(direction === 'previous') {
+      adjacentElement = (element.previousElementSibling)? element.previousElementSibling : element.parentElement.lastElementChild;
     } else {
-      nextElement.focus();
+      adjacentElement = (element.nextElementSibling)? element.nextElementSibling : element.parentElement.firstElementChild;
     }
-  }
 
-  /**
-  * _focusPreviousTab
-  * When first item, focus must go back to last item.
-  *
-  * @method _focusPreviousTab
-  * @description focus the previous tab that is not disabled
-  * @private
-  *
-  */
-  _focusPreviousTab(element, elementInFocus) {
-    const previousElement = (element.previousElementSibling)? element.previousElementSibling : element.parentElement.lastElementChild;
-    if(elementInFocus && (elementInFocus.id === previousElement.id)) {
+    if(elementInFocus && (elementInFocus.id === adjacentElement.id)) {
       return;
-    } else if(previousElement.getAttribute('tabindex') === null) {
-      get(this, '_focusPreviousTab').call(this, previousElement, element);
+    } else if(adjacentElement.getAttribute('tabindex') === null) {
+      get(this, '_changeTabFocus').call(this, direction, adjacentElement, element);
     } else {
-      previousElement.focus();
+      adjacentElement.focus();
     }
   }
 }
