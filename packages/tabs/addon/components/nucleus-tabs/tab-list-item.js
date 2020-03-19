@@ -18,15 +18,8 @@ import { TABS_KEY_CODE } from '../../constants/nucleus-tabs'
 @tagName('div')
 @templateLayout(layout)
 @classNames('nucleus-tabs__list__item')
-@classNameBindings('isActive:is-active')
-@classNameBindings('isPressed:is-pressed')
-@classNameBindings('isDisabled:is-disabled')
-@attributeBindings('tabindex')
-@attributeBindings('role')
-@attributeBindings('aria-controls')
-@attributeBindings('aria-selected')
-@attributeBindings('isDisabled:disabled')
-@attributeBindings('title')
+@classNameBindings('isActive:is-active', 'isDisabled:is-disabled', 'isPressed:is-pressed')
+@attributeBindings('isDisabled:disabled', 'tabindex', 'title', 'role', 'aria-controls', 'aria-selected')
 class TabListItem extends Component {
 
   /**
@@ -209,7 +202,9 @@ class TabListItem extends Component {
   *
   */
   mouseDown() {
-    if(get(this, 'isDisabled') === false) set(this, 'isPressed', true);
+    if(get(this, 'isDisabled') === false) { 
+      set(this, 'isPressed', true); 
+    }
   }
 
   /**
@@ -221,7 +216,9 @@ class TabListItem extends Component {
   *
   */
   focusOut() {
-    if(get(this, 'isPressed') === true) set(this, 'isPressed', false);
+    if(get(this, 'isPressed') === true) {
+      set(this, 'isPressed', false);
+    }
   }
 
   /**

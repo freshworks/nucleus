@@ -1,7 +1,7 @@
 import Component from '@ember/component';
 import { classNames, classNameBindings, layout as templateLayout } from '@ember-decorators/component';
 import layout from '../templates/components/nucleus-tabs';
-import { set, get, computed, action } from '@ember/object';
+import { set, get, getProperties, computed, action } from '@ember/object';
 import defaultProp from '@freshworks/core/utils/default-decorator';
 import { A } from '@ember/array';
 import { oneWay }from '@ember/object/computed';
@@ -18,8 +18,7 @@ import { oneWay }from '@ember/object/computed';
 */
 @templateLayout(layout)
 @classNames('nucleus-tabs')
-@classNameBindings('variantClass')
-@classNameBindings('customClasses')
+@classNameBindings('variantClass', 'customClasses')
 class NucleusTabs extends Component {
   /**
   * description
@@ -125,7 +124,9 @@ class NucleusTabs extends Component {
   */
   @action
   registerPanel(tab) {
-    if(!get(this, 'selected') && (tab.disabled === 'false')) set(this, 'selected', tab.name); // set selected if not initially set
+    if(!get(this, 'selected') && (tab.disabled === 'false')) {
+      set(this, 'selected', tab.name); // set selected if not initially set
+    }
     get(this, 'tabPanels').pushObject(tab);
   }
 
@@ -154,13 +155,14 @@ class NucleusTabs extends Component {
   */
   @action
   async activateTab(changedTo, event) {
-    const _this = this;
-    const beforeChange = get(_this, 'beforeChange');
-    const onChange =  get(_this, 'onChange');
-    const currentTab = get(_this, 'selected');
-    if(beforeChange) await beforeChange.call(_this, changedTo, currentTab, event);
-    set(_this, 'selected', changedTo);
-    if(onChange) await onChange.call(_this, changedTo, currentTab, event);
+    const { beforeChange, onChange, currentTab } = getProperties(this, 'beforeChange', 'onChange', 'currentTab');
+    if(beforeChange) {
+      await beforeChange.call(this, changedTo, currentTab, event);
+    }
+    set(this, 'selected', changedTo);
+    if(onChange) {
+      await onChange.call(this, changedTo, currentTab, event);
+    }
   }
 }
 
