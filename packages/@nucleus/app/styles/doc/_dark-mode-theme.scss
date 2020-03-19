@@ -1,6 +1,5 @@
 body.dark {
-  .docs-container {
-    min-width: 100%;
+  & > .ember-view {
     background: #171717;
   }
 
