@@ -9,6 +9,7 @@
       animationClass="slide-right"
       keyboard=isDismissible
       backdrop=backdrop
+      data-test-id=data-test-id
     }}
       {{yield
         (hash
@@ -25,6 +26,7 @@
                   type=type
                   submitTitle=submitTitle
                   closeTitle=closeTitle
+                  submitDisabled=submitDisabled
                   onClose=(action "close")
                   onSubmit=(action "submit"))
           close=(action "close")
