@@ -20,6 +20,7 @@ Router.map(function() {
       this.route("nucleus-modal");
       this.route("nucleus-toast-message");
       this.route("nucleus-banner");
+      this.route("nucleus-tabs");
     });
 
     this.route('not-found', { path: '/*path' });
