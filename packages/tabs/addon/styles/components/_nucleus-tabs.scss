@@ -1,0 +1,135 @@
+.nucleus-tabs {
+
+  $self: &;
+
+  display: flex;
+  flex-direction: column;
+
+  &__list {
+    width: 100%;
+    overflow: scroll hidden;
+
+    &__container {
+      display: flex;
+      flex-wrap: nowrap;
+      width: 100%;
+      padding: 0 12px;
+      border-bottom: 1px solid $color-smoke-50;
+    }
+
+    &__item {
+      flex-shrink: 0;
+      position: relative;
+      text-align: center;
+      line-height: 20px;
+      padding: 10px 8px;
+      margin: 0 4px;
+      font-size: 14px;
+      color: $color-smoke-700;
+
+      &:first-child {
+        margin-left: 0;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      &::before {
+        display: block;
+        content: attr(title);
+        font-weight: 500;
+        height: 0;
+        overflow: hidden;
+        visibility: hidden;
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -1px;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      &:hover {
+        outline: none;
+        border: 0;
+        box-shadow: none;
+        cursor: pointer;
+
+        &::after {
+          border-bottom: 2px solid $color-smoke-100;
+        }
+      }
+
+      &:focus {
+        outline: none;
+        border: 0;
+        box-shadow: none;
+
+        &::after {
+          height: calc(100% + 1px);
+          border: 2px solid $color-azure-800;
+          border-radius: 4px;
+        }
+      }
+
+      &.is-pressed {
+        &::after {
+          border: 0;
+          border-radius: 0;
+          border-bottom: 0;
+        }
+
+        &:hover::after {
+          border-bottom: 2px solid $color-smoke-100;
+        }
+
+        &.is-active::after {
+          border-bottom: 2px solid $color-azure-800;
+        }
+      }
+
+      &.is-active {
+        color: $color-azure-800;
+        font-weight: 500;
+
+        &::after {
+          border-bottom: 2px solid $color-azure-800;
+        }
+      }
+
+      &.is-disabled {
+        color: $color-smoke-300;
+
+        &:hover {
+          cursor: default;
+
+          &::after {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+  &__panel {
+    width: 100%;
+    display: none;
+    padding: 8px 20px;
+
+    &.is-active {
+      display: block;
+    }
+  }
+
+  &--background {
+    #{ $self }__list {
+      background: $color-smoke-25;
+      border: 1px solid $color-smoke-50;
+      border-radius: 4px;
+    }
+  }
+}

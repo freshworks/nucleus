@@ -1,0 +1,20 @@
+<div class="nucleus-tabs__list" role="tablist" aria-label={{description}}>
+  <div class="nucleus-tabs__list__container">
+    {{#each tabPanels key="id" as |tab index|}}
+      {{#nucleus-tabs/tab-list-item 
+          registerTabListItem=(action registerTabListItem) 
+          name=tab.name 
+          disabled=tab.disabled
+          controls=tab.id 
+          tabOrder=index 
+          selected=selected 
+          handleActivateTab=(action activateTab)}}
+        {{tab.name}}
+      {{/nucleus-tabs/tab-list-item}}
+    {{/each}}
+  </div>
+</div>
+
+{{yield (hash
+  panel=(component "nucleus-tabs/tab-panel" registerPanel=(action "registerPanel") selected=selected tabListItems=tabListItems)
+)}}

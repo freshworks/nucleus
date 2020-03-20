@@ -73,3 +73,38 @@
 .hljs-link {
   text-decoration: underline;
 }
+
+//Custom Syntax Highlight for Dark Mode
+body.dark {
+  .hljs {
+    color: #caa540;
+    background: #272b34;
+  }
+
+  .hljs-comment,
+  .hljs-quote {
+    color: #a1a7a0;
+  }
+
+  .hljs-doctag,
+  .hljs-keyword,
+  .hljs-formula {
+    color: #c44ec2;
+  }
+
+  .hljs-built_in,
+  .hljs-class .hljs-title {
+    color: #e29a00;
+  }
+
+  .hljs-attr,
+  .hljs-variable,
+  .hljs-template-variable,
+  .hljs-type,
+  .hljs-selector-class,
+  .hljs-selector-attr,
+  .hljs-selector-pseudo,
+  .hljs-number {
+    color: #c38500;
+  }
+}
