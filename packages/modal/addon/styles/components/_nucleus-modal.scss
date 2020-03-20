@@ -11,6 +11,8 @@ $slider-width: 600px;
   outline: 0;
   display: flex;
 
+  @extend %font-antialias;
+
   &--center {
     align-items: center;
     justify-content: center;
