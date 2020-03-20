@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.7](https://github.com/freshdesk/nucleus/compare/@freshworks/inline-banner@0.5.5...@freshworks/inline-banner@0.5.7) (2020-03-20)
+
+
+### Bug Fixes
+
+* **Inline-banner:** refactored yield ([#151](https://github.com/freshdesk/nucleus/issues/151)) ([0ce4615](https://github.com/freshdesk/nucleus/commit/0ce46152619aae09c5363aad06499d30c86d5336))
+
+
+
+
+
 ## [0.5.6](https://github.com/freshdesk/nucleus/compare/@freshworks/inline-banner@0.5.5...@freshworks/inline-banner@0.5.6) (2020-03-20)
 
 
