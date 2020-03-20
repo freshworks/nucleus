@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/freshdesk/nucleus/compare/nucleus@0.5.5...nucleus@0.6.0) (2020-03-20)
+
+
+### Bug Fixes
+
+* **Inline-banner:** refactored yield ([#151](https://github.com/freshdesk/nucleus/issues/151)) ([0ce4615](https://github.com/freshdesk/nucleus/commit/0ce46152619aae09c5363aad06499d30c86d5336))
+
+
+### Features
+
+* **tabs:** Implementation ([#138](https://github.com/freshdesk/nucleus/issues/138)) ([598e3e6](https://github.com/freshdesk/nucleus/commit/598e3e6e5a18efa8d8127c7c4165629c8e44cc92))
+
+
+
+
+
 ## [0.5.5](https://github.com/freshdesk/nucleus/compare/nucleus@0.5.4...nucleus@0.5.5) (2020-03-12)
 
 

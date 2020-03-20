@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.6](https://github.com/freshdesk/nucleus/compare/@freshworks/modal@0.5.5...@freshworks/modal@0.5.6) (2020-03-20)
+
+
+### Bug Fixes
+
+* **modal:** fixes positioning of elements ([#154](https://github.com/freshdesk/nucleus/issues/154)) ([3cbe6fd](https://github.com/freshdesk/nucleus/commit/3cbe6fd17c826962a268a4ac27fad168242f1851))
+
+
+
+
+
 ## [0.5.5](https://github.com/freshdesk/nucleus/compare/@freshworks/modal@0.5.4...@freshworks/modal@0.5.5) (2020-03-12)
 
 
