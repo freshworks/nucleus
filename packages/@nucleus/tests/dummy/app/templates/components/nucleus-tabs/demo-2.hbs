@@ -1,0 +1,22 @@
+{{#docs-demo as |demo|}}
+  {{#demo.example name="nucleus-tabs-3.hbs" }}
+    {{#nucleus-tabs 
+        description="site-navigation" 
+        select="I want apples" 
+        beforeChange=(action "beforeChange") 
+        onChange=(action "onChange") as |tabs| }}
+      {{#tabs.panel name="I want apples" }}
+        <div>This is apples section</div>
+      {{/tabs.panel}}
+      {{#tabs.panel name="I want oranges" }}
+        <div>This is oranges section</div>
+      {{/tabs.panel}}
+      {{#tabs.panel name="I want grapes" }}
+        <div>This is grapes section</div>
+      {{/tabs.panel}}
+    {{/nucleus-tabs}}
+  {{/demo.example}}
+
+  {{demo.snippet "nucleus-tabs-3.hbs"}}
+  {{demo.snippet "nucleus-tabs-3.js" label="component.js"}}
+{{/docs-demo}}
