@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.7](https://github.com/freshdesk/nucleus/compare/@freshworks/toast-message@0.6.5...@freshworks/toast-message@0.6.7) (2020-03-20)
+
+
+### Bug Fixes
+
+* **toast-message:** Design review updates  ([#155](https://github.com/freshdesk/nucleus/issues/155)) ([30742b5](https://github.com/freshdesk/nucleus/commit/30742b595d932ff6c33524f89990a8bedc1a91a5))
+
+
+
+
+
+## [0.6.6](https://github.com/freshdesk/nucleus/compare/@freshworks/toast-message@0.6.5...@freshworks/toast-message@0.6.6) (2020-03-20)
+
+
+### Bug Fixes
+
+* **toast-message:** Design review updates  ([#155](https://github.com/freshdesk/nucleus/issues/155)) ([30742b5](https://github.com/freshdesk/nucleus/commit/30742b595d932ff6c33524f89990a8bedc1a91a5))
+
+
+
+
+
+## [0.6.5](https://github.com/freshdesk/nucleus/compare/@freshworks/toast-message@0.6.4...@freshworks/toast-message@0.6.5) (2020-03-12)
+
+**Note:** Version bump only for package @freshworks/toast-message
+
+
+
+
+
 ## 0.6.4 (2020-03-09)
 
 **Note:** Version bump only for package @freshworks/toast-message
