@@ -1,36 +1,31 @@
-@freshworks/button
+@freshworks/toggle
 ==============================================================================
 
 ```
-yarn add @freshworks/button
+yarn add @freshworks/toggle
 ```
 
-Buttons in Freshdesk
+Toggles in Freshdesk
 ------------------------------------------------------------------------------
-Buttons means operation or series of operations. Buttons are interactive components that the users can click or touch to trigger corresponding business logic. 
+Interactive component that allows to toggle between two choices, checked and unchecked. They are mostly used to represent active/inactive state.
 
-Scenario
+Accessibility
 ------------------------------------------------------------------------------
-There are several button variants used throughout the product. They are used in pages such as articles, forms, wizards and perform actions such as saving, cancelling or sending, or call users to those actions. 
+When the toggle has focus, pressing the Space key changes the state of the toggle.
+
+Variants
+------------------------------------------------------------------------------
+Disabled - Prevent hover states from activating
 
 Guidelines
 ------------------------------------------------------------------------------
 **DO’s**
 
-1. Label button with what action it triggers.
-2. Choose appropriate button for the context.
-3. Use primary button for the primary/important action of the page.
-4. Use secondary buttons as default buttons.
-5. Use link buttons as tertiary buttons for less prominent actions.
-6. Use consistent button placement and direction for a user journey.
-7. Use button against a contrast background and have essential white space around the button.
+1. Use toggles with labels unless the title is straightforward so the user knows exactly what action he is doing.
+2. In case of multiple toggles, align them well so that it is easier to find them on the page.
 
 **DONT’s**
 
-1. Avoid using too many buttons in one page. 
-2. Button copy shouldn’t be too wordy.
-3. Don’t use more than one primary button in a page.
-4. Don’t use buttons instead of tabs.
-5. Don’t trigger the action without alerting the user for destructive buttons. 
-6. Don’t use destructive buttons for all delete/ cancellation scenarios. More applicable for actions which involves deleting the data permanently.
-7. Don’t enable primary button before all mandatory fields are filled.
+1. Do not redirect the user to a different page on change of the toggle state. 
+2. Avoid using multiple toggles on the same page, as much as possible.
+3. Toggle actions work immediately. Do not enable them only after a clicking confirm button.

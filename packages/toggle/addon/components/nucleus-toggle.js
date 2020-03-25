@@ -25,7 +25,7 @@ import layout from "../templates/components/nucleus-toggle";
 @tagName('div')
 @classNames('nucleus-toggle')
 @classNameBindings('_sizeClass')
-@attributeBindings('disabled:disabled', 'isChecked:checked')
+@attributeBindings('disabled', 'isChecked:checked', 'isChecked:aria-checked')
 
 class NucleusToggle extends Component {
   /**
@@ -65,15 +65,15 @@ class NucleusToggle extends Component {
   size = 'medium';
 
   /**
-  * Attribute name `label` used to set aria-label value
+  * Attribute name `ariaLabel` used to set aria-label value
   *
-  * @field label
+  * @field ariaLabel
   * @type string|null
   * @default null
   * @public
   */
   @defaultProp
-  label = null;
+  ariaLabel = null;
 
   /**
   * Flag to set disabled attribute

@@ -1,8 +1,3 @@
-@import "nucleus/variables";
-
-$toggle-on: #2c5cc5;
-$toggle-off: #576c7d;
-
 $large-variant: 24px;
 $medium-variant: 20px;
 $small-variant: 16px;
@@ -55,7 +50,7 @@ $transform: calc(100% - 8px);
     bottom: 0;
     margin: 6px 2px;
     border-radius: 12px;
-    background: $toggle-off;
+    background: $color-smoke;
   }
 
   .thumb {
@@ -70,7 +65,7 @@ $transform: calc(100% - 8px);
       opacity: 0;
       width: inherit;
       height: inherit;
-      background-color: $toggle-off;
+      background-color: $color-smoke;
       position: absolute;
       border-radius: 50%;
     }
@@ -83,7 +78,7 @@ $transform: calc(100% - 8px);
       margin: 2px;
       position: absolute;
       border-radius: 50%;
-      border: 1px solid $toggle-off;
+      border: 1px solid $color-smoke;
       background-color: $color-milk;
       box-shadow: 0 1px 2px 0 rgba(39, 49, 58, .3);
 
@@ -102,7 +97,7 @@ $transform: calc(100% - 8px);
 
   &[checked] {
     .track {
-      background-color: $toggle-on;
+      background-color: $color-azure-800;
     }
 
     .thumb {
@@ -111,11 +106,11 @@ $transform: calc(100% - 8px);
       -webkit-transform: translateX($transform);
 
       &::before {
-        background-color: $toggle-on;
+        background-color: $color-azure-800;
       }
 
       &__control {
-        border: 1px solid $toggle-on;
+        border: 1px solid $color-azure-800;
       }
     }
   }
