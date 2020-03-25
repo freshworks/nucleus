@@ -4,11 +4,11 @@
   tabindex="0"
   aria-label={{ariaLabel}}
   disabled={{disabled}}
-  checked={{isChecked}}
+  checked={{value}}
   onClick={{action "onValueChange" value="target.checked"}}
 >
 <div class="thumb">
   <div class="thumb__control">
-    {{svg-jar (if isChecked "nucleus-tick" "nucleus-cross") class="thumb__control--icon" aria-hidden=true role="img"}}
+    {{svg-jar (if value "nucleus-tick" "nucleus-cross") class="thumb__control--icon" aria-hidden=true role="img"}}
   </div>
 </div>

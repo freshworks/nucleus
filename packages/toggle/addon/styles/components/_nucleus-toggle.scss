@@ -95,7 +95,7 @@ $transform: calc(100% - 8px);
     }
   }
 
-  &[checked] {
+  &[aria-checked] {
     .track {
       background-color: $color-azure-800;
     }
