@@ -1,6 +1,6 @@
 import { module } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render } from '@ember/test-helpers';
+import { render, click } from '@ember/test-helpers';
 import test from 'ember-sinon-qunit/test-support/test';
 import hbs from 'htmlbars-inline-precompile';
 import backstop from 'ember-backstop/test-support/backstop';
@@ -20,27 +20,17 @@ module('Integration | Component | nucleus-toggle', function(hooks) {
     assert.dom('.nucleus-toggle').exists({ count: 1 }, 'Toggle wrap exists.');
   });
 
-  test('Rendes ', async function(assert) {
-    await render(hbs`{{nucleus-toggle size="small"}}`);
-
-    assert.dom('.nucleus-toggle--small').exists({ count: 1 }, 'Toggle has correct size');
-
-    await render(hbs`{{nucleus-toggle}}`);
-  });
-
   test('it has correct size', async function(assert) {
     await render(hbs`{{nucleus-toggle size="small"}}`);
 
     assert.dom('.nucleus-toggle--small').exists({ count: 1 }, 'Toggle has correct size');
-
-    await render(hbs`{{nucleus-toggle}}`);
   });
 
   test('it has HTML attributes', async function(assert) {
     await render(hbs`{{nucleus-toggle id="test" disabled=true}}`);
 
-    assert.equal(this.element.querySelector('.nucleus-toggle').getAttribute('id'), 'test');
-    assert.equal(this.element.querySelector('.nucleus-toggle').getAttribute('disabled'), '');
+    assert.dom('.nucleus-toggle').hasAttribute('id', 'test');
+    assert.dom('.nucleus-toggle').hasAttribute('disabled');
   });
 
   test('it must render toggle state based icon', async function(assert) {
@@ -49,29 +39,24 @@ module('Integration | Component | nucleus-toggle', function(hooks) {
     assert.dom('.nucleus-toggle svg').hasClass('thumb__control--icon', 'svg icon is rendered');
   });
 
-  // test('it sends onClick action with "args" property as a parameter', async function(assert) {
-  //   let action = this.spy();
-  //   this.actions.testAction = action;
-  //   await render(hbs`{{nucleus-toggle onClick=(action "testAction") args="foo"}}`);
+  test('it must have aria-checked property', async function(assert) {
+    await render(hbs`{{nucleus-toggle id="test" value="true"}}`);
 
-  //   await click('button');
-  //   assert.ok(action.calledWith('foo'), 'onClick action has been called with button arguments');
-  // });
+    assert.dom('.nucleus-toggle').hasAttribute('aria-checked');
 
-  // test('it prevents event to bubble up', async function(assert) {
-  //   let buttonClick = this.spy();
-  //   this.actions.buttonClick = buttonClick;
-  //   let parentClick = this.spy();
-  //   this.actions.parentClick = parentClick;
+    await click('.nucleus-toggle input');
 
-  //   await render(
-  //     hbs`<div {{action "parentClick"}}>{{#nucleus-toggle onClick=(action "buttonClick")}}Button{{/nucleus-toggle}}</div>`
-  //   );
+    assert.dom('.nucleus-toggle').doesNotHaveAttribute('aria-checked');
+  });
 
-  //   await click('button');
-  //   assert.ok(buttonClick.called);
-  //   assert.notOk(parentClick.called);
-  // });
+  test('it sends onClick action with "args" property as a parameter', async function(assert) {
+    let action = this.spy();
+    this.actions.testAction = action;
+    await render(hbs`{{nucleus-toggle onClick=(action "testAction")}}`);
+
+    await click('.nucleus-toggle input');
+    assert.ok(action.calledOnce, 'onClick action has been called with arguments');
+  });
 
   test('toggle pass visual regression tests', async function(assert) {
     await render(hbs`

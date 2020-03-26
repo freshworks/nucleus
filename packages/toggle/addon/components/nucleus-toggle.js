@@ -2,7 +2,6 @@ import {
   classNames,
   attributeBindings,
   classNameBindings,
-  tagName,
   layout as templateLayout,
 } from '@ember-decorators/component';
 
@@ -21,12 +20,20 @@ import layout from "../templates/components/nucleus-toggle";
   @public
 */
 @templateLayout(layout)
-@tagName('div')
 @classNames('nucleus-toggle')
 @classNameBindings('_sizeClass')
-@attributeBindings('disabled', 'value:aria-checked')
+@attributeBindings('data-test-id', 'disabled', 'value:aria-checked')
 
 class NucleusToggle extends Component {
+  /**
+  * data-test-id
+  *
+  * @field data-test-id
+  * @type string
+  * @private
+  */
+  'data-test-id' = 'nucleus-toggle';
+
   /**
   * Class name is added based on _sizeClass
   *
@@ -98,7 +105,7 @@ class NucleusToggle extends Component {
   onValueChange(value) {
     this.set('value', value);
     if (this.get('onClick')) {
-      return this.get('onClick')();
+      return this.get('onClick')(value);
     } 
   }
 }
