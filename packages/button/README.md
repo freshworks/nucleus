@@ -2,7 +2,7 @@
 ==============================================================================
 
 ```
-yarn add @freshworks/button
+ember install @freshworks/button
 ```
 
 Buttons in Freshdesk

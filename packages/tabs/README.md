@@ -2,7 +2,7 @@
 ==============================================================================
 
 ```
-yarn add @freshworks/tabs
+ember install @freshworks/tabs
 ```
 
 Tabs are used to organise content under each section.

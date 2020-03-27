@@ -1,7 +1,7 @@
 # Tabs
 
 ```sh
-yarn add @freshworks/tabs
+ember install @freshworks/tabs
 ```
 
 Tabs are used to organise content under each section. Tabs are most helpful when there is a lot of content to show in a page. Tabs can help in showing content which are under the same level of hierarchy, under each section inside the same page.

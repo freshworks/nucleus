@@ -1,7 +1,7 @@
 # <%= capitalizedName %>
 
 ```sh
-yarn add @freshworks/<%= name %>
+ember install @freshworks/<%= name %>
 ```
 
 ## Description

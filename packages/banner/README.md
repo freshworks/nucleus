@@ -1,7 +1,7 @@
 @freshworks/banner
 ==============================================================================
 ```sh
-yarn add @freshworks/banner
+ember install @freshworks/banner
 ```
 
 Banners in Freshdesk

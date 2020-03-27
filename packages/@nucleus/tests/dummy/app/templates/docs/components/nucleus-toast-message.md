@@ -1,7 +1,7 @@
 # Toast Message
 
 ```sh
-yarn add @freshworks/toast-message
+ember install @freshworks/toast-message
 ```
 
 Use toast messages for confirmation of delete actions, creating new objects (eg. tickets, groups) etc. Toast messages are used so that they don’t completely disrupt the user’s workflow but alert them anyway.

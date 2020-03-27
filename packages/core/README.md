@@ -2,7 +2,7 @@
 ==============================================================================
 
 ```
-yarn add @freshworks/core
+ember install @freshworks/core
 ```
 
 Contains the core design modules of Freshworks DSM:

@@ -24,7 +24,7 @@ npm install @freshworks/[PACKAGE_NAME]
 ```
 
 ```
-yarn add @freshworks/[PACKAGE_NAME]
+ember install @freshworks/[PACKAGE_NAME]
 ```
 
 

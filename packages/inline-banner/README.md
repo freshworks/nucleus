@@ -1,5 +1,5 @@
 @freshworks/inline-banner
 ==============================================================================
 ```sh
-yarn add @freshworks/inline-banner
+ember install @freshworks/inline-banner
 ```
