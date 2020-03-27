@@ -71,7 +71,7 @@ module('Integration | Component | nucleus-toggle', function(hooks) {
   });
 
   test('it passes a11y tests', async function(assert) {
-    await render(hbs`{{nucleus-toggle label="test" size="large"}}`);
+    await render(hbs`{{nucleus-toggle label="test" size="large" ariaLabel="toggle"}}`);
    
     return a11yAudit(this.element).then(() => {
       assert.ok(true, 'no a11y errors found!');
