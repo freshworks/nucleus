@@ -10,11 +10,12 @@
   </div>
   {{#if closeButton}}
     {{nucleus-button
-      type=closeButtonType
+      variant=closeButtonType
       size="small"
       customClass=(concat "nucleus-modal__close " position)
       icon="nucleus-cross"
       iconSize="mini"
+      iconOnly=true
       onClick=(action onClose)}}
   {{/if}}
 {{/if}}

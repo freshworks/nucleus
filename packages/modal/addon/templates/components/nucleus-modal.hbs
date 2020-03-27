@@ -6,6 +6,8 @@
       onSubmit=(action "submit")
       size=size
       keyboard=isDismissible
+      backdrop=backdrop
+      data-test-id=data-test-id
     }}
       {{yield
         (hash
@@ -28,10 +30,5 @@
         )
       }}
     {{/nucleus-modal/dialog}}
-    {{#transition-group transitionClass="fade"}}
-      {{#if _showBackdrop}}
-        <div class="nucleus-modal__backdrop" id={{backdropId}}></div>
-      {{/if}}
-    {{/transition-group}}
   {{/ember-wormhole}}
 {{/if}}

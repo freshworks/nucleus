@@ -8,6 +8,8 @@
       position=position
       animationClass="slide-right"
       keyboard=isDismissible
+      backdrop=backdrop
+      data-test-id=data-test-id
     }}
       {{yield
         (hash
@@ -24,6 +26,7 @@
                   type=type
                   submitTitle=submitTitle
                   closeTitle=closeTitle
+                  submitDisabled=submitDisabled
                   onClose=(action "close")
                   onSubmit=(action "submit"))
           close=(action "close")
@@ -31,10 +34,5 @@
         )
       }}
     {{/nucleus-modal/dialog}}
-    {{#transition-group transitionClass="fade"}}
-      {{#if _showBackdrop}}
-        <div class="nucleus-modal__backdrop" id={{backdropId}}></div>
-      {{/if}}
-    {{/transition-group}}
   {{/ember-wormhole}}
 {{/if}}

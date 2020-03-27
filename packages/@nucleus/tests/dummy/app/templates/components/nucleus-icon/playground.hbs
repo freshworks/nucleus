@@ -1,0 +1,17 @@
+{{!-- Demo with variants --}}
+{{#docs-playground as |p|}}
+  {{!-- component --}}
+  {{#p.preview}}
+    {{nucleus-icon
+      name=name.value
+      size=size.value
+      variant=variant.value
+    }}
+  {{/p.preview}}
+
+  {{!-- props --}}
+  {{p.props onchange=(action 'onchange') properties=properties}}
+
+  {{!-- code --}}
+  {{p.codeblock code=code}}
+{{/docs-playground}}

@@ -1,5 +1,6 @@
 'use strict';
 
+/* eslint-env node */
 module.exports = function(environment) {
   let ENV = {
     modulePrefix: 'nucleus',

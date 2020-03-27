@@ -1,21 +1,12 @@
 {{#docs-demo as |demo|}}
   {{#demo.example name="nucleus-icon.hbs"}}
-    <table>
-      <thead>
-        <tr>
-          <th style="width: 50%">Icon</th>
-          <th>Name</th>
-        </tr>
-      </thead>
-      <tbody>
-        {{#each icons as |icon|}}
-          <tr>
-            <td style="text-align: center">{{nucleus-icon name=icon}}</td>
-            <td>{{icon}}</td>
-          </tr>
-        {{/each}}
-      </tbody>
-    </table>
-    
+    <div class="icon-container">
+      {{#each icons as |icon|}}
+        <div class="icon" aria-role="button" onClick={{action 'copyIcon' icon}}>
+           {{nucleus-icon name=icon size="large" variant="none"}}
+           <div class="icon--text">{{icon}}</div>
+        </div>
+      {{/each}}
+    </div>
   {{/demo.example}}
 {{/docs-demo}}

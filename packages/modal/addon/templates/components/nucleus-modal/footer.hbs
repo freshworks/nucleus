@@ -3,14 +3,14 @@
 {{else}}
   {{#if hasCloseButton}}
     {{nucleus-button
-      type="secondary"
+      variant="secondary"
       label=closeTitle
       onClick=(action onClose)}}
   {{/if}}
   {{#if hasSubmitButton}}
     {{nucleus-button
       disabled=submitDisabled
-      type=type
+      variant=type
       label=submitTitle
       onClick=(action onSubmit)}}
   {{/if}}

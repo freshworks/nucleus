@@ -24,7 +24,12 @@ $active-box-shadow: inset 0 0 4px 0 rgba(0, 0, 0, .25);
 
 .nucleus-button {
   font-size: $font-size-14;
+  vertical-align: middle;
+  line-height: 1.2;
   padding: 6px 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   border: 1px solid transparent;
   border-radius: 4px;
   outline: 0;
@@ -33,8 +38,16 @@ $active-box-shadow: inset 0 0 4px 0 rgba(0, 0, 0, .25);
   transition: all .2s linear;
   letter-spacing: .3px;
   font-weight: $font-weight-500;
-  min-width: 90px;
   height: 32px;
+  min-width: 80px;
+
+  &__icon {
+    display: inline-flex;
+
+    &.nucleus--active {
+      margin-right: 4px;
+    }
+  }
 
   &:focus {
     border: 1px solid $color-azure-800;
@@ -50,6 +63,11 @@ $active-box-shadow: inset 0 0 4px 0 rgba(0, 0, 0, .25);
   &[disabled] {
     cursor: not-allowed;
     opacity: .4;
+  }
+
+  &--iconOnly {
+    min-width: 32px;
+    padding: 7px;
   }
 
   &--primary {
@@ -127,19 +145,14 @@ $active-box-shadow: inset 0 0 4px 0 rgba(0, 0, 0, .25);
 
   &--block {
     width: 100%;
-    display: block;
   }
 
   &--mini {
     padding: 2px 2px;
     font-size: $font-size-10;
     min-width: 16px;
+    line-height: 1;
     height: 16px;
-
-    svg.icon {
-      width: 8px;
-      height: 8px;
-    }
   }
 
   &--small {
@@ -147,10 +160,5 @@ $active-box-shadow: inset 0 0 4px 0 rgba(0, 0, 0, .25);
     font-size: $font-size-12;
     min-width: 16px;
     height: 24px;
-
-    svg.icon {
-      width: 10px;
-      height: 10px;
-    }
   }
 }

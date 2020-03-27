@@ -1,13 +1,13 @@
 {{#docs-demo as |demo|}}
   {{#demo.example name="nucleus-button-loading.hbs"}}
     {{nucleus-button
-      type="primary"
+      variant="primary"
       onClick=(action "download" 1)
       label="Click"}}
   {{/demo.example}}
   {{#demo.example name="nucleus-button-loading-custom.hbs"}}
     {{nucleus-button
-      type="primary"
+      variant="secondary"
       block=true
       onClick=(action "download" 1)
       pendingLabel="Downloading"

@@ -58,6 +58,16 @@ class NucleusConfirmDialog extends Modal {
   */
   @defaultProp
   submitTitle = 'Confirm';
+  
+  /**
+  * Disable the submit button
+  *
+  * @field submitDisabled
+  * @type boolean
+  * @public
+  */
+  @defaultProp
+  submitDisabled = false;
 }
 
 export default NucleusConfirmDialog;

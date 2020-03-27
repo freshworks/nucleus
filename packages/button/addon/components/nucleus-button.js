@@ -10,9 +10,10 @@ import defaultProp from '@freshworks/core/utils/default-decorator';
 import { or, equal } from '@ember/object/computed';
 import { run } from '@ember/runloop';
 import Component from '@ember/component';
-import { set, computed } from '@ember/object';
+import { computed } from '@ember/object';
 import layout from "../templates/components/nucleus-button";
-import { BUTTON_STATE } from "../constants/nucleus-button";
+import { BUTTON_STATE, ICON_VARIANT_MAP } from "../constants/nucleus-button";
+import safeSet from "../utils/safe-set";
 
 /**
   __Usage:__
@@ -32,7 +33,8 @@ import { BUTTON_STATE } from "../constants/nucleus-button";
   'block:nucleus-button--block',
   '_sizeClass',
   '_typeClass',
-  'customClass'
+  'customClass',
+  '_iconClass'
 )
 @attributeBindings('_disabled:disabled', '_buttonType:type', '_label:aria-label', 'autofocus')
 class NucleusButton extends Component {
@@ -61,7 +63,7 @@ class NucleusButton extends Component {
   /**
   * Icon sizes: `mini`, `small`, `medium`, `large`
   *
-  * @field size
+  * @field iconSize
   * @type string
   * @default null
   * @public
@@ -83,15 +85,28 @@ class NucleusButton extends Component {
   }
 
   /**
-  * Button display types: `primary`, `secondary`, `danger`, `text` & `link`
+  * Button display variants: `primary`, `secondary`, `danger`, `text` & `link`
   *
-  * @field type
+  * @field variant
   * @type string
   * @default 'primary'
   * @public
   */
   @defaultProp
-  type = 'primary';
+  variant = 'primary';
+
+  /**
+  * Attribute bound to icon variant
+  *
+  * @field _iconVariant
+  * @type string
+  * @private
+  */
+  @computed('variant')
+  get _iconVariant() {
+    let variant = this.get('variant');
+    return ICON_VARIANT_MAP[variant];
+  }
 
   /**
   * Attribute bound to button type
@@ -146,6 +161,16 @@ class NucleusButton extends Component {
   icon = null;
 
   /**
+  * Specifies it is an icon-only button
+  *
+  * @field iconOnly
+  * @type boolean
+  * @public
+  */
+ @defaultProp
+ iconOnly = false;
+
+  /**
   * Custom class names to be added to the button.
   *
   * @field customClass
@@ -179,14 +204,14 @@ class NucleusButton extends Component {
   }
 
   /**
-  * Value to be passed as argument for `onClick` action
+  * Function Arguments for `onClick` action
   *
-  * @field value
+  * @field args
   * @type string|number|object
   * @public
   */
   @defaultProp
-  value = null;
+  args = null;
 
   /**
   * Timeout after which the default label replaces fulfilled/rejected label.
@@ -331,10 +356,22 @@ class NucleusButton extends Component {
   * @computed _typeClass
   * @private
   */
-  @computed('type')
+  @computed('variant')
   get _typeClass() {
-    let type = this.get('type');
-    return type ? `nucleus-button--${this.get('type')}` : 'nucleus-button--primary';
+    let type = this.get('variant');
+    return type ? `nucleus-button--${type}` : 'nucleus-button--primary';
+  }
+
+  /**
+  * _iconClass
+  *
+  * @computed _iconClass
+  * @private
+  */
+  @computed('iconOnly')
+  get _iconClass() {
+    let iconButton = this.get('iconOnly');
+    return iconButton ? `nucleus-button--iconOnly` : null;
   }
 
   /**
@@ -382,28 +419,23 @@ class NucleusButton extends Component {
   */
   click() {
     let action = this.get('onClick');
-
     if (action === null || action === undefined) {
       return;
     }
 
     if (!this.get('_isPending')) {
-      let promise = action(this.get('value'));
+      let promise = (action)(this.get('args'));
 
-      if (promise && typeof promise.then === 'function' && !this.get('isDestroyed')) {
-        set(this, '_buttonState', BUTTON_STATE.PENDING);
+      if (promise && typeof promise.then === 'function') {
+        safeSet(this, '_buttonState', BUTTON_STATE.PENDING);
         promise.then(() => {
-          if (!this.isDestroyed) {
-            set(this, '_buttonState', BUTTON_STATE.FULFILLED);
-          }
+          safeSet(this, '_buttonState', BUTTON_STATE.FULFILLED);
         }, () => {
-          if (!this.isDestroyed) {
-            set(this, '_buttonState', BUTTON_STATE.REJECTED);
-          }
+          safeSet(this, '_buttonState', BUTTON_STATE.REJECTED);
         })
         .finally(() => {
           run.later(() => {
-            set(this, '_buttonState', BUTTON_STATE.DEFAULT)
+            safeSet(this, '_buttonState', BUTTON_STATE.DEFAULT)
           }, this.labelTimeout);
         });
       }

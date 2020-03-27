@@ -3,7 +3,6 @@ import { classNames, attributeBindings, classNameBindings, layout as templateLay
 import Component from '@ember/component';
 import { set, action } from '@ember/object';
 import { computed } from '@ember/object';
-import { htmlSafe } from '@ember/template';
 import layout from '../templates/components/nucleus-inline-banner';
 import { ICON_MAP } from '../constants/nucleus-inline-banner';
 
@@ -18,7 +17,7 @@ import { ICON_MAP } from '../constants/nucleus-inline-banner';
 */
 @templateLayout(layout)
 @classNames('nucleus-inline-banner')
-@classNameBindings('_typeClass', '_isOpen:show:hide')
+@classNameBindings('_typeClass', '_isOpen:nucleus-active:nucleus-inactive')
 @attributeBindings('data-test-id')
 class NucleusInlineBanner extends Component {
   /**
@@ -71,17 +70,6 @@ class NucleusInlineBanner extends Component {
   */
   @defaultProp
   title = null;
-
-  /**
-  * _title
-  *
-  * @computed _title
-  * @private
-  */
-  @computed('title', function () {
-    return htmlSafe(this.get('title'));
-  })
-  _title;
 
   /**
   * _typeClass
