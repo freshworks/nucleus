@@ -1,7 +1,7 @@
 <div class="nucleus-toast-messages {{position}}">
   {{#each flashMessages.queue as |flash|}}
     {{#transition-group transitionClass="slide-down"}}
-      {{#flash-message flash=flash class="nucleus-toast-message" as |component flash close|}}
+      {{#flash-message flash=flash class="nucleus-toast-message" data-test-id="nucleus-toast-message" as |component flash close|}}
         <div class="nucleus-toast-message__icon">
           {{nucleus-icon
             name=(get _iconMap component.flashType)
