@@ -3,6 +3,38 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.8.0 (2020-03-30)
+
+
+### Bug Fixes
+
+* **button:** CSS code cleanup and enhancements ([#113](https://github.com/freshdesk/nucleus/issues/113)) ([2ea58af](https://github.com/freshdesk/nucleus/commit/2ea58afc6d1d68d685d87ecb8408b033885d63c2))
+* button icon variant ([#128](https://github.com/freshdesk/nucleus/issues/128)) ([50b9644](https://github.com/freshdesk/nucleus/commit/50b9644b2becfa144d67ea57cba15a7179cc5e13))
+* **button:** improvised styling ([#137](https://github.com/freshdesk/nucleus/issues/137)) ([6a56cb1](https://github.com/freshdesk/nucleus/commit/6a56cb19e749fe9106f0c2a66ed4bbfb3b91ecb9))
+* **Inline-banner:** refactored yield ([#151](https://github.com/freshdesk/nucleus/issues/151)) ([0ce4615](https://github.com/freshdesk/nucleus/commit/0ce46152619aae09c5363aad06499d30c86d5336))
+* **modal:** Fixes bugs for focus-trap and autofocus ([#148](https://github.com/freshdesk/nucleus/issues/148)) ([198ec6f](https://github.com/freshdesk/nucleus/commit/198ec6f25ddec0bcff6f5e97a38c507b2b181a0d))
+
+
+### Features
+
+* **docs:** Interactive playground component ([#140](https://github.com/freshdesk/nucleus/issues/140)) ([3daf9bf](https://github.com/freshdesk/nucleus/commit/3daf9bf83e81706e661a60f56790ab403c1bf617))
+* **icon:** Implemented {{nucleus-icon}} ([#85](https://github.com/freshdesk/nucleus/issues/85)) ([a567468](https://github.com/freshdesk/nucleus/commit/a5674681147082f5f9790738cec1d632cac5debe))
+* **icon:** variant property ([#118](https://github.com/freshdesk/nucleus/issues/118)) ([7905cac](https://github.com/freshdesk/nucleus/commit/7905cac643897074a1276e79dc10f35d6a3003c4))
+* **tabs:** Implementation ([#138](https://github.com/freshdesk/nucleus/issues/138)) ([598e3e6](https://github.com/freshdesk/nucleus/commit/598e3e6e5a18efa8d8127c7c4165629c8e44cc92))
+
+
+### Reverts
+
+* Revert "chore: updated package versioning (#135)" (#144) ([940932d](https://github.com/freshdesk/nucleus/commit/940932d74ecb7764ef1022b7a17908ee08a8e1de)), closes [#135](https://github.com/freshdesk/nucleus/issues/135) [#144](https://github.com/freshdesk/nucleus/issues/144)
+
+
+
+# 0.1.0 (2019-11-04)
+
+
+
+
+
 # [0.7.0](https://github.com/freshdesk/nucleus/compare/nucleus@0.5.5...nucleus@0.7.0) (2020-03-20)
 
 
