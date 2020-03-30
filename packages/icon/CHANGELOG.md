@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.7.0](https://github.com/freshdesk/nucleus/compare/@freshworks/icon@0.6.0...@freshworks/icon@0.7.0) (2020-03-30)
+
+
+### Features
+
+* **Icon:** Added new icon size ([#164](https://github.com/freshdesk/nucleus/issues/164)) ([9adc01b](https://github.com/freshdesk/nucleus/commit/9adc01b292853b59542255216f4a26083c056368))
+
+
+
+
+
 # 0.6.0 (2020-03-30)
 
 

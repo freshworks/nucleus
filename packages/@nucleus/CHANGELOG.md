@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.9.0](https://github.com/freshdesk/nucleus/compare/nucleus@0.8.0...nucleus@0.9.0) (2020-03-30)
+
+
+### Features
+
+* **toggle:** Implementation ([#141](https://github.com/freshdesk/nucleus/issues/141)) ([d2ff164](https://github.com/freshdesk/nucleus/commit/d2ff164a65ebe5dc14a233748c45120c07a389be))
+
+
+
+
+
 # 0.8.0 (2020-03-30)
 
 
