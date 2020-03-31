@@ -1,5 +1,7 @@
 @freshworks/modal
 ==============================================================================
+[![npm version](https://badge.fury.io/js/%40freshworks%2Fmodal.svg)](https://www.npmjs.com/package/@freshworks/modal)
+![npm](https://img.shields.io/npm/dm/@freshworks/modal)
 
 ```
 ember install @freshworks/modal

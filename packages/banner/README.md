@@ -1,5 +1,8 @@
 @freshworks/banner
 ==============================================================================
+[![npm version](https://badge.fury.io/js/%40freshworks%2Fbanner.svg)](https://www.npmjs.com/package/@freshworks/banner)
+![npm](https://img.shields.io/npm/dm/@freshworks/banner)
+
 ```sh
 ember install @freshworks/banner
 ```
