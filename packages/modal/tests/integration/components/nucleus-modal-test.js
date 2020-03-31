@@ -4,7 +4,7 @@ import test from 'ember-sinon-qunit/test-support/test';
 import a11yAudit from 'ember-a11y-testing/test-support/audit';
 import { render, click, triggerKeyEvent } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
-import setupModal from '../../helpers/setup-modal';
+import setupModal from '@freshworks/modal/test-support/setup-modal';
 import backstop from 'ember-backstop/test-support/backstop';
 
 module('Integration | Component | nucleus-modal', function(hooks) {

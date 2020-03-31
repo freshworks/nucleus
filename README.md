@@ -34,6 +34,36 @@ Usage
 See the packages directory for a list of [packages](packages/) that can be installed individually.
 
 
+
+
+To create a new component
+------------------------------------------------------------------------------
+```
+ember g nucleus-component component-name -description="Sample description"
+```
+
+- This will take care of creating the necessary files and folders for the new component.
+- Will create a basic readme file for the component.
+- Will create a dummy documentation page.
+- Will add a route for the created documentation page.
+
+#### To get started with the newly created component,
+- Go to the the newly created component's folder
+```
+yarn link
+```
+- Then copy the component name that is displayed in the terminal
+- Go to 'packages/@nucleus' folder
+```
+yarn link 'copied-component-name'
+```
+- From the root directory
+```
+npm run start
+```
+- You should be able to see the newly created component in the local documentation site.
+
+
 Contribution guidelines
 ------------------------------------------------------------------------------
 

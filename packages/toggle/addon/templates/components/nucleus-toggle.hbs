@@ -1,0 +1,14 @@
+<div class="track"></div>
+<input
+  type="checkbox"
+  tabindex="0"
+  aria-label={{ariaLabel}}
+  disabled={{disabled}}
+  checked={{value}}
+  onClick={{action "onValueChange" value="target.checked"}}
+>
+<div class="thumb">
+  <div class="thumb__control">
+    {{nucleus-icon name=(if value "nucleus-tick" "nucleus-cross") size="micro" customClass="thumb__control--icon"}}
+  </div>
+</div>
