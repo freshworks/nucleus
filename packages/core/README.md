@@ -1,6 +1,6 @@
 @freshworks/core
 ==============================================================================
-[![npm version](https://badge.fury.io/js/%40freshworks%core.svg)](https://www.npmjs.com/package/@freshworks/core)
+[![npm version](https://badge.fury.io/js/%40freshworks%2Fcore.svg)](https://www.npmjs.com/package/@freshworks/core)
 ![npm](https://img.shields.io/npm/dm/@freshworks/core)
 
 ```
