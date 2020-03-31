@@ -11,7 +11,7 @@
       {{/h.row}}
     {{/t.head}}
 
-    {{#t.body rows=selectedRows as |b|}}
+    {{#t.body rows=selectedRows onSelect=(action (mut selected)) rowSelectionMode="none" selection=selected as |b|}}
       {{#b.row as |r|}}
         {{#r.cell as |cellValue|}}
           {{cellValue}}

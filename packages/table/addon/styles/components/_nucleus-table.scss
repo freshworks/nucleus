@@ -22,6 +22,10 @@
   tbody {
     tr {
       border-bottom: 1px solid $color-smoke-50;
+
+      &:hover {
+        background: #000;
+      }
     }
 
     td {
