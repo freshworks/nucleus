@@ -18,7 +18,7 @@ import defaultProp from '@freshworks/core/utils/default-decorator';
 @templateLayout(layout)
 @classNames('nucleus-tabs__panel')
 @classNameBindings('isActive:is-active')
-@attributeBindings('tabindex', 'role', 'aria-labelledby')
+@attributeBindings('tabindex', 'role', 'aria-labelledby', 'data-test-pane-id')
 class TabPanel extends Component {
 
   /**
@@ -77,6 +77,18 @@ class TabPanel extends Component {
     return (tabList)? tabList.id : '';
   })
   'aria-labelledby';
+
+  /**
+  * data-test-pane-id
+  *
+  * @field data-test-pane-id
+  * @type string
+  * @public
+  */
+  @computed('name', function() {
+    return get(this, 'name');
+  })
+  'data-test-pane-id';
 
   /**
   * didInsertElement
