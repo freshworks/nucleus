@@ -18,7 +18,7 @@ import defaultProp from '@freshworks/core/utils/default-decorator';
 @templateLayout(layout)
 @classNames('nucleus-tabs__panel')
 @classNameBindings('isActive:is-active')
-@attributeBindings('tabindex', 'role', 'aria-labelledby', 'data-test-pane-id')
+@attributeBindings('tabindex', 'role', 'aria-labelledby', 'testId:data-test-panel-id')
 class TabPanel extends Component {
 
   /**
@@ -32,6 +32,18 @@ class TabPanel extends Component {
   */
   @defaultProp
   disabled = 'false';
+
+  /**
+  * testId
+  *
+  * @field testId
+  * @type string|null
+  * @default null
+  * @readonly
+  * @public
+  */
+  @defaultProp
+  testId = null;
 
   /**
   * tabindex
@@ -85,10 +97,10 @@ class TabPanel extends Component {
   * @type string
   * @public
   */
-  @computed('name', function() {
-    return get(this, 'name');
+  @computed('testId', function() {
+    return get(this, 'testId');
   })
-  'data-test-pane-id';
+  'data-test-panel-id';
 
   /**
   * didInsertElement
@@ -102,7 +114,8 @@ class TabPanel extends Component {
     get(this, 'registerPanel').call(this, {
       id: get(this, 'elementId'),
       name: get(this, 'name'),
-      disabled: get(this, 'disabled')
+      disabled: get(this, 'disabled'),
+      testId: get(this, 'testId')
     });
   }
 }

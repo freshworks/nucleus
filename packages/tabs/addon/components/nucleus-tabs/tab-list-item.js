@@ -19,7 +19,7 @@ import { TABS_KEY_CODE } from '../../constants/nucleus-tabs'
 @templateLayout(layout)
 @classNames('nucleus-tabs__list__item')
 @classNameBindings('isActive:is-active', 'isDisabled:is-disabled', 'isPressed:is-pressed')
-@attributeBindings('isDisabled:disabled', 'tabindex', 'title', 'role', 'aria-controls', 'aria-selected', 'data-test-tab-id')
+@attributeBindings('isDisabled:disabled', 'tabindex', 'title', 'role', 'aria-controls', 'aria-selected', 'testId:data-test-tab-id')
 class TabListItem extends Component {
 
   /**
@@ -68,6 +68,18 @@ class TabListItem extends Component {
   */
   @defaultProp
   tabOrder;
+
+  /**
+  * testId
+  *
+  * @field testId
+  * @type string|null
+  * @default null
+  * @readonly
+  * @public
+  */
+  @defaultProp
+  testId = null;
 
   /**
   * role
@@ -149,8 +161,8 @@ class TabListItem extends Component {
   * @type string
   * @public
   */
-  @computed('name', function() {
-    return get(this, 'name');
+  @computed('testId', function() {
+    return get(this, 'testId');
   })
   'data-test-tab-id';
 
