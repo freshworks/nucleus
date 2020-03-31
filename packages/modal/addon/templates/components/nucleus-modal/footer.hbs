@@ -5,6 +5,7 @@
     {{nucleus-button
       variant="secondary"
       label=closeTitle
+      data-test-nucleus-cancel="cancel"
       onClick=(action onClose)}}
   {{/if}}
   {{#if hasSubmitButton}}
@@ -12,6 +13,7 @@
       disabled=submitDisabled
       variant=type
       label=submitTitle
+      data-test-nucleus-confirm="confirm" 
       onClick=(action onSubmit)}}
   {{/if}}
 {{/if}}
