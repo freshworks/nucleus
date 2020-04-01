@@ -55,6 +55,7 @@ class NucleusTableFilter extends Component {
   onFilterUpdate() {
     let selectedColumns = this.get('selectedColumns');
     this.get('onUpdate') && this.get('onUpdate')(selectedColumns);
+    this.toggleFilters();
   }
 
   @action

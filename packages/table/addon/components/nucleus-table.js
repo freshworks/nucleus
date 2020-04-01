@@ -39,6 +39,8 @@ class NucleusTable extends Component {
       return this.get('columns');
     },
     set(key, value) { // eslint-disable-line no-unused-vars
+      console.log("key");
+      console.log(value);
       return value;
     }
   })
@@ -53,12 +55,16 @@ class NucleusTable extends Component {
   */
   @computed("selectedColumns", "rows", {
     get() {
-      debugger;
       let allRowsData = this.get('rows');
       let columnValuePaths = this.get('selectedColumns').map(column => column.valuePath);
+      console.log("get")
+      console.log(columnValuePaths);
+      console.log(allRowsData);
       return allRowsData;
     },
     set(key, value) { // eslint-disable-line no-unused-vars
+      console.log("set");
+      console.log(value);
       return value;
     }
   })
@@ -77,7 +83,7 @@ class NucleusTable extends Component {
   @action
   onFilterColumns(filteredColumns) {
     if(filteredColumns && filteredColumns.length > 0) {
-      debugger;
+      //debugger;
       this.set('selectedColumns', filteredColumns);
     }
   }

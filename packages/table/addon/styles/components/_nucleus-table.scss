@@ -22,6 +22,11 @@
   tbody {
     tr {
       border-bottom: 1px solid $color-smoke-50;
+      color: #3d4852;
+
+      &.is-selected { 
+        background: $color-azure-800;
+      }
 
       &:hover {
         background: #000;
