@@ -1,6 +1,6 @@
 {
   "name": "@freshworks/tabs",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "tabs component in Nucleus",
   "keywords": [
     "ember-addon"

@@ -1,6 +1,6 @@
 {
   "name": "@freshworks/modal",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "description": "Modal component in Nucleus",
   "keywords": [
     "ember-addon"

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.9.1](https://github.com/freshdesk/nucleus/compare/nucleus@0.9.0...nucleus@0.9.1) (2020-04-02)
+
+
+### Bug Fixes
+
+* **tabs:** Removed padding from tabs panel ([#163](https://github.com/freshdesk/nucleus/issues/163)) ([6b56362](https://github.com/freshdesk/nucleus/commit/6b56362eff99ab6c26a5b6e8d94c1374da707a08))
+
+
+
+
+
 # [0.9.0](https://github.com/freshdesk/nucleus/compare/nucleus@0.8.0...nucleus@0.9.0) (2020-03-30)
 
 
