@@ -1,6 +1,8 @@
-<div class = "nucleus-pagination__content">
-  {{yield}}
-</div>
-{{#if displayPaginator}}
-  
-{{/if}}
+{{yield (hash
+    paginator = (component "nucleus-pagination/paginator"
+    currentPage = currentPage
+    onPageSelect = getPage
+    pages = pages
+    totalPages = totalPages
+  ))
+  pageItems}}

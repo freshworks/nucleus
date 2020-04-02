@@ -1,11 +1,9 @@
 import {
   classNames,
   attributeBindings,
-  classNameBindings,
   layout as templateLayout,
 } from '@ember-decorators/component';
 import { action, computed } from '@ember/object';
-import { gt, equal } from '@ember/object/computed';
 import defaultProp from '@freshworks/core/utils/default-decorator';
 
 import Component from '@ember/component';
@@ -29,43 +27,25 @@ class NucleusPagination extends Component {
   maxPagesInList = 10;
 
   @defaultProp
-  pageNumber = 1;
+  currentPage = 1;
 
   @defaultProp
   onPageSelect = null;
 
-  @gt('totalPages', 1)
-  displayPaginator;
-
-  @equal('pageNumber', 1)
-  isPrevDisabled;
-
   @defaultProp
   dataTestSelector = null;
 
-  @computed('pageNumber', 'totalPages')
-  get isNextDisabled() {
-    return this.get('pageNumber') === this.get('totalPages') ? true : false;
-  }
-
-  @computed('pageNumber')
-  get prevPageNumber() {
-    return Math.max(1, this.get('pageNumber') - 1);
-  }
-
-  @computed('pageNumber')
-  get nextPageNumber() {
-    return Math.min(this.get('totalPages'), this.get('pageNumber') + 1);
-  }
+  @defaultProp
+  records = null;
 
   @computed('recordCount', 'pageSize')
   get totalPages() {
     let recordCount = this.get('recordCount'),
         pageSize = this.get('pageSize'),
-        pageNumber = this.get('pageNumber'),
+        currentPage = this.get('currentPage'),
         maxPagesInList = this.get('maxPagesInList');
 
-    if (recordCount < 0 || pageSize < 1 || pageNumber < 1 || maxPagesInList < 2) {
+    if (recordCount < 0 || pageSize < 1 || currentPage < 1 || maxPagesInList < 2) {
       return 0;
     }
 
@@ -84,35 +64,36 @@ class NucleusPagination extends Component {
     return Math.min(this.get('totalPages'), this.get('maxPagesInList'));
   }
 
-  @computed('pageNumber', 'recordCount', 'pageSize', 'maxPagesInList')
+  @computed('currentPage', 'recordCount', 'pageSize', 'maxPagesInList')
   get pages() {
     let pageArray = [],
         totalPages = this.get('totalPages'),
-        pageNumber = this.get('pageNumber'),
+        currentPage = this.get('currentPage'),
         nbrPagesInList = this.get('nbrPagesInList'),
         active, pgNbr, endPgNbr;
 
-    endPgNbr = Math.min((pageNumber + 3), totalPages);
+    endPgNbr = Math.min((currentPage + 3), totalPages);
     pgNbr = Math.max((endPgNbr - nbrPagesInList + 1), 1);
 
     for (var i = 0; i < nbrPagesInList; i++) {
-      active = pgNbr === pageNumber ? true : false;
+      active = pgNbr === currentPage ? true : false;
       pageArray[i] = {number: pgNbr, active: active};
       pgNbr++;
     }
     return pageArray;
   }
 
-  @computed('pageNumber', 'recordCount')
+  @computed('currentPage', 'recordCount')
   get pageItems() {
-    return [];
+    let index = (this.currentPage - 1) * this.pageSize;
+    let resultArr = this.records.slice(index, index + this.pageSize)
+    return resultArr;
   }
 
   @action
   getPage(newPageNumber) {
-    if (newPageNumber !== this.get('pageNumber')) {
-      this.pageNumber = newPageNumber;
-      this.get('onPageSelect') && this.get('onPageSelect')(newPageNumber);
+    if (newPageNumber !== this.currentPage) {
+      this.currentPage = newPageNumber; 
     }
   }
 }

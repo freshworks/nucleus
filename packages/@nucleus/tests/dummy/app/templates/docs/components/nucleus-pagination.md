@@ -6,7 +6,7 @@ yarn add @freshworks/pagination
 
 ## Description
 
-Introduces pagination for a component
+Pagination is used when a large amount of data must be displayed. Pagination splits the content of the data across pages and provides visual page numbers for the user to navigate between pages
 
 
 ## Usage
