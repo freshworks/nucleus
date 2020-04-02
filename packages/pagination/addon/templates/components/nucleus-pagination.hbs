@@ -2,37 +2,5 @@
   {{yield}}
 </div>
 {{#if displayPaginator}}
-  <nav class="nucleus-paginat" aria-label="Page navigation" data-test-selector="page-navigation">
-    <ul>
-      <li class="nucleus-pagination__item {{if isPrevDisabled "disabled"}}" data-test-selector="previous-page">
-        {{nucleus-button
-          label="Previous"
-          variant="text"
-          disabled=isPrevDisabled
-          onClick=(action "getPage" prevPageNumber)
-          type="text"
-          size="small"}}
-      </li>
-      {{#each pages as |page|}}
-        <li class="nucleus-pagination__number {{if page.active "active"}}" data-test-selector="page-number">
-          {{nucleus-button
-            label=page.number
-            active=page.active
-            variant="text"
-            onClick=(action "getPage" page.number)
-            type="text"
-            size="small"}}
-        </li>
-      {{/each}}
-      <li class="nucleus-pagination__item {{if isNextDisabled "disabled"}}" data-test-selector="next-page">
-        {{nucleus-button
-          label="Next"
-          disabled=isNextDisabled
-          variant="text"
-          onClick=(action "getPage" nextPageNumber)
-          type="text"
-          size="small"}}
-      </li>
-    </ul>
-  </nav>
+  
 {{/if}}

@@ -23,6 +23,7 @@ import layout from "../templates/components/nucleus-pagination";
 */
 @templateLayout(layout)
 @classNames('nucleus-pagination')
+@attributeBindings('dataTestSelector:data-test-selector')
 class NucleusPagination extends Component {
   @defaultProp
   maxPagesInList = 10;
@@ -100,6 +101,11 @@ class NucleusPagination extends Component {
       pgNbr++;
     }
     return pageArray;
+  }
+
+  @computed('pageNumber', 'recordCount')
+  get pageItems() {
+    return [];
   }
 
   @action
