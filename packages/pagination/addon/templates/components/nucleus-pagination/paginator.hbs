@@ -4,7 +4,7 @@
           label="Previous"
           variant="text"
           disabled=isPrevDisabled
-          onClick=(action "onPageSelect" prevPageNumber)
+          onClick=(action onPageSelect prevPageNumber)
           type="text"
           size="small"}}
   </li>
@@ -14,7 +14,7 @@
             label=page.number
             active=page.active
             variant="text"
-            onClick=(action "onPageSelect" page.number)
+            onClick=(action onPageSelect page.number)
             type="text"
             size="small"}}
         </li>
@@ -24,7 +24,7 @@
           label="Next"
           disabled=isNextDisabled
           variant="text"
-          onClick=(action "onPageSelect" nextPageNumber)
+          onClick=(action onPageSelect nextPageNumber)
           type="text"
           size="small"}}
       </li>

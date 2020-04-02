@@ -1,7 +1,7 @@
 {{yield (hash
     paginator = (component "nucleus-pagination/paginator"
     currentPage = currentPage
-    onPageSelect = getPage
+    onPageSelect = (action 'getPage')
     pages = pages
     totalPages = totalPages
   )

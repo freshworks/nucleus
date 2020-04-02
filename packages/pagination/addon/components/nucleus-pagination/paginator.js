@@ -9,7 +9,7 @@ import { equal } from '@ember/object/computed';
 import defaultProp from '@freshworks/core/utils/default-decorator';
 
 import Component from '@ember/component';
-import layout from "../templates/components/nucleus-pagination/paginator";
+import layout from "../../templates/components/nucleus-pagination/paginator";
 
 
 /**
