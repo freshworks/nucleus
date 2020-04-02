@@ -9,7 +9,7 @@ import { equal } from '@ember/object/computed';
 import defaultProp from '@freshworks/core/utils/default-decorator';
 
 import Component from '@ember/component';
-import layout from "../templates/components/nucleus-pagination/nucleus-paginator";
+import layout from "../templates/components/nucleus-pagination/paginator";
 
 
 /**
@@ -23,10 +23,10 @@ import layout from "../templates/components/nucleus-pagination/nucleus-paginator
   @public
 */
 @templateLayout(layout)
-@classNames('nucleus-paginator')
+@classNames('nucleus-pagination__paginator')
 @tagName('nav')
 @attributeBindings('dataTestSelector:data-test-selector', '_ariaLabel:aria-label')
-class NucleusPaginator extends Component {
+class Paginator extends Component {
 
   @computed('currentPage')
   get prevPageNumber() {
@@ -55,4 +55,4 @@ class NucleusPaginator extends Component {
 
 }
 
-export default NucleusPaginator;
+export default Paginator;
