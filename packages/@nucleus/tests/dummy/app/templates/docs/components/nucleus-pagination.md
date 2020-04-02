@@ -11,6 +11,9 @@ Pagination is used when a large amount of data must be displayed. Pagination spl
 
 ## Usage
 
+### Basic Pagination
+
+{{nucleus-pagination/demo-1}}
 
 ## Playground
 

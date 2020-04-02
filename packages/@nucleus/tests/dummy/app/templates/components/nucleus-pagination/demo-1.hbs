@@ -1,0 +1,8 @@
+{{#nucleus-pagination records=sampleList pageSize=5}}
+   <ul>
+    {{#each pageItems as |item|}}
+      <li>{{item}}</li>
+    {{/each}}
+  </ul>
+  {{nucleus-paginator}}
+{{/nucleus-pagination}}

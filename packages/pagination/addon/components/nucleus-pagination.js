@@ -38,6 +38,9 @@ class NucleusPagination extends Component {
   @defaultProp
   records = null;
 
+  @defaultProp
+  pageSize = 30;
+
   @computed('recordCount', 'pageSize')
   get totalPages() {
     let recordCount = this.get('recordCount'),
