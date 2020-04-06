@@ -21,15 +21,16 @@
     "test:dev": "COVERAGE=TRUE ember test --server -launch=false"
   },
   "dependencies": {
+    "@freshworks/button": "^0.6.1",
     "@freshworks/core": "^0.1.9",
     "@freshworks/icon": "^0.5.0",
-    "@freshworks/button": "^0.6.1",
     "ember-cli-babel": "^7.11.1",
     "ember-cli-htmlbars": "^4.0.0",
     "ember-cli-sass": "^10.0.0",
     "ember-css-transitions": "^0.1.16",
     "ember-decorators": "^6.1.1",
     "ember-decorators-polyfill": "shibulijack-fd/ember-decorators-polyfill#master",
+    "ember-svg-jar": "^2.2.3",
     "ember-truth-helpers": "^2.1.0"
   },
   "devDependencies": {

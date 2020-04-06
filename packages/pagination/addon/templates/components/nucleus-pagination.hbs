@@ -1,9 +1,11 @@
 {{yield (hash
     paginator = (component "nucleus-pagination/paginator"
     currentPage = currentPage
-    onPageSelect = (action 'getPage')
+    onPageSelect = (action "getPage")
     pages = pages
+    pageSize = pageSize
     totalPages = totalPages
+    recordCount = recordCount
   )
   pageItems = pageItems)
 }}

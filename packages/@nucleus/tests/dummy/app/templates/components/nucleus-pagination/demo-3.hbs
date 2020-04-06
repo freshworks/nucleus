@@ -1,14 +1,13 @@
 {{#docs-demo as |demo|}}
-  {{#demo.example name="nucleus-pagination-example.hbs"}}
+  {{#demo.example name="nucleus-pagination-example3.hbs"}}
     {{#nucleus-pagination records=listItems pageSize=5 as |pagination|}}
       <ul>
       {{#each pagination.pageItems as |item|}}
         <li>{{item}}</li>
       {{/each}}
       </ul>
-      {{pagination.paginator}}
+      {{pagination.paginator hasPageNos=false}}
     {{/nucleus-pagination}}
   {{/demo.example}}
-  {{demo.snippet "nucleus-pagination-example.hbs"}}
-  {{demo.snippet "pagination-component.js" label="component.js"}}
+  {{demo.snippet "nucleus-pagination-example3.hbs"}}
 {{/docs-demo}}

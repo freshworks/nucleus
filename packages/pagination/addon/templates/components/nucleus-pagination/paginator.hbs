@@ -1,31 +1,105 @@
-<ul>
-  <li class="nucleus-pagination__item {{if isPrevDisabled "disabled"}}" data-test-selector="previous-page">
+{{#if recordCount}}
+  {{#if mini}}
+    <ul class="nucleus-paginator__mini">
+      {{#if itemsCount}}
+        <span class="nucleus-paginator__miniStatus">Showing {{startItem}} to {{endItem}} of {{recordCount}}</span>
+      {{/if}}
+      <li class="nucleus-paginator__item {{if isPrevDisabled "disabled"}}" data-test-selector="previous-page">
+        {{nucleus-button
+          icon="chevron-left"
+          iconOnly=true
+          iconSize="large"
+          variant="secondary"
+          disabled=isPrevDisabled
+          onClick=(action onPageSelect prevPageNumber)
+          type="text"
+        }}
+      </li>
+      <li class="nucleus-paginator__item {{if isNextDisabled "disabled"}}" data-test-selector="next-page">
+        {{nucleus-button
+          icon="chevron-right"
+          iconSize="large"
+          iconOnly=true
+          disabled=isNextDisabled
+          variant="secondary"
+          onClick=(action onPageSelect nextPageNumber)
+          type="text"
+        }}
+      </li>
+    </ul>
+  {{else}}
+    <ul>
+      <li class="nucleus-paginator__item first {{if isPrevDisabled "disabled"}}" data-test-selector="previous-page">
         {{nucleus-button
           label="Previous"
+          icon="chevron-left"
+          iconSize="medium"
           variant="text"
           disabled=isPrevDisabled
           onClick=(action onPageSelect prevPageNumber)
           type="text"
           size="small"}}
-  </li>
-      {{#each pages as |page|}}
-        <li class="nucleus-pagination__number {{if page.active "active"}}" data-test-selector="page-number">
-          {{nucleus-button
-            label=page.number
-            active=page.active
-            variant="text"
-            onClick=(action onPageSelect page.number)
-            type="text"
-            size="small"}}
-        </li>
-      {{/each}}
-      <li class="nucleus-pagination__item {{if isNextDisabled "disabled"}}" data-test-selector="next-page">
-        {{nucleus-button
-          label="Next"
+      </li>
+      {{#if hasPageNos}}
+        {{#if hasPrevPages}}
+          <li class="nucleus-paginator__number">
+            {{nucleus-button
+              label="1"
+              variant="text"
+              onClick=(action onPageSelect 1)
+              type="text"
+              size="small"}}
+          </li>
+          <li class="nucleus-paginator__number">
+            {{nucleus-button
+             label="..."
+             variant="text"
+             onClick=(action onPageSelect prevVisiblePage)
+             type="text"
+             size="small"}}
+          </li>
+        {{/if}}
+        {{#each pages as |page|}}
+          <li class="nucleus-paginator__number {{if page.active "active"}}" data-test-selector="page-number">
+            {{nucleus-button
+              label=page.number
+              active=page.active
+              variant="text"
+              onClick=(action onPageSelect page.number)
+              type="text"
+              size="small"}}
+          </li>
+        {{/each}}
+        {{#if hasMorePages}}
+          <li class="nucleus-paginator__number">
+            {{nucleus-button
+              label="..."
+              variant="text"
+              onClick=(action onPageSelect nextVisiblePage)
+              type="text"
+              size="small"}}
+          </li>
+          <li class="nucleus-paginator__number">
+            {{nucleus-button
+              label=totalPages
+              variant="text"
+              onClick=(action onPageSelect totalPages)
+              type="text"
+              size="small"}}
+          </li>
+        {{/if}}
+      {{/if}}
+      <li class="nucleus-paginator__item {{if hasPageNos "last"}} {{if isNextDisabled "disabled"}}" data-test-selector="next-page">
+        {{#nucleus-button
           disabled=isNextDisabled
           variant="text"
           onClick=(action onPageSelect nextPageNumber)
           type="text"
           size="small"}}
+          Next
+          {{nucleus-icon name="chevron-right" iconSize="medium"}}
+        {{/nucleus-button}}
       </li>
-</ul>
+    </ul>
+  {{/if}}
+{{/if}}
