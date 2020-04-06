@@ -1,7 +1,7 @@
 {
   "name": "nucleus",
   "private": true,
-  "version": "0.9.1",
+  "version": "0.9.2",
   "description": "Umbrella package which holds the documentation",
   "keywords": [
     "ember-addon"
@@ -21,13 +21,13 @@
     "test:dev": "COVERAGE=TRUE ember test --server -launch=false"
   },
   "dependencies": {
-    "@freshworks/banner": "^0.6.1",
-    "@freshworks/button": "^0.6.1",
-    "@freshworks/icon": "^0.7.0",
-    "@freshworks/inline-banner": "^0.6.1",
-    "@freshworks/modal": "^0.6.2",
-    "@freshworks/tabs": "^0.4.2",
-    "@freshworks/toast-message": "^0.7.1",
+    "@freshworks/banner": "^0.6.2",
+    "@freshworks/button": "^0.6.2",
+    "@freshworks/icon": "^0.7.1",
+    "@freshworks/inline-banner": "^0.6.2",
+    "@freshworks/modal": "^0.6.3",
+    "@freshworks/tabs": "^0.4.3",
+    "@freshworks/toast-message": "^0.7.2",
     "@freshworks/toggle": "^0.2.0",
     "ember-cli-autoprefixer": "^0.8.1",
     "ember-cli-babel": "^7.11.1",

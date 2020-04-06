@@ -1,6 +1,6 @@
 {
   "name": "@freshworks/icon",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "description": "Icons in Nucleus",
   "keywords": [
     "ember-addon"

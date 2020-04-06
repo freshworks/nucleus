@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.2](https://github.com/freshdesk/nucleus/compare/@freshworks/button@0.6.1...@freshworks/button@0.6.2) (2020-04-06)
+
+**Note:** Version bump only for package @freshworks/button
+
+
+
+
+
 ## [0.6.1](https://github.com/freshdesk/nucleus/compare/@freshworks/button@0.6.0...@freshworks/button@0.6.1) (2020-03-30)
 
 **Note:** Version bump only for package @freshworks/button

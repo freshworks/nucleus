@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.1](https://github.com/freshdesk/nucleus/compare/@freshworks/icon@0.7.0...@freshworks/icon@0.7.1) (2020-04-06)
+
+
+### Bug Fixes
+
+* close icon ([#169](https://github.com/freshdesk/nucleus/issues/169)) ([355330e](https://github.com/freshdesk/nucleus/commit/355330e9ad434a95dfac63d3900c945c2f6824bc))
+
+
+
+
+
 # [0.7.0](https://github.com/freshdesk/nucleus/compare/@freshworks/icon@0.6.0...@freshworks/icon@0.7.0) (2020-03-30)
 
 
