@@ -21,7 +21,7 @@ import layout from "../../templates/components/nucleus-pagination/paginator";
 @templateLayout(layout)
 @classNames('nucleus-paginator')
 @tagName('nav')
-@attributeBindings('dataTestSelector:data-test-selector', '_ariaLabel:aria-label')
+@attributeBindings('data-test-nucleus-paginator', '_ariaLabel:aria-label')
 class Paginator extends Component {
 
   /** 
@@ -65,17 +65,17 @@ class Paginator extends Component {
   * @private
   */
   @defaultProp
-  _ariaLabel = "Page Navigation";
+  _ariaLabel = "pagination";
     
   /** 
-  * Data Test Selector for the Paginator
+  * data-test-nucleus-paginator
   *
-  * @field dataTestSelector
-  * @type text
+  * @field data-test-nucleus-paginator
+  * @type boolean
   * @private
   */
   @defaultProp
-  dataTestSelector = "page-navigation";
+  'data-test-nucleus-paginator' = true;
 
   /** 
   * Checks if more pages are present on the page list

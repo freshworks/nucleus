@@ -6,8 +6,8 @@
 
     ul {
       list-style: none;
-      margin: 0 !important; // to prevent other vendor CSS from overriding ul in general
-      padding: 6px 0 !important;
+      margin: 0;
+      padding: 6px 0;
       line-height: 1;
     }
 
@@ -17,8 +17,8 @@
 
     &__number {
       display: inline-block;
-      margin: 0 !important;
-      padding: 0 4px !important;
+      margin: 0;
+      padding: 0 4px;
 
       &.active {
         .nucleus-button--text {
@@ -30,8 +30,8 @@
 
     &__item {
       display: inline-block;
-      margin: 0 !important;
-      padding: 0 4px !important;
+      margin: 0;
+      padding: 0 4px;
 
       &.first:first-child::after,
       &.last:last-child::after {

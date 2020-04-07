@@ -21,7 +21,7 @@ import layout from "../templates/components/nucleus-pagination";
 */
 @templateLayout(layout)
 @classNames('nucleus-pagination')
-@attributeBindings('dataTestSelector:data-test-selector')
+@attributeBindings('data-test-nucleus-pagination')
 class NucleusPagination extends Component {
 
   /**
@@ -47,14 +47,14 @@ class NucleusPagination extends Component {
   currentPage = 1;
 
   /** 
-  * dataTestSelector for Nucleus Pagination
+  * data-test-nucleus-pagination
   *
-  * @field dataTestSelector
-  * @type string
+  * @field data-test-nucleus-pagination
+  * @type boolean
   * @private
   */
   @defaultProp
-  dataTestSelector = "nucleus-pagination";
+  'data-test-nucleus-pagination' = true;
 
   /** 
   * Array of all records that should be paginated
@@ -130,19 +130,19 @@ class NucleusPagination extends Component {
         totalPages = this.totalPages,
         currentPage = this.currentPage,
         nbrPagesInList = Math.min(this.totalPages, this.maxPagesInList),
-        active, pgNbr, endPgNbr;
+        active, pageNo, endPage;
 
-    endPgNbr = Math.min((currentPage + 3), totalPages);
-    if (endPgNbr + 1 === totalPages) {
-      endPgNbr = totalPages
+    endPage = Math.min((currentPage + 3), totalPages);
+    if (endPage + 1 === totalPages) {
+      endPage = totalPages
     }
-    pgNbr = Math.max((endPgNbr - nbrPagesInList + 1), 1);
-    if (pgNbr === 2) {
-      pgNbr = 1
+    pageNo = Math.max((endPage - nbrPagesInList + 1), 1);
+    if (pageNo === 2) {
+      pageNo = 1
     }
 
-    if (endPgNbr != totalPages) {
-      if (pgNbr != 1) {
+    if (endPage != totalPages) {
+      if (pageNo != 1) {
         nbrPagesInList -= 2
       }
       else {
@@ -151,9 +151,9 @@ class NucleusPagination extends Component {
     }
 
     for (var i = 0; i < nbrPagesInList; i++) {
-      active = pgNbr === currentPage ? true : false;
-      pageArray[i] = {number: pgNbr, active: active};
-      pgNbr++;
+      active = pageNo === currentPage ? true : false;
+      pageArray[i] = {number: pageNo, active: active};
+      pageNo++;
     }
      
     return pageArray;
