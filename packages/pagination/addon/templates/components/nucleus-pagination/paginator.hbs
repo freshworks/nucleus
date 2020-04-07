@@ -4,7 +4,7 @@
       {{#if itemsCount}}
         <span class="nucleus-paginator__miniStatus">Showing {{startItem}} to {{endItem}} of {{recordCount}}</span>
       {{/if}}
-      <li class="nucleus-paginator__item {{if isPrevDisabled "disabled"}}" data-test-selector="previous-page">
+      <li class="nucleus-paginator__item {{if isPrevDisabled "disabled"}}" aria-disabled={{if isPrevDisabled "true"}} data-test-selector="previous-page">
         {{nucleus-button
           icon="chevron-left"
           iconOnly=true
@@ -15,7 +15,7 @@
           type="text"
         }}
       </li>
-      <li class="nucleus-paginator__item {{if isNextDisabled "disabled"}}" data-test-selector="next-page">
+      <li class="nucleus-paginator__item {{if isNextDisabled "disabled"}}" aria-disabled={{if isNextDisabled "true"}} data-test-selector="next-page">
         {{nucleus-button
           icon="chevron-right"
           iconSize="large"

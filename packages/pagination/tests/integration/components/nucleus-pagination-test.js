@@ -4,6 +4,7 @@ import { A } from '@ember/array';
 import hbs from 'htmlbars-inline-precompile';
 import { render } from '@ember/test-helpers';
 import backstop from 'ember-backstop/test-support/backstop';
+import a11yAudit from 'ember-a11y-testing/test-support/audit';
 
 module('Integration | Component | nucleus-pagination', function(hooks) {
   setupRenderingTest(hooks);
@@ -41,6 +42,18 @@ module('Integration | Component | nucleus-pagination', function(hooks) {
     assert.dom('.nucleus-pagination .nucleus-paginator__mini').exists({ count: 1 }, 'Mini Paginator is rendered.');
   });
 
+  test('it does not render when there are no items', async function(assert) {
+    let emptyArray = A([])
+    this.set('emptyArray', emptyArray)
+    await render(hbs `
+      {{#nucleus-pagination records=emptyArray as |pagination|}}
+        {{pagination.paginator}}
+      {{/nucleus-pagination}}
+    `)
+
+    assert.dom('.nucleus-pagination .nucleus-paginator .nucleus-paginator__item').doesNotExist('Paginator does not exist');
+  })
+
   test('visual regression for pagination', async function(assert) {
     this.set('recordsArray', array)
     await render(hbs `
@@ -58,6 +71,19 @@ module('Integration | Component | nucleus-pagination', function(hooks) {
       {{/nucleus-pagination}}
     `)
     await backstop(assert, {scenario:{misMatchThreshold: 0.1}});
+  });
+
+  test('it passes a11y tests', async function(assert) {
+    this.set('recordsArray', array)
+    await render(hbs `
+      {{#nucleus-pagination records=recordsArray as |pagination|}}
+        {{pagination.paginator}}
+      {{/nucleus-pagination}}
+    `)
+   
+    return a11yAudit(this.element).then(() => {
+      assert.ok(true, 'no a11y errors found!');
+    });
   });
 
 });
