@@ -1,0 +1,27 @@
+<CustomPowerCalendarRange
+  @center={{currentDate}}
+  @locale={{locale}}
+  @selected={{selectedDate}}
+  @onSelect={{modifySelectedDate}} 
+  @onCenterChange={{modifyCurrentDate}} as |calendar|>
+
+  <calendar.Nav 
+    @locale={{locale}} 
+    @calendar={{calendar}} 
+    @currentDate={{currentDate}} 
+    @nextMonthDate={{nextMonthDate}}
+  >
+  </calendar.Nav>
+
+  <div class="nucleus-datepicker__months">
+    <calendar.Days 
+      @showDaysAround={{true}} 
+      @weekdayFormat="min" 
+    />
+    <calendar.Days 
+      @center={{nextMonthDate}} 
+      @showDaysAround={{true}} 
+      @weekdayFormat="min" 
+    />
+  </div>
+</CustomPowerCalendarRange>

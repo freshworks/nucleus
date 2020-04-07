@@ -1,0 +1,44 @@
+{{! template-lint-disable invalid-interactive }}
+<div
+  class="ember-power-calendar-days"
+  {{on "click" this.handleClick}}
+  ...attributes
+  data-power-calendar-id={{or @calendar.calendarUniqueId @calendar.uniqueId}}>
+  <div class="ember-power-calendar-row ember-power-calendar-weekdays">
+    {{#each this.weekdaysNames as |wdn|}}
+      <div class="ember-power-calendar-weekday">{{wdn}}</div>
+    {{/each}}
+  </div>
+  {{! template-lint-disable invalid-interactive }}
+  <table class="ember-power-calendar-day-grid" 
+    role="grid"
+    aria-labelledby={{concat "nucleus-datepicker-date-" calendar.uniqueId}}
+    {{on "keydown" this.handleKeyDown}}
+  >
+    <tbody>
+      {{#each this.weeks key="id" as |week|}}
+        <tr class="ember-power-calendar-row ember-power-calendar-week" data-missing-days={{week.missingDays}}>
+          {{#each week.days key="id" as |day|}}
+            <td>
+              <button type="button"
+                data-date={{day.id}}
+                class={{ember-power-calendar-day-classes day @calendar this.weeks this.dayClass}}
+                {{on "focus" this.handleDayFocus}}
+                {{on "blur" this.handleDayBlur}}
+                disabled={{day.isDisabled}}
+                tabindex={{if (eq (format-date day.date "d MMMM, yyyy") (format-date this.dayOfCurrentMonth "d MMMM, yyyy")) "0" "-1"}}
+                aria-label={{format-date day.date "d MMMM, yyyy" locale}}
+                >
+                {{#if hasBlock}}
+                  {{yield day @calendar this.weeks}}
+                {{else}}
+                  {{day.number}}
+                {{/if}}
+              </button>
+            </td>
+          {{/each}}
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>

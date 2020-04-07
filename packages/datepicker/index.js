@@ -9,15 +9,17 @@ const path = require('path');
 module.exports = {
   name: '@freshworks/datepicker',
 
-  isDevelopingAddon() {
-    return true;
-  },
-
   included(app, parentAddon) {
     let target = (parentAddon || app);
     target.options = target.options || {};
     target.options.babel = target.options.babel || { includePolyfill: true };
     return this._super.included.apply(this, arguments);
+  },
+
+  contentFor(type, config) {
+    if ((type === 'body-footer' && config.environment !== 'test')) {
+      return '<div id="nucleus-datepicker-wormhole"></div>';
+    }
   },
 
   treeForAddonStyles(tree) {

@@ -1,0 +1,19 @@
+{{#if showHeader}}
+  {{nucleus-datepicker-range/header 
+    selectedStartDate=selectedStartDate 
+    selectedEndDate=selectedEndDate
+    locale=locale 
+    formatString=formatString 
+    changeSelectedDateByInput=(action changeSelectedDateByInput)
+  }}
+{{/if}}
+{{nucleus-datepicker-range/calendar
+  locale=locale
+  formatString=formatString 
+  currentDate=currentDate 
+  nextMonthDate=nextMonthDate
+  selectedDate=selectedDate 
+  changeCurrentDate=(action changeCurrentDate)
+  changeSelectedDate=(action changeSelectedDate)
+}}
+{{nucleus-datepicker-range/footer onUpdate=(action updateClicked) onCancel=(action cancelClicked)}}

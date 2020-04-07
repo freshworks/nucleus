@@ -1,3 +1,261 @@
-.nucleus-datepicker {
-  border: 0;
+@import "datepicker-input";
+
+.nucleus-datepicker,
+.nucleus-range-datepicker {
+  width: 264px;
+  background: $color-smoke-25;
+  box-shadow: 0 2px 4px 0 rgba(18, 52, 77, .06), 0 2px 16px 0 rgba(18, 52, 77, .16);
+  border-radius: 4px;
+  overflow: hidden;
+
+  &__calendar {
+    width: 100%;
+    background: $color-milk;
+    padding: 16px;
+    box-sizing: border-box;
+
+    .ember-power-calendar {
+      box-sizing: border-box;
+      position: relative;
+
+      &-day-grid {
+        width: 100%;
+      }
+
+      &-days,
+      &-days * {
+        box-sizing: border-box;
+      }
+
+      &-days {
+        position: relative;
+        width: 232px;
+        padding: 0 8px;
+      }
+
+      &-row {
+        display: flex;
+        justify-content: space-between;
+        padding: 4px 0;
+      }
+
+      &-weekday,
+      &-day {
+        position: relative;
+        background-color: transparent;
+        background-color: initial;
+        outline: none;
+        outline: initial;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+        padding: 0;
+        text-align: center;
+        height: 24px;
+        width: 24px;
+        border-radius: 4px;
+        border: 1px solid transparent;
+        line-height: 22px;
+        font-size: 14px;
+      }
+
+      &-weekday {
+        font-size: 12px;
+        font-weight: 500;
+      }
+
+      &-weekdays {
+        padding-top: 0;
+        color: $color-smoke-700;
+      }
+
+      &-day {
+        z-index: 1;
+
+        &:focus {
+          border: 1px solid $color-azure-800;
+          outline: none;
+          border-radius: 4px;
+        }
+
+        &:hover {
+          background: $color-smoke-100;
+        }
+
+        &--other-month {
+          color: $color-smoke-300;
+        }
+
+        &--current-month {
+          color: $color-elephant-900;
+        }
+
+        &--selected,
+        &--selected:hover {
+          background: $color-azure-800;
+          color: $color-milk;
+        }
+
+        &--today {
+          border: 1px solid $color-smoke-100;
+        }
+      }
+    }
+  }
+
+  &__navigation {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+
+    &__select {
+      min-width: 50%;
+
+      &:nth-child(2) {
+        padding-left: 16px;
+      }
+
+      select {
+        border: 1px solid transparent;
+
+        &:focus {
+          border: 1px solid $color-azure-800;
+          outline: 0;
+        }
+      }
+    }
+
+    &__arrows {
+      position: absolute;
+      right: -8px;
+
+      button.nucleus-button--iconOnly {
+        padding: 0;
+        min-width: 24px;
+        height: 24px;
+
+        .nucleus-icon {
+          transform: scale(1.5);
+        }
+
+        .circle-loader {
+          display: none;
+        }
+
+        &:focus {
+          box-shadow: none;
+        }
+      }
+    }
+  }
+
+  &__months {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: space-between;
+  }
+
+  &__header {
+    width: 100%;
+    padding: 12px 16px;
+  }
+
+  &__footer {
+    padding: 4px;
+    display: flex;
+    justify-content: flex-end;
+
+    div {
+      button {
+        margin: 4px;
+      }
+    }
+  }
+
+  &-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2147483638;  // maximum value to override other components in the app/page
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    outline: 0;
+    display: flex;
+
+    &__backdrop {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+
+    &__content {
+      position: absolute;
+      z-index: 1;
+    }
+  }
+
+  .visually-hidden {
+    top: 0;
+    left: -2px;
+    width: 1px;
+    height: 1px;
+    position: absolute;
+    overflow: hidden;
+  }
+}
+
+.nucleus-range-datepicker {
+  width: 529px;
+
+  .ember-power-calendar {
+    &-week {
+      td:last-child .ember-power-calendar-day--selected::after {
+        display: none;
+      }
+    }
+
+    &-days {
+      &:first-child {
+        &::after {
+          content: '';
+          position: absolute;
+          top: 0;
+          right: -17px;
+          border-left: 1px solid $color-smoke-50;
+          height: 100%;
+        }
+      }
+    }
+
+    // stylelint-disable no-descending-specificity
+    &-day {
+      &--selected:not(.ember-power-calendar-day--range-end):not(.ember-power-calendar-day--range-start) {
+        background: $color-azure-50;
+        border-radius: 0;
+        color: $color-elephant-900;
+      }
+
+      &--selected::after {
+        content: "";
+        position: absolute;
+        top: -1px;
+        right: -11px;
+        width: 10px;
+        height: calc(100% + 2px);
+        background: $color-azure-50;
+        z-index: -1;
+      }
+
+      &--range-end::after {
+        display: none;
+      }
+
+      &--other-month {
+        opacity: 0;
+      }
+    }
+  }
 }
