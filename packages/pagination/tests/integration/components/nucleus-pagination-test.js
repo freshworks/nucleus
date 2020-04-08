@@ -70,7 +70,7 @@ module('Integration | Component | nucleus-pagination', function(hooks) {
        {{pagination.paginator mini=true}}
       {{/nucleus-pagination}}
     `)
-    await backstop(assert, {scenario:{misMatchThreshold: 0.1}});
+    await backstop(assert, {scenario:{misMatchThreshold: 0.05}});
   });
 
   test('it passes a11y tests', async function(assert) {
