@@ -2,7 +2,7 @@
   {{#if mini}}
     <ul class="nucleus-paginator__mini">
       {{#if itemsCount}}
-        <span class="nucleus-paginator__miniStatus">Showing {{startItem}} to {{endItem}} of {{recordCount}}</span>
+        <span class="nucleus-paginator__miniStatus">{{startItem}} - {{endItem}} {{conjunctionLabel}} {{recordCount}}</span>
       {{/if}}
       <li class="nucleus-paginator__item {{if isPrevDisabled "disabled"}}" aria-disabled={{if isPrevDisabled "true"}} data-test-selector="previous-page">
         {{nucleus-button
@@ -31,7 +31,7 @@
     <ul>
       <li class="nucleus-paginator__item first {{if isPrevDisabled "disabled"}}" aria-disabled={{if isPrevDisabled "true"}} data-test-selector="previous-page">
         {{nucleus-button
-          label="Previous"
+          label=previousLabel
           icon="chevron-left"
           iconSize="medium"
           variant="text"
@@ -98,7 +98,7 @@
           onClick=(action onPageSelect nextPageNumber)
           type="text"
           size="small"}}
-          Next
+          {{nextLabel}}
           {{nucleus-icon name="chevron-right" iconSize="medium"}}
         {{/nucleus-button}}
       </li>

@@ -56,6 +56,36 @@ class Paginator extends Component {
   */
   @defaultProp
   hasPageNos = true;
+
+  /** 
+  * label for the next button
+  *
+  * @field nextLabel
+  * @type text
+  * @public
+  */
+  @defaultProp
+  nextLabel = "Next";
+  
+  /** 
+  * Label for the previous button
+  *
+  * @field previousLabel
+  * @type text
+  * @public
+  */
+  @defaultProp
+  previousLabel = "Previous";
+
+  /** 
+  * Label for the conjunction to specify total records in mini paginator
+  *
+  * @field conjunctionLabel
+  * @type text
+  * @public
+  */
+  @defaultProp
+  conjunctionLabel = "of";
   
   /** 
   * Aria Label for the Paginator
