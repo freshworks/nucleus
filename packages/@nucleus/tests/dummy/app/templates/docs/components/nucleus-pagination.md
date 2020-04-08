@@ -51,3 +51,12 @@ Mini Pagination provides secondary buttons for navigation. It can be placed insi
 
 2. Do not override the actions and behaviour of pagination and paginator 
 
+## Accessibility
+
+1. `aria-label = "pagination"` helps in identification of paginator
+
+2. The disabled paginator buttons are identified with `aria-disabled`
+
+3. The current page is identified with `aria-current="page"`
+
+4. The Paginator is enclosed in a `nav` component to identify with navigation
