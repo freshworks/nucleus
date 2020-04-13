@@ -1,8 +1,10 @@
 @freshworks/button
 ==============================================================================
+[![npm version](https://badge.fury.io/js/%40freshworks%2Fbutton.svg)](https://www.npmjs.com/package/@freshworks/button)
+![npm](https://img.shields.io/npm/dm/@freshworks/button)
 
 ```
-yarn add @freshworks/button
+ember install @freshworks/button
 ```
 
 Buttons in Freshdesk

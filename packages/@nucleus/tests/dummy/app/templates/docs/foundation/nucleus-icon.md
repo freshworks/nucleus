@@ -1,7 +1,7 @@
 # Icon
 
 ```sh
-yarn add @freshworks/icon
+ember install @freshworks/icon
 ```
 
 ## Usage

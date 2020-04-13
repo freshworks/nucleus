@@ -1,7 +1,7 @@
 # Banner
 
 ```sh
-yarn add @freshworks/banner
+ember install @freshworks/banner
 ```
 
 Banners display information at the top of the screen and alert the user about effects on further usage of the product due to a particular activity, functionality or product-wide status information.
