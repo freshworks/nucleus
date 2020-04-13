@@ -1,7 +1,7 @@
 # Button
 
 ```sh
-yarn add @freshworks/button
+ember install @freshworks/button
 ```
 
 Buttons are interactive components that the users can click or touch to trigger corresponding business logic.

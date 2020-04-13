@@ -1,8 +1,10 @@
 @freshworks/tabs
 ==============================================================================
+[![npm version](https://badge.fury.io/js/%40freshworks%2Ftabs.svg)](https://www.npmjs.com/package/@freshworks/tabs)
+![npm](https://img.shields.io/npm/dm/@freshworks/tabs)
 
 ```
-yarn add @freshworks/tabs
+ember install @freshworks/tabs
 ```
 
 Tabs are used to organise content under each section.

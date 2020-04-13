@@ -1,5 +1,7 @@
 @freshworks/toggle
 ==============================================================================
+[![npm version](https://badge.fury.io/js/%40freshworks%2Ftoggle.svg)](https://www.npmjs.com/package/@freshworks/toggle)
+![npm](https://img.shields.io/npm/dm/@freshworks/toggle)
 
 ```
 yarn add @freshworks/toggle

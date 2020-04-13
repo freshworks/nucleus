@@ -2,7 +2,7 @@
 ==============================================================================
 
 ```
-yarn add @freshworks/<%= name %>
+ember install @freshworks/<%= name %>
 ```
 
 <%= description %>

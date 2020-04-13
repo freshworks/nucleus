@@ -1,0 +1,14 @@
+{{#docs-demo as |demo|}}
+  {{#demo.example name="nucleus-pagination-example.hbs"}}
+    {{#nucleus-pagination records=listItems pageSize=5 as |pagination|}}
+      <ul>
+      {{#each pagination.pageItems as |item|}}
+        <li>{{item}}</li>
+      {{/each}}
+      </ul>
+      {{pagination.paginator}}
+    {{/nucleus-pagination}}
+  {{/demo.example}}
+  {{demo.snippet "nucleus-pagination-example.hbs"}}
+  {{demo.snippet "pagination-component.js" label="component.js"}}
+{{/docs-demo}}
