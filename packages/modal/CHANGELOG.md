@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.4](https://github.com/freshdesk/nucleus/compare/@freshworks/modal@0.6.3...@freshworks/modal@0.6.4) (2020-04-13)
+
+
+### Bug Fixes
+
+* **modal:** focus issue ([#172](https://github.com/freshdesk/nucleus/issues/172)) ([45c956a](https://github.com/freshdesk/nucleus/commit/45c956ab4f338771d32bdc6ef9194fa84611ee0a))
+
+
+
+
+
 ## [0.6.3](https://github.com/freshdesk/nucleus/compare/@freshworks/modal@0.6.2...@freshworks/modal@0.6.3) (2020-04-06)
 
 **Note:** Version bump only for package @freshworks/modal

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.4](https://github.com/freshdesk/nucleus/compare/@freshworks/tabs@0.4.3...@freshworks/tabs@0.4.4) (2020-04-13)
+
+
+### Bug Fixes
+
+* **tabs:** Removing tab panel elements until active ([#167](https://github.com/freshdesk/nucleus/issues/167)) ([d36f6f1](https://github.com/freshdesk/nucleus/commit/d36f6f1c2ec063428758e5e327df6680dbcb586b))
+
+
+
+
+
 ## [0.4.3](https://github.com/freshdesk/nucleus/compare/@freshworks/tabs@0.4.2...@freshworks/tabs@0.4.3) (2020-04-06)
 
 **Note:** Version bump only for package @freshworks/tabs
