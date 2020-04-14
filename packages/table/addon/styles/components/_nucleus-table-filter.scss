@@ -49,9 +49,13 @@
 
   &__footer {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     background: $color-smoke-50;
     padding: 8px;
+  }
+  
+  button:not(:last-child) {
+    margin-right: 8px;
   }
 }
 

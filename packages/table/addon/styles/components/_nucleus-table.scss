@@ -16,20 +16,31 @@
       font-weight: $font-weight-500;
       line-height: 1.4;
       padding: 16px;
+
+      &.is-first-column {
+        width: 15px !important;
+        min-width: 15px !important;
+        max-width: 15px !important;
+        padding: 16px 6px;
+      }
     }
   }
 
   tbody {
     tr {
       border-bottom: 1px solid $color-smoke-50;
-      color: #3d4852;
+      color: $text-secondary;
 
       &.is-selected { 
-        background: $color-azure-800;
+        background: $color-azure-50;
       }
 
       &:hover {
-        background: #000;
+        background: #f5f7f9;
+      }
+
+      &.is-inactive {
+        background: $color-smoke-300;
       }
     }
 
@@ -42,15 +53,27 @@
   }
 
   .filter-container {
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: 9;
-    height: 48px;
-    width: 48px;
-    background: $color-milk;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    
+    & span {
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: 9;
+      height: 48px;
+      width: 48px;
+      background: $color-milk;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    & span:hover {
+        cursor: pointer;
+        background-color: $color-smoke-50;
+    }
+   
+    & .nucleus-icon {
+      vertical-align: middle;
+    }
   }
 }

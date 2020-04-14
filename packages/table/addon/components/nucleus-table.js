@@ -4,6 +4,7 @@ import {
 } from '@ember-decorators/component';
 import defaultProp from '@freshworks/core/utils/default-decorator';
 import { action, computed } from '@ember/object';
+import { A } from '@ember/array';
 
 import Component from '@ember/component';
 import layout from "../templates/components/nucleus-table";
@@ -36,12 +37,12 @@ class NucleusTable extends Component {
   */
   @computed("columns", {
     get() {
-      return this.get('columns');
+      let arrayFirst = A([{ name: '', valuePath: '', selected: true, disabled: false}]);
+      return arrayFirst.concat(this.columns)
     },
     set(key, value) { // eslint-disable-line no-unused-vars
-      console.log("key");
-      console.log(value);
-      return value;
+      let arrayFirst = A([{ name: '', valuePath: '', selected: true, disabled: false}]);
+      return arrayFirst.concat(value);
     }
   })
   selectedColumns;
@@ -57,14 +58,9 @@ class NucleusTable extends Component {
     get() {
       let allRowsData = this.get('rows');
       let columnValuePaths = this.get('selectedColumns').map(column => column.valuePath);
-      console.log("get")
-      console.log(columnValuePaths);
-      console.log(allRowsData);
       return allRowsData;
     },
     set(key, value) { // eslint-disable-line no-unused-vars
-      console.log("set");
-      console.log(value);
       return value;
     }
   })
