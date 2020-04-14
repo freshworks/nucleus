@@ -6,3 +6,12 @@
 ```
 ember install @freshworks/icon
 ```
+
+## Icon explorer
+
+```sh
+cd packages/icon
+ember serve
+```
+
+You can view the icon explorer at http://localhost:4200/ember-svg-jar/index.html 

@@ -10,7 +10,14 @@ module.exports = function(defaults) {
       svgJar: {
         sourceDirs: [
           'public/assets/icons'
-        ]
+        ],
+        optimizer: {
+          plugins: [
+            { removeTitle: true },
+            { removeDesc: { removeAny: true } },
+            { removeViewBox: false }
+          ]
+        }
       }
     }
   );
