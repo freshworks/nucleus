@@ -30,7 +30,7 @@
     "ember-decorators": "^6.1.1",
     "ember-decorators-polyfill": "shibulijack-fd/ember-decorators-polyfill#master",
     "ember-svg-jar": "^2.1.0",
-    "ember-table": "^2.2.1",
+    "ember-table": "^2.2.2",
     "ember-truth-helpers": "^2.1.0"
   },
   "devDependencies": {

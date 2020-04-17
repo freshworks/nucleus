@@ -5,7 +5,7 @@ import {
 import defaultProp from '@freshworks/core/utils/default-decorator';
 import { action, computed } from '@ember/object';
 import { A } from '@ember/array';
-
+import { set } from '@ember/object';
 import Component from '@ember/component';
 import layout from "../templates/components/nucleus-table";
 
@@ -28,6 +28,22 @@ class NucleusTable extends Component {
   @defaultProp
   rows;
 
+  @defaultProp
+  pageSize = 30;
+
+  @defaultProp
+  canFilter = true;
+
+  @defaultProp
+  selectAll = false;
+
+  @defaultProp
+  pageReload = 0;
+
+  @defaultProp
+  isMini = false;
+
+
   /**
   * selectedColumns
   *
@@ -38,7 +54,7 @@ class NucleusTable extends Component {
   @computed("columns", {
     get() {
       let arrayFirst = A([{ name: '', valuePath: '', selected: true, disabled: false}]);
-      return arrayFirst.concat(this.columns)
+      return arrayFirst.concat(this.columns.filterBy('selected'));
     },
     set(key, value) { // eslint-disable-line no-unused-vars
       let arrayFirst = A([{ name: '', valuePath: '', selected: true, disabled: false}]);
@@ -46,6 +62,26 @@ class NucleusTable extends Component {
     }
   })
   selectedColumns;
+
+  @computed("selectAll", {
+    get() {
+      if (this.selectAll) {
+        return this.rows;
+      }
+      return A([])
+    },
+    set(key, value) {
+      if (this.selectAll == true) {
+        this.selectAll = false;
+      }
+      if (value.length == this.rows.length) {
+        this.selectAll = true;
+      }
+      return value;
+    }
+  })
+  selected;
+
 
   /**
   * selectedRows
@@ -69,6 +105,7 @@ class NucleusTable extends Component {
   @defaultProp
   height;
 
+
   /**
   * Toggle action to show or hide the stacked notifications.
   *
@@ -81,6 +118,7 @@ class NucleusTable extends Component {
     if(filteredColumns && filteredColumns.length > 0) {
       //debugger;
       this.set('selectedColumns', filteredColumns);
+      this.set('pageReload', this.pageReload+1);
     }
   }
 }

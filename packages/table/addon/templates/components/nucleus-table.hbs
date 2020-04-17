@@ -1,22 +1,13 @@
 <div class="nucleus-table-container" style="height: {{if height height}};">
-  {{#ember-table class="nucleus-table" as |t|}}
-    <span class="filter-container">{{nucleus-table/filter columns=columns onUpdate=onFilterColumns}}</span>
-    {{#t.head
-      columns=selectedColumns
-      enableResize=false
-      enableReorder=false
-      as |h|}}
-      {{#h.row as |r|}}
-        {{r.cell}}
-      {{/h.row}}
-    {{/t.head}}
-
-    {{#t.body rows=selectedRows onSelect=(action (mut selected)) rowSelectionMode="none" selection=selected as |b|}}
-      {{#b.row as |r|}}
-        {{#r.cell as |cellValue|}}
-          {{cellValue}}
-        {{/r.cell}}
-      {{/b.row}}
-    {{/t.body}}
-  {{/ember-table}}
+  {{#nucleus-pagination records=rows pageSize=pageSize pageReload=pageReload as |pagination|}}
+   {{yield (hash
+      paginator = pagination.paginator
+      table = (component "nucleus-table/table"
+        columns=columns
+        pageItems=pagination.pageItems
+        selectAll=selectAll
+      )
+   )}}
+    {{pagination.paginator mini=isMini}}
+  {{/nucleus-pagination}}
 </div>

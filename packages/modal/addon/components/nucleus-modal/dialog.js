@@ -225,9 +225,11 @@ class Dialog extends Component {
     if (currentIndex === -1) {
       focusElements[0].focus();
     }
-    if(event.shiftKey && currentIndex === 0) {
-      event.preventDefault();
-      focusElements[focusElements.length-1].focus();
+    if(event.shiftKey) {
+      if (currentIndex === 0) {
+        event.preventDefault();
+        focusElements[focusElements.length-1].focus();
+      }
     } 
     else if (currentIndex === (focusElements.length - 1)) {
       event.preventDefault();

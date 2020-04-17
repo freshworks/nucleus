@@ -1,7 +1,7 @@
 # Tabs
 
 ```sh
-yarn add @freshworks/tabs
+ember install @freshworks/tabs
 ```
 
 Tabs are used to organise content under each section. Tabs are most helpful when there is a lot of content to show in a page. Tabs can help in showing content which are under the same level of hierarchy, under each section inside the same page.
@@ -19,13 +19,13 @@ It's easy for the user to quickly distinguish which tab belongs to which content
         description="site-navigation" 
         select="I want apples" 
         variant="line" as |tabs| }}
-      {{#tabs.panel name="I want apples" }}
+      {{#tabs.panel name="I want apples" testId="I want apples" }}
         <div>This is apples section</div>
       {{/tabs.panel}}
-      {{#tabs.panel name="I want oranges" }}
+      {{#tabs.panel name="I want oranges" testId="I want oranges" }}
         <div>This is oranges section</div>
       {{/tabs.panel}}
-      {{#tabs.panel name="I want grapes" }}
+      {{#tabs.panel name="I want grapes" testId="I want grapes" }}
         <div>This is grapes section</div>
       {{/tabs.panel}}
     {{/nucleus-tabs}}

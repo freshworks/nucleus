@@ -1,0 +1,17 @@
+{{#docs-demo as |demo|}}
+  {{#demo.example name="nucleus-table3.hbs"}}
+  {{input type="checkbox" checked=selectAll onClick=(action 'allSelect')}}
+  Click on the checbox to toggle selection of all rows
+    {{#nucleus-table
+      columns=columns
+      rows=rows
+      selectAll=selectAll
+      pageSize=4
+      as |table|}}
+      {{table.paginator mini=true}}
+      {{#table.table as |value column row|}}{{column.name}}{{row.columnValue}}{{value}}{{/table.table}}
+    {{/nucleus-table}}
+  {{/demo.example}}
+  {{demo.snippet "nucleus-table3.hbs"}}
+  {{demo.snippet "table-component3.js" label="component.js"}}
+{{/docs-demo}}
