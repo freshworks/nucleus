@@ -95,7 +95,7 @@ module('Integration | Component | nucleus-button-group', function(hooks) {
   });
 
   test('buttons pass visual regression tests', async function(assert) {
-    await render(hbs`{{#nucleus-button-group label="LabelButtonGroup"}} {{#nucleus-button}}Button{{/nucleus-button}} {{#nucleus-button size="mini"}}Mini{{/nucleus-button}} {{#nucleus-button size="small"}}Small{{/nucleus-button}} {{#nucleus-button variant="secondary"}}Secondary{{/nucleus-button}} {{#nucleus-button variant="danger"}}Danger{{/nucleus-button}} {{#nucleus-button variant="link"}}Link{{/nucleus-button}} {{#nucleus-button variant="text"}}Text{{/nucleus-button}} {{#nucleus-button block=true}}Block Button{{/nucleus-button}} {{#nucleus-button disabled=true}}Secondary{{/nucleus-button}} {{nucleus-button icon="nucleus-circle-check" iconOnly=true variant="secondary"}} {{nucleus-button icon="nucleus-circle-check" iconOnly=true size="small" variant="secondary"}} {{nucleus-button icon="nucleus-circle-check" iconOnly=true size="mini" variant="secondary"}}{{/nucleus-button-group}}`);
+    await render(hbs`{{#nucleus-button-group}}{{#nucleus-button variant="secondary" label="Click"}}{{/nucleus-button}}{{#nucleus-button variant="secondary" label="Click"}}{{/nucleus-button}}{{#nucleus-button icon="nucleus-circle-check" label="Click here" variant="secondary"}}{{/nucleus-button}}{{/nucleus-button-group}}`);
     await backstop(assert,{scenario: {misMatchThreshold: 0.1}});
   });
 
