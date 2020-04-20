@@ -1,0 +1,17 @@
+{{#docs-demo as |demo|}}
+  {{#demo.example name="nucleus-button-group.hbs"}}
+  {{#nucleus-button-group}}
+    {{#nucleus-button
+      variant="secondary"
+      label="Click"}}
+      {{/nucleus-button}}
+      {{#nucleus-button
+      variant="secondary"
+      label="Click"}}
+    {{/nucleus-button}}
+    {{#nucleus-button icon="nucleus-circle-check" label="Click here" variant="secondary"}}
+    {{/nucleus-button}}
+    {{/nucleus-button-group}}
+  {{/demo.example}}
+  {{demo.snippet "nucleus-button-group.hbs" label="default.hbs"}}
+{{/docs-demo}}

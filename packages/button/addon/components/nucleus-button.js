@@ -34,7 +34,8 @@ import safeSet from "../utils/safe-set";
   '_sizeClass',
   '_typeClass',
   'customClass',
-  '_iconClass'
+  '_iconClass',
+  'active:is-active'
 )
 @attributeBindings('_disabled:disabled', '_buttonType:type', '_label:aria-label', 'autofocus')
 class NucleusButton extends Component {
@@ -419,6 +420,15 @@ class NucleusButton extends Component {
   */
   click() {
     let action = this.get('onClick');
+    if(this.active)
+    {
+    this.set('active',false)
+    }
+    else{
+    this.set('active',true)
+    }
+    
+  
     if (action === null || action === undefined) {
       return;
     }
