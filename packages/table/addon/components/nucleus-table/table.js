@@ -50,20 +50,29 @@ class Table extends Component {
   })
   rows;
 
+  @defaultProp
+  selectAll=false;
+
   @computed("selectAll", {
     get() {
+      console.log("in get")
+      console.log(this.selectAll);
       if (this.selectAll) {
         return this.rows;
       }
-      return A([])
+      else {
+        return A([])
+      }  
     },
     set(key, value) {
+      console.log("in set")
       if (this.selectAll == true) {
         this.set('selectAll', false);
       }
-      if (value.length == this.rows.length) {
-        this.set('selectAll', true);
+      else if (value.length == this.rows.length) {
+        this.selectAll = true;
       }
+      console.log(this.selectAll);
       return value;
     }
   })
@@ -75,6 +84,10 @@ class Table extends Component {
       //debugger;
       this.set('selectedColumns', filteredColumns);
     }
+  }
+  
+  specialCall() {
+    this.set('selectAll', true);
   }
 }
 

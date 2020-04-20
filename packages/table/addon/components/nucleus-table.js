@@ -63,25 +63,6 @@ class NucleusTable extends Component {
   })
   selectedColumns;
 
-  @computed("selectAll", {
-    get() {
-      if (this.selectAll) {
-        return this.rows;
-      }
-      return A([])
-    },
-    set(key, value) {
-      if (this.selectAll == true) {
-        this.selectAll = false;
-      }
-      if (value.length == this.rows.length) {
-        this.selectAll = true;
-      }
-      return value;
-    }
-  })
-  selected;
-
 
   /**
   * selectedRows
