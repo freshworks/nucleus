@@ -5,7 +5,6 @@ import { setupRenderingTest } from 'ember-qunit';
 import {  render, click } from '@ember/test-helpers';
 import test from 'ember-sinon-qunit/test-support/test';
 import hbs from 'htmlbars-inline-precompile';
-import backstop from 'ember-backstop/test-support/backstop';
 
 module('Integration | Component | nucleus-button-group', function(hooks) {
   setupRenderingTest(hooks);
@@ -15,12 +14,6 @@ module('Integration | Component | nucleus-button-group', function(hooks) {
     this.send = (actionName, ...args) => this.actions[actionName].apply(this, args);
   });
 
-  test('it has correct markup', async function(assert) {
-    await render(hbs`{{nucleus-button-group label="Test"}}`);
-
-    assert.dom('button').hasClass('nucleus-button-group', 'button has nucleus-button-group class');
-    assert.dom('button').hasClass('nucleus-button--primary', 'button has default primary variant class');
-  });
   test('it has buttons inside the button group',async function(assert) {
       await render(hbs`{{#nucleus-button-group}}{{#nucleus-button}}Test{{/nucleus-button}}{{/nucleus-button-group}}`);
       assert.dom('button').hasClass('nucleus-button-group', 'button has nucleus-button class');
@@ -93,11 +86,4 @@ module('Integration | Component | nucleus-button-group', function(hooks) {
     assert.ok(buttonClick.called);
     assert.notOk(parentClick.called);
   });
-
-  test('buttons pass visual regression tests', async function(assert) {
-    await render(hbs`{{#nucleus-button-group}}{{#nucleus-button variant="secondary" label="Click"}}{{/nucleus-button}}{{#nucleus-button variant="secondary" label="Click"}}{{/nucleus-button}}{{#nucleus-button icon="nucleus-circle-check" label="Click here" variant="secondary"}}{{/nucleus-button}}{{/nucleus-button-group}}`);
-    await backstop(assert,{scenario: {misMatchThreshold: 0.1}});
-  });
-
-  
 });
