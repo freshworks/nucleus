@@ -1,1 +1,10 @@
-{{yield}}
+{{yield (hash
+    button = (component "nucleus-button"
+    variant = variant
+    label = label
+    autofocus = autofocus
+    size = size
+    iconSize = iconSize
+  )
+  data-test-id = data-test-id)
+}}

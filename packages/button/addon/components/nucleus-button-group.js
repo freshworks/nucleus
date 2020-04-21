@@ -1,6 +1,7 @@
 import {
     classNames,
     tagName,
+    classNameBindings,
     layout as templateLayout,
   } from '@ember-decorators/component';
   import Component from '@ember/component';
@@ -20,6 +21,7 @@ import {
   @templateLayout(layout)
   @tagName('button')
   @classNames('nucleus-button-group')
+  @classNameBindings('isSize:is-size')
   class NucleusButtonGroup extends Component {
   /**
   * data-test-id
@@ -29,5 +31,7 @@ import {
   * @private
   */
  'data-test-id' = 'nucleus-button-group';
+  
+ 
 
   }export default NucleusButtonGroup;

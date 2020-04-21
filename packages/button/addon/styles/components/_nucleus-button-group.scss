@@ -1,4 +1,7 @@
 .nucleus-button-group {
+  display: flex;
+  justify-content: flex-start;
+
   .nucleus-button {
     &:first-child {
       border-top-right-radius: 0;

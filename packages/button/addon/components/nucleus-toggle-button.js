@@ -21,7 +21,7 @@ import {
   @classNames('nucleus-toggle-button')
   
   class NucleusToggleButton extends Component {
-
+  
     /**
   * data-test-id
   *

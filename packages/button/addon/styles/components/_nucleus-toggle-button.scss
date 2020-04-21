@@ -1,4 +1,7 @@
 .nucleus-toggle-button {
+  display: flex;
+  justify-content: flex-start;
+
   .nucleus-button {
     &.is-active {
       background: blue;
