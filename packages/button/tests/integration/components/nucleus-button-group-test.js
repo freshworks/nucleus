@@ -14,10 +14,6 @@ module('Integration | Component | nucleus-button-group', function(hooks) {
     this.send = (actionName, ...args) => this.actions[actionName].apply(this, args);
   });
 
-  test('it has buttons inside the button group',async function(assert) {
-      await render(hbs`{{#nucleus-button-group}}{{#nucleus-button}}Test{{/nucleus-button}}{{/nucleus-button-group}}`);
-      assert.dom('button').hasClass('nucleus-button-group', 'button has nucleus-button class');
-  });
   test('it has correct size', async function(assert) {
     await render(hbs`{{#nucleus-button size="mini"}}Test{{/nucleus-button}}`);
 
