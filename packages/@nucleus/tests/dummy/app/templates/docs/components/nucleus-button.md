@@ -57,11 +57,6 @@ Button groups are an easy way to group a series of buttons together.
 
 {{nucleus-button/demo-2}}
 
-#### 5. Toggle Button:
-A toggle button allows the user to change a setting between two states.
-
-{{nucleus-button/demo-3}}
-
 
 
 ## Guidelines

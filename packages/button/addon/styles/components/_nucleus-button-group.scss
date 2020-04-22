@@ -3,6 +3,14 @@
   justify-content: flex-start;
 
   .nucleus-button {
+    &.is-active {
+      background: blue;
+
+      &:hover {
+        background: blueviolet;
+      }
+    }
+
     &:first-child {
       border-top-right-radius: 0;
       border-bottom-right-radius: 0;
