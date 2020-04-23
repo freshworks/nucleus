@@ -7,6 +7,7 @@ import { action, computed, set } from '@ember/object';
 import { A } from '@ember/array';
 import Component from '@ember/component';
 import layout from "../../templates/components/nucleus-table/table";
+import { later } from '@ember/runloop';
 
 /**
   __Usage:__
@@ -38,7 +39,6 @@ class Table extends Component {
   },
   set(key, value) { // eslint-disable-line no-unused-vars
     let arrayFirst = A([{ name: '', valuePath: '', selected: true, disabled: true}]);
-    this.set('rows', []);
     return arrayFirst.concat(value);
   }
   })
@@ -47,10 +47,6 @@ class Table extends Component {
   @computed("columns", "pageItems", {
     get() {
       return this.pageItems;
-    },
-    set(key,value) {
-      console.log('happening');
-      return A([]);
     }
   })
   rows;
@@ -86,8 +82,10 @@ class Table extends Component {
   @action
   onFilterColumns(filteredColumns) {
     if(filteredColumns && filteredColumns.length > 0) {
-      //debugger;
-      this.set('selectedColumns', filteredColumns);
+      this.set('selectedColumns', []);
+      later(this, function () {
+        this.set('selectedColumns', filteredColumns);
+      });
     }
   }
   

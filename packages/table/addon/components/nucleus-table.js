@@ -97,7 +97,6 @@ class NucleusTable extends Component {
   @action
   onFilterColumns(filteredColumns) {
     if(filteredColumns && filteredColumns.length > 0) {
-      //debugger;
       this.set('selectedColumns', []);
       later(this, function () {
         this.set('selectedColumns', filteredColumns);

@@ -1,12 +1,10 @@
 <div class="nucleus-table-container" style="height: {{if height height}};">
-  {{#nucleus-pagination records=rows pageSize=pageSize pageReload=pageReload as |pagination|}}
+  {{#nucleus-pagination records=rows pageSize=pageSize as |pagination|}}
    {{yield (hash
       paginator = pagination.paginator
       table = (component "nucleus-table/table"
-        columns=selectedColumns
+        columns=columns
         pageItems=pagination.pageItems
-        filterColumns=columns
-        filterMethod=onFilterColumns
       )
    )}}
     {{pagination.paginator mini=isMini}}
