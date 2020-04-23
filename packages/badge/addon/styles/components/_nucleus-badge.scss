@@ -17,6 +17,28 @@ $bdg-solidnuetral-bg:#6a6a48 !default;
 $bdg-solidnew-bg: #009930 !default;
 $bdg-solidprimary-bg: #0084ff !default;
 
+$btn-primary-color: white !default;
+$btn-primary-bg: $color-elephant-800 !default;
+$btn-primary-bg-dark: $color-elephant-900 !default;
+$btn-primary-border: $color-elephant-900 !default;
+$btn-primary-border-active: $color-elephant-800 !default;
+
+$btn-secondary-color: $text-default !default;
+$btn-secondary-bg: white !default;
+$btn-secondary-bg-dark: $color-smoke-25 !default;
+$btn-secondary-border: $border-color !default;
+$btn-secondary-border-active: $color-smoke-50 !default;
+
+$btn-danger-color: white !default;
+$btn-danger-bg: $color-persimmon-800 !default;
+$btn-danger-bg-dark: $color-persimmon-900 !default;
+$btn-danger-border: $color-persimmon-900 !default;
+
+$btn-link-color: $color-azure-800 !default;
+$btn-link-bg: $color-smoke-50 !default;
+
+$active-box-shadow: inset 0 0 4px 0 rgba(0, 0, 0, .25);
+
 .nucleus-badge {
   font-size: $font-size-10;
   vertical-align: middle;
