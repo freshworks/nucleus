@@ -3,8 +3,10 @@
    {{yield (hash
       paginator = pagination.paginator
       table = (component "nucleus-table/table"
-        columns=columns
+        columns=selectedColumns
         pageItems=pagination.pageItems
+        filterColumns=columns
+        filterMethod=onFilterColumns
       )
    )}}
     {{pagination.paginator mini=isMini}}

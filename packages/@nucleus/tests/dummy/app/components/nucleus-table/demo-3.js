@@ -1,7 +1,6 @@
 // BEGIN-SNIPPET table-component3.js
 import Component from '@ember/component';
 import { A } from '@ember/array';
-
 export default Component.extend({
   selectAll: true,
   columns: A([

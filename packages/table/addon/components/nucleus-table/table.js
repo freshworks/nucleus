@@ -33,19 +33,24 @@ class Table extends Component {
   */
   @computed("columns", {
   get() {
-    let arrayFirst = A([{ name: '', valuePath: '', selected: true, disabled: false}]);
+    let arrayFirst = A([{ name: '', valuePath: '', selected: true, disabled: true}]);
     return arrayFirst.concat(this.columns.filterBy('selected'));
   },
   set(key, value) { // eslint-disable-line no-unused-vars
-    let arrayFirst = A([{ name: '', valuePath: '', selected: true, disabled: false}]);
+    let arrayFirst = A([{ name: '', valuePath: '', selected: true, disabled: true}]);
+    this.set('rows', []);
     return arrayFirst.concat(value);
   }
   })
   selectedColumns;
 
-  @computed("selectedColumns", "pageItems", {
+  @computed("columns", "pageItems", {
     get() {
       return this.pageItems;
+    },
+    set(key,value) {
+      console.log('happening');
+      return A([]);
     }
   })
   rows;

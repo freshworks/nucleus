@@ -7,8 +7,8 @@ export default Component.extend({
       { name: 'Source', valuePath: 'source', selected: true, disabled: true},
       { name: 'Contact', valuePath: 'contact', selected: true, disabled: true},
       { name: 'Status', valuePath: 'status', selected: true, disabled: false},
-      { name: 'PhNo', valuePath: 'phno', selected: false, disabled: false},
-      { name: 'Subject', valuePath: 'subject', selected: false, disabled: false},
+      { name: 'PhNo', valuePath: 'phno', selected: true, disabled: false},
+      { name: 'Subject', valuePath: 'subject', selected: true, disabled: false},
     ]),
   rows: A([
       { source: 'Twitter', contact: 'Albus', phno: '914', subject: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.', status: 'D' },

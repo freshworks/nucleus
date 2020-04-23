@@ -8,6 +8,7 @@ import { A } from '@ember/array';
 import { set } from '@ember/object';
 import Component from '@ember/component';
 import layout from "../templates/components/nucleus-table";
+import { later } from '@ember/runloop';
 
 /**
   __Usage:__
@@ -43,7 +44,6 @@ class NucleusTable extends Component {
   @defaultProp
   isMini = false;
 
-
   /**
   * selectedColumns
   *
@@ -53,11 +53,11 @@ class NucleusTable extends Component {
   */
   @computed("columns", {
     get() {
-      let arrayFirst = A([{ name: '', valuePath: '', selected: true, disabled: false}]);
+      let arrayFirst = A([{ name: '', valuePath: '', selected: true, disabled: true}]);
       return arrayFirst.concat(this.columns.filterBy('selected'));
     },
     set(key, value) { // eslint-disable-line no-unused-vars
-      let arrayFirst = A([{ name: '', valuePath: '', selected: true, disabled: false}]);
+      let arrayFirst = A([{ name: '', valuePath: '', selected: true, disabled: true}]);
       return arrayFirst.concat(value);
     }
   })
@@ -98,8 +98,10 @@ class NucleusTable extends Component {
   onFilterColumns(filteredColumns) {
     if(filteredColumns && filteredColumns.length > 0) {
       //debugger;
-      this.set('selectedColumns', filteredColumns);
-      this.set('pageReload', this.pageReload+1);
+      this.set('selectedColumns', []);
+      later(this, function () {
+        this.set('selectedColumns', filteredColumns);
+      });
     }
   }
 }

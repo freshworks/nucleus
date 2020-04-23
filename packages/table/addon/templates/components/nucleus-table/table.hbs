@@ -1,11 +1,11 @@
 {{#ember-table class="nucleus-table" as |t|}}
      {{#if canFilter}}
-      <span class="filter-container">{{nucleus-table/filter columns=columns onUpdate=onFilterColumns}}</span>
+      <span class="filter-container">{{nucleus-table/filter columns=filterColumns onUpdate=filterMethod}}</span>
      {{/if}}
       {{#t.head
-       columns=selectedColumns
+       columns=columns
        enableResize=false
-       enableReorder=true
+       enableReorder=false
        as |h|}}
       {{#h.row as |r|}}
         {{r.cell}}
