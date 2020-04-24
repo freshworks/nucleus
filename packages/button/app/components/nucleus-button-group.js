@@ -1,1 +1,0 @@
-export { default } from '@freshworks/button/components/nucleus-button-group';

@@ -1,5 +1,7 @@
 import {
   classNames,
+  classNameBindings,
+  attributeBindings,
   layout as templateLayout,
 } from '@ember-decorators/component';
 import defaultProp from '@freshworks/core/utils/default-decorator';
@@ -20,6 +22,10 @@ import { computed } from '@ember/object';
 */
 @templateLayout(layout)
 @classNames('nucleus-badge')
+@classNameBindings(
+  '_typeClass'
+)
+@attributeBindings('_label:aria-label')
 class NucleusBadge extends Component {
    /**
   * Default badge text
@@ -32,7 +38,37 @@ class NucleusBadge extends Component {
  @defaultProp
  label = null;
 
- 
+ /**
+  * data-test-id
+  *
+  * @field data-test-id
+  * @type string
+  * @private
+  */
+ 'data-test-id' = 'nucleus-badge';
+  
+ /**
+  * Optional aria-label attribute
+  *
+  * @field ariaLabel
+  * @type string
+  * @default null
+  * @public
+  */
+ @defaultProp
+ ariaLabel = null;
+
+ /**
+  * _label
+  *
+  * @field _label
+  * @type function
+  * @private
+  */
+ @computed( 'ariaLabel')
+ get _label() {
+   return this.get('ariaLabel') ;
+ }
 
  /**
  * Badge display variants: `lineCritical`, `lineNeutral`, `lineNew`, `linePrimary` , `solidCritical` , `solidNeutral' , `solidNew` , `solidPrimary` & `solidPrimary`
@@ -58,34 +94,6 @@ class NucleusBadge extends Component {
    return type ? `nucleus-badge--${type}` : 'nucleus-badge--lineCritical';
  }
 
- 
-
- /**
- * `onClick` action handler
- *
- * @field onClick
- * @type function
- * @public
- */
- @defaultProp
- onClick = null;
-
- 
- /**
- * click
- *
- * @method click
- * @public
- *
- */
- click() {
-   let action = this.get('onClick');
-
-   if (action === null || action === undefined) {
-     return;
-   }
-   return false;
- }
 
 }
 

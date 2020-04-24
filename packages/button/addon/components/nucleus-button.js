@@ -34,8 +34,7 @@ import safeSet from "../utils/safe-set";
   '_sizeClass',
   '_typeClass',
   'customClass',
-  '_iconClass',
-  'active:is-active'
+  '_iconClass'
 )
 @attributeBindings('_disabled:disabled', '_buttonType:type', '_label:aria-label', 'autofocus')
 class NucleusButton extends Component {
@@ -129,17 +128,6 @@ class NucleusButton extends Component {
   @defaultProp
   active = false;
 
-
-  /**
-  * Flag to set toggle attribute
-  *
-  * @field type
-  * @type string
-  * @public
-  * @default `info`
-  */
-  @defaultProp
-  type = null;
 
   /**
   * Flag to set autofocus
@@ -432,14 +420,6 @@ class NucleusButton extends Component {
   */
   click() {
     let action = this.get('onClick');
-    if(this.type === "toggle") {
-      if(this.active) {
-        this.set('active',false)
-      }
-      else {
-        this.set('active',true)
-      }
-    }
 
     if (action === null || action === undefined) {
       return;
