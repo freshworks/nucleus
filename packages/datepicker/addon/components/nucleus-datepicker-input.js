@@ -22,22 +22,101 @@ import { DATEPICKER_KEY_CODE, DATEPICKER_MODAL_SELECTOR, DATEPICKER_PERMITTED_DA
 @classNames('nucleus-datepicker-input')
 class NucleusDatepickerInput extends Component {
 
+  /**
+  * inputField
+  *
+  * @field inputField
+  * @type node
+  * @default null
+  * @public
+  */
   inputField = null;
 
+  /**
+  * selectedDate
+  *
+  * @field selectedDate
+  * @type date
+  * @default null
+  * @public
+  */
   selectedDate = null;
 
+  /**
+  * isModalOpen
+  *
+  * @field isModalOpen
+  * @type boolean
+  * @default false
+  * @public
+  */
   isModalOpen = false;
 
+  /**
+  * formatString
+  *
+  * @field formatString
+  * @type string - date format
+  * @default 'd MMM, yyyy'
+  * @public
+  */
   formatString = 'd MMM, yyyy';
 
+  /**
+  * position
+  *
+  * @field position
+  * @description popup position 
+  * @type object
+  * @default 'd MMM, yyyy'
+  * @public
+  */
   position = {
     top: 'auto',
     left: 'auto'
   };
 
+  /**
+  * locale
+  *
+  * @field locale
+  * @type string
+  * @default 'en'
+  * @readonly
+  * @public
+  */
   @defaultProp
   locale = 'en';
 
+  /**
+  * selectedDate
+  *
+  * @field selectedDate 
+  * @description the selected date on the calendar in view.
+  * @type string
+  * @public
+  */
+  @computed('selectedDate', {
+    get(key) {
+      let selectedDate = get(this, 'selectedDate');
+      let value = (selectedDate)? formatDate(selectedDate, this.formatString, this.locale) : null;
+      return value;
+    }, 
+    /*eslint no-unused-vars: ["error", {"args": "none"}]*/
+    set(key, value) {
+      return value;
+    }
+  })
+  value;
+
+  /**
+  * datepickerModalOpen
+  *
+  * @method datepickerModalOpen 
+  * @description sets event listerners for keyboard events for the modal
+  * @public
+  *
+  */
   /* eslint-disable ember/no-observers */
   @observes('isModalOpen')
   datepickerModalOpen(targetObj, keyName) {
@@ -57,19 +136,15 @@ class NucleusDatepickerInput extends Component {
     }
   }
 
-  @computed('selectedDate', {
-    get(key) {
-      let selectedDate = get(this, 'selectedDate');
-      let value = (selectedDate)? formatDate(selectedDate, this.formatString, this.locale) : null;
-      return value;
-    }, 
-    /*eslint no-unused-vars: ["error", {"args": "none"}]*/
-    set(key, value) {
-      return value;
-    }
-  })
-  value;
-
+  /**
+  * modalOpen
+  *
+  * @method modalOpen 
+  * @description sets isModelOpen variable, positions the popup according to input.
+  * @param {any} event
+  * @public
+  *
+  */  
   @action
   modalOpen(event) {
     set(this, 'isModalOpen', true);
@@ -88,6 +163,14 @@ class NucleusDatepickerInput extends Component {
     });
   }
 
+  /**
+  * changeSelectedDateByInput
+  *
+  * @method changeSelectedDateByInput 
+  * @param {string} dateString
+  * @public
+  *
+  */
   @action
   changeSelectedDateByInput(dateString) {
     try {
@@ -103,12 +186,28 @@ class NucleusDatepickerInput extends Component {
     }
   }
 
+  /**
+  * updateInput
+  *
+  * @method updateInput 
+  * @param {date} date
+  * @public
+  *
+  */  
   @action
   updateInput(date) {
     set(this, 'selectedDate', date);
     set(this, 'isModalOpen', false);
   }
 
+  /**
+  * inputKeyDown
+  *
+  * @method inputKeyDown 
+  * @param {any} event
+  * @public
+  *
+  */  
   @action
   inputKeyDown(event) {
     switch(event.keyCode) {
@@ -121,6 +220,14 @@ class NucleusDatepickerInput extends Component {
     }
   }
 
+  /**
+  * _lockFocusInModal
+  *
+  * @method _lockFocusInModal 
+  * @description adds listerners to lock focus inside modal
+  * @private
+  *
+  */
   _lockFocusInModal(target) {
     this.inputField = target;
     let tabElements = document.querySelectorAll(DATEPICKER_MODAL_SELECTOR);
@@ -157,6 +264,15 @@ class NucleusDatepickerInput extends Component {
     tabElements[0].focus();
   }
 
+  /**
+  * parseDateForMultipleFormats
+  *
+  * @method parseDateForMultipleFormats 
+  * @description date can be input in any format. 
+  * This function identifies the date format and returns date from text.
+  * @public
+  *
+  */
   parseDateForMultipleFormats(dateString, locale) {
     let parsedDate;
     parsedDate = parseDate(dateString, this.formatString, locale);

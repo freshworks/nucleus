@@ -17,10 +17,33 @@ import NucleusInputDatepicker from './nucleus-datepicker-input';
 @classNames('nucleus-datepicker-input')
 class NucleusDatepickerRangeInput extends NucleusInputDatepicker {
 
+  /**
+  * selectedStartDate
+  *
+  * @field selectedStartDate 
+  * @description the selected start date on the calendar in view.
+  * @type string
+  * @public
+  */
   selectedStartDate = null;
 
+/**
+  * selectedEndDate
+  *
+  * @field selectedEndDate 
+  * @description the selected end date on the calendar in view.
+  * @type string
+  * @public
+  */
   selectedEndDate = null;
 
+  /**
+  * selectedDate
+  *
+  * @field selectedDate 
+  * @type string
+  * @public
+  */
   @computed('selectedStartDate', 'selectedEndDate', function () {
     let selectedDate = {
       'start': get(this, 'selectedStartDate'),
@@ -30,6 +53,14 @@ class NucleusDatepickerRangeInput extends NucleusInputDatepicker {
   })
   selectedDate;
 
+  /**
+  * changeSelectedDateByInput
+  *
+  * @method changeSelectedDateByInput 
+  * @param {string} dateString
+  * @public
+  *
+  */
   @action
   changeSelectedDateByInput(dateString) {
     try {
@@ -55,6 +86,14 @@ class NucleusDatepickerRangeInput extends NucleusInputDatepicker {
     }
   }
 
+  /**
+  * updateInput
+  *
+  * @method updateInput 
+  * @param {date} date
+  * @public
+  *
+  */  
   @action
   updateInput(date) {
     set(this, 'selectedStartDate', date.start);

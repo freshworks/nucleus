@@ -19,22 +19,64 @@ import NucleusDatePicker from './nucleus-datepicker';
 @classNames('nucleus-range-datepicker')
 class NucleusDatepickerRange extends NucleusDatePicker {
 
+  /**
+  * initialStartDate
+  *
+  * @field initialStartDate
+  * @type date|null
+  * @default null
+  * @readonly
+  * @public
+  */
   @defaultProp
   initialStartDate = null;
 
+  /**
+  * initialEndDate
+  *
+  * @field initialEndDate
+  * @type date|null
+  * @default null
+  * @readonly
+  * @public
+  */
   @defaultProp
   initialEndDate = null;
 
+  /**
+  * selectedStartDate
+  *
+  * @field selectedStartDate 
+  * @description the selected start date on the calendar in view.
+  * @type date|null
+  * @public
+  */
   @computed('initialStartDate', function () {
     return (typeof this.initialStartDate === "string")? this.parseDateForMultipleFormats(this.initialStartDate) : this.initialStartDate;
   })
   selectedStartDate;
 
+  /**
+  * selectedEndDate
+  *
+  * @field selectedEndDate 
+  * @description the selected end date on the calendar in view.
+  * @type date|null
+  * @public
+  */
   @computed('initialEndDate', function () {
     return (typeof this.initialEndDate === "string")? this.parseDateForMultipleFormats(this.initialEndDate) : this.initialEndDate;
   })
   selectedEndDate;
 
+  /**
+  * selectedDate
+  *
+  * @field selectedDate 
+  * @description the selected date object that contains both start and end dates on the calendar in view.
+  * @type object
+  * @public
+  */
   @computed('selectedStartDate', 'selectedEndDate', function () {
     let selectedDate = {
       'start': get(this, 'selectedStartDate'),
@@ -44,23 +86,43 @@ class NucleusDatepickerRange extends NucleusDatePicker {
   })
   selectedDate;
 
+  /**
+  * nextMonthDate
+  *
+  * @field nextMonthDate 
+  * @description calendar center for second calendar in range variant
+  * @type object
+  * @public
+  */
   @computed('currentDate', function() {
     let nextMonthDate = add(get(this, 'currentDate'), 1, 'month');
     return nextMonthDate;
   })
   nextMonthDate;
 
-  @action
-  changeCurrentDate(newDate) {
-    set(this, 'currentDate', newDate);
-  }
-
+  /**
+  * changeSelectedDate
+  *
+  * @method changeSelectedDate 
+  * @description sets the start and end dates from date param object
+  * @param {date} newDate
+  * @public
+  *
+  */
   @action 
   changeSelectedDate(newDate) {
     set(this, 'selectedStartDate', newDate.start);
     set(this, 'selectedEndDate', newDate.end);
   }
 
+  /**
+  * changeSelectedDateByInput
+  *
+  * @method changeSelectedDateByInput 
+  * @param {string} dateString
+  * @public
+  *
+  */
   @action
   changeSelectedDateByInput(dateString) {
     try {
