@@ -25,6 +25,7 @@ Sample description
 
 ✅**Do's**
 
+Keep in mind the accessibility of the text inside badges.
 
 🚫**Dont's**
 
