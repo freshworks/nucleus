@@ -5,7 +5,8 @@ import {
   } from '@ember-decorators/component';
   import Component from '@ember/component';
   import layout from "../templates/components/nucleus-button-group";
-  
+  import defaultProp from '@freshworks/core/utils/default-decorator';
+
   /**
     __Usage:__
   
@@ -30,6 +31,15 @@ import {
   */
  'data-test-id' = 'nucleus-button-group';
   
- 
+  /**
+  * Flag to set toggle attribute
+  *
+  * @field type
+  * @type string
+  * @public
+  * @default `info`
+  */
+ @defaultProp
+ type = null;
 
   }export default NucleusButtonGroup;

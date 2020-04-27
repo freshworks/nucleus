@@ -1,13 +1,18 @@
+//=== Button Style ===//
+$btn-grp-bg: $color-azure-800 !default;
+$btn-grp-hover-bg: $color-azure-100 !default;
+//=== Button Style ===//
+
 .nucleus-button-group {
   display: flex;
   justify-content: flex-start;
 
   .nucleus-button {
     &.is-active {
-      background: blue;
+      background: $color-azure-800;
 
       &:hover {
-        background: blueviolet;
+        background: $color-azure-100;
       }
     }
 

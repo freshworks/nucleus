@@ -129,18 +129,6 @@ class NucleusButton extends Component {
   @defaultProp
   active = false;
 
-
-  /**
-  * Flag to set toggle attribute
-  *
-  * @field type
-  * @type string
-  * @public
-  * @default `info`
-  */
-  @defaultProp
-  type = null;
-
   /**
   * Flag to set autofocus
   *
@@ -433,7 +421,7 @@ class NucleusButton extends Component {
   click() {
     let action = this.get('onClick');
     if(this.type === "toggle") {
-      if(this.active) {
+      if(this.get('active')) {
         this.set('active',false)
       }
       else {
