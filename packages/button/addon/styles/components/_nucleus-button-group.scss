@@ -9,10 +9,10 @@ $btn-grp-hover-bg: $color-azure-100 !default;
 
   .nucleus-button {
     &.is-active {
-      background: $color-azure-800;
+      background: $btn-grp-bg;
 
       &:hover {
-        background: $color-azure-100;
+        background: $btn-grp-hover-bg;
       }
     }
 

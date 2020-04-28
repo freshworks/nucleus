@@ -421,12 +421,7 @@ class NucleusButton extends Component {
   click() {
     let action = this.get('onClick');
     if(this.type === "toggle") {
-      if(this.get('active')) {
-        this.set('active',false)
-      }
-      else {
-        this.set('active',true)
-      }
+      this.set('active',!this.get('active'));
     }
 
     if (action === null || action === undefined) {

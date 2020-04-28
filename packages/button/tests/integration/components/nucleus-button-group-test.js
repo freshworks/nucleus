@@ -18,7 +18,12 @@ module('Integration | Component | nucleus-button-group', function(hooks) {
   });
   
     test('buttons pass visual regression tests', async function(assert) {
-    await render(hbs`{{#nucleus-button-group}}  {{#nucleus-button}}Button1{{/nucleus-button}}   {{#nucleus-button}}Button2{{/nucleus-button}} {{#nucleus-button}}Button3{{/nucleus-button}}{{/nucleus-button-group}}`);
+    await render(hbs`
+                     {{#nucleus-button-group}}  
+                       {{#nucleus-button}}Button1{{/nucleus-button}}  
+                       {{#nucleus-button}}Button2{{/nucleus-button}} 
+                       {{#nucleus-button}}Button3{{/nucleus-button}}
+                     {{/nucleus-button-group}}`);
     await backstop(assert,{scenario: {misMatchThreshold: 0}});
   });
 });
