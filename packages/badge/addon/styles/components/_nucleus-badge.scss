@@ -46,43 +46,47 @@ $active-box-shadow: inset 0 0 4px 0 rgba(0, 0, 0, .25);
     box-shadow: $active-box-shadow;
   }
 
-  &--lineCritical {
-    color: $bdg-linecritical-color;
-    background-image: linear-gradient(to bottom, $bdg-linecritical-bg, $bdg-linecritical-bg);
+  &--line {
+    &--critical {
+      color: $bdg-linecritical-color;
+      background-color: $bdg-linecritical-bg;
+    }
+
+    &--neutral {
+      color: $bdg-linenuetral-color;
+      background-color: $bdg-linenuetral-bg;
+    }
+
+    &--new {
+      color: $bdg-linenew-color;
+      background-color: $bdg-linenew-bg;
+    }
+
+    &--primary {
+      color: $bdg-lineprimary-color;
+      background-color: $bdg-lineprimary-bg;
+    }
   }
 
-  &--lineNuetral {
-    color: $bdg-linenuetral-color;
-    background-image: linear-gradient(to bottom, $bdg-linenuetral-bg, $bdg-linenuetral-bg);
-  }
+  &--solid {
+    &--critical {
+      color: $bdg-solid-color;
+      background-color: $bdg-solidcritical-bg;
+    }
 
-  &--lineNew {
-    color: $bdg-linenew-color;
-    background-image: linear-gradient(to bottom, $bdg-linenew-bg, $bdg-linenew-bg);
-  }
+    &--neutral {
+      color: $bdg-solid-color;
+      background-color: $bdg-solidnuetral-bg;
+    }
 
-  &--linePrimary {
-    color: $bdg-lineprimary-color;
-    background-image: linear-gradient(to bottom, $bdg-lineprimary-bg, $bdg-lineprimary-bg);
-  }
+    &--new {
+      color: $bdg-solid-color;
+      background-color: $bdg-solidnew-bg;
+    }
 
-  &--solidCritical {
-    color: $bdg-solid-color;
-    background-image: linear-gradient(to bottom, $bdg-solidcritical-bg, $bdg-solidcritical-bg);
-  }
-
-  &--solidNeutral {
-    color: $bdg-solid-color;
-    background-image: linear-gradient(to bottom, $bdg-solidnuetral-bg, $bdg-solidnuetral-bg);
-  }
-
-  &--solidNew {
-    color: $bdg-solid-color;
-    background-image: linear-gradient(to bottom, $bdg-solidnew-bg, $bdg-solidnew-bg);
-  }
-
-  &--solidPrimary {
-    color: $bdg-solid-color;
-    background-image: linear-gradient(to bottom, $bdg-solidprimary-bg, $bdg-solidprimary-bg);
+    &--primary {
+      color: $bdg-solid-color;
+      background-color: $bdg-solidprimary-bg;
+    }
   }
 }

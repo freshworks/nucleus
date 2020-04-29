@@ -46,15 +46,25 @@ class NucleusBadge extends Component {
  'data-test-id' = 'nucleus-badge';
 
  /**
- * Badge display variants: `lineCritical`, `lineNeutral`, `lineNew`, `linePrimary` , `solidCritical` , `solidNeutral` , `solidNew` , `solidPrimary` & `solidPrimary`
- *
- * @field variant
+ * Badge display type of variants:  `line` or `solid`
+ * @field type
  * @type string
- * @default 'lineCritical'
+ * @default line
  * @public
  */
  @defaultProp
- variant = 'lineCritical';
+ type = 'line';
+
+ /**
+ * Badge display variants: `critical`, `neutral`, `new` & `primary` 
+ *
+ * @field variant
+ * @type string
+ * @default 'critical'
+ * @public
+ */
+ @defaultProp
+ variant = 'critical';
 
 
  /**
@@ -63,13 +73,14 @@ class NucleusBadge extends Component {
  * @computed _typeClass
  * @private
  */
- @computed('variant')
- get _typeClass() {
-   let type = this.get('variant');
-   return type ? `nucleus-badge--${type}` : 'nucleus-badge--lineCritical';
+  @computed('variant')
+  get _typeClass() {
+    let type = this.get('variant');
+    if(this.type === 'solid') {
+      return type ? `nucleus-badge--solid--${type}` : 'nucleus-badge--solid--critical';
+    }
+    return type ? `nucleus-badge--line--${type}` : 'nucleus-badge--line--critical';
  }
-
-
 }
 
 export default NucleusBadge;

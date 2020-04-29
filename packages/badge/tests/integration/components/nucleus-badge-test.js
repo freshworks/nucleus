@@ -22,14 +22,14 @@ module('Integration | Component | nucleus-badge', function(hooks) {
   });
 
   test('buttons pass visual regression tests', async function(assert) {
-    await render(hbs`{{#nucleus-badge variant="lineCritical"}}11{{/nucleus-badge}}
-   {{#nucleus-badge variant="lineNuetral"}}22{{/nucleus-badge}}
-   {{#nucleus-badge variant="lineNew"}}33{{/nucleus-badge}}
-   {{#nucleus-badge variant="linePrimary"}}44{{/nucleus-badge}}
-   {{#nucleus-badge variant="solidCritical"}}55{{/nucleus-badge}}
-   {{#nucleus-badge variant="solidNeutral"}}66{{/nucleus-badge}}
-   {{#nucleus-badge variant="solidNew"}}77{{/nucleus-badge}}
-   {{#nucleus-badge variant="solidPrimary"}}88{{/nucleus-badge}}`);
+    await render(hbs`{{#nucleus-badge type="line" variant="critical"}}11{{/nucleus-badge}}
+   {{#nucleus-badge type="line" variant="nuetral"}}22{{/nucleus-badge}}
+   {{#nucleus-badge type="line" variant="new"}}33{{/nucleus-badge}}
+   {{#nucleus-badge type="line" variant="primary"}}44{{/nucleus-badge}}
+   {{#nucleus-badge type="solid" variant="critical"}}55{{/nucleus-badge}}
+   {{#nucleus-badge type="solid" variant="neutral"}}66{{/nucleus-badge}}
+   {{#nucleus-badge type="solid" variant="new"}}77{{/nucleus-badge}}
+   {{#nucleus-badge type="solid" variant="primary"}}88{{/nucleus-badge}}`);
     await backstop(assert,{scenario: {misMatchThreshold: 0.1}});
   });
   test('it passes a11y tests', async function(assert) {

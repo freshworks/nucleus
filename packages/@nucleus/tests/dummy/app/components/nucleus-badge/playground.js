@@ -9,20 +9,28 @@ import {
 
 const PROPERTIES = [
   {
+    name: 'type',
+    select: true,
+    value: 'line',
+    types: [
+        'line',
+        'solid'
+    ]
+    
+  } ,
+  {
     name: 'variant',
     select: true,
-    value: 'lineCritical',
+    value: 'critical',
     types: [
-        'lineCritical',
-        'lineNeutral',
-        'lineNew', 
-        'linePrimary' ,
-        'solidCritical' ,
-        'solidNeutral' , 
-        'solidNew' , 
-        'solidPrimary'   
+        'critical',
+        'neutral',
+        'primary',
+        'new'
     ]
-  },
+  }
+  
+  
 ]
 
 class Playground extends Component {
