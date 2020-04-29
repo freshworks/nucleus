@@ -56,33 +56,6 @@ class Table extends Component {
   rows;
 
   /**
-  * Holds the array of selected rows
-  *
-  * @computed selected
-  * @private
-  */
-  @computed("selectAll", {
-    get() {
-      if (this.selectAll) {
-        return this.rows;
-      }
-      else {
-        return A([])
-      }  
-    },
-    set(key, value) {
-      if (this.selectAll == true) {
-        this.set('selectAll', false);
-      }
-      else if (value.length == this.rows.length) {
-        this.set('selectAll', true);
-      }
-      return value;
-    }
-  })
-  selected;
-
-  /**
   * Handles filter of columns 
   *
   * @action onFilterColumns

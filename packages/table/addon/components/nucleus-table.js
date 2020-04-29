@@ -3,8 +3,9 @@ import {
   layout as templateLayout,
 } from '@ember-decorators/component';
 import defaultProp from '@freshworks/core/utils/default-decorator';
-import { action, computed } from '@ember/object';
+import { computed } from '@ember/object';
 import Component from '@ember/component';
+import { A } from '@ember/array';
 import layout from "../templates/components/nucleus-table";
 
 /**
@@ -114,7 +115,13 @@ class NucleusTable extends Component {
   @defaultProp
   selectedColumnsTitle = "Selected Columns";
 
-
+  /**
+  * Specify a fixed height for the table    
+  *
+  * @field height
+  * @type number
+  * @public
+  */
   @defaultProp
   height;
 
@@ -127,6 +134,33 @@ class NucleusTable extends Component {
   * @public
   */
   selectAll;
+
+  /**
+  * Holds the array of selected rows
+  *
+  * @computed selected
+  * @private
+  */
+  @computed("selectAll", {
+  get() {
+    if (this.selectAll) {
+      return this.rows;
+    }
+    else {
+      return A([])
+    }  
+  },
+  set(key, value) {
+    if (this.selectAll == true) {
+      this.set('selectAll', false);
+    }
+    else if (value.length == this.rows.length) {
+      this.set('selectAll', true);
+    }
+    return value;
+  }
+  })
+  selected;
 }
 
 export default NucleusTable;

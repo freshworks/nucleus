@@ -26,9 +26,9 @@
         {{#each selectedColumns as |column|}}
           <div class="card">
             {{#if column.disabled}}
-            {{nucleus-icon name="lock" size="small"}}
+            {{nucleus-icon name="lock" size="medium"}}
             {{else}}
-            {{nucleus-icon name="drag" size="small"}}
+            {{nucleus-icon name="drag" size="medium"}}
             {{/if}}
             {{column.name}}
             {{#unless column.disabled}}

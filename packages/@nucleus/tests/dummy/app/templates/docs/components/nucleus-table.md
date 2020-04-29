@@ -29,9 +29,11 @@ The `selectAll` prop can be used to select all entries displayed on the table cu
 
 Nucleus Table provides attributes and contextual components to deal with many real-world usecases 
 
-#### 1. Using the Selected Rows 
+#### 1. Using custom table cell components
 
-{{nucleus-table/demo-4}}
+We can use custom components for the cells by accessing the table cell's contextual component. It exposes the cell's value as `value` and also the current column and row as `column` and `row` attribute respectively.
+
+{{nucleus-table/demo-6}}
 
 #### 2. Using a contextual Pagination Component
 
@@ -39,15 +41,27 @@ There are times when we want to specify an extra paginator for the table at a lo
 
 {{nucleus-table/demo-5}}
 
-#### 3. Using custom table cell components
+#### 3. Using the Selected Rows 
 
-We can use custom components for the cells by accessing the table cell's contextual component. It exposes the cell's value as `value` and also the current column and row as `column` and `row` attribute respectively.
+The selected rows can be accessed using the `selectedRows` attribute as shown below. 
 
-{{nucleus-table/demo-6}}
+{{nucleus-table/demo-4}}
+
 
 ## Accessibility 
 
 1. Use the `tableCaption` attribute to the table to give an overview about the table's contents
+```hbs
+  {{#nucleus-table
+    columns=columns
+    rows=rows
+    tableCaption="Contact Details"
+    as |table|
+  }}
+    {{table.table}}
+  {{/nucleus-table}}
+```
+
 2. If you are using custom components inside the cell, ensure that the component is appropriately accessible
 
 ## Guidelines

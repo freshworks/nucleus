@@ -24,10 +24,9 @@ export default Component.extend({
 
   selectedValues: A([]),
 
-  actions: {
-    onSelectRows(value) {
-      console.log('enter')
-      console.log(value);
+  onSelectRows(value) {
+    console.log("executed");
+    if (value && value.length > 0) {
       this.selectedValues = value;
     }
   }

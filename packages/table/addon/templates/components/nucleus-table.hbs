@@ -1,6 +1,7 @@
 <div class="nucleus-table-container" style="height: {{if height height}};">
   {{#nucleus-pagination records=rows pageSize=pageSize as |pagination|}}
    {{yield (hash
+      selectedRows=selected
       paginator = pagination.paginator
       table = (component "nucleus-table/table"
         columns=columns
@@ -11,9 +12,9 @@
         selectedColumnsTitle=selectedColumnsTitle
         filterTitle=filterTitle
         columnsTitle=columnsTitle
+        selected=selected
       )
    )}}
     {{pagination.paginator mini=isMini}}
   {{/nucleus-pagination}}
-  {{selectedRows}}
 </div>

@@ -3,7 +3,7 @@ import {
   layout as templateLayout,
 } from '@ember-decorators/component';
 import defaultProp from '@freshworks/core/utils/default-decorator';
-import { action, computed, set, observer } from '@ember/object';
+import { action, computed, set } from '@ember/object';
 import { A } from '@ember/array';
 import Component from '@ember/component';
 import layout from "../../templates/components/nucleus-table/filter";

@@ -4,8 +4,11 @@
       columns=columns
       rows=rows
       as |table|}}
-      {{table.selectedItems}}
-      {{table.table onUpdateSelect=onSelectRows}}
+      Selected Contacts are: 
+      {{#each table.selectedRows as |entry|}}
+        {{entry.contact}}
+      {{/each}}
+      {{table.table}}
     {{/nucleus-table}}
   {{/demo.example}}
   {{demo.snippet "nucleus-table4.hbs"}}
