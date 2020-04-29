@@ -6,12 +6,12 @@ export default Component.extend({
   columns: A([
       { name: 'Source', valuePath: 'source', selected: true, disabled: false},
       { name: 'Contact', valuePath: 'contact', selected: true, disabled: true},
-      { name: 'Status', valuePath: 'status', selected: true, disabled: false},
-      { name: 'PhNo', valuePath: 'phno', selected: false, disabled: false},
+      { name: 'Status', valuePath: 'status', selected: false, disabled: false},
+      { name: 'PhNo', valuePath: 'phno', selected: true, disabled: false},
       { name: 'Subject', valuePath: 'subject', selected: false, disabled: false},
     ]),
   rows: A([
-      { source: 'FB', contact: 'Gandalf', phno: '914', subject: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.', status: 'D' },
+      { source: 'FB', contact: 'Gandalf', phno: '913', subject: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.', status: 'D' },
       { source: 'Twitter', contact: 'Severus', phno: '915', subject: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.', status: 'E' },
       { source: 'Call', contact: 'Alan', phno: '916', subject: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.', status: 'F' },
       { source: 'ABC', contact: 'Snape', phno: '917', subject: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.', status: 'G' },

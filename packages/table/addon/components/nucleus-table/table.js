@@ -2,8 +2,7 @@ import {
   tagName,
   layout as templateLayout,
 } from '@ember-decorators/component';
-import defaultProp from '@freshworks/core/utils/default-decorator';
-import { action, computed, set } from '@ember/object';
+import { action, computed } from '@ember/object';
 import { A } from '@ember/array';
 import Component from '@ember/component';
 import layout from "../../templates/components/nucleus-table/table";
@@ -12,9 +11,11 @@ import { later } from '@ember/runloop';
 /**
   __Usage:__
 
-  [Refer component page](/docs/components/nucleus-table/filter)
+  [Refer component page](/docs/components/nucleus-table)
 
-  @class Nucleus Table
+  The contextual component that displays the actual Table
+
+  @class Table
   @namespace Components
   @extends Ember.Component
   @public
@@ -23,13 +24,10 @@ import { later } from '@ember/runloop';
 @tagName('')
 class Table extends Component {
 
-  @defaultProp
-  canFilter=true;
   /**
-  * selectedColumns
+  * Array of columns displayed on the table
   *
-  * @field selectedColumns
-  * @type function
+  * @computed selectedColumns
   * @private
   */
   @computed("columns", {
@@ -37,13 +35,19 @@ class Table extends Component {
     let arrayFirst = A([{ name: '', valuePath: '', selected: true, disabled: true}]);
     return arrayFirst.concat(this.columns.filterBy('selected'));
   },
-  set(key, value) { // eslint-disable-line no-unused-vars
+  set(key, value) { 
     let arrayFirst = A([{ name: '', valuePath: '', selected: true, disabled: true}]);
     return arrayFirst.concat(value);
   }
   })
   selectedColumns;
 
+  /**
+  * Array of rows displayed on the table
+  *
+  * @computed rows
+  * @private
+  */
   @computed("columns", "pageItems", {
     get() {
       return this.pageItems;
@@ -51,13 +55,14 @@ class Table extends Component {
   })
   rows;
 
-  @defaultProp
-  selectAll=false;
-
+  /**
+  * Holds the array of selected rows
+  *
+  * @computed selected
+  * @private
+  */
   @computed("selectAll", {
     get() {
-      console.log("in get")
-      console.log(this.selectAll);
       if (this.selectAll) {
         return this.rows;
       }
@@ -66,19 +71,23 @@ class Table extends Component {
       }  
     },
     set(key, value) {
-      console.log("in set")
       if (this.selectAll == true) {
         this.set('selectAll', false);
       }
       else if (value.length == this.rows.length) {
-        this.selectAll = true;
+        this.set('selectAll', true);
       }
-      console.log(this.selectAll);
       return value;
     }
   })
   selected;
 
+  /**
+  * Handles filter of columns 
+  *
+  * @action onFilterColumns
+  * @private
+  */
   @action
   onFilterColumns(filteredColumns) {
     if(filteredColumns && filteredColumns.length > 0) {
@@ -87,10 +96,6 @@ class Table extends Component {
         this.set('selectedColumns', filteredColumns);
       });
     }
-  }
-  
-  specialCall() {
-    this.set('selectAll', true);
   }
 }
 

@@ -5,10 +5,9 @@
     {{#nucleus-table
       columns=columns
       rows=rows
-      pageSize=4
+      selectAll=selectAll
       as |table|}}
-      {{table.paginator mini=true}}
-      {{#table.table selectAll=selectAll as |value column row|}}{{column.name}}{{row.columnValue}}{{value}}{{/table.table}}
+      {{table.table}}
     {{/nucleus-table}}
   {{/demo.example}}
   {{demo.snippet "nucleus-table3.hbs"}}

@@ -54,7 +54,7 @@
 
   .filter-container {
     
-    & span {
+    & .filter-button {
       position: absolute;
       top: 0;
       right: 0;
@@ -67,7 +67,7 @@
       align-items: center;
     }
     
-    & span:hover {
+    & .filter-button:hover {
         cursor: pointer;
         background-color: $color-smoke-50;
     }

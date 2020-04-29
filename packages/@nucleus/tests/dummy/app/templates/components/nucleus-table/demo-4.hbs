@@ -1,0 +1,13 @@
+{{#docs-demo as |demo|}}
+  {{#demo.example name="nucleus-table4.hbs"}}
+    {{#nucleus-table
+      columns=columns
+      rows=rows
+      as |table|}}
+      {{table.selectedItems}}
+      {{table.table onUpdateSelect=onSelectRows}}
+    {{/nucleus-table}}
+  {{/demo.example}}
+  {{demo.snippet "nucleus-table4.hbs"}}
+  {{demo.snippet "table-component4.js" label="component.js"}}
+{{/docs-demo}}

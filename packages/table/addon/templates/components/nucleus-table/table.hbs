@@ -1,6 +1,7 @@
 {{#ember-table class="nucleus-table" as |t|}}
+  <caption>{{tableCaption}}</caption>
      {{#if canFilter}}
-      <span class="filter-container">{{nucleus-table/filter columns=columns onUpdate=onFilterColumns}}</span>
+      <span class="filter-container">{{nucleus-table/filter columns=columns selectedColumnsTitle=selectedColumnsTitle filterTitle=filterTitle columnsTitle=columnsTitle onUpdate=onFilterColumns}}</span>
      {{/if}}
       {{#t.head
        columns=selectedColumns

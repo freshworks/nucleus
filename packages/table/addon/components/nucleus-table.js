@@ -4,11 +4,8 @@ import {
 } from '@ember-decorators/component';
 import defaultProp from '@freshworks/core/utils/default-decorator';
 import { action, computed } from '@ember/object';
-import { A } from '@ember/array';
-import { set } from '@ember/object';
 import Component from '@ember/component';
 import layout from "../templates/components/nucleus-table";
-import { later } from '@ember/runloop';
 
 /**
   __Usage:__
@@ -23,86 +20,113 @@ import { later } from '@ember/runloop';
 @templateLayout(layout)
 @tagName('')
 class NucleusTable extends Component {
+
+  /**
+  * The ember array of columns in the table 
+  *
+  * @field columns
+  * @type array
+  * @public
+  */
   @defaultProp
   columns;
 
+  /**
+  * The ember array of objects that represent the rows in the table 
+  *
+  * @field rows
+  * @type array
+  * @public
+  */
   @defaultProp
   rows;
 
+  /**
+  * The number of rows displayed per page of the table. Defaults to 30 
+  *
+  * @field pageSize
+  * @type number
+  * @default 30
+  * @public
+  */
   @defaultProp
   pageSize = 30;
 
+  /**
+  * Show or Hide the option to Filter Columns in the table 
+  *
+  * @field canFilter
+  * @type boolean
+  * @default true
+  * @public
+  */
   @defaultProp
   canFilter = true;
 
-  @defaultProp
-  selectAll = false;
-
-  @defaultProp
-  pageReload = 0;
-
+  /**
+  * Display the mini Paginator as the main Paginator for table   
+  *
+  * @field isMini
+  * @type boolean
+  * @default false
+  * @public
+  */
   @defaultProp
   isMini = false;
 
   /**
-  * selectedColumns
+  * Accessibility Description for the table   
   *
-  * @field selectedColumns
-  * @type function
-  * @private
+  * @field tableCaption
+  * @type string
+  * @public
   */
-  @computed("columns", {
-    get() {
-      let arrayFirst = A([{ name: '', valuePath: '', selected: true, disabled: true}]);
-      return arrayFirst.concat(this.columns.filterBy('selected'));
-    },
-    set(key, value) { // eslint-disable-line no-unused-vars
-      let arrayFirst = A([{ name: '', valuePath: '', selected: true, disabled: true}]);
-      return arrayFirst.concat(value);
-    }
-  })
-  selectedColumns;
-
+  @defaultProp
+  tableCaption;
 
   /**
-  * selectedRows
+  * Title for the Filter Dialog   
   *
-  * @field selectedRows
-  * @type function
-  * @private
+  * @field filterTitle
+  * @type localisation string
+  * @public
   */
-  @computed("selectedColumns", "rows", {
-    get() {
-      let allRowsData = this.get('rows');
-      let columnValuePaths = this.get('selectedColumns').map(column => column.valuePath);
-      return allRowsData;
-    },
-    set(key, value) { // eslint-disable-line no-unused-vars
-      return value;
-    }
-  })
-  selectedRows;
+  @defaultProp
+  filterTitle = "Customise Columns";
+
+  /**
+  * Title for the List of Columns   
+  *
+  * @field columnsTitle
+  * @type localisation string
+  * @public
+  */
+  @defaultProp
+  columnsTitle = "Choose Columns";
+
+  /**
+  * Title for the Selected List of Columns   
+  *
+  * @field selectedColumnsTitle
+  * @type localisation string
+  * @public
+  */
+  @defaultProp
+  selectedColumnsTitle = "Selected Columns";
+
 
   @defaultProp
   height;
 
-
   /**
-  * Toggle action to show or hide the stacked notifications.
+  * Boolean to select all rows in the current page   
   *
-  * @method onFilterColumns
+  * @field selectAll
+  * @type boolean
+  * @default false
   * @public
-  *
   */
-  @action
-  onFilterColumns(filteredColumns) {
-    if(filteredColumns && filteredColumns.length > 0) {
-      this.set('selectedColumns', []);
-      later(this, function () {
-        this.set('selectedColumns', filteredColumns);
-      });
-    }
-  }
+  selectAll;
 }
 
 export default NucleusTable;

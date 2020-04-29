@@ -1,0 +1,16 @@
+{{#docs-demo as |demo|}}
+  {{#demo.example name="nucleus-table5.hbs"}}
+    {{#nucleus-table
+      columns=columns
+      rows=rows
+      as |table|}}
+      <div style="display:flex; align-items: baseline; background-color: white;">
+        {{nucleus-button label="Delete" variant="secondary"}}
+        {{table.paginator mini=true}}
+      </div>
+      {{table.table}}
+    {{/nucleus-table}}
+  {{/demo.example}}
+  {{demo.snippet "nucleus-table5.hbs"}}
+  {{demo.snippet "table-component5.js" label="component.js"}}
+{{/docs-demo}}

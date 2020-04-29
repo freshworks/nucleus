@@ -5,8 +5,15 @@
       table = (component "nucleus-table/table"
         columns=columns
         pageItems=pagination.pageItems
+        canFilter=canFilter
+        selectAll=selectAll
+        tableCaption=tableCaption
+        selectedColumnsTitle=selectedColumnsTitle
+        filterTitle=filterTitle
+        columnsTitle=columnsTitle
       )
    )}}
     {{pagination.paginator mini=isMini}}
   {{/nucleus-pagination}}
+  {{selectedRows}}
 </div>
