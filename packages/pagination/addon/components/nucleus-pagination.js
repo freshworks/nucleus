@@ -166,7 +166,7 @@ class NucleusPagination extends Component {
   * @type array
   * @private
   */
-  @computed('currentPage', 'recordCount', 'pageReload')
+  @computed('currentPage', 'recordCount')
   get pageItems() {
     let index = (this.currentPage - 1) * this.pageSize;
     let resultArr = this.records.slice(index, index + this.pageSize);
