@@ -1,4 +1,4 @@
-import { set, get, action, computed } from '@ember/object';
+import { setProperties, get, action, computed } from '@ember/object';
 import { classNames, layout as templateLayout } from '@ember-decorators/component';
 import layout from "../templates/components/nucleus-datepicker-range-input";
 import NucleusInputDatepicker from './nucleus-datepicker-input';
@@ -64,9 +64,10 @@ class NucleusDatepickerRangeInput extends NucleusInputDatepicker {
   @action
   changeSelectedDateByInput(dateString) {
     try {
+      let locale = get(this, 'locale');
       let parsedDates = dateString.split(' to ');
-      let newStartDate = this.parseDateForMultipleFormats(parsedDates[0], this.locale);
-      let newEndDate = (parsedDates[1])? this.parseDateForMultipleFormats(parsedDates[1], this.locale) : null;
+      let newStartDate = get(this, 'parseDateForMultipleFormats').call(this, parsedDates[0], locale);
+      let newEndDate = (parsedDates[1])? get(this, 'parseDateForMultipleFormats').call(this, parsedDates[1], locale) : null;
       if(newStartDate.toString() === 'Invalid Date') {
         throw new Error('Invalid Date');
       }
@@ -75,14 +76,18 @@ class NucleusDatepickerRangeInput extends NucleusInputDatepicker {
         newStartDate = newEndDate;
         newEndDate = switchDate;
       }
-      set(this, 'selectedStartDate', newStartDate);
-      set(this, 'currentDate', newStartDate);
-      set(this, 'selectedEndDate', newEndDate)
+      setProperties(this, {
+        'selectedStartDate': newStartDate,
+        'currentDate': newStartDate,
+        'selectedEndDate': newEndDate
+      });
     } catch(error) {
       let selectedStartDate = get(this, 'selectedStartDate');
       let selectedEndDate = get(this, 'selectedEndDate');
-      set(this, 'selectedStartDate', selectedStartDate);
-      set(this, 'selectedEndDate', selectedEndDate);
+      setProperties(this, {
+        'selectedStartDate': selectedStartDate,
+        'selectedEndDate': selectedEndDate
+      });
     }
   }
 
@@ -96,9 +101,11 @@ class NucleusDatepickerRangeInput extends NucleusInputDatepicker {
   */  
   @action
   updateInput(date) {
-    set(this, 'selectedStartDate', date.start);
-    set(this, 'selectedEndDate', date.end)
-    set(this, 'isModalOpen', false);
+    setProperties(this, {
+      'selectedStartDate': date.start,
+      'selectedEndDate': date.end,
+      'isModalOpen': false
+    });
   }
 
 }

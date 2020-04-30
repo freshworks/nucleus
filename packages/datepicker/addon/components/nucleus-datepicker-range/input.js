@@ -20,11 +20,13 @@ class Input extends InputBase {
     get(key) {
       let selectedStartDate = get(this, 'selectedStartDate');
       let selectedEndDate = get(this, 'selectedEndDate');
+      let formatString = get(this, 'formatString');
+      let locale = get(this, 'locale');
       let value;
       if(selectedStartDate && selectedEndDate) {
-        value = formatDate(selectedStartDate, this.formatString, this.locale) + ' to ' + formatDate(selectedEndDate, this.formatString, this.locale);
+        value = formatDate(selectedStartDate, formatString, locale) + ' to ' + formatDate(selectedEndDate, formatString, locale);
       } else if(selectedStartDate || selectedEndDate) {
-        value = (selectedStartDate)? formatDate(selectedStartDate, this.formatString, this.locale) : formatDate(selectedEndDate, this.formatString, this.locale);
+        value = (selectedStartDate)? formatDate(selectedStartDate, formatString, locale) : formatDate(selectedEndDate, formatString, locale);
       } else {
         value = null;
       }

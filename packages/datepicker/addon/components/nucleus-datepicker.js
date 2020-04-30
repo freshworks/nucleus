@@ -2,7 +2,7 @@ import { classNames, layout as templateLayout } from '@ember-decorators/componen
 import Component from '@ember/component';
 import layout from '../templates/components/nucleus-datepicker';
 import defaultProp from '@freshworks/core/utils/default-decorator';
-import { set, get, action, computed } from '@ember/object';
+import { set, setProperties, get, action, computed } from '@ember/object';
 import { parseDate } from 'ember-power-calendar-utils';
 import { DATEPICKER_PERMITTED_DATE_FORMATS as dateFormats } from '../constants/nucleus-datepicker';
 
@@ -83,7 +83,8 @@ class NucleusDatepicker extends Component {
   * @public
   */
   @computed('initialDate', function () {
-    return (typeof this.initialDate === "string")? this.parseDateForMultipleFormats(this.initialDate) : this.initialDate;
+    let initialDate = get(this, 'initialDate');
+    return (typeof initialDate === 'string')? (get(this, 'parseDateForMultipleFormats').call(this, initialDate)) : initialDate;
   })
   selectedDate;
 
@@ -124,12 +125,14 @@ class NucleusDatepicker extends Component {
   @action
   changeSelectedDateByInput(dateString) {
     try {
-      let newDate = this.parseDateForMultipleFormats(dateString, this.locale);
+      let newDate = get(this, 'parseDateForMultipleFormats').call(this, dateString, get(this, 'locale'));
       if(newDate.toString() === 'Invalid Date') {
         throw new Error('Invalid Date');
       }
-      set(this, 'selectedDate', newDate);
-      set(this, 'currentDate', newDate);
+      setProperties(this, {
+        'selectedDate': newDate,
+        'currentDate': newDate
+      });
     } catch(error) {
       let selectedDate = get(this, 'selectedDate');
       set(this, 'selectedDate', selectedDate);
@@ -178,8 +181,7 @@ class NucleusDatepicker extends Component {
   *
   */
   parseDateForMultipleFormats(dateString, locale) {
-    let parsedDate;
-    parsedDate = parseDate(dateString, this.formatString, locale);
+    let parsedDate = parseDate(dateString, this.formatString, locale);
     if(parsedDate.toString() === "Invalid Date") {
       for (let i = 1; i < dateFormats.length; i++) {
         let dateFormat = dateFormats[i];

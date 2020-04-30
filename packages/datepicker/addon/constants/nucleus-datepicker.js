@@ -14,7 +14,9 @@ const DATEPICKER_KEY_CODE = {
   ESC: 27
 };
 
-const DATEPICKER_MODAL_SELECTOR = `.nucleus-datepicker-modal__content input, 
+const DATEPICKER_MODAL_SELECTOR = '.nucleus-datepicker-modal__content .nucleus-datepicker';
+
+const DATEPICKER_MODAL_TAB_SELECTOR = `.nucleus-datepicker-modal__content input, 
   .nucleus-datepicker-modal__content button:not(.ember-power-calendar-day), 
   .nucleus-datepicker-modal__content select:not([disabled]), 
   .nucleus-datepicker-modal__content *[tabIndex="0"]`;
@@ -49,7 +51,8 @@ const SUPPORTED_LANGUAGES = [
 
 export { 
   DATEPICKER_KEY_CODE, 
-  DATEPICKER_MODAL_SELECTOR, 
+  DATEPICKER_MODAL_SELECTOR,
+  DATEPICKER_MODAL_TAB_SELECTOR, 
   DATEPICKER_PERMITTED_DATE_FORMATS, 
   SUPPORTED_LANGUAGES
 };

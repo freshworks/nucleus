@@ -1,4 +1,4 @@
-import { set, get, action, computed } from '@ember/object';
+import { setProperties, get, action, computed } from '@ember/object';
 import { classNames, layout as templateLayout } from '@ember-decorators/component';
 import defaultProp from '@freshworks/core/utils/default-decorator';
 import layout from '../templates/components/nucleus-datepicker-range';
@@ -52,7 +52,8 @@ class NucleusDatepickerRange extends NucleusDatePicker {
   * @public
   */
   @computed('initialStartDate', function () {
-    return (typeof this.initialStartDate === "string")? this.parseDateForMultipleFormats(this.initialStartDate) : this.initialStartDate;
+    let initialStartDate = get(this, 'initialStartDate');
+    return (typeof initialStartDate === "string")? (get(this, 'parseDateForMultipleFormats').call(this, initialStartDate)) : initialStartDate;
   })
   selectedStartDate;
 
@@ -65,7 +66,8 @@ class NucleusDatepickerRange extends NucleusDatePicker {
   * @public
   */
   @computed('initialEndDate', function () {
-    return (typeof this.initialEndDate === "string")? this.parseDateForMultipleFormats(this.initialEndDate) : this.initialEndDate;
+    let initialEndDate = get(this, 'initialEndDate');
+    return (typeof initialEndDate === "string")? (get(this, 'parseDateForMultipleFormats').call(this, initialEndDate)) : initialEndDate;
   })
   selectedEndDate;
 
@@ -111,8 +113,10 @@ class NucleusDatepickerRange extends NucleusDatePicker {
   */
   @action 
   changeSelectedDate(newDate) {
-    set(this, 'selectedStartDate', newDate.start);
-    set(this, 'selectedEndDate', newDate.end);
+    setProperties(this, {
+      'selectedStartDate': newDate.start,
+      'selectedEndDate': newDate.end
+    });
   }
 
   /**
@@ -126,20 +130,25 @@ class NucleusDatepickerRange extends NucleusDatePicker {
   @action
   changeSelectedDateByInput(dateString) {
     try {
+      let locale = get(this, 'locale');
       let parsedDates = dateString.split(' to ');
-      let newStartDate = this.parseDateForMultipleFormats(parsedDates[0], this.locale);
-      let newEndDate = (parsedDates[1])? this.parseDateForMultipleFormats(parsedDates[1], this.locale) : null;
+      let newStartDate = get(this, 'parseDateForMultipleFormats').call(this, parsedDates[0], locale);
+      let newEndDate = (parsedDates[1])? (get(this, 'parseDateForMultipleFormats').call(this, parsedDates[1], locale)) : null;
       if(newStartDate.toString() === 'Invalid Date') {
         throw new Error('Invalid Date');
       }
-      set(this, 'selectedStartDate', newStartDate);
-      set(this, 'currentDate', newStartDate);
-      set(this, 'selectedEndDate', newEndDate)
+      setProperties(this, {
+        'selectedStartDate': newStartDate,
+        'currentDate': newStartDate,
+        'selectedEndDate': newEndDate
+      });
     } catch(error) {
       let selectedStartDate = get(this, 'selectedStartDate');
       let selectedEndDate = get(this, 'selectedEndDate');
-      set(this, 'selectedStartDate', selectedStartDate);
-      set(this, 'selectedEndDate', selectedEndDate);
+      setProperties(this, {
+        'selectedStartDate': selectedStartDate,
+        'selectedEndDate': selectedEndDate
+      });
     }
   }
 

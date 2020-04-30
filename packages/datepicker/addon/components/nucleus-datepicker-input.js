@@ -1,4 +1,4 @@
-import { set, get, action, computed } from '@ember/object';
+import { set, setProperties, get, action, computed } from '@ember/object';
 import { observes } from '@ember-decorators/object';
 import { classNames, layout as templateLayout } from '@ember-decorators/component';
 import Component from '@ember/component';
@@ -6,7 +6,7 @@ import { next } from '@ember/runloop';
 import defaultProp from '@freshworks/core/utils/default-decorator';
 import { formatDate, parseDate } from "ember-power-calendar-utils";
 import layout from "../templates/components/nucleus-datepicker-input";
-import { DATEPICKER_KEY_CODE, DATEPICKER_MODAL_SELECTOR, DATEPICKER_PERMITTED_DATE_FORMATS as dateFormats } from '../constants/nucleus-datepicker';
+import { DATEPICKER_KEY_CODE, DATEPICKER_MODAL_SELECTOR, DATEPICKER_MODAL_TAB_SELECTOR, DATEPICKER_PERMITTED_DATE_FORMATS as dateFormats } from '../constants/nucleus-datepicker';
 
 /**
   __Usage:__
@@ -99,7 +99,7 @@ class NucleusDatepickerInput extends Component {
   @computed('selectedDate', {
     get(key) {
       let selectedDate = get(this, 'selectedDate');
-      let value = (selectedDate)? formatDate(selectedDate, this.formatString, this.locale) : null;
+      let value = (selectedDate)? formatDate(selectedDate, get(this, 'formatString'), get(this, 'locale')) : null;
       return value;
     }, 
     /*eslint no-unused-vars: ["error", {"args": "none"}]*/
@@ -149,17 +149,20 @@ class NucleusDatepickerInput extends Component {
   modalOpen(event) {
     set(this, 'isModalOpen', true);
     let targetRect = event.target.getBoundingClientRect();
-    set(get(this, 'position'), 'top', (targetRect.top + targetRect.height + 8) + 'px');
-    set(get(this, 'position'), 'left', targetRect.left + 'px');
-
+    setProperties(this.position, {
+      'top': ((targetRect.top + targetRect.height + 8) + 'px'),
+      'left': (targetRect.left + 'px')
+    });
     next(this, function() {
-      let calendarRect = document.querySelector(`[data-calendar-id="${this.elementId}"]`).getBoundingClientRect();
+      let calendarRect = document.querySelector(`[data-calendar-id="${get(this, 'elementId')}"]`).getBoundingClientRect();
       if(calendarRect.bottom > window.innerHeight) {
-        set(get(this, 'position'), 'top', (targetRect.top - calendarRect.height - 8) + 'px');
-        set(get(this, 'position'), 'left', targetRect.left + 'px');
+        setProperties(this.position, {
+          'top': ((targetRect.top - calendarRect.height - 8) + 'px'),
+          'left': (targetRect.left + 'px')
+        });
       }
 
-      this._lockFocusInModal(event.target);
+      get(this, '_lockFocusInModal').call(this, event.target);
     });
   }
 
@@ -174,12 +177,14 @@ class NucleusDatepickerInput extends Component {
   @action
   changeSelectedDateByInput(dateString) {
     try {
-      let newDate = this.parseDateForMultipleFormats(dateString, this.locale);
+      let newDate = get(this, 'parseDateForMultipleFormats').call(this, dateString, get(this, 'locale'));
       if(newDate.toString() === 'Invalid Date') {
         throw new Error('Invalid Date');
       }
-      set(this, 'selectedDate', newDate);
-      set(this, 'currentDate', newDate);
+      setProperties(this, {
+        'selectedDate': newDate,
+        'currentDate': newDate
+      });
     } catch(error) {
       let selectedDate = get(this, 'selectedDate');
       set(this, 'selectedDate', selectedDate);
@@ -196,8 +201,10 @@ class NucleusDatepickerInput extends Component {
   */  
   @action
   updateInput(date) {
-    set(this, 'selectedDate', date);
-    set(this, 'isModalOpen', false);
+    setProperties(this, {
+      'selectedDate': date,
+      'isModalOpen': false
+    });
   }
 
   /**
@@ -230,36 +237,33 @@ class NucleusDatepickerInput extends Component {
   */
   _lockFocusInModal(target) {
     this.inputField = target;
-    let tabElements = document.querySelectorAll(DATEPICKER_MODAL_SELECTOR);
+    let tabElements = document.querySelectorAll(DATEPICKER_MODAL_TAB_SELECTOR);
+    let modalElement = document.querySelector(DATEPICKER_MODAL_SELECTOR);
     let index = 0;
-
-    for (let i = 0; i < tabElements.length; i++) {
-      const element = tabElements[i];
       
-      element.addEventListener('keydown', function(event) {
-        switch (event.keyCode) {
-          case DATEPICKER_KEY_CODE.TAB:
-            event.stopPropagation();
-            event.preventDefault();
-            if(event.shiftKey) {
-              index--;
-              if(index === -1) {
-                index = tabElements.length - 1;
-              }
-            } else {
-              index++;
-              if(index === tabElements.length) {
-                index = 0;
-              }
+    modalElement.addEventListener('keydown', function(event) {
+      switch (event.keyCode) {
+        case DATEPICKER_KEY_CODE.TAB:
+          event.stopPropagation();
+          event.preventDefault();
+          if(event.shiftKey) {
+            index--;
+            if(index === -1) {
+              index = tabElements.length - 1;
             }
-            tabElements[index].focus();
-            break;
-        
-          default:
-            break;
-        }
-      });
-    }
+          } else {
+            index++;
+            if(index === tabElements.length) {
+              index = 0;
+            }
+          }
+          tabElements[index].focus();
+          break;
+      
+        default:
+          break;
+      }
+    });
 
     tabElements[0].focus();
   }

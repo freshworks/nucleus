@@ -1,15 +1,15 @@
-<CustomPowerCalendar
-  @center={{currentDate}}
-  @locale={{locale}}
-  @selected={{selectedDate}}
-  @onSelect={{modifySelectedDate}}
-  @onCenterChange={{modifyCurrentDate}} as |calendar|>
+{{#custom-power-calendar
+  center=currentDate
+  locale=locale
+  selected=selectedDate
+  onSelect=modifySelectedDate
+  onCenterChange=modifyCurrentDate as |calendar| 
+}}
 
-  <calendar.Nav 
-    @locale={{locale}} 
-    @calendar={{calendar}} 
-    @currentDate={{currentDate}}
-  >
-  </calendar.Nav>
-  <calendar.Days @weekdayFormat="min"/>
-</CustomPowerCalendar>
+  {{calendar.Nav 
+    locale=locale 
+    calendar=calendar 
+    currentDate=currentDate
+  }}
+  {{calendar.Days weekdayFormat="min"}}
+{{/custom-power-calendar}}

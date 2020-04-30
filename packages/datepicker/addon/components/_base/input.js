@@ -108,7 +108,7 @@ class Input extends Component {
   */
   @action
   keyDownPressed(event) {
-    if(this.inputKeyDown) {
+    if(get(this, 'inputKeyDown')) {
      get(this, 'inputKeyDown').call(this, event)
     }
   }

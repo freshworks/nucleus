@@ -18,7 +18,7 @@ class Input extends InputBase {
   @computed('selectedDate', {
     get(key) {
       let selectedDate = get(this, 'selectedDate');
-      let value = (selectedDate)? formatDate(selectedDate, this.formatString, this.locale) : null;
+      let value = (selectedDate)? (formatDate(selectedDate, get(this, 'formatString'), get(this, 'locale'))) : null;
       return value;
     }, 
     /*eslint no-unused-vars: ["error", {"args": "none"}]*/
