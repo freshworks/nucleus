@@ -31,7 +31,7 @@
       border-bottom: 1px solid $color-smoke-50;
       color: $text-secondary;
 
-      &.is-selected { 
+      &.is-selected {
         background: $color-azure-50;
       }
 
@@ -60,18 +60,20 @@
           border: 1px solid #cfd7df;
           transition: all .2s ease;
           border-radius: 2px;
-          display: inline-block;
           -webkit-user-select: none;
         }
-        .et-toggle-select input:hover ~ span {
+
+        .et-toggle-select input:hover + span {
           border-color: #12344d;
           box-shadow: 0 0 0 5px #ebeff3;
         }
-        .et-toggle-select input:checked ~ span {
+
+        .et-toggle-select input:checked + span {
           background: #2c5cc5;
           border-color: #2c5cc5;
         }
-        .et-toggle-select input[type=checkbox]+span::after {
+
+        .et-toggle-select input[type=checkbox] + span::after {
           display: none;
           content: "";
           position: relative;
@@ -83,11 +85,13 @@
           transition: opacity .2s ease-in-out;
           box-sizing: border-box;
         }
-        .et-toggle-select input[type=checkbox]:checked+span::after {
+
+        .et-toggle-select input[type=checkbox]:checked + span::after {
           border-right: 2px solid #fff;
           border-bottom: 2px solid #fff;
           display: block;
         }
+
         input {
           position: absolute;
           width: 15px;
@@ -101,7 +105,6 @@
   }
 
   .filter-container {
-    
     & .filter-button {
       position: absolute;
       top: 0;
@@ -114,12 +117,12 @@
       justify-content: center;
       align-items: center;
     }
-    
+
     & .filter-button:hover {
-        cursor: pointer;
-        background-color: $color-smoke-50;
+      cursor: pointer;
+      background-color: $color-smoke-50;
     }
-   
+
     & .filter-button .nucleus-icon {
       vertical-align: middle;
     }
