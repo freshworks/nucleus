@@ -1,9 +1,10 @@
-<div class="nucleus-table-container" style="height: {{if height height}};">
-  {{#nucleus-pagination records=rows pageSize=pageSize as |pagination|}}
-   {{yield (hash
-      selectedRows=selected
-      paginator = pagination.paginator
-      table = (component "nucleus-table/table"
+{{#unless _isEmpty}}
+  <div class="nucleus-table-container">
+    {{#nucleus-pagination records=rows pageSize=pageSize as |pagination|}}
+      {{yield (hash
+        selectedRows=selected
+        paginator = pagination.paginator
+        table = (component "nucleus-table/table"
         columns=columns
         pageItems=pagination.pageItems
         canFilter=canFilter
@@ -13,8 +14,9 @@
         filterTitle=filterTitle
         columnsTitle=columnsTitle
         selected=selected
-      )
-   )}}
-    {{pagination.paginator mini=isMini}}
-  {{/nucleus-pagination}}
-</div>
+        )
+      )}}
+      {{pagination.paginator mini=isMini}}
+    {{/nucleus-pagination}}
+  </div>
+{{/unless}}

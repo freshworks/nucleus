@@ -116,16 +116,6 @@ class NucleusTable extends Component {
   selectedColumnsTitle = "Selected Columns";
 
   /**
-  * Specify a fixed height for the table    
-  *
-  * @field height
-  * @type number
-  * @public
-  */
-  @defaultProp
-  height;
-
-  /**
   * Boolean to select all rows in the current page   
   *
   * @field selectAll
@@ -161,6 +151,20 @@ class NucleusTable extends Component {
   }
   })
   selected;
+
+  @computed('rows', {
+    get() {
+      if (this.rows.length == 0) {
+        return true
+      }
+      else {
+        return false
+      }
+    }
+  })
+  _isEmpty;
 }
+
+
 
 export default NucleusTable;

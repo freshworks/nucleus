@@ -1,4 +1,4 @@
-<span class="filter-button" {{on 'click' toggleFilters}}>{{nucleus-icon name="admin" size="large"}}</span>
+<span class="filter-button" {{on "click" toggleFilters}}>{{nucleus-icon name="admin" size="large"}}</span>
 
 {{#if showFilters}}
   <div class="nucleus-table-filter">
@@ -12,12 +12,12 @@
         {{#each _columns as |column|}}
           <fieldset>
             {{input
-              change=(action 'clickColumn' column)
-              type='checkbox'
+              change=(action "clickColumn" column)
+              type="checkbox"
               checked=column.selected
               disabled=column.disabled
               }}
-            <label for="{{column.name}}">{{column.name}}</label>
+            <label for={{column.name}}>{{column.name}}</label>
           </fieldset>
         {{/each}}
       </div>
@@ -26,9 +26,9 @@
         {{#each selectedColumns as |column|}}
           <div class="card">
             {{#if column.disabled}}
-            {{nucleus-icon name="lock" size="medium"}}
+              {{nucleus-icon name="lock" size="medium"}}
             {{else}}
-            {{nucleus-icon name="drag" size="medium"}}
+              {{nucleus-icon name="drag" size="medium"}}
             {{/if}}
             {{column.name}}
             {{#unless column.disabled}}
@@ -39,7 +39,7 @@
                 icon="nucleus-cross"
                 iconOnly=true
                 iconSize="mini"
-                onClick=(action 'clickColumn' column)}}
+                onClick=(action "clickColumn" column)}}
             {{/unless}}
           </div>
         {{/each}}
