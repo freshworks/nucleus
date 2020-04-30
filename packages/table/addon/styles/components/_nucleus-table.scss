@@ -55,22 +55,22 @@
           background: transparent;
           width: 15px;
           height: 15px;
-          display: block;
+          display: inline-block;
           margin-top: 5px;
-          border: 1px solid #cfd7df;
+          border: 1px solid $color-smoke-100;
           transition: all .2s ease;
           border-radius: 2px;
           -webkit-user-select: none;
         }
 
         .et-toggle-select input:hover + span {
-          border-color: #12344d;
-          box-shadow: 0 0 0 5px #ebeff3;
+          border-color: $color-elephant-900;
+          box-shadow: 0 0 0 5px $color-smoke-50;
         }
 
         .et-toggle-select input:checked + span {
-          background: #2c5cc5;
-          border-color: #2c5cc5;
+          background: $color-azure-800;
+          border-color: $color-azure-800;
         }
 
         .et-toggle-select input[type=checkbox] + span::after {
