@@ -1,6 +1,6 @@
 const DEFAULT_CONFIG = {
-  type: 'success',
-  isDismissible: false
+  type: 'warning',
+  isDismissible: true
 }
 
 const ICON_MAP = {

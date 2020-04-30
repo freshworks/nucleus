@@ -21,15 +21,5 @@ export default Component.extend({
       { source: 'Email', contact: 'Byers', phno: '914', subject: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.', status: 'D' },
       { source: 'FB', contact: 'El - Eleven', phno: '914', subject: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.', status: 'D' },
     ]),
-
-  selectedValues: A([]),
-
-  onSelectRows(value) {
-    console.log("executed");
-    if (value && value.length > 0) {
-      this.selectedValues = value;
-    }
-  }
-  
 });
 // END-SNIPPET

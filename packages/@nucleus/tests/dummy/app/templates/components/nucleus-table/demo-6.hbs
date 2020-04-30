@@ -7,7 +7,7 @@
       as |table|}}
       {{#table.table as |value column row|}}
       {{#if (eq column.name "PhNo")}}
-        <a href="">{{value}}</a>
+        <a style="text-decoration:underline" href="">{{value}}</a>
       {{else}}
         {{value}}
       {{/if}}

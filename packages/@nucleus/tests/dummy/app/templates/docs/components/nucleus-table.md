@@ -68,9 +68,14 @@ The selected rows can be accessed using the `selectedRows` attribute as shown be
 
 ✅**Do's**
 
+1. Ensure that the esssential columns cannot be filtered 
+
+2. If an interactive cell element is present, the user must be given cues for understanding.
+
 
 
 🚫**Dont's**
 
+1. Do not clutter the table with many columns
 
 {{docs-note}}
