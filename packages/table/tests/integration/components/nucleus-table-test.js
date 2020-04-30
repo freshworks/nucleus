@@ -47,10 +47,7 @@ module('Integration | Component | nucleus-table', function(hooks) {
   });
 
   test('visual regression for table', async function(assert) {
-    this.set('tableRows', A([ { source: 'FB', contact: 'Gandalf', phno: '913', subject: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.', status: 'D' },
-    { source: 'Twitter', contact: 'Severus', phno: '915', subject: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.', status: 'E' },
-    { source: 'Call', contact: 'Alan', phno: '916', subject: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.', status: 'F' },
-    { source: 'ABC', contact: 'Snape', phno: '917', subject: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.', status: 'G' },]))
+    this.set('tableRows', A([ { source: 'FB', contact: 'Gandalf', phno: '913', subject: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.', status: 'D' }]))
     this.set('tableColumns', columns)
     await render(hbs `
       {{#nucleus-table rows=tableRows columns=tableColumns
@@ -58,7 +55,7 @@ module('Integration | Component | nucleus-table', function(hooks) {
         {{table.table}}
       {{/nucleus-table}}
     `)
-    await backstop(assert, {scenario:{misMatchThreshold: 0.05}});
+    await backstop(assert, {scenario:{misMatchThreshold: 0.2}});
   });
 
   test('it does not yield table if there are no rows', async function(assert){
