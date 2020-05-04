@@ -1,0 +1,92 @@
+$bdg-linecritical-bg:$color-persimmon-100 !default;
+$bdg-linecritical-color:$color-persimmon-800 !default;
+
+$bdg-linenuetral-bg:$color-smoke-100 !default;
+$bdg-linenuetral-color:$color-smoke-700 !default;
+
+$bdg-linenew-bg:$color-jungle-100 !default;
+$bdg-linenew-color:$color-jungle-800 !default;
+
+$bdg-lineprimary-bg:$color-azure-100 !default;
+$bdg-lineprimary-color:$color-azure-800 !default;
+
+$bdg-solid-color:white !default;
+
+$bdg-solidcritical-bg:$color-persimmon-800 !default;
+$bdg-solidnuetral-bg:$color-smoke-700 !default;
+$bdg-solidnew-bg:$color-jungle-800 !default;
+$bdg-solidprimary-bg:$color-azure-800 !default;
+
+$active-box-shadow: inset 0 0 4px 0 rgba(0, 0, 0, .25);
+
+.nucleus-badge {
+  font-size: $font-size-10;
+  vertical-align: middle;
+  line-height: 1.2;
+  padding: 6px 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  outline: 0;
+  transition: all .2s linear;
+  letter-spacing: .3px;
+  font-weight: $font-weight-700;
+  height: 10px;
+  width: 8px;
+
+  &:focus {
+    border: 1px solid $color-azure-800;
+    box-shadow: 0 0 0 1px $color-azure-800;
+    outline: none;
+  }
+
+  &:active {
+    box-shadow: $active-box-shadow;
+  }
+
+  &--line {
+    &--critical {
+      color: $bdg-linecritical-color;
+      background-color: $bdg-linecritical-bg;
+    }
+
+    &--neutral {
+      color: $bdg-linenuetral-color;
+      background-color: $bdg-linenuetral-bg;
+    }
+
+    &--new {
+      color: $bdg-linenew-color;
+      background-color: $bdg-linenew-bg;
+    }
+
+    &--primary {
+      color: $bdg-lineprimary-color;
+      background-color: $bdg-lineprimary-bg;
+    }
+  }
+
+  &--solid {
+    &--critical {
+      color: $bdg-solid-color;
+      background-color: $bdg-solidcritical-bg;
+    }
+
+    &--neutral {
+      color: $bdg-solid-color;
+      background-color: $bdg-solidnuetral-bg;
+    }
+
+    &--new {
+      color: $bdg-solid-color;
+      background-color: $bdg-solidnew-bg;
+    }
+
+    &--primary {
+      color: $bdg-solid-color;
+      background-color: $bdg-solidprimary-bg;
+    }
+  }
+}
