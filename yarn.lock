@@ -7758,7 +7758,7 @@ ember-source@~3.13.0:
     resolve "^1.11.1"
     silent-error "^1.1.1"
 
-ember-svg-jar@^2.1.0:
+ember-svg-jar@^2.1.0, ember-svg-jar@^2.2.3:
   version "2.2.3"
   resolved "https://registry.yarnpkg.com/ember-svg-jar/-/ember-svg-jar-2.2.3.tgz#632f8d6a999ceb1c815a135fbc2bd681b856330b"
   integrity sha512-17kBxi5IfsEnCsVuFTjVs+HEAa3sfdB4t4C+5GZUxWixEbK8hwoRDsuvsboOGhDemycVv21GAyexcTeinabsnQ==

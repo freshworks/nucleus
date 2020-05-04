@@ -1,5 +1,11 @@
-@freshworks/toast-messages
+@freshworks/toast-message
 ==============================================================================
+[![npm version](https://badge.fury.io/js/%40freshworks%2Ftoast-message.svg)](https://www.npmjs.com/package/@freshworks/toast-message)
+![npm](https://img.shields.io/npm/dm/@freshworks/toast-message)
+
+```sh
+ember install @freshworks/toast-message
+```
 
 Toast messages are quick messages that appear after user-driven events to inform the users immediately after said events. These components are mostly used for confirmation or alerts and only require the user’s attention for a span of a few seconds. They can also be closed with the standard close button and may contain buttons or links.
 

@@ -1,7 +1,7 @@
 # Modal
 
 ```sh
-yarn add @freshworks/modal
+ember install @freshworks/modal
 ```
 
 Best use of modals is to get the task quickly done and may also support in completion of the primary task, for example: Creation of an entity and also editing it. Modal has to be relevant and carefully utilized as modal grasp users attention and may obstruct their current flow. 

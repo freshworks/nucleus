@@ -18,15 +18,15 @@ Prior to working on a fix or a new feature, it is ideal to create an issue with 
 
 #### Commit message / PR naming conventions
 
-All commits should be tagged. Tags are denoted by square brackets (`[]`) and come at the start of the commit message.
+All commits should be tagged. Tags should come at the start of the commit message.
 
-General format: `[<tag-type> #<github-issue-id>]`
+General format: `<tag-type> #<github-issue-id>`
 
-* `[CLEANUP]`: commit that removes deprecated functionality
-* `[CHORE]`: commit that refactors code or updates dependencies
-* `[TEST #<github-issue-id>]`: commit that adds tests for a feature
-* `[FEAT #<github-issue-id>]`: commit that adds features
-* `[BUGFIX #<github-issue-id>]`: commit that fixes a bug
+* `cleanup`: commit that removes deprecated functionality
+* `chore`: commit that refactors code or updates dependencies
+* `test #<github-issue-id>`: commit that adds tests for a feature
+* `feat #<github-issue-id>`: commit that adds features
+* `fix #<github-issue-id>`: commit that fixes a bug
 
 In general, all commits should fall into one of the above categories.
 
@@ -38,20 +38,6 @@ Start by cloning the Git project to your local hard drive (Ensure that you have 
 
 ```
 git clone git@github.com:freshdesk/nucleus.git
-```
-
-#### Link `nucleus` to your development version
-
-Running the following command from your `nucleus` project would ensure it is available for all projects that can link to your development add-on.
-
-```
-npm link
-```
-
-Running the following command from your project path would consume the `npm link`'ed `nucleus` add-on.
-
-```
-npm link nucleus
 ```
 
 ### Linting
@@ -69,11 +55,37 @@ All PRs should have accompanying tests. For bug-fixes, this should include tests
 
 #### Running tests
 
-* To run tests locally use `npm run test` or `npm run test:s`.
+* To run tests locally use `yarn test`.
 
-## Running the dummy application
+## Running the documentation application
 
-* `ember serve`
-* Visit the dummy application at [http://localhost:4200](http://localhost:4200).
+* `yarn start`
+* Visit the dummy application at [http://localhost:1508](http://localhost:1508).
 
 For more information on using ember-cli, visit [https://ember-cli.com/](https://ember-cli.com/).
+
+## To create a new component
+```
+ember g nucleus-component component-name -description="Sample description"
+```
+
+- This will take care of creating the necessary files and folders for the new component.
+- Will create a basic readme file for the component.
+- Will create a dummy documentation page.
+- Will add a route for the created documentation page.
+
+#### To get started with the newly created component,
+- Go to the the newly created component's folder
+```
+yarn link
+```
+- Then copy the component name that is displayed in the terminal
+- Go to 'packages/@nucleus' folder
+```
+yarn link 'copied-component-name'
+```
+- From the root directory
+```
+npm run start
+```
+- You should be able to see the newly created component in the local documentation site.
