@@ -1,0 +1,33 @@
+//=== Button Style ===//
+$btn-grp-bg: $color-azure-800 !default;
+$btn-grp-hover-bg: $color-azure-100 !default;
+//=== Button Style ===//
+
+.nucleus-button-group {
+  display: flex;
+  justify-content: flex-start;
+
+  .nucleus-button {
+    &.is-active {
+      background: $btn-grp-bg;
+
+      &:hover {
+        background: $btn-grp-hover-bg;
+      }
+    }
+
+    &:first-child {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    &:last-child {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+
+    &:not(:first-child):not(:last-child) {
+      border-radius: 0;
+    }
+  }
+}

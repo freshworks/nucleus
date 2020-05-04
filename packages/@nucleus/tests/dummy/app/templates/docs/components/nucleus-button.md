@@ -52,6 +52,10 @@ The `iconSize` property specifies the size of the icon. If the iconSize is not m
   {{demo.snippet 'nucleus-button-dense.hbs'}}
 {{/docs-demo}}
 
+#### 4. Button Groups:
+Button groups are an easy way to group a series of buttons together.
+
+{{nucleus-button/demo-2}}
 
 
 
