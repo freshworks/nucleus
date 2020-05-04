@@ -1088,15 +1088,6 @@
     unique-filename "^1.1.1"
     which "^1.3.1"
 
-"@freshworks/core@^0.1.16", "@freshworks/core@^0.1.9":
-  version "0.1.17"
-  resolved "https://registry.yarnpkg.com/@freshworks/core/-/core-0.1.17.tgz#22eafa39d8aaa6fdee44943279e01d0e1c99952b"
-  integrity sha512-FvclVqgXiVS7J0YOEbizfZ4ERX6hIBRF7Ni1EvfziuN36s29JZus4GELzk9TtSap2O9S6QU6RFfLwcFNevDJKg==
-  dependencies:
-    ember-cli-babel "^7.11.1"
-    ember-cli-htmlbars "^4.0.0"
-    ember-cli-sass "^10.0.0"
-
 "@freshworks/core@^0.2.1":
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/@freshworks/core/-/core-0.2.1.tgz#9699d4e66c10c533b232d4218f9bc7178811ec9d"
@@ -1105,20 +1096,6 @@
     ember-cli-babel "^7.11.1"
     ember-cli-htmlbars "^4.0.0"
     ember-cli-sass "^10.0.0"
-
-"@freshworks/icon@^0.5.0", "@freshworks/icon@^0.5.7":
-  version "0.5.7"
-  resolved "https://registry.yarnpkg.com/@freshworks/icon/-/icon-0.5.7.tgz#df6bf902bb1ffdbccd435d7ab181b03d35694dbc"
-  integrity sha512-xsH1+15sudME3J7wkPOE6risID3N+UvCD5fdYqY0Y7/sq0avlbrAyCk9LcUCHlE2SDle0I9QKuxllmK+J/vwDw==
-  dependencies:
-    "@freshworks/core" "^0.1.16"
-    ember-cli-babel "^7.11.1"
-    ember-cli-htmlbars "^4.0.0"
-    ember-cli-sass "^10.0.0"
-    ember-css-transitions "^0.1.16"
-    ember-decorators "^6.1.1"
-    ember-decorators-polyfill shibulijack-fd/ember-decorators-polyfill#master
-    ember-svg-jar "^2.1.0"
 
 "@freshworks/icon@^0.7.2":
   version "0.7.2"
