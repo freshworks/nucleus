@@ -1097,12 +1097,35 @@
     ember-cli-htmlbars "^4.0.0"
     ember-cli-sass "^10.0.0"
 
+"@freshworks/core@^0.2.1":
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/@freshworks/core/-/core-0.2.1.tgz#9699d4e66c10c533b232d4218f9bc7178811ec9d"
+  integrity sha512-7zaBaxOyXW1hWeIweuM0vD91R1JkpGi1Mk+KO3Ce0rUnK8cwEXYuXnVBfM7FLGVsYhYssnau58QvZMWF5hAm7Q==
+  dependencies:
+    ember-cli-babel "^7.11.1"
+    ember-cli-htmlbars "^4.0.0"
+    ember-cli-sass "^10.0.0"
+
 "@freshworks/icon@^0.5.0", "@freshworks/icon@^0.5.7":
   version "0.5.7"
   resolved "https://registry.yarnpkg.com/@freshworks/icon/-/icon-0.5.7.tgz#df6bf902bb1ffdbccd435d7ab181b03d35694dbc"
   integrity sha512-xsH1+15sudME3J7wkPOE6risID3N+UvCD5fdYqY0Y7/sq0avlbrAyCk9LcUCHlE2SDle0I9QKuxllmK+J/vwDw==
   dependencies:
     "@freshworks/core" "^0.1.16"
+    ember-cli-babel "^7.11.1"
+    ember-cli-htmlbars "^4.0.0"
+    ember-cli-sass "^10.0.0"
+    ember-css-transitions "^0.1.16"
+    ember-decorators "^6.1.1"
+    ember-decorators-polyfill shibulijack-fd/ember-decorators-polyfill#master
+    ember-svg-jar "^2.1.0"
+
+"@freshworks/icon@^0.7.2":
+  version "0.7.2"
+  resolved "https://registry.yarnpkg.com/@freshworks/icon/-/icon-0.7.2.tgz#10712d9ad69806db8fcf0a711b75ec463e5cafcf"
+  integrity sha512-W8mMNgdT97DnVj31sCggOolDqD13skFlU880dlusGPEHy9VCkCIRNcH8zzywV6Szrd6rQVpbJbJXlOYuVWES+g==
+  dependencies:
+    "@freshworks/core" "^0.2.1"
     ember-cli-babel "^7.11.1"
     ember-cli-htmlbars "^4.0.0"
     ember-cli-sass "^10.0.0"
@@ -7412,6 +7435,14 @@ ember-css-transitions@^0.1.16:
     ember-cli-babel "^7.12.0"
     ember-cli-typescript "^3.0.0"
     ember-inflector "^3.0.1"
+
+"ember-decorators-polyfill@github:shibulijack-fd/ember-decorators-polyfill#master":
+  version "1.1.1"
+  resolved "https://codeload.github.com/shibulijack-fd/ember-decorators-polyfill/tar.gz/626c3ad30b47772aaedb75bc25649d26ed0c5e94"
+  dependencies:
+    ember-cli-babel "^7.1.2"
+    ember-cli-version-checker "^3.1.3"
+    ember-compatibility-helpers "^1.2.0"
 
 ember-decorators-polyfill@shibulijack-fd/ember-decorators-polyfill#master:
   version "1.1.1"
