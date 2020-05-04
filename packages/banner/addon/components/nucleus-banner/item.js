@@ -59,6 +59,7 @@ class Item extends Component {
   @action
   onClose(item) {
     get(this, 'onDelete') && get(this, 'onDelete')(item);
+    typeof item.onClose === 'function' && item.onClose();
   }
 }
 
