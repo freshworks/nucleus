@@ -50,7 +50,7 @@ class Table extends Component {
   */
   @computed("columns", "pageItems", {
     get() {
-      return this.pageItems;
+      return this.get('pageItems');
     }
   })
   rows;

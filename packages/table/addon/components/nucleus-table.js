@@ -133,7 +133,7 @@ class NucleusTable extends Component {
   */
   @computed("selectAll", {
   get() {
-    if (this.selectAll) {
+    if (this.get('selectAll') === true) {
       return this.rows;
     }
     else {
@@ -141,10 +141,10 @@ class NucleusTable extends Component {
     }  
   },
   set(key, value) {
-    if (this.selectAll == true) {
+    if (this.get('selectAll') === true) {
       this.set('selectAll', false);
     }
-    else if (value.length == this.rows.length) {
+    else if (value.length === this.get('rows').length) {
       this.set('selectAll', true);
     }
     return value;
@@ -154,7 +154,7 @@ class NucleusTable extends Component {
 
   @computed('rows', {
     get() {
-      if (this.rows.length == 0) {
+      if (this.get('rows').length === 0) {
         return true
       }
       else {

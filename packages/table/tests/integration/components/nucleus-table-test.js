@@ -2,7 +2,7 @@
 import { module } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { A } from '@ember/array';
-import { render } from '@ember/test-helpers';
+import { render, click } from '@ember/test-helpers';
 import test from 'ember-sinon-qunit/test-support/test';
 import hbs from 'htmlbars-inline-precompile';
 import backstop from 'ember-backstop/test-support/backstop';
@@ -82,6 +82,22 @@ module('Integration | Component | nucleus-table', function(hooks) {
     `)
     assert.dom('.nucleus-table-container .filter-container').doesNotExist('Filter does not exist')
   });
+
+  test('filter works', async function(assert) {
+    this.set('tableRows', rows)
+    this.set('tableColumns', columns);
+    await render(hbs `
+      {{#nucleus-table rows=tableRows columns=tableColumns
+        as |table|}}
+        {{table.table}}
+      {{/nucleus-table}}
+    `)
+    assert.dom('th').exists({count: 4}, 'has 4 columns before filter');
+    await click('.filter-button')
+    await click('.selected-columns .card .nucleus-button')
+    await click('.nucleus-table-filter__footer .nucleus-button--primary')
+    assert.dom('th').exists({count: 3}, 'has 3 columns only after filter');
+  })
 
   test('it passes a11y tests', async function(assert) {
     this.set('tableRows', rows)
