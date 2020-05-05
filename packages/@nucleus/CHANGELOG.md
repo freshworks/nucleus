@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.10.0](https://github.com/freshdesk/nucleus/compare/nucleus@0.9.3...nucleus@0.10.0) (2020-05-05)
+
+
+### Features
+
+* **Nucleus-Badge:** Implementation  ([#177](https://github.com/freshdesk/nucleus/issues/177)) ([4b4de82](https://github.com/freshdesk/nucleus/commit/4b4de828b6e68a63194ff98e4ad08221ae1df535))
+
+
+
+
+
 ## [0.9.3](https://github.com/freshdesk/nucleus/compare/nucleus@0.9.2...nucleus@0.9.3) (2020-04-13)
 
 **Note:** Version bump only for package nucleus
