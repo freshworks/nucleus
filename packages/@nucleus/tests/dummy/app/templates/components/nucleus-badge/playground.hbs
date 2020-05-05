@@ -1,0 +1,17 @@
+{{!-- Demo with variants --}}
+{{#docs-playground as |p|}}
+  {{!-- preview --}}
+  {{#p.preview}}
+    {{#nucleus-badge
+    variant=variant.value
+    type=type.value
+    label=label.value
+    }}11{{/nucleus-badge}}
+  {{/p.preview}}
+
+  {{!-- props --}}
+  {{p.props onchange=(action 'onchange') properties=properties}}
+
+  {{!-- code --}}
+  {{p.codeblock code=code}}
+{{/docs-playground}}

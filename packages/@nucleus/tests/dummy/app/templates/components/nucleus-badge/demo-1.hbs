@@ -1,0 +1,19 @@
+{{#docs-demo as |demo|}}
+  {{#demo.example name="nucleus-badge-line.hbs"}}
+   {{#nucleus-badge type="line" variant="critical"}}11{{/nucleus-badge}}
+   {{#nucleus-badge type="line" variant="neutral"}}22{{/nucleus-badge}}
+   {{#nucleus-badge type="line" variant="new"}}33{{/nucleus-badge}}
+   {{#nucleus-badge type="line" variant="primary"}}44{{/nucleus-badge}}
+   {{/demo.example}}
+
+   {{#demo.example name="nucle-badge-solid.hbs"}}
+   {{#nucleus-badge type="solid" variant="critical"}}55{{/nucleus-badge}}
+   {{#nucleus-badge type="solid" variant="neutral"}}66{{/nucleus-badge}}
+   {{#nucleus-badge type="solid" variant="new"}}77{{/nucleus-badge}}
+   {{#nucleus-badge type="solid" variant="primary"}}88{{/nucleus-badge}}
+   {{/demo.example}}
+  {{demo.snippet "nucleus-badge-line.hbs" label="default.hbs"}}
+  {{demo.snippet "nucleus-button-solid.hbs" label="custom.hbs"}}
+  {{demo.snippet "nucleus-badge.hbs" label="default.hbs"}}
+  {{demo.snippet "button-badge.js" label="component.js"}}
+{{/docs-demo}}
