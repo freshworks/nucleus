@@ -1,0 +1,16 @@
+{{#docs-demo as |demo|}}
+  {{#demo.example name="nucleus-table4.hbs"}}
+    {{#nucleus-table
+      columns=columns
+      rows=rows
+      as |table|}}
+      Selected Contacts are: 
+      {{#each table.selectedRows as |entry|}}
+        {{entry.contact}}
+      {{/each}}
+      {{table.table}}
+    {{/nucleus-table}}
+  {{/demo.example}}
+  {{demo.snippet "nucleus-table4.hbs"}}
+  {{demo.snippet "table-component4.js" label="component.js"}}
+{{/docs-demo}}

@@ -6,7 +6,8 @@ module.exports = {
 
   rules: {
     'no-bare-strings': true,
-    'quotes': 'double'
+    'quotes': 'double',
+    'no-invalid-interactive': false
   },
   ignore: [
     '**/tests/dummy/**'
