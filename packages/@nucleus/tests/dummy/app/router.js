@@ -15,6 +15,7 @@ Router.map(function() {
     });
 
     this.route("components", function() {
+			this.route("nucleus-badge");
 			this.route("nucleus-pagination");
       this.route("nucleus-button");
       this.route("nucleus-inline-banner");

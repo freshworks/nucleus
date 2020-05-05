@@ -1163,19 +1163,36 @@
     unique-filename "^1.1.1"
     which "^1.3.1"
 
-"@freshworks/button@^0.6.3":
-  version "0.6.3"
-  resolved "https://registry.yarnpkg.com/@freshworks/button/-/button-0.6.3.tgz#fcc4c7a0acef2745c2643bb4b1f0cf71f1b4bc04"
-  integrity sha512-qz9AKVMkbd1S+G2Z5HcnCS0ZFoBBGsAc+5GiKgKIKSdj4MdpWQHXnnVPWcsaLZN9Kmm8oCBfm/61G7neaNw8tA==
+"@freshworks/banner@^0.6.4":
+  version "0.6.4"
+  resolved "https://registry.yarnpkg.com/@freshworks/banner/-/banner-0.6.4.tgz#c4ad31526e81f39e04f00f9c4472b5b53a649ecb"
+  integrity sha512-Fkp7r6BIa/0/qMUDEN8PtfpvtxI9CqCTojg5XaJSCVxp/RaVPu4dmxILFndfyQ/og1vjFBGcm0tK6k6ZjJRrRQ==
   dependencies:
+    "@freshworks/button" "^0.6.4"
     "@freshworks/core" "^0.2.1"
-    "@freshworks/icon" "^0.7.2"
+    "@freshworks/icon" "^0.8.0"
     ember-cli-babel "^7.11.1"
     ember-cli-htmlbars "^4.0.0"
     ember-cli-sass "^10.0.0"
     ember-css-transitions "^0.1.16"
     ember-decorators "^6.1.1"
-    ember-decorators-polyfill shibulijack-fd/ember-decorators-polyfill#master
+    ember-decorators-polyfill freshdesk/ember-decorators-polyfill#v.1.0.0
+    ember-truth-helpers "^2.1.0"
+    ember-wormhole "^0.5.5"
+
+"@freshworks/button@^0.6.3", "@freshworks/button@^0.6.4":
+  version "0.6.4"
+  resolved "https://registry.yarnpkg.com/@freshworks/button/-/button-0.6.4.tgz#7eb43ee1b1fca7441b74971a8d42d088b7c76b4d"
+  integrity sha512-/FdBTPwoJDoNKOtYLckQqvozKh0S2rL58vn++gt9SoGzJ0GlPB3LVELsqGsjnh5QcAso5anmLcnZLLjEDOrJKA==
+  dependencies:
+    "@freshworks/core" "^0.2.1"
+    "@freshworks/icon" "^0.8.0"
+    ember-cli-babel "^7.11.1"
+    ember-cli-htmlbars "^4.0.0"
+    ember-cli-sass "^10.0.0"
+    ember-css-transitions "^0.1.16"
+    ember-decorators "^6.1.1"
+    ember-decorators-polyfill freshdesk/ember-decorators-polyfill#v.1.0.0
     ember-truth-helpers "^2.1.0"
 
 "@freshworks/core@^0.1.16", "@freshworks/core@^0.1.9":
@@ -1224,6 +1241,53 @@
     ember-decorators-polyfill shibulijack-fd/ember-decorators-polyfill#master
     ember-svg-jar "^2.1.0"
 
+"@freshworks/icon@^0.8.0":
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/@freshworks/icon/-/icon-0.8.0.tgz#c85f5568af75d8816eeb9c23070cfbd4526485c1"
+  integrity sha512-BAFlEPs7ryI8bDPb0SmIU+1tuuYXVpTgC5JBGj4AG+ApEfzfk3TkYObRo50GZGPJz1kWmaadec224GuwV91o8g==
+  dependencies:
+    "@freshworks/core" "^0.2.1"
+    ember-cli-babel "^7.11.1"
+    ember-cli-htmlbars "^4.0.0"
+    ember-cli-sass "^10.0.0"
+    ember-css-transitions "^0.1.16"
+    ember-decorators "^6.1.1"
+    ember-decorators-polyfill freshdesk/ember-decorators-polyfill#v.1.0.0
+    ember-svg-jar "^2.1.0"
+
+"@freshworks/inline-banner@^0.6.4":
+  version "0.6.4"
+  resolved "https://registry.yarnpkg.com/@freshworks/inline-banner/-/inline-banner-0.6.4.tgz#94a1ab41ce9e0953b0fc835ba02df1cce41806b7"
+  integrity sha512-QHfPX8yuvEZ/aen5ZzlARP63R+UQu1w/uFW0spttds3JepjP0kXEe/S0lwcH64hPl7VcR4j7Xrw9TFwQueFbig==
+  dependencies:
+    "@freshworks/button" "^0.6.4"
+    "@freshworks/core" "^0.2.1"
+    "@freshworks/icon" "^0.8.0"
+    ember-cli-babel "^7.11.1"
+    ember-cli-htmlbars "^4.0.0"
+    ember-cli-sass "^10.0.0"
+    ember-css-transitions "^0.1.16"
+    ember-decorators "^6.1.1"
+    ember-decorators-polyfill freshdesk/ember-decorators-polyfill#v.1.0.0
+    ember-truth-helpers "^2.1.0"
+
+"@freshworks/modal@^0.6.5":
+  version "0.6.5"
+  resolved "https://registry.yarnpkg.com/@freshworks/modal/-/modal-0.6.5.tgz#50db635c0746261411e0f362385e19a9afaa9bd4"
+  integrity sha512-XvBaRICDxFQN10MP5S6duaXzES3AOW4HxDSlk663fzmHHgw6B7q0sMilccakarUiX4PjelZekRQfzBo7+LZZJA==
+  dependencies:
+    "@freshworks/button" "^0.6.4"
+    "@freshworks/core" "^0.2.1"
+    "@freshworks/icon" "^0.8.0"
+    ember-cli-babel "^7.11.1"
+    ember-cli-htmlbars "^4.0.0"
+    ember-cli-sass "^10.0.0"
+    ember-css-transitions "^0.1.16"
+    ember-decorators "^6.1.1"
+    ember-decorators-polyfill freshdesk/ember-decorators-polyfill#v.1.0.0
+    ember-truth-helpers "^2.1.0"
+    ember-wormhole "^0.5.5"
+
 "@freshworks/pagination@^0.1.1":
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/@freshworks/pagination/-/pagination-0.1.1.tgz#9c1da2e8624f93cd7cac1fce130fddb39f5a930f"
@@ -1239,6 +1303,21 @@
     ember-decorators "^6.1.1"
     ember-decorators-polyfill shibulijack-fd/ember-decorators-polyfill#master
     ember-svg-jar "^2.2.3"
+    ember-truth-helpers "^2.1.0"
+
+"@freshworks/tabs@^0.4.5":
+  version "0.4.5"
+  resolved "https://registry.yarnpkg.com/@freshworks/tabs/-/tabs-0.4.5.tgz#a9ace82fa005adb63c54533d21b213532ce5daa3"
+  integrity sha512-+5tQeGE/boZBdEEbL74Ho6E0UaCP43divE7Z6unpFNQPpoOmRn/ZFxhvkLNhxw48nxn3NLjxfXzKJJ8RkxQCbA==
+  dependencies:
+    "@freshworks/core" "^0.2.1"
+    "@freshworks/icon" "^0.8.0"
+    ember-cli-babel "^7.11.1"
+    ember-cli-htmlbars "^4.0.0"
+    ember-cli-sass "^10.0.0"
+    ember-css-transitions "^0.1.16"
+    ember-decorators "^6.1.1"
+    ember-decorators-polyfill freshdesk/ember-decorators-polyfill#v.1.0.0
     ember-truth-helpers "^2.1.0"
 
 "@fullhuman/postcss-purgecss@^2.1.2":
@@ -2450,9 +2529,9 @@
   integrity sha512-sVD2e6QAAHW0Y6Btse+tTA9k9g0iKm87wjxRsgZRU5EwSooz80tenbV+fA+f2BI2g0G2CqxsS1rIlwQCtPRQow==
 
 "@types/jquery@*":
-  version "3.3.37"
-  resolved "https://registry.yarnpkg.com/@types/jquery/-/jquery-3.3.37.tgz#0e912062e00e626a7b17231cae31ae9c639c5563"
-  integrity sha512-4MNntGYm6xdDiz2+B92xEmWcFN9mOeMXqS854lSe7LDpBhzscUjvXjCAl6JwPBtAkqmPZq+L4I5UyXXNDZyq4Q==
+  version "3.3.38"
+  resolved "https://registry.yarnpkg.com/@types/jquery/-/jquery-3.3.38.tgz#6385f1e1b30bd2bff55ae8ee75ea42a999cc3608"
+  integrity sha512-nkDvmx7x/6kDM5guu/YpXkGZ/Xj/IwGiLDdKM99YA5Vag7pjGyTJ8BNUh/6hxEn/sEu5DKtyRgnONJ7EmOoKrA==
   dependencies:
     "@types/sizzle" "*"
 
@@ -5366,11 +5445,6 @@ camelcase@^2.0.0:
   resolved "https://registry.yarnpkg.com/camelcase/-/camelcase-2.1.1.tgz#7c1d16d679a1bbe59ca02cacecfb011e201f5a1f"
   integrity sha1-fB0W1nmhu+WcoCys7PsBHiAfWh8=
 
-camelcase@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/camelcase/-/camelcase-3.0.0.tgz#32fc4b9fcdaf845fcdf7e73bb97cac2261f0ab0a"
-  integrity sha1-MvxLn82vhF/N9+c7uXysImHwqwo=
-
 camelcase@^4.1.0:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/camelcase/-/camelcase-4.1.0.tgz#d545635be1e33c542649c69173e5de6acfae34dd"
@@ -5722,15 +5796,6 @@ clipboard@^2.0.0:
     good-listener "^1.2.2"
     select "^1.1.2"
     tiny-emitter "^2.0.0"
-
-cliui@^3.2.0:
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/cliui/-/cliui-3.2.0.tgz#120601537a916d29940f934da3b48d585a39213d"
-  integrity sha1-EgYBU3qRbSmUD5NNo7SNWFo5IT0=
-  dependencies:
-    string-width "^1.0.1"
-    strip-ansi "^3.0.1"
-    wrap-ansi "^2.0.0"
 
 cliui@^5.0.0:
   version "5.0.0"
@@ -6616,7 +6681,7 @@ decamelize-keys@^1.0.0, decamelize-keys@^1.1.0:
     decamelize "^1.1.0"
     map-obj "^1.0.0"
 
-decamelize@^1.1.0, decamelize@^1.1.1, decamelize@^1.1.2, decamelize@^1.2.0:
+decamelize@^1.1.0, decamelize@^1.1.2, decamelize@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/decamelize/-/decamelize-1.2.0.tgz#f6534d15148269b20352e7bee26f501f9a191290"
   integrity sha1-9lNNFRSCabIDUue+4m9QH5oZEpA=
@@ -7958,7 +8023,7 @@ ember-css-transitions@^0.1.16:
     ember-cli-typescript "^3.1.3"
     ember-inflector "^3.0.1"
 
-ember-decorators-polyfill@freshdesk/ember-decorators-polyfill#v.1.0.0:
+ember-decorators-polyfill@freshdesk/ember-decorators-polyfill#v.1.0.0, "ember-decorators-polyfill@github:freshdesk/ember-decorators-polyfill#v.1.0.0":
   version "1.1.1"
   resolved "https://codeload.github.com/freshdesk/ember-decorators-polyfill/tar.gz/626c3ad30b47772aaedb75bc25649d26ed0c5e94"
   dependencies:
@@ -9613,11 +9678,6 @@ gensync@^1.0.0-beta.1:
   resolved "https://registry.yarnpkg.com/gensync/-/gensync-1.0.0-beta.1.tgz#58f4361ff987e5ff6e1e7a210827aa371eaac269"
   integrity sha512-r8EC6NO1sngH/zdD9fiRDLdcgnbayXah+mLgManTaIZJqEC1MZstmnox8KpnI2/fxQwrp5OpCOYWLp4rBl4Jcg==
 
-get-caller-file@^1.0.1:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/get-caller-file/-/get-caller-file-1.0.3.tgz#f978fa4c90d1dfe7ff2d6beda2a515e713bdcf4a"
-  integrity sha512-3t6rVToeoZfYSGd8YoLFR2DJkiQrIiUrGcjvFX2mDw3bn6k2OtwHN0TNCLbBO+w8qTvimhDkv+LSscbJY1vE6w==
-
 get-caller-file@^2.0.1, get-caller-file@^2.0.5:
   version "2.0.5"
   resolved "https://registry.yarnpkg.com/get-caller-file/-/get-caller-file-2.0.5.tgz#4f94412a82db32f36e3b0b9741f8a97feb031f7e"
@@ -10665,11 +10725,6 @@ invariant@^2.2.2, invariant@^2.2.4:
   dependencies:
     loose-envify "^1.0.0"
 
-invert-kv@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/invert-kv/-/invert-kv-1.0.0.tgz#104a8e4aaca6d3d8cd157a8ef8bfab2d7a3ffdb6"
-  integrity sha1-EEqOSqym09jNFXqO+L+rLXo//bY=
-
 ip-regex@^1.0.1:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/ip-regex/-/ip-regex-1.0.3.tgz#dc589076f659f419c222039a33316f1c7387effd"
@@ -11248,9 +11303,9 @@ jquery@3.4.1:
   integrity sha512-36+AdBzCL+y6qjw5Tx7HgzeGCzC81MDDgaUP8ld2zhx58HdqXGoBd+tHdrBMiyjGQs0Hxs/MLZTu/eHNJJuWPw==
 
 jquery@^3.4.1:
-  version "3.5.0"
-  resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.5.0.tgz#9980b97d9e4194611c36530e7dc46a58d7340fc9"
-  integrity sha512-Xb7SVYMvygPxbFMpTFQiHh1J7HClEaThguL15N/Gg37Lri/qKyhRGZYzHRyLH8Stq3Aow0LsHO2O2ci86fCrNQ==
+  version "3.5.1"
+  resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.5.1.tgz#d7b4d08e1bfdb86ad2f1a3d039ea17304717abb5"
+  integrity sha512-XwIBPqcMn57FxfT+Go5pzySnm4KWkT1Tv7gjrpT1srtf8Weynl6R273VJ5GjkRb51IzMp5nbaPjJXMWeju2MKg==
 
 js-base64@^2.1.8:
   version "2.5.2"
@@ -11555,13 +11610,6 @@ known-css-properties@^0.18.0:
   version "0.18.0"
   resolved "https://registry.yarnpkg.com/known-css-properties/-/known-css-properties-0.18.0.tgz#d6e00b56ee1d5b0d171fd86df1583cfb012c521f"
   integrity sha512-69AgJ1rQa7VvUsd2kpvVq+VeObDuo3zrj0CzM5Slmf6yduQFAI2kXPDQJR2IE/u6MSAUOJrwSzjg5vlz8qcMiw==
-
-lcid@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/lcid/-/lcid-1.0.0.tgz#308accafa0bc483a3867b4b6f2b9506251d1b835"
-  integrity sha1-MIrMr6C8SDo4Z7S28rlQYlHRuDU=
-  dependencies:
-    invert-kv "^1.0.0"
 
 leek@0.0.24:
   version "0.0.24"
@@ -13058,9 +13106,9 @@ node-resemble-js@^0.2.0:
     pngjs "~2.2.0"
 
 node-sass@^4.7.2:
-  version "4.14.0"
-  resolved "https://registry.yarnpkg.com/node-sass/-/node-sass-4.14.0.tgz#a8e9d7720f8e15b4a1072719dcf04006f5648eeb"
-  integrity sha512-AxqU+DFpk0lEz95sI6jO0hU0Rwyw7BXVEv6o9OItoXLyeygPeaSpiV4rwQb10JiTghHaa0gZeD21sz+OsQluaw==
+  version "4.14.1"
+  resolved "https://registry.yarnpkg.com/node-sass/-/node-sass-4.14.1.tgz#99c87ec2efb7047ed638fb4c9db7f3a42e2217b5"
+  integrity sha512-sjCuOlvGyCJS40R8BscF5vhVlQjNN069NtQ1gSxyK1u9iqvn6tf7O1R4GNowVZfiZUCRt5MmMs1xd+4V/7Yr0g==
   dependencies:
     async-foreach "^0.1.3"
     chalk "^1.1.1"
@@ -13076,7 +13124,7 @@ node-sass@^4.7.2:
     node-gyp "^3.8.0"
     npmlog "^4.0.0"
     request "^2.88.0"
-    sass-graph "^2.2.4"
+    sass-graph "2.2.5"
     stdout-stream "^1.4.0"
     "true-case-path" "^1.0.2"
 
@@ -13435,13 +13483,6 @@ os-homedir@^1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/os-homedir/-/os-homedir-1.0.2.tgz#ffbc4988336e0e833de0c168c7ef152121aa7fb3"
   integrity sha1-/7xJiDNuDoM94MFox+8VISGqf7M=
-
-os-locale@^1.4.0:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/os-locale/-/os-locale-1.4.0.tgz#20f9f17ae29ed345e8bde583b13d2009803c14d9"
-  integrity sha1-IPnxeuKe00XoveWDsT0gCYA8FNk=
-  dependencies:
-    lcid "^1.0.0"
 
 os-name@^3.1.0:
   version "3.1.0"
@@ -14213,9 +14254,9 @@ postcss@^6.0.1, postcss@^6.0.17, postcss@^6.0.9:
     supports-color "^5.4.0"
 
 postcss@^7.0.0, postcss@^7.0.1, postcss@^7.0.11, postcss@^7.0.13, postcss@^7.0.14, postcss@^7.0.17, postcss@^7.0.18, postcss@^7.0.2, postcss@^7.0.21, postcss@^7.0.26, postcss@^7.0.27, postcss@^7.0.5, postcss@^7.0.6, postcss@^7.0.7:
-  version "7.0.28"
-  resolved "https://registry.yarnpkg.com/postcss/-/postcss-7.0.28.tgz#d349ced7743475717ba91f6810efb58c51fb5dbb"
-  integrity sha512-YU6nVhyWIsVtlNlnAj1fHTsUKW5qxm3KEgzq2Jj6KTEFOTK8QWR12eIDvrlWhiSTK8WIBFTBhOJV4DY6dUuEbw==
+  version "7.0.29"
+  resolved "https://registry.yarnpkg.com/postcss/-/postcss-7.0.29.tgz#d3a903872bd52280b83bce38cdc83ce55c06129e"
+  integrity sha512-ba0ApvR3LxGvRMMiUa9n0WR4HjzcYm7tS+ht4/2Nd0NLtHpPIH77fuB9Xh1/yJVz9O/E/95Y/dn8ygWsyffXtw==
   dependencies:
     chalk "^2.4.2"
     source-map "^0.6.1"
@@ -15126,11 +15167,6 @@ require-directory@^2.1.1:
   resolved "https://registry.yarnpkg.com/require-directory/-/require-directory-2.1.1.tgz#8c64ad5fd30dab1c976e2344ffe7f792a6a6df42"
   integrity sha1-jGStX9MNqxyXbiNE/+f3kqam30I=
 
-require-main-filename@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/require-main-filename/-/require-main-filename-1.0.1.tgz#97f717b69d48784f5f526a6c5aa8ffdda055a4d1"
-  integrity sha1-l/cXtp1IeE9fUmpsWqj/3aBVpNE=
-
 require-main-filename@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/require-main-filename/-/require-main-filename-2.0.0.tgz#d0b329ecc7cc0f61649f62215be69af54aa8989b"
@@ -15405,15 +15441,15 @@ sane@^4.0.0, sane@^4.1.0:
     minimist "^1.1.1"
     walker "~1.0.5"
 
-sass-graph@^2.2.4:
-  version "2.2.4"
-  resolved "https://registry.yarnpkg.com/sass-graph/-/sass-graph-2.2.4.tgz#13fbd63cd1caf0908b9fd93476ad43a51d1e0b49"
-  integrity sha1-E/vWPNHK8JCLn9k0dq1DpR0eC0k=
+sass-graph@2.2.5:
+  version "2.2.5"
+  resolved "https://registry.yarnpkg.com/sass-graph/-/sass-graph-2.2.5.tgz#a981c87446b8319d96dce0671e487879bd24c2e8"
+  integrity sha512-VFWDAHOe6mRuT4mZRd4eKE+d8Uedrk6Xnh7Sh9b4NGufQLQjOrvf/MQoOdx+0s92L89FeyUUNfU597j/3uNpag==
   dependencies:
     glob "^7.0.0"
     lodash "^4.0.0"
     scss-tokenizer "^0.2.3"
-    yargs "^7.0.0"
+    yargs "^13.3.2"
 
 sass@^1.22.10, sass@^1.23.0:
   version "1.26.5"
@@ -16129,7 +16165,7 @@ string-template@~0.2.1:
   resolved "https://registry.yarnpkg.com/string-template/-/string-template-0.2.1.tgz#42932e598a352d01fc22ec3367d9d84eec6c9add"
   integrity sha1-QpMuWYo1LQH8IuwzZ9nYTuxsmt0=
 
-string-width@^1.0.1, string-width@^1.0.2:
+string-width@^1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/string-width/-/string-width-1.0.2.tgz#118bdf5b8cdc51a2a7e70d211e07e2b0b9b107d3"
   integrity sha1-EYvfW4zcUaKn5w0hHgfisLmxB9M=
@@ -17884,11 +17920,6 @@ whatwg-url@^7.0.0:
     tr46 "^1.0.1"
     webidl-conversions "^4.0.2"
 
-which-module@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/which-module/-/which-module-1.0.0.tgz#bba63ca861948994ff307736089e3b96026c2a4f"
-  integrity sha1-u6Y8qGGUiZT/MHc2CJ47lgJsKk8=
-
 which-module@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/which-module/-/which-module-2.0.0.tgz#d9ef07dce77b9902b8a3a8fa4b31c3e3f7e6e87a"
@@ -17971,14 +18002,6 @@ workerpool@^5.0.1:
   version "5.0.4"
   resolved "https://registry.yarnpkg.com/workerpool/-/workerpool-5.0.4.tgz#4f67cb70ff7550a27ab94de25b0b843cd92059a2"
   integrity sha512-Sywova24Ow2NQ24JPB68bI89EdqMDjUXo4OpofK/QMD7C2ZVMloYBgQ5J3PChcBJHj2vspsmGx1/3nBKXtUkXQ==
-
-wrap-ansi@^2.0.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/wrap-ansi/-/wrap-ansi-2.1.0.tgz#d8fc3d284dd05794fe84973caecdd1cf824fdd85"
-  integrity sha1-2Pw9KE3QV5T+hJc8rs3Rz4JP3YU=
-  dependencies:
-    string-width "^1.0.1"
-    strip-ansi "^3.0.1"
 
 wrap-ansi@^5.1.0:
   version "5.1.0"
@@ -18162,11 +18185,6 @@ xtend@^4.0.0, xtend@^4.0.1, xtend@^4.0.2, xtend@~4.0.0, xtend@~4.0.1:
   resolved "https://registry.yarnpkg.com/xtend/-/xtend-4.0.2.tgz#bb72779f5fa465186b1f438f674fa347fdb5db54"
   integrity sha512-LKYU1iAXJXUgAXn9URjiu+MWhyUXHsvfp7mcuYm9dSUKK0/CjtrUwFAxD82/mCWbtLsGjFIad0wIsod4zrTAEQ==
 
-y18n@^3.2.1:
-  version "3.2.1"
-  resolved "https://registry.yarnpkg.com/y18n/-/y18n-3.2.1.tgz#6d15fba884c08679c0d77e88e7759e811e07fa41"
-  integrity sha1-bRX7qITAhnnA136I53WegR4H+kE=
-
 y18n@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/y18n/-/y18n-4.0.0.tgz#95ef94f85ecc81d007c264e190a120f0a3c8566b"
@@ -18204,6 +18222,14 @@ yargs-parser@^10.0.0:
   dependencies:
     camelcase "^4.1.0"
 
+yargs-parser@^13.1.2:
+  version "13.1.2"
+  resolved "https://registry.yarnpkg.com/yargs-parser/-/yargs-parser-13.1.2.tgz#130f09702ebaeef2650d54ce6e3e5706f7a4fb38"
+  integrity sha512-3lbsNRf/j+A4QuSZfDRA7HRSfWrzO0YjqTJd5kjAq37Zep1CEgaYmrH9Q3GwPiB9cHyd1Y1UwggGhJGoxipbzg==
+  dependencies:
+    camelcase "^5.0.0"
+    decamelize "^1.2.0"
+
 yargs-parser@^15.0.1:
   version "15.0.1"
   resolved "https://registry.yarnpkg.com/yargs-parser/-/yargs-parser-15.0.1.tgz#54786af40b820dcb2fb8025b11b4d659d76323b3"
@@ -18220,12 +18246,21 @@ yargs-parser@^18.1.3:
     camelcase "^5.0.0"
     decamelize "^1.2.0"
 
-yargs-parser@^5.0.0:
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/yargs-parser/-/yargs-parser-5.0.0.tgz#275ecf0d7ffe05c77e64e7c86e4cd94bf0e1228a"
-  integrity sha1-J17PDX/+Bcd+ZOfIbkzZS/DhIoo=
+yargs@^13.3.2:
+  version "13.3.2"
+  resolved "https://registry.yarnpkg.com/yargs/-/yargs-13.3.2.tgz#ad7ffefec1aa59565ac915f82dccb38a9c31a2dd"
+  integrity sha512-AX3Zw5iPruN5ie6xGRIDgqkT+ZhnRlZMLMHAs8tg7nRruy2Nb+i5o9bwghAogtM08q1dpr2LVoS8KSTMYpWXUw==
   dependencies:
-    camelcase "^3.0.0"
+    cliui "^5.0.0"
+    find-up "^3.0.0"
+    get-caller-file "^2.0.1"
+    require-directory "^2.1.1"
+    require-main-filename "^2.0.0"
+    set-blocking "^2.0.0"
+    string-width "^3.0.0"
+    which-module "^2.0.0"
+    y18n "^4.0.0"
+    yargs-parser "^13.1.2"
 
 yargs@^14.2.2:
   version "14.2.3"
@@ -18243,25 +18278,6 @@ yargs@^14.2.2:
     which-module "^2.0.0"
     y18n "^4.0.0"
     yargs-parser "^15.0.1"
-
-yargs@^7.0.0:
-  version "7.1.0"
-  resolved "https://registry.yarnpkg.com/yargs/-/yargs-7.1.0.tgz#6ba318eb16961727f5d284f8ea003e8d6154d0c8"
-  integrity sha1-a6MY6xaWFyf10oT46gA+jWFU0Mg=
-  dependencies:
-    camelcase "^3.0.0"
-    cliui "^3.2.0"
-    decamelize "^1.1.1"
-    get-caller-file "^1.0.1"
-    os-locale "^1.4.0"
-    read-pkg-up "^1.0.1"
-    require-directory "^2.1.1"
-    require-main-filename "^1.0.1"
-    set-blocking "^2.0.0"
-    string-width "^1.0.2"
-    which-module "^1.0.0"
-    y18n "^3.2.1"
-    yargs-parser "^5.0.0"
 
 yauzl@^2.10.0:
   version "2.10.0"
