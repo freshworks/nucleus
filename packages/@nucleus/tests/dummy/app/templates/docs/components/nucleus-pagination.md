@@ -31,8 +31,6 @@ The page numbers in the Paginator list can be hidden using the `hasPageNos` prop
 
 Mini Pagination provides secondary buttons for navigation. It can be placed inside a toolbar alongside other buttons
 
-{{nucleus-inline-banner isDismissible=false type="warning" title="Note: This variant is still a work in progress. This is not the final design. Refrain from using it in production"}}
-
 {{nucleus-pagination/demo-4}}
 
 ## Guidelines
