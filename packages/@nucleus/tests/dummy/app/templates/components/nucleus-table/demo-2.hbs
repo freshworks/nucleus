@@ -1,0 +1,15 @@
+{{#docs-demo as |demo|}}
+  {{#demo.example name="nucleus-table2.hbs"}}
+    {{#nucleus-table
+      columns=columns
+      rows=rows
+      pageSize=2
+      canFilter=false
+      isMini=true
+      as |table|}}
+      {{table.table}}
+    {{/nucleus-table}}
+  {{/demo.example}}
+  {{demo.snippet "nucleus-table2.hbs"}}
+  {{demo.snippet "table-component2.js" label="component.js"}}
+{{/docs-demo}}

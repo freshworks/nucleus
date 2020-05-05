@@ -1,0 +1,19 @@
+{{#docs-demo as |demo|}}
+  {{#demo.example name="nucleus-table6.hbs"}}
+    {{#nucleus-table
+      columns=columns
+      rows=rows
+      pageSize=9
+      as |table|}}
+      {{#table.table as |value column row|}}
+      {{#if (eq column.name "PhNo")}}
+        <a style="text-decoration:underline" href="">{{value}}</a>
+      {{else}}
+        {{value}}
+      {{/if}}
+      {{/table.table}}
+    {{/nucleus-table}}
+  {{/demo.example}}
+  {{demo.snippet "nucleus-table6.hbs"}}
+  {{demo.snippet "table-component6.js" label="component.js"}}
+{{/docs-demo}}

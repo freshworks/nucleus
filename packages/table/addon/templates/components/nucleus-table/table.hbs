@@ -1,0 +1,28 @@
+{{#ember-table class="nucleus-table" as |t|}}
+  <caption>{{tableCaption}}</caption>
+  {{#if canFilter}}
+    <span class="filter-container">{{nucleus-table/filter columns=columns selectedColumnsTitle=selectedColumnsTitle filterTitle=filterTitle columnsTitle=columnsTitle onUpdate=onFilterColumns}}</span>
+  {{/if}}
+  {{#t.head
+    columns=selectedColumns
+    enableResize=false
+    enableReorder=false
+    as |h|}}
+    {{#h.row as |r|}}
+      {{r.cell}}
+    {{/h.row}}
+  {{/t.head}}
+  {{#t.body rows=rows onSelect=(action (mut selected)) rowSelectionMode="none" selection=selected as |b|}}
+    {{#b.row as |r|}}
+      {{#if hasBlock}}
+        {{#r.cell as |value column row|}}
+          {{yield value column row}}
+        {{/r.cell}}
+      {{else}}
+        {{#r.cell as |cellValue|}}
+          {{cellValue}}
+        {{/r.cell}}
+      {{/if}}
+    {{/b.row}}
+  {{/t.body}}
+{{/ember-table}}

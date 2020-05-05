@@ -1,0 +1,86 @@
+.nucleus-table-filter {
+  position: absolute;
+  top: 52px;
+  right: 4px;
+  color: #3d4852;
+  background: $color-milk;
+  width: 450px;
+  border-radius: 4px;
+  box-shadow: 0 0 8px $color-smoke-300;
+
+  &__header {
+    display: flex;
+    padding: 8px 12px;
+    margin: 8px 0;
+    justify-content: space-between;
+
+    a.reset {
+      font-size: $font-size-12;
+    }
+  }
+
+  &__body {
+    display: flex;
+    padding: 8px 12px;
+    margin: 8px 0;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    height: 300px;
+    justify-content: space-between;
+
+    .wd-50 {
+      width: 50%;
+      overflow-y: auto;
+    }
+
+    .selected-columns {
+      background: $color-smoke-50;
+      padding: 8px;
+      border-top-left-radius: 4px;
+      border-top-right-radius: 4px;
+
+      .card {
+        background: $color-milk;
+        box-shadow: 0 2px 4px 0 rgba(18, 52, 77, .06);
+        border-radius: 4px;
+        border-top-left-radius: 4px;
+        font-size: $font-size-12;
+        margin: 8px 0;
+        padding: 6px;
+        height: 32px;
+        width: 198px;
+        border: 1px solid rgb(235, 239, 243);
+
+        .nucleus-icon {
+          vertical-align: middle;
+          display: inline;
+        }
+
+        .nucleus-button {
+          float: right;
+          margin-right: 5px;
+          margin-top: 1px;
+        }
+      }
+    }
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: flex-end;
+    background: $color-smoke-50;
+    padding: 8px;
+  }
+
+  button:not(:last-child) {
+    margin-right: 8px;
+  }
+}
+
+fieldset {
+  padding: 4px;
+
+  label {
+    font-size: $font-size-12;
+  }
+}
