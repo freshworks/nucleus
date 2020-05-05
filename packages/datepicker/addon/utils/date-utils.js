@@ -1,4 +1,3 @@
-import startOfMonth from "date-fns/startOfMonth";
 import { formatDate } from "ember-power-calendar-utils";
 
 /**
@@ -13,8 +12,7 @@ import { formatDate } from "ember-power-calendar-utils";
   */
 let getMonthsOfYear = (date, locale) => {
   let months = [];
-  let startDate = startOfMonth(date);
-  let  { year } = _dateSegments(startDate, locale);
+  let  { year } = _dateSegments(date, locale);
   for (let i = 0; i < 12; i++) {
     let firstDay = new Date(year, i, 1);
     months.push(formatDate(firstDay, 'MMM', locale));
