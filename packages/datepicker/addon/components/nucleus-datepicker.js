@@ -21,15 +21,6 @@ import { DATEPICKER_PERMITTED_DATE_FORMATS as dateFormats } from '../constants/n
 class NucleusDatepicker extends Component {
   
   /**
-  * currentDate
-  *
-  * @field currentDate
-  * @type date
-  * @public
-  */
-  currentDate = new Date();
-
-  /**
   * formatString
   *
   * @field formatString
@@ -84,9 +75,32 @@ class NucleusDatepicker extends Component {
   */
   @computed('initialDate', function () {
     let initialDate = get(this, 'initialDate');
-    return (typeof initialDate === 'string')? (get(this, 'parseDateForMultipleFormats').call(this, initialDate)) : initialDate;
+    return (typeof initialDate === 'string')? (get(this, 'parseDateForMultipleFormats').call(this, initialDate, get(this, 'locale'))) : initialDate;
   })
   selectedDate;
+
+  /**
+  * currentDate
+  *
+  * @field currentDate
+  * @type date
+  * @public
+  */
+  @computed('initialDate', {
+    get() {
+      let initialDate = (get(this, 'initialStartDate'))? get(this, 'initialStartDate') : get(this, 'initialDate');
+      initialDate = (typeof initialDate === 'string')? (get(this, 'parseDateForMultipleFormats').call(this, initialDate, get(this, 'locale'))) : initialDate;
+      if(initialDate) {
+        return initialDate;
+      } else {
+        return new Date();
+      }
+    },
+    set(key, value) {
+      return value;
+    }
+  })
+  currentDate;
 
   /**
   * changeCurrentDate

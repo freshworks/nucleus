@@ -53,7 +53,7 @@ class NucleusDatepickerRange extends NucleusDatePicker {
   */
   @computed('initialStartDate', function () {
     let initialStartDate = get(this, 'initialStartDate');
-    return (typeof initialStartDate === "string")? (get(this, 'parseDateForMultipleFormats').call(this, initialStartDate)) : initialStartDate;
+    return (typeof initialStartDate === "string")? (get(this, 'parseDateForMultipleFormats').call(this, initialStartDate, get(this, 'locale'))) : initialStartDate;
   })
   selectedStartDate;
 
@@ -67,7 +67,7 @@ class NucleusDatepickerRange extends NucleusDatePicker {
   */
   @computed('initialEndDate', function () {
     let initialEndDate = get(this, 'initialEndDate');
-    return (typeof initialEndDate === "string")? (get(this, 'parseDateForMultipleFormats').call(this, initialEndDate)) : initialEndDate;
+    return (typeof initialEndDate === "string")? (get(this, 'parseDateForMultipleFormats').call(this, initialEndDate, get(this, 'locale'))) : initialEndDate;
   })
   selectedEndDate;
 

@@ -76,7 +76,7 @@ module('Integration | Component | nucleus-datepicker-range', function(hooks) {
 
   test('it should change start and end dates when input value is changed', async function(assert) {
     await render(samplePropTemplate);
-    await click('.nucleus-datepicker .ember-power-calendar-day--today');
+    await click('.nucleus-datepicker .ember-power-calendar-day--current-month:first-child');
     let parsedStartDate = parseDate(document.querySelector('.ember-power-calendar-day--range-start').dataset.date, 'yyyy-MM-dd', 'en');
     let parsedEndDate = add(parsedStartDate, 3, 'day');
     let selectorEndDate = formatDate(parsedEndDate, 'yyyy-MM-dd', 'en'); 
