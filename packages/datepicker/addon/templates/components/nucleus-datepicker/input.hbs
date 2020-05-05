@@ -1,0 +1,16 @@
+<label for={{name}}>{{label}}</label>
+<div>
+  <Input placeholder={{placeholder}} 
+    name={{name}} 
+    value={{value}} 
+    {{on "change" this.dateChanged}} 
+    aria-label={{t ariaLabelText 
+      date=(if selectedDate (format-date selectedDate "d MMMM yyyy" locale))
+      locale=locale 
+      htmlSafe=true
+    }} 
+    {{on "keydown" this.keyDownPressed}}
+    autocomplete="off"
+  />
+  {{nucleus-icon name="nucleus-calendar" size="small" }}
+</div>
