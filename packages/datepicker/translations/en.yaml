@@ -1,0 +1,17 @@
+inputs:
+  date: 'Date'
+  range: 'Choose range'
+buttons:
+  update: 'Update'
+  cancel: 'Cancel'
+labels:
+  viewing: 'Current viewing'
+  current_month: 'Current Month'
+  current_year: 'Current Year'
+  next_year: 'Next Year'
+  next_month: 'Next month'
+  previous_month: 'Previous month'
+  date_input: 'Enter date'
+  date_input_with_value: 'Enter date. Currently selected date is {date}'
+  range_input: 'Enter range'
+  range_input_with_value: 'Enter date range. Current selected range is {start} to {end}'

@@ -1,0 +1,47 @@
+<div class="nucleus-datepicker__navigation__select">
+  <span class="visually-hidden"
+    id={{concat "nucleus-datepicker-date-" calendar.uniqueId}}
+    role="heading"
+    aria-label={{t "labels.viewing" locale=locale}}
+    aria-level="3"
+    aria-live="assertive"
+    aria-atomic="true"
+  >
+    {{format-date calendar.center "MMMM, yyyy" locale}}
+  </span>
+  <span class="with-invisible-select">
+    {{#with (format-date calendar.center "MMM" locale) as |currentMonth|}}
+      <select aria-label={{t "labels.current_month" locale=locale}} onchange={{fn changeCenter "month" calendar}}>
+        {{#each months as |month|}}
+          <option value={{month}} selected={{eq month currentMonth}}>{{month}}</option>
+        {{/each}}
+      </select>
+    {{/with}}
+  </span>
+  <span class="with-invisible-select">
+    {{#with (format-date calendar.center "yyyy" locale) as |currentYear|}}
+      <select aria-label={{t "labels.current_year" locale=locale}} onchange={{fn changeCenter "year" calendar}}>
+        {{#each years as |year|}}
+          <option value={{year}} selected={{eq year currentYear}}>{{year}}</option>
+        {{/each}}
+      </select>
+    {{/with}}
+  </span>
+</div>
+<div class="nucleus-datepicker__navigation__arrows">
+  {{nucleus-button
+     variant="link"
+     icon="nucleus-chevron-left"
+     iconSize="medium"
+     iconOnly="true" 
+     ariaLabel=(t "labels.previous_month" locale=locale)
+     onClick=(action calendar.actions.moveCenter -1 "month" calendar)
+  }}{{nucleus-button
+     variant="link"
+     icon="nucleus-chevron-right"
+     iconSize="medium"
+     iconOnly="true" 
+     ariaLabel=(t "labels.next_month" locale=locale)
+     onClick=(action calendar.actions.moveCenter 1 "month" calendar)
+  }}
+</div>

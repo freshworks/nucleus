@@ -1,0 +1,27 @@
+<div>
+  {{nucleus-datepicker/input 
+    selectedDate=selectedDate 
+    locale=locale
+    formatString=formatString
+    customClasses="nucleus-datepicker-input-icon" 
+    label=(t "inputs.date" locale=locale) 
+    inputKeyDown=(action inputKeyDown)
+    click=(action modalOpen)
+    changeSelectedDateByInput=(action changeSelectedDateByInput)
+  }}
+  {{#if isModalOpen}}
+    {{#ember-wormhole to="nucleus-datepicker-wormhole" }}
+      <div class="nucleus-datepicker-modal">
+        {{! template-lint-disable invalid-interactive }}
+        <div class="nucleus-datepicker-modal__backdrop" onclick={{action (mut isModalOpen) false}}></div>
+        {{! template-lint-disable inline-styles }}
+        {{#transition-group transition-class="fade"}}
+          <div class="nucleus-datepicker-modal__content" data-calendar-id={{elementId}} 
+              style={{-html-safe (concat "top: " position.top "; left: " position.left ";")}}>
+            {{nucleus-datepicker formatString=formatString locale=locale showHeader=false initialDate=selectedDate onCancel=(action (mut isModalOpen) false) onUpdate=(action "updateInput")}}
+          </div>
+        {{/transition-group}}
+      </div>
+    {{/ember-wormhole}}
+  {{/if}}
+</div>
