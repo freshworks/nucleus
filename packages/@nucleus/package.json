@@ -21,6 +21,7 @@
     "test:dev": "COVERAGE=TRUE ember test --server -launch=false"
   },
   "dependencies": {
+    "@freshworks/badge": "^0.1.0",
     "@freshworks/banner": "^0.6.3",
     "@freshworks/button": "^0.6.3",
     "@freshworks/icon": "^0.7.2",
