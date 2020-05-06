@@ -3,6 +3,48 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.9.0](https://github.com/freshdesk/nucleus/compare/@freshworks/icon@0.7.2...@freshworks/icon@0.9.0) (2020-05-06)
+
+
+### Features
+
+* **Datepicker:** Implementation ([#179](https://github.com/freshdesk/nucleus/issues/179)) ([aa20813](https://github.com/freshdesk/nucleus/commit/aa208132c6d603ff044a2337af82022d0e7bc281))
+* **icon:** Refactored icons ([#174](https://github.com/freshdesk/nucleus/issues/174)) ([ff70bbf](https://github.com/freshdesk/nucleus/commit/ff70bbf9c26d7f4c22f7faa40d599e4257c45129))
+
+
+
+
+
+# [0.8.0](https://github.com/freshdesk/nucleus/compare/@freshworks/icon@0.7.2...@freshworks/icon@0.8.0) (2020-05-05)
+
+
+### Features
+
+* **icon:** Refactored icons ([#174](https://github.com/freshdesk/nucleus/issues/174)) ([ff70bbf](https://github.com/freshdesk/nucleus/commit/ff70bbf9c26d7f4c22f7faa40d599e4257c45129))
+
+
+
+
+
+## [0.7.2](https://github.com/freshdesk/nucleus/compare/@freshworks/icon@0.7.1...@freshworks/icon@0.7.2) (2020-04-13)
+
+**Note:** Version bump only for package @freshworks/icon
+
+
+
+
+
+## [0.7.1](https://github.com/freshdesk/nucleus/compare/@freshworks/icon@0.7.0...@freshworks/icon@0.7.1) (2020-04-06)
+
+
+### Bug Fixes
+
+* close icon ([#169](https://github.com/freshdesk/nucleus/issues/169)) ([355330e](https://github.com/freshdesk/nucleus/commit/355330e9ad434a95dfac63d3900c945c2f6824bc))
+
+
+
+
+
 # [0.7.0](https://github.com/freshdesk/nucleus/compare/@freshworks/icon@0.6.0...@freshworks/icon@0.7.0) (2020-03-30)
 
 

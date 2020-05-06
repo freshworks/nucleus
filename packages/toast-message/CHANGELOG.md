@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.5](https://github.com/freshdesk/nucleus/compare/@freshworks/toast-message@0.7.3...@freshworks/toast-message@0.7.5) (2020-05-06)
+
+**Note:** Version bump only for package @freshworks/toast-message
+
+
+
+
+
+## [0.7.4](https://github.com/freshdesk/nucleus/compare/@freshworks/toast-message@0.7.3...@freshworks/toast-message@0.7.4) (2020-05-05)
+
+**Note:** Version bump only for package @freshworks/toast-message
+
+
+
+
+
+## [0.7.3](https://github.com/freshdesk/nucleus/compare/@freshworks/toast-message@0.7.2...@freshworks/toast-message@0.7.3) (2020-04-13)
+
+**Note:** Version bump only for package @freshworks/toast-message
+
+
+
+
+
+## [0.7.2](https://github.com/freshdesk/nucleus/compare/@freshworks/toast-message@0.7.1...@freshworks/toast-message@0.7.2) (2020-04-06)
+
+
+### Bug Fixes
+
+* close icon ([#169](https://github.com/freshdesk/nucleus/issues/169)) ([355330e](https://github.com/freshdesk/nucleus/commit/355330e9ad434a95dfac63d3900c945c2f6824bc))
+
+
+
+
+
 ## [0.7.1](https://github.com/freshdesk/nucleus/compare/@freshworks/toast-message@0.7.0...@freshworks/toast-message@0.7.1) (2020-03-30)
 
 **Note:** Version bump only for package @freshworks/toast-message

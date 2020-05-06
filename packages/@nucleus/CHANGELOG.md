@@ -3,6 +3,58 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.11.0](https://github.com/freshdesk/nucleus/compare/nucleus@0.9.3...nucleus@0.11.0) (2020-05-06)
+
+
+### Features
+
+* **Datepicker:** Implementation ([#179](https://github.com/freshdesk/nucleus/issues/179)) ([aa20813](https://github.com/freshdesk/nucleus/commit/aa208132c6d603ff044a2337af82022d0e7bc281))
+* **Nucleus-Badge:** Implementation  ([#177](https://github.com/freshdesk/nucleus/issues/177)) ([4b4de82](https://github.com/freshdesk/nucleus/commit/4b4de828b6e68a63194ff98e4ad08221ae1df535))
+* **pagination:** updated mini pagination design ([db91ec2](https://github.com/freshdesk/nucleus/commit/db91ec2154faad3f916010a0743ad2a2f5b9c8ee))
+* **table:** implementation  ([#181](https://github.com/freshdesk/nucleus/issues/181)) ([5814124](https://github.com/freshdesk/nucleus/commit/58141248857d9f11f3ade4785ad068aa9bde9044))
+
+
+
+
+
+# [0.10.0](https://github.com/freshdesk/nucleus/compare/nucleus@0.9.3...nucleus@0.10.0) (2020-05-05)
+
+
+### Features
+
+* **Nucleus-Badge:** Implementation  ([#177](https://github.com/freshdesk/nucleus/issues/177)) ([4b4de82](https://github.com/freshdesk/nucleus/commit/4b4de828b6e68a63194ff98e4ad08221ae1df535))
+
+
+
+
+
+## [0.9.3](https://github.com/freshdesk/nucleus/compare/nucleus@0.9.2...nucleus@0.9.3) (2020-04-13)
+
+**Note:** Version bump only for package nucleus
+
+
+
+
+
+## [0.9.2](https://github.com/freshdesk/nucleus/compare/nucleus@0.9.1...nucleus@0.9.2) (2020-04-06)
+
+**Note:** Version bump only for package nucleus
+
+
+
+
+
+## [0.9.1](https://github.com/freshdesk/nucleus/compare/nucleus@0.9.0...nucleus@0.9.1) (2020-04-02)
+
+
+### Bug Fixes
+
+* **tabs:** Removed padding from tabs panel ([#163](https://github.com/freshdesk/nucleus/issues/163)) ([6b56362](https://github.com/freshdesk/nucleus/commit/6b56362eff99ab6c26a5b6e8d94c1374da707a08))
+
+
+
+
+
 # [0.9.0](https://github.com/freshdesk/nucleus/compare/nucleus@0.8.0...nucleus@0.9.0) (2020-03-30)
 
 

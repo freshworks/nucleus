@@ -3,6 +3,38 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.5](https://github.com/freshdesk/nucleus/compare/@freshworks/inline-banner@0.6.3...@freshworks/inline-banner@0.6.5) (2020-05-06)
+
+**Note:** Version bump only for package @freshworks/inline-banner
+
+
+
+
+
+## [0.6.4](https://github.com/freshdesk/nucleus/compare/@freshworks/inline-banner@0.6.3...@freshworks/inline-banner@0.6.4) (2020-05-05)
+
+**Note:** Version bump only for package @freshworks/inline-banner
+
+
+
+
+
+## [0.6.3](https://github.com/freshdesk/nucleus/compare/@freshworks/inline-banner@0.6.2...@freshworks/inline-banner@0.6.3) (2020-04-13)
+
+**Note:** Version bump only for package @freshworks/inline-banner
+
+
+
+
+
+## [0.6.2](https://github.com/freshdesk/nucleus/compare/@freshworks/inline-banner@0.6.1...@freshworks/inline-banner@0.6.2) (2020-04-06)
+
+**Note:** Version bump only for package @freshworks/inline-banner
+
+
+
+
+
 ## [0.6.1](https://github.com/freshdesk/nucleus/compare/@freshworks/inline-banner@0.6.0...@freshworks/inline-banner@0.6.1) (2020-03-30)
 
 **Note:** Version bump only for package @freshworks/inline-banner
