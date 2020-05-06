@@ -1,6 +1,6 @@
 {
   "name": "@freshworks/datepicker",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "The date and time picker can be used for both picking date and time as well as selecting one value or picking a range as per the context of usage.",
   "keywords": [
     "ember-addon"
@@ -21,9 +21,9 @@
     "test:dev": "COVERAGE=TRUE ember test --server -launch=false"
   },
   "dependencies": {
-    "@freshworks/core": "^0.2.1",
-    "@freshworks/icon": "^0.8.0",
-    "@freshworks/modal": "^0.6.5",
+    "@freshworks/core": "^0.3.0",
+    "@freshworks/icon": "^0.9.0",
+    "@freshworks/modal": "^0.6.6",
     "@makepanic/ember-power-calendar-date-fns": "Vignesh-Manogar-E3433/ember-power-calendar-date-fns#master",
     "ember-auto-import": "^1.5.3",
     "ember-cli-babel": "^7.11.1",
@@ -32,10 +32,10 @@
     "ember-css-transitions": "^0.1.16",
     "ember-decorators": "^6.1.1",
     "ember-decorators-polyfill": "freshdesk/ember-decorators-polyfill#v.1.0.0",
+    "ember-intl": "^4.3.1",
     "ember-power-calendar": "^0.14.5",
     "ember-truth-helpers": "^2.1.0",
-    "ember-wormhole": "^0.5.5",
-    "ember-intl": "^4.3.1"
+    "ember-wormhole": "^0.5.5"
   },
   "devDependencies": {
     "@ember/optional-features": "^1.0.0",

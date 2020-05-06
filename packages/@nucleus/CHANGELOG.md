@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.11.0](https://github.com/freshdesk/nucleus/compare/nucleus@0.9.3...nucleus@0.11.0) (2020-05-06)
+
+
+### Features
+
+* **Datepicker:** Implementation ([#179](https://github.com/freshdesk/nucleus/issues/179)) ([aa20813](https://github.com/freshdesk/nucleus/commit/aa208132c6d603ff044a2337af82022d0e7bc281))
+* **Nucleus-Badge:** Implementation  ([#177](https://github.com/freshdesk/nucleus/issues/177)) ([4b4de82](https://github.com/freshdesk/nucleus/commit/4b4de828b6e68a63194ff98e4ad08221ae1df535))
+* **pagination:** updated mini pagination design ([db91ec2](https://github.com/freshdesk/nucleus/commit/db91ec2154faad3f916010a0743ad2a2f5b9c8ee))
+* **table:** implementation  ([#181](https://github.com/freshdesk/nucleus/issues/181)) ([5814124](https://github.com/freshdesk/nucleus/commit/58141248857d9f11f3ade4785ad068aa9bde9044))
+
+
+
+
+
 # [0.10.0](https://github.com/freshdesk/nucleus/compare/nucleus@0.9.3...nucleus@0.10.0) (2020-05-05)
 
 
