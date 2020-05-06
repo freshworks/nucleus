@@ -61,6 +61,17 @@
 
     &__miniStatus {
       color: $color-elephant-800;
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+
+    &__mini {
+      display: inline-flex;
+      align-items: center;
+
+      .nucleus-button-group {
+        display: inline-flex;
+      }
     }
   }
 }

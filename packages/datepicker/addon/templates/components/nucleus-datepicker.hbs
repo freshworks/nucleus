@@ -1,0 +1,17 @@
+{{#if showHeader}}
+  {{nucleus-datepicker/header 
+    selectedDate=selectedDate 
+    locale=locale 
+    formatString=formatString 
+    changeSelectedDateByInput=(action changeSelectedDateByInput)
+  }}
+{{/if}}
+{{nucleus-datepicker/calendar 
+  locale=locale
+  formatString=formatString 
+  currentDate=currentDate 
+  selectedDate=selectedDate 
+  changeCurrentDate=(action changeCurrentDate)
+  changeSelectedDate=(action changeSelectedDate)
+}}
+{{nucleus-datepicker/footer locale=locale onUpdate=(action updateClicked) onCancel=(action cancelClicked)}}

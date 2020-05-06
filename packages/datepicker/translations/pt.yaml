@@ -1,0 +1,17 @@
+inputs:
+  date: 'Encontro'
+  range: 'Escolha o intervalo'
+buttons:
+  update: 'Atualizar'
+  cancel: 'Cancelar'
+labels:
+  viewing: 'Atualmente visualizando'
+  current_month: 'Mês atual'
+  current_year: 'Ano atual'
+  next_year: 'Próximo ano'
+  next_month: 'Próximo mês'
+  previous_month: 'Mês anterior'
+  date_input: 'Digite a data'
+  date_input_with_value: 'Digite a data. A data atualmente selecionada é {date}'
+  range_input: 'Digite o intervalo'
+  range_input_with_value: 'Digite o período. O intervalo selecionado atual é de {start} to {end}'

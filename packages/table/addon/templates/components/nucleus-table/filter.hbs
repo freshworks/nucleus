@@ -1,0 +1,54 @@
+<span class="filter-button" {{on "click" toggleFilters}}>{{nucleus-icon name="admin" size="large"}}</span>
+
+{{#if showFilters}}
+  <div class="nucleus-table-filter">
+    <div class="nucleus-table-filter__header">
+      <h4>{{filterTitle}}</h4>
+      {{nucleus-button onClick=(action "onReset") variant="link" label="Reset" type="link" size="small"}}
+    </div>
+    <div class="nucleus-table-filter__body">
+      <div class="wd-50 column-chooser">
+        <h5>{{columnsTitle}}</h5>
+        {{#each _columns as |column|}}
+          <fieldset>
+            {{input
+              change=(action "clickColumn" column)
+              type="checkbox"
+              checked=column.selected
+              disabled=column.disabled
+              }}
+            <label for={{column.name}}>{{column.name}}</label>
+          </fieldset>
+        {{/each}}
+      </div>
+      <div class="wd-50 selected-columns">
+        <h5>{{selectedColumnsTitle}} ({{selectedColumns.length}})</h5>
+        {{#each selectedColumns as |column|}}
+          <div class="card">
+            {{#if column.disabled}}
+              {{nucleus-icon name="lock" size="medium"}}
+            {{else}}
+              {{nucleus-icon name="drag" size="medium"}}
+            {{/if}}
+            {{column.name}}
+            {{#unless column.disabled}}
+              {{nucleus-button
+                variant="text"
+                size="mini"
+                ariaLabel="close"              
+                icon="nucleus-cross"
+                iconOnly=true
+                iconSize="mini"
+                onClick=(action "clickColumn" column)}}
+            {{/unless}}
+          </div>
+        {{/each}}
+      </div>
+    </div>
+    <div class="nucleus-table-filter__footer">
+      {{nucleus-button label="Cancel" variant="secondary" onClick=(action "toggleFilters") type="secondary"}}
+      {{nucleus-button label="Update" onClick=(action "onFilterUpdate")}}
+    </div>
+
+  </div>
+{{/if}}

@@ -15,6 +15,7 @@ Router.map(function() {
     });
 
     this.route("components", function() {
+			this.route("nucleus-datepicker");
 			this.route("nucleus-badge");
 			this.route("nucleus-pagination");
       this.route("nucleus-button");
@@ -22,6 +23,7 @@ Router.map(function() {
       this.route("nucleus-modal");
       this.route("nucleus-toast-message");
       this.route("nucleus-banner");
+      this.route("nucleus-table");
       this.route("nucleus-toggle");
       this.route("nucleus-tabs");
     });

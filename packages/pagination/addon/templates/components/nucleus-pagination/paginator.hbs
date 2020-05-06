@@ -1,11 +1,11 @@
 {{#if recordCount}}
   {{#if mini}}
-    <ul class="nucleus-paginator__mini">
+    <span class="nucleus-paginator__mini">
       {{#if itemsCount}}
         <span class="nucleus-paginator__miniStatus">{{startItem}} - {{endItem}} {{conjunctionLabel}} {{recordCount}}</span>
       {{/if}}
-      <li class="nucleus-paginator__item {{if isPrevDisabled "disabled"}}" aria-disabled={{if isPrevDisabled "true"}} data-test-selector="previous-page">
-        {{nucleus-button
+      {{#nucleus-button-group as |buttons|}}
+        {{buttons.button
           icon="chevron-left"
           iconOnly=true
           iconSize="large"
@@ -14,9 +14,7 @@
           onClick=(action onPageSelect prevPageNumber)
           type="text"
         }}
-      </li>
-      <li class="nucleus-paginator__item {{if isNextDisabled "disabled"}}" aria-disabled={{if isNextDisabled "true"}} data-test-selector="next-page">
-        {{nucleus-button
+        {{buttons.button
           icon="chevron-right"
           iconSize="large"
           iconOnly=true
@@ -25,8 +23,8 @@
           onClick=(action onPageSelect nextPageNumber)
           type="text"
         }}
-      </li>
-    </ul>
+      {{/nucleus-button-group}}
+    </span>
   {{else}}
     <ul>
       <li class="nucleus-paginator__item first {{if isPrevDisabled "disabled"}}" aria-disabled={{if isPrevDisabled "true"}} data-test-selector="previous-page">
