@@ -22,7 +22,7 @@ import layout from "../templates/components/nucleus-toggle";
 @templateLayout(layout)
 @classNames('nucleus-toggle')
 @classNameBindings('_sizeClass')
-@attributeBindings('data-test-id', 'disabled', 'value:aria-checked')
+@attributeBindings('data-test-id', 'disabled', 'value:aria-checked', 'ariaLabel:aria-label')
 
 class NucleusToggle extends Component {
   /**
