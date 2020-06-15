@@ -21,7 +21,7 @@ module('Integration | Component | nucleus-badge', function(hooks) {
     assert.dom('.nucleus-badge').exists({ count: 1 }, 'Badge wrap exists.');
   });
 
-  test('buttons pass visual regression tests', async function(assert) {
+  test('badges pass visual regression tests', async function(assert) {
     await render(hbs`{{#nucleus-badge type="line" variant="critical"}}11{{/nucleus-badge}}
    {{#nucleus-badge type="line" variant="nuetral"}}22{{/nucleus-badge}}
    {{#nucleus-badge type="line" variant="new"}}33{{/nucleus-badge}}
@@ -29,6 +29,7 @@ module('Integration | Component | nucleus-badge', function(hooks) {
    {{#nucleus-badge type="solid" variant="critical"}}55{{/nucleus-badge}}
    {{#nucleus-badge type="solid" variant="neutral"}}66{{/nucleus-badge}}
    {{#nucleus-badge type="solid" variant="new"}}77{{/nucleus-badge}}
+   {{#nucleus-badge type="solid" variant="new"}}BETA{{/nucleus-badge}}
    {{#nucleus-badge type="solid" variant="primary"}}88{{/nucleus-badge}}`);
     await backstop(assert,{scenario: {misMatchThreshold: 0.1}});
   });
