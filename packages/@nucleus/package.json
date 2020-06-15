@@ -27,7 +27,7 @@
     "@freshworks/datepicker": "^0.2.0",
     "@freshworks/icon": "^0.9.0",
     "@freshworks/inline-banner": "^0.6.5",
-    "@freshworks/modal": "^0.6.6",
+    "@freshworks/modal": "^0.6.7",
     "@freshworks/pagination": "^0.3.0",
     "@freshworks/table": "^0.2.0",
     "@freshworks/tabs": "^0.4.6",
