@@ -1,0 +1,14 @@
+
+// Z-index Map to better control the vertical stacking in nucleus
+
+$nucleus-zindex: (
+  modal     : 999,
+  banner    : 999,
+  toast     : 9999999999,
+  // Default utilities
+  minusone  : -1,
+  zero      : 0,
+  one       : 1,
+  nine      : 9,
+  max       : 2147483638
+);

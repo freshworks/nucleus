@@ -4,7 +4,7 @@ $slider-width: 600px;
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 2147483638;  // maximum value to override other components in the app/page
+  z-index: map-get($nucleus-zindex, modal);
   width: 100%;
   height: 100%;
   overflow: hidden;
@@ -68,7 +68,7 @@ $slider-width: 600px;
     &.sticky {
       position: sticky;
       top: 0;
-      z-index: 9;
+      z-index: map-get($nucleus-zindex, nine);
       padding: 16px 32px;
       box-shadow: 0 2px 4px 0 rgba(18, 52, 77, .08);
     }
@@ -140,7 +140,7 @@ $slider-width: 600px;
     right: 0;
     bottom: 0;
     left: 0;
-    z-index: -1;  // CSS trick used in bootstrap backdrop
+    z-index: map-get($nucleus-zindex, minusone);  // CSS trick used in bootstrap backdrop
     background-color: rgba($color-elephant-900, .5);
   }
 

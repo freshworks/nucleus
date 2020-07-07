@@ -70,7 +70,7 @@
       }
 
       &-day {
-        z-index: 1;
+        z-index: map-get($nucleus-zindex, one);
 
         &:focus {
           border: 1px solid $color-azure-800;
@@ -177,7 +177,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 2147483638;  // maximum value to override other components in the app/page
+    z-index: map-get($nucleus-zindex, max);  // maximum value to override other components in the app/page
     width: 100%;
     height: 100%;
     overflow: hidden;
@@ -188,12 +188,12 @@
       position: absolute;
       width: 100%;
       height: 100%;
-      z-index: 0;
+      z-index: map-get($nucleus-zindex, zero);
     }
 
     &__content {
       position: absolute;
-      z-index: 1;
+      z-index: map-get($nucleus-zindex, one);
     }
   }
 
@@ -246,7 +246,7 @@
         width: 10px;
         height: calc(100% + 2px);
         background: $color-azure-50;
-        z-index: -1;
+        z-index: map-get($nucleus-zindex, minusone);
       }
 
       &--range-end::after {
