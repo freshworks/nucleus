@@ -5,6 +5,8 @@ export default [
   "nucleus-circle-info",
   "nucleus-circle-minus",
   "nucleus-circle-plus",
+  "nucleus-circle-warning",
   "nucleus-cross-thin",
-  "nucleus-cross"
+  "nucleus-cross",
+  "nucleus-danger"
 ];
