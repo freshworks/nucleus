@@ -39,6 +39,10 @@ $slider-width: 600px;
     display: flex;
     flex-direction: column;
 
+    &--xlarge {
+      width: 1350px;
+    }
+
     &--large {
       width: 800px;
     }
