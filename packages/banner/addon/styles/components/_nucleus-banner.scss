@@ -16,7 +16,7 @@
 
   &__main {
     display: flex;
-    max-width: 75%;
+    max-width: 85%;
     white-space: nowrap;
     overflow: hidden;
     font-size: $font-size-14;
@@ -29,6 +29,15 @@
     margin: 8px;
     padding-left: 8px;
     position: relative;
+
+    .stack-title {
+      margin-left: 26px;
+    }
+
+    .stack-icon {
+      float: left;
+      margin: 2px 0 0 2px;
+    }
 
     .more-card {
       position: absolute;

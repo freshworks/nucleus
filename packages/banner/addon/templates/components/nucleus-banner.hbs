@@ -16,11 +16,12 @@
           {{#if _isShowMore}}
             {{#transition-group transitionClass="fade"}}
               <div class="more-card">
-                <h5>{{stackTitle}}</h5>
+                {{nucleus-icon name="nucleus-circle-warning" variant="warning" size="medium" customClass="stack-icon"}}
+                <h5 class="stack-title">{{stackTitle}}</h5>
                 <ul class="nucleus-banners">
                   {{#each stackedItems as |hiddenItem|}}
                     <li class="nucleus-banner--mini nucleus-banner--{{hiddenItem.type}}">
-                      {{nucleus-banner/item item=hiddenItem onDelete=(action "deleteItem")}}
+                      {{nucleus-banner/item miniBanner=true item=hiddenItem onDelete=(action "deleteItem")}}
                     </li>
                   {{/each}}
                 </ul>
