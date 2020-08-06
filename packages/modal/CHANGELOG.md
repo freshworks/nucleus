@@ -3,6 +3,40 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.10.0 (2020-08-06)
+
+
+### Bug Fixes
+
+* **button:** CSS code cleanup and enhancements ([#113](https://github.com/freshdesk/nucleus/issues/113)) ([2ea58af](https://github.com/freshdesk/nucleus/commit/2ea58afc6d1d68d685d87ecb8408b033885d63c2))
+* **button:** improvised styling ([#137](https://github.com/freshdesk/nucleus/issues/137)) ([6a56cb1](https://github.com/freshdesk/nucleus/commit/6a56cb19e749fe9106f0c2a66ed4bbfb3b91ecb9))
+* **modal:** added submit disabled to confirm-dialog ([#146](https://github.com/freshdesk/nucleus/issues/146)) ([4a15fe2](https://github.com/freshdesk/nucleus/commit/4a15fe241c1198789607e3414194c94e5b6e3bcd))
+* **modal:** Fixes bugs for focus-trap and autofocus ([#148](https://github.com/freshdesk/nucleus/issues/148)) ([198ec6f](https://github.com/freshdesk/nucleus/commit/198ec6f25ddec0bcff6f5e97a38c507b2b181a0d))
+* **modal:** fixes positioning of elements ([#154](https://github.com/freshdesk/nucleus/issues/154)) ([3cbe6fd](https://github.com/freshdesk/nucleus/commit/3cbe6fd17c826962a268a4ac27fad168242f1851))
+* **modal:** focus issue ([#172](https://github.com/freshdesk/nucleus/issues/172)) ([45c956a](https://github.com/freshdesk/nucleus/commit/45c956ab4f338771d32bdc6ef9194fa84611ee0a))
+* **modal:** modal patch for safari ([#91](https://github.com/freshdesk/nucleus/issues/91)) ([5355b47](https://github.com/freshdesk/nucleus/commit/5355b4763d8c38a7a0d10981e51ac4801ad226c5))
+* **nucleus:** removed classic decorator dependency ([#87](https://github.com/freshdesk/nucleus/issues/87)) ([c73753a](https://github.com/freshdesk/nucleus/commit/c73753a7c7566be81a5d7caf9376e3f61ab8ad2b))
+* modal & button bugs ([#117](https://github.com/freshdesk/nucleus/issues/117)) ([dba02c7](https://github.com/freshdesk/nucleus/commit/dba02c7bd9ce2588848b1d8ca9c67e0e6a451a8d))
+* **packages:** refactored dependencies ([#83](https://github.com/freshdesk/nucleus/issues/83)) ([cb1dc9f](https://github.com/freshdesk/nucleus/commit/cb1dc9f0e9c3f53cfdd78a072e92cc454be17c60))
+* Changed Responsive design ([#98](https://github.com/freshdesk/nucleus/issues/98)) ([2623f7a](https://github.com/freshdesk/nucleus/commit/2623f7a385d0d9f06c12f2366835e342a3937baf))
+* z-index maintenability ([#194](https://github.com/freshdesk/nucleus/issues/194)) ([468926e](https://github.com/freshdesk/nucleus/commit/468926efbabe73be602f89ccaaafa7e66e6f929e))
+
+
+### Features
+
+* **icon:** Implemented {{nucleus-icon}} ([#85](https://github.com/freshdesk/nucleus/issues/85)) ([a567468](https://github.com/freshdesk/nucleus/commit/a5674681147082f5f9790738cec1d632cac5debe))
+* Integrated Visual Regression with ember-backstop ([#94](https://github.com/freshdesk/nucleus/issues/94)) ([2613dca](https://github.com/freshdesk/nucleus/commit/2613dca9f32f647eb07cbece58bf55a4398beb35))
+* **modal:** added test-support helper ([#160](https://github.com/freshdesk/nucleus/issues/160)) ([b7d5378](https://github.com/freshdesk/nucleus/commit/b7d537801d1fecf61da302ebd812016330990c09))
+
+
+### Reverts
+
+* Revert "chore: updated package versioning (#135)" (#144) ([940932d](https://github.com/freshdesk/nucleus/commit/940932d74ecb7764ef1022b7a17908ee08a8e1de)), closes [#135](https://github.com/freshdesk/nucleus/issues/135) [#144](https://github.com/freshdesk/nucleus/issues/144)
+
+
+
+
+
 # 0.9.0 (2020-07-14)
 
 

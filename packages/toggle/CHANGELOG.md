@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.8.0 (2020-08-06)
+
+
+### Features
+
+* **icon:** Refactored icons ([#174](https://github.com/freshdesk/nucleus/issues/174)) ([ff70bbf](https://github.com/freshdesk/nucleus/commit/ff70bbf9c26d7f4c22f7faa40d599e4257c45129))
+* **toggle:** Implementation ([#141](https://github.com/freshdesk/nucleus/issues/141)) ([d2ff164](https://github.com/freshdesk/nucleus/commit/d2ff164a65ebe5dc14a233748c45120c07a389be))
+
+
+
+
+
 # 0.7.0 (2020-07-14)
 
 

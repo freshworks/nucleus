@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.8.0 (2020-08-06)
+
+
+### Bug Fixes
+
+* **tabs:** Removed padding from tabs panel ([#163](https://github.com/freshdesk/nucleus/issues/163)) ([6b56362](https://github.com/freshdesk/nucleus/commit/6b56362eff99ab6c26a5b6e8d94c1374da707a08))
+* **tabs:** Removing tab panel elements until active ([#167](https://github.com/freshdesk/nucleus/issues/167)) ([d36f6f1](https://github.com/freshdesk/nucleus/commit/d36f6f1c2ec063428758e5e327df6680dbcb586b))
+
+
+### Features
+
+* **tabs:** Implementation ([#138](https://github.com/freshdesk/nucleus/issues/138)) ([598e3e6](https://github.com/freshdesk/nucleus/commit/598e3e6e5a18efa8d8127c7c4165629c8e44cc92))
+
+
+
+
+
 # 0.7.0 (2020-07-14)
 
 

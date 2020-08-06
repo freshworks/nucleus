@@ -3,6 +3,35 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.13.0 (2020-08-06)
+
+
+### Bug Fixes
+
+* **icon:** fixed failing tests ([#89](https://github.com/freshdesk/nucleus/issues/89)) ([4b43c4a](https://github.com/freshdesk/nucleus/commit/4b43c4a6ba266c719837082f5cd5d02961e52ef0))
+* **nucleus:** removed classic decorator dependency ([#87](https://github.com/freshdesk/nucleus/issues/87)) ([c73753a](https://github.com/freshdesk/nucleus/commit/c73753a7c7566be81a5d7caf9376e3f61ab8ad2b))
+* button icon variant ([#128](https://github.com/freshdesk/nucleus/issues/128)) ([50b9644](https://github.com/freshdesk/nucleus/commit/50b9644b2becfa144d67ea57cba15a7179cc5e13))
+* close icon ([#169](https://github.com/freshdesk/nucleus/issues/169)) ([355330e](https://github.com/freshdesk/nucleus/commit/355330e9ad434a95dfac63d3900c945c2f6824bc))
+
+
+### Features
+
+* Integrated Visual Regression with ember-backstop ([#94](https://github.com/freshdesk/nucleus/issues/94)) ([2613dca](https://github.com/freshdesk/nucleus/commit/2613dca9f32f647eb07cbece58bf55a4398beb35))
+* **Datepicker:** Implementation ([#179](https://github.com/freshdesk/nucleus/issues/179)) ([aa20813](https://github.com/freshdesk/nucleus/commit/aa208132c6d603ff044a2337af82022d0e7bc281))
+* **icon:** Implemented {{nucleus-icon}} ([#85](https://github.com/freshdesk/nucleus/issues/85)) ([a567468](https://github.com/freshdesk/nucleus/commit/a5674681147082f5f9790738cec1d632cac5debe))
+* **icon:** Refactored icons ([#174](https://github.com/freshdesk/nucleus/issues/174)) ([ff70bbf](https://github.com/freshdesk/nucleus/commit/ff70bbf9c26d7f4c22f7faa40d599e4257c45129))
+* **icon:** variant property ([#118](https://github.com/freshdesk/nucleus/issues/118)) ([7905cac](https://github.com/freshdesk/nucleus/commit/7905cac643897074a1276e79dc10f35d6a3003c4))
+* **Icon:** Added new icon size ([#164](https://github.com/freshdesk/nucleus/issues/164)) ([9adc01b](https://github.com/freshdesk/nucleus/commit/9adc01b292853b59542255216f4a26083c056368))
+
+
+### Reverts
+
+* Revert "chore: updated package versioning (#135)" (#144) ([940932d](https://github.com/freshdesk/nucleus/commit/940932d74ecb7764ef1022b7a17908ee08a8e1de)), closes [#135](https://github.com/freshdesk/nucleus/issues/135) [#144](https://github.com/freshdesk/nucleus/issues/144)
+
+
+
+
+
 # 0.12.0 (2020-07-14)
 
 

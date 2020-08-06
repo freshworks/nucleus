@@ -3,6 +3,38 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.11.0 (2020-08-06)
+
+
+### Bug Fixes
+
+* button icon variant ([#128](https://github.com/freshdesk/nucleus/issues/128)) ([50b9644](https://github.com/freshdesk/nucleus/commit/50b9644b2becfa144d67ea57cba15a7179cc5e13))
+* Changed Responsive design ([#98](https://github.com/freshdesk/nucleus/issues/98)) ([2623f7a](https://github.com/freshdesk/nucleus/commit/2623f7a385d0d9f06c12f2366835e342a3937baf))
+* **button:** improvised styling ([#137](https://github.com/freshdesk/nucleus/issues/137)) ([6a56cb1](https://github.com/freshdesk/nucleus/commit/6a56cb19e749fe9106f0c2a66ed4bbfb3b91ecb9))
+* **nucleus:** removed classic decorator dependency ([#87](https://github.com/freshdesk/nucleus/issues/87)) ([c73753a](https://github.com/freshdesk/nucleus/commit/c73753a7c7566be81a5d7caf9376e3f61ab8ad2b))
+* **packages:** refactored dependencies ([#83](https://github.com/freshdesk/nucleus/issues/83)) ([cb1dc9f](https://github.com/freshdesk/nucleus/commit/cb1dc9f0e9c3f53cfdd78a072e92cc454be17c60))
+* **toast-message:** Add data-test-id ([#159](https://github.com/freshdesk/nucleus/issues/159)) ([f81ff01](https://github.com/freshdesk/nucleus/commit/f81ff01209751d6974d705ab1d6fe49406674301))
+* **toast-message:** Design review updates  ([#155](https://github.com/freshdesk/nucleus/issues/155)) ([30742b5](https://github.com/freshdesk/nucleus/commit/30742b595d932ff6c33524f89990a8bedc1a91a5))
+* **toast-message:** refactored icons ([#82](https://github.com/freshdesk/nucleus/issues/82)) ([16074ec](https://github.com/freshdesk/nucleus/commit/16074eca6fbbc18505e7428d893afbe9b4cbe968))
+* close icon ([#169](https://github.com/freshdesk/nucleus/issues/169)) ([355330e](https://github.com/freshdesk/nucleus/commit/355330e9ad434a95dfac63d3900c945c2f6824bc))
+* z-index maintenability ([#194](https://github.com/freshdesk/nucleus/issues/194)) ([468926e](https://github.com/freshdesk/nucleus/commit/468926efbabe73be602f89ccaaafa7e66e6f929e))
+
+
+### Features
+
+* **icon:** Implemented {{nucleus-icon}} ([#85](https://github.com/freshdesk/nucleus/issues/85)) ([a567468](https://github.com/freshdesk/nucleus/commit/a5674681147082f5f9790738cec1d632cac5debe))
+* Integrated Visual Regression with ember-backstop ([#94](https://github.com/freshdesk/nucleus/issues/94)) ([2613dca](https://github.com/freshdesk/nucleus/commit/2613dca9f32f647eb07cbece58bf55a4398beb35))
+* **toast-message:** Addon test support ([#110](https://github.com/freshdesk/nucleus/issues/110)) ([5bbb30a](https://github.com/freshdesk/nucleus/commit/5bbb30afa8305db2f9b51eadbfc06f59de7cfc73))
+
+
+### Reverts
+
+* Revert "chore: updated package versioning (#135)" (#144) ([940932d](https://github.com/freshdesk/nucleus/commit/940932d74ecb7764ef1022b7a17908ee08a8e1de)), closes [#135](https://github.com/freshdesk/nucleus/issues/135) [#144](https://github.com/freshdesk/nucleus/issues/144)
+
+
+
+
+
 # 0.10.0 (2020-07-14)
 
 
