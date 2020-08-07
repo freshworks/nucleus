@@ -23,6 +23,14 @@
     overflow: hidden;
     text-overflow: ellipsis;
   }
+
+  &__bullet {
+    padding-left: 22px;
+
+    li {
+      list-style: disc;
+    }
+  }
 }
 
 .nucleus-banner--mini {

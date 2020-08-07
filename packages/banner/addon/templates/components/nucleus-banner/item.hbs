@@ -2,9 +2,15 @@
 {{#if item.componentName}}
   {{component item.componentName props=item.componentProps}}
 {{else}}
-  <div class="nucleus-banner-item__icon">
-    {{nucleus-icon name=bannerIcon size="medium" variant=item.type}}
-  </div>
+  {{#if miniBanner}}
+    <ul class="nucleus-banner-item__bullet"> 
+      <li></li>
+    </ul>
+  {{else}}
+    <div class="nucleus-banner-item__icon">
+      {{nucleus-icon name=bannerIcon size="medium" variant=item.type}}
+    </div>
+  {{/if}}
   <div class="nucleus-banner-item__content">
     {{item.title}}
     {{#if item.content}}
