@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.8.1](https://github.com/freshdesk/nucleus/compare/@freshworks/tabs@0.8.0...@freshworks/tabs@0.8.1) (2020-08-07)
+
+**Note:** Version bump only for package @freshworks/tabs
+
+
+
+
+
 # 0.8.0 (2020-08-06)
 
 
