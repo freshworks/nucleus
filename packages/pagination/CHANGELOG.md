@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.8.0 (2020-08-17)
+
+
+### Features
+
+* **icon:** Refactored icons ([#174](https://github.com/freshdesk/nucleus/issues/174)) ([ff70bbf](https://github.com/freshdesk/nucleus/commit/ff70bbf9c26d7f4c22f7faa40d599e4257c45129))
+* **pagination:** updated mini pagination design ([db91ec2](https://github.com/freshdesk/nucleus/commit/db91ec2154faad3f916010a0743ad2a2f5b9c8ee))
+
+
+
+
+
 ## [0.7.1](https://github.com/freshdesk/nucleus/compare/@freshworks/pagination@0.7.0...@freshworks/pagination@0.7.1) (2020-08-07)
 
 **Note:** Version bump only for package @freshworks/pagination
