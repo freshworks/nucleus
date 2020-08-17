@@ -1,6 +1,6 @@
 {
   "name": "@freshworks/core",
-  "version": "0.8.0",
+  "version": "0.9.0",
   "description": "Nucleus::Core - SCSS styles & helpers",
   "keywords": [
     "ember-addon"
