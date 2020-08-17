@@ -1,12 +1,12 @@
-
+{{#if miniBanner}}
+  <ul class="nucleus-banner-item__bullet"> 
+    <li></li>
+  </ul>
+{{/if}}
 {{#if item.componentName}}
   {{component item.componentName props=item.componentProps}}
 {{else}}
-  {{#if miniBanner}}
-    <ul class="nucleus-banner-item__bullet"> 
-      <li></li>
-    </ul>
-  {{else}}
+  {{#if (not miniBanner)}}
     <div class="nucleus-banner-item__icon">
       {{nucleus-icon name=bannerIcon size="medium" variant=item.type}}
     </div>
