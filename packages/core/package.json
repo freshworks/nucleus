@@ -1,6 +1,6 @@
 {
   "name": "@freshworks/core",
-  "version": "0.8.0",
+  "version": "0.9.0",
   "description": "Nucleus::Core - SCSS styles & helpers",
   "keywords": [
     "ember-addon"
@@ -70,5 +70,5 @@
     "access": "public"
   },
   "homepage": "https://freshdesk.github.io/nucleus",
-  "gitHead": "a633b35c32e89aa6ebb4ef26b4616c6a16cd9d57"
+  "gitHead": "74aadd0840488332befadf6b80c3f452484470b2"
 }
