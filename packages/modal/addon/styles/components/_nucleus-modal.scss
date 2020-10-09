@@ -103,7 +103,7 @@ $slider-width: 600px;
   }
 
   &__footer {
-    padding: 12px 16px;
+    padding: 12px 16px 12px 32px;
     background-color: $color-smoke-25;
     border-radius: 0 0 $radius $radius;
     display: flex;
@@ -113,7 +113,6 @@ $slider-width: 600px;
     &.sticky {
       position: sticky;
       bottom: 0;
-      box-shadow: 0 -2px 16px 0 rgba(18, 52, 77, .16);
     }
 
     button:not(:last-child) {
