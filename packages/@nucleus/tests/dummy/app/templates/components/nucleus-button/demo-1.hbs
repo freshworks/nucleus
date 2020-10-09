@@ -5,6 +5,13 @@
       onClick=(action "download" 1)
       label="Click"}}
   {{/demo.example}}
+  {{#demo.example name="nucleus-icon-button-loading.hbs"}}
+    {{nucleus-button
+      variant="primary"
+      icon="nucleus-circle-check"
+      iconOnly=true
+      onClick=(action "download" 1)}}
+  {{/demo.example}}
   {{#demo.example name="nucleus-button-loading-custom.hbs"}}
     {{nucleus-button
       variant="secondary"
