@@ -9,6 +9,9 @@ import defaultProp from '@freshworks/core/utils/default-decorator';
 
 import Component from '@ember/component';
 import { action, computed } from '@ember/object';
+
+import { bool } from '@ember/object/computed';
+
 import layout from "../templates/components/nucleus-toggle";
 
 /**
@@ -21,8 +24,8 @@ import layout from "../templates/components/nucleus-toggle";
 */
 @templateLayout(layout)
 @classNames('nucleus-toggle')
-@classNameBindings('_sizeClass')
-@attributeBindings('data-test-id', 'disabled', 'value:aria-checked')
+@classNameBindings('_sizeClass', 'isChecked:nucleus-toggle--checked')
+@attributeBindings('data-test-id', 'disabled', 'isChecked:aria-checked', 'ariaLabel:aria-label')
 
 class NucleusToggle extends Component {
   /**
@@ -48,7 +51,18 @@ class NucleusToggle extends Component {
   }
 
   /**
-  * Attribute name `value` is used to determine the toggle state & set aria-checked value
+  * Attribute name `isChecked` is used to set aria-checked value
+  *
+  * @field isChecked
+  * @type boolean
+  * @default false
+  * @public
+  */
+  @bool('value')
+  isChecked;
+
+  /**
+  * Attribute name `value` is used to determine the toggle state
   *
   * @field value
   * @type boolean
