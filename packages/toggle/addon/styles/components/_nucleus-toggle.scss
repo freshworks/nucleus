@@ -100,8 +100,8 @@ $transform: calc(100% - 8px);
 
     .thumb {
       transform: translateX($transform);
-      -ms-transform: translateX($transform);
       -webkit-transform: translateX($transform);
+      -ms-transform: translateX(100%) translateX(-8px);
 
       &::before {
         background-color: $color-azure-800;
