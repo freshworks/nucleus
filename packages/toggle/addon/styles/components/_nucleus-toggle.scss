@@ -1,12 +1,6 @@
-$large-variant: 24px;
-$medium-variant: 20px;
-$small-variant: 16px;
-
-$large-thumb-size: calc(#{$large-variant} + 4px);
-$medium-thumb-size: calc(#{$medium-variant} + 4px);
-$small-thumb-size: calc(#{$small-variant} + 4px);
-
-$transform: calc(100% - 8px);
+$large-thumb-size: 28px;
+$medium-thumb-size: 24px;
+$small-thumb-size: 20px;
 
 .nucleus-toggle {
   position: relative;
@@ -54,6 +48,7 @@ $transform: calc(100% - 8px);
   }
 
   .thumb {
+    left: 0;
     top: 2px;
     position: absolute;
     transition: .3s;
@@ -99,10 +94,6 @@ $transform: calc(100% - 8px);
     }
 
     .thumb {
-      transform: translateX($transform);
-      -ms-transform: translateX($transform);
-      -webkit-transform: translateX($transform);
-
       &::before {
         background-color: $color-azure-800;
       }
@@ -110,6 +101,24 @@ $transform: calc(100% - 8px);
       &__control {
         border: 1px solid $color-azure-800;
       }
+    }
+  }
+
+  &--large.nucleus-toggle--checked {
+    .thumb {
+      left: calc(100% - #{$large-thumb-size});
+    }
+  }
+
+  &--medium.nucleus-toggle--checked {
+    .thumb {
+      left: calc(100% - #{$medium-thumb-size});
+    }
+  }
+
+  &--small.nucleus-toggle--checked {
+    .thumb {
+      left: calc(100% - #{$small-thumb-size});
     }
   }
 
