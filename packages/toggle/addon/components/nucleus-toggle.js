@@ -120,7 +120,7 @@ class NucleusToggle extends Component {
     this.set('value', value);
     if (this.get('onClick')) {
       return this.get('onClick')(value);
-    } 
+    }
   }
 }
 
