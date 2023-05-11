@@ -6,7 +6,7 @@ import { set, setProperties, computed } from '@ember/object';
 import { isBlank } from '@ember/utils';
 import { focusableElements } from '../../constants/nucleus-modal';
 import layout from '../../templates/components/nucleus-modal/dialog';
-import { bindEvent, unbindEvent } from "../../utils/event-handler";
+import * as EventHandler from "../../utils/event-handler";
 
 /**
   Dialog Usage:
@@ -160,12 +160,12 @@ class Dialog extends Component {
   *
   */
   attachEventHandlers() {
-    let _scrollCallback = bindEvent({
+    let _scrollCallback = EventHandler.bindEvent({
       eventName: 'scroll',
       callback: this.scrolled.bind(this), 
       element: '.nucleus-modal__body'
     });
-    let _focusListener = bindEvent({
+    let _focusListener = EventHandler.bindEvent({
       eventName: 'keydown',
       callback: this.loopFocus.bind(this)
     });
@@ -245,12 +245,12 @@ class Dialog extends Component {
 
   willDestroyElement() {
     super.willDestroyElement(...arguments);
-    unbindEvent({
+    EventHandler.unbindEvent({
       eventName: 'scroll',
       callback: this._scrollCallback, 
       element: '.nucleus-modal__body'
     });
-    unbindEvent({
+    EventHandler.unbindEvent({
       eventName: 'keydown',
       callback: this._focusListener
     });
