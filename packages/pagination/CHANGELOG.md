@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.15.0 (2023-09-19)
+
+
+### Features
+
+* **icon:** Refactored icons ([#174](https://github.com/freshdesk/nucleus/issues/174)) ([ff70bbf](https://github.com/freshdesk/nucleus/commit/ff70bbf9c26d7f4c22f7faa40d599e4257c45129))
+* **pagination:** updated mini pagination design ([db91ec2](https://github.com/freshdesk/nucleus/commit/db91ec2154faad3f916010a0743ad2a2f5b9c8ee))
+
+
+### Reverts
+
+* Revert "Publish (#225)" (#227) ([8655674](https://github.com/freshdesk/nucleus/commit/86556747085a8491a849d4f55041cbc2abb2bc3f)), closes [#225](https://github.com/freshdesk/nucleus/issues/225) [#227](https://github.com/freshdesk/nucleus/issues/227)
+
+
+
+
+
 # 0.14.0 (2021-03-01)
 
 

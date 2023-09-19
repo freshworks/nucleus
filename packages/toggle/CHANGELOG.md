@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.16.0 (2023-09-19)
+
+
+### Bug Fixes
+
+* nucleus-toggle ([#218](https://github.com/freshdesk/nucleus/issues/218)) ([c4c924f](https://github.com/freshdesk/nucleus/commit/c4c924f6049c7fbabd0a693c04e748eef736721b))
+* nucleus-toggle ([#223](https://github.com/freshdesk/nucleus/issues/223)) ([40ce890](https://github.com/freshdesk/nucleus/commit/40ce890ec6f563d6e5a2dc48815dd1bca40a839a))
+
+
+### Features
+
+* **icon:** Refactored icons ([#174](https://github.com/freshdesk/nucleus/issues/174)) ([ff70bbf](https://github.com/freshdesk/nucleus/commit/ff70bbf9c26d7f4c22f7faa40d599e4257c45129))
+* **toggle:** Implementation ([#141](https://github.com/freshdesk/nucleus/issues/141)) ([d2ff164](https://github.com/freshdesk/nucleus/commit/d2ff164a65ebe5dc14a233748c45120c07a389be))
+
+
+### Reverts
+
+* Revert "Publish (#225)" (#227) ([8655674](https://github.com/freshdesk/nucleus/commit/86556747085a8491a849d4f55041cbc2abb2bc3f)), closes [#225](https://github.com/freshdesk/nucleus/issues/225) [#227](https://github.com/freshdesk/nucleus/issues/227)
+
+
+
+
+
 # 0.15.0 (2021-03-01)
 
 
