@@ -1,3 +1,3 @@
-const focusableElements = 'a[href]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input[type="text"]:not([disabled]), input[type="radio"]:not([disabled]), input[type="checkbox"]:not([disabled]), select:not([disabled])';
+const focusableElements = 'a[href]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input[type="text"]:not([disabled]), input[type="radio"]:not([disabled]), input[type="checkbox"]:not([disabled]), select:not([disabled]), input[type="search"]:not([disabled]), input[type="number"]:not([disabled]), .ember-power-select-trigger:not([aria-disabled=true]), .ember-basic-dropdown-trigger:not([aria-disabled=true])';
 
 export { focusableElements };
