@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.16.1](https://github.com/freshdesk/nucleus/compare/@freshworks/tabs@0.16.0...@freshworks/tabs@0.16.1) (2023-09-20)
+
+
+### Bug Fixes
+
+* approve latest visual regression bitmaps ([#260](https://github.com/freshdesk/nucleus/issues/260)) ([062b58c](https://github.com/freshdesk/nucleus/commit/062b58c89a579db1212b725a3fdfd2558b268065))
+
+
+
+
+
 # 0.16.0 (2023-09-19)
 
 
