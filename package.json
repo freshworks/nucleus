@@ -19,7 +19,8 @@
     "lerna:publish": "lerna publish from-git --yes",
     "deploy": "yarn workspace nucleus deploy",
     "try": "ember try:each",
-    "try:legacy": "ember try:one ember-lts-2.18"
+    "try:legacy": "ember try:one ember-lts-2.18",
+    "backstop:approve": "lerna run backstop:approve"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.3",

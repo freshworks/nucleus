@@ -18,7 +18,8 @@
     "deploy": "ember deploy production",
     "test": "ember backstop-remote & COVERAGE=TRUE ember test --test-port=1509",
     "posttest": "ember backstop-stop",
-    "test:dev": "COVERAGE=TRUE ember test --server -launch=false"
+    "test:dev": "COVERAGE=TRUE ember test --server -launch=false",
+    "backstop:approve": "ember backstop-approve"
   },
   "dependencies": {
     "@freshworks/button": "^0.19.0",
