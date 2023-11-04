@@ -6,7 +6,7 @@ import { set, setProperties, computed } from '@ember/object';
 import { isBlank } from '@ember/utils';
 import { focusableElements } from '../../constants/nucleus-modal';
 import layout from '../../templates/components/nucleus-modal/dialog';
-import EventHandler from "../../utils/event-handler";
+import * as EventHandler from "../../utils/event-handler";
 
 /**
   Dialog Usage:
